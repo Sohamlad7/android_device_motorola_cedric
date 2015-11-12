@@ -505,7 +505,7 @@ service vendor.qseeproxydaemon /vendor/bin/qseeproxydaemon
     writepid /dev/cpuset/system-background/tasks
 
 service vendor.wcnss-service /vendor/bin/wcnss_service
-    class main
+    class late_start
     user system
     group system wifi radio
     oneshot

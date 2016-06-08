@@ -267,6 +267,7 @@ PRODUCT_PACKAGES += \
     libcurl \
     libqsap_sdk \
     libQWiFiSoftApCfg \
+    wificond \
     tcpdump \
     wcnss_service
 

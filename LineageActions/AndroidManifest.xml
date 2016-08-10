@@ -24,6 +24,18 @@
         android:icon="@drawable/ic_gesture"
         android:persistent="true">
 
+        <provider
+            android:name=".LineageActionsSearchIndexablesProvider"
+            android:authorities="org.lineageos.settings.device"
+            android:multiprocess="false"
+            android:grantUriPermissions="true"
+            android:permission="android.permission.READ_SEARCH_INDEXABLES"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.action.SEARCH_INDEXABLES_PROVIDER" />
+            </intent-filter>
+        </provider>
+
         <receiver android:name="org.lineageos.settings.device.BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

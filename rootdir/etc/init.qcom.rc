@@ -28,8 +28,9 @@
 import /init.mmi.rc
 
 on early-init
-    mount debugfs debugfs /sys/kernel/debug
-    chmod 0755 /sys/kernel/debug
+    mount tracefs tracefs /sys/kernel/tracing
+    chmod 0755 /sys/kernel/tracing
+    restorecon --recursive /sys/kernel/tracing
     mkdir /firmware 0771 system system
     mkdir /system 0777 root root
     symlink /data/tombstones /tombstones

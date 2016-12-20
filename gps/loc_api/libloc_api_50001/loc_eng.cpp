@@ -893,35 +893,31 @@ void LocEngReportSv::proc() const {
                                 adapter->getGnssSvUsedListData();
             int numSv = gnssSvStatus.num_svs;
             int16_t gnssSvId = 0;
-            int prnMin = 0;
             uint64_t svUsedIdMask = 0;
             for (int i=0; i < numSv; i++)
             {
                 gnssSvId = gnssSvStatus.gnss_sv_list[i].svid;
-                if (gnssSvId <= GPS_SV_PRN_MAX)
-                {
+                switch(gnssSvStatus.gnss_sv_list[i].constellation) {
+                case GNSS_CONSTELLATION_GPS:
                     svUsedIdMask = gnssSvIdUsedInPosition.gps_sv_used_ids_mask;
-                    prnMin = GPS_SV_PRN_MIN;
-                }
-                else if ((gnssSvId >= GLO_SV_PRN_MIN) && (gnssSvId <= GLO_SV_PRN_MAX))
-                {
+                    break;
+                case GNSS_CONSTELLATION_GLONASS:
                     svUsedIdMask = gnssSvIdUsedInPosition.glo_sv_used_ids_mask;
-                    prnMin = GLO_SV_PRN_MIN;
-                }
-                else if ((gnssSvId >= BDS_SV_PRN_MIN) && (gnssSvId <= BDS_SV_PRN_MAX))
-                {
+                    break;
+                case GNSS_CONSTELLATION_BEIDOU:
                     svUsedIdMask = gnssSvIdUsedInPosition.bds_sv_used_ids_mask;
-                    prnMin = BDS_SV_PRN_MIN;
-                }
-                else if ((gnssSvId >= GAL_SV_PRN_MIN) && (gnssSvId <= GAL_SV_PRN_MAX))
-                {
+                    break;
+                case GNSS_CONSTELLATION_GALILEO:
                     svUsedIdMask = gnssSvIdUsedInPosition.gal_sv_used_ids_mask;
-                    prnMin = GAL_SV_PRN_MIN;
+                    break;
+                default:
+                    svUsedIdMask = 0;
+                    break;
                 }
 
                 // If SV ID was used in previous position fix, then set USED_IN_FIX
                 // flag, else clear the USED_IN_FIX flag.
-                if (svUsedIdMask & (1 << (gnssSvId - prnMin)))
+                if (svUsedIdMask & (1 << (gnssSvId - 1)))
                 {
                     gnssSvStatus.gnss_sv_list[i].flags |= GNSS_SV_FLAGS_USED_IN_FIX;
                 }

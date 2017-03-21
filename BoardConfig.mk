@@ -44,7 +44,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 # Recovery
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/root/etc/twrp.fstab
 BOARD_SUPPRESS_SECURE_ERASE := true
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
+#RECOVERY_GRAPHICS_USE_LINELENGTH := true
 
 # TWRP specific build flags
 RECOVERY_SDCARD_ON_DATA := true
@@ -52,6 +52,7 @@ TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_THEME := portrait_hdpi
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TW_DEFAULT_EXTERNAL_STORAGE := true
+TW_INPUT_BLACKLIST := "hbtp_vm"
 
 
 # Encryption support

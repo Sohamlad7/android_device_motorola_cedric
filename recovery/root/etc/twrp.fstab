@@ -1,20 +1,13 @@
-# Android fstab file.
-# The filesystem that contains the filesystem checker binary (typically /system) cannot
-# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+# mount point   fstype     device					              device2			             flags
+/system         ext4      /dev/block/bootdevice/by-name/system
+/system_image   emmc      /dev/block/bootdevice/by-name/system
+/data           f2fs      /dev/block/bootdevice/by-name/userdata   flags=fsflags=rw,discard,nosuid,nodev,noatime,nodiratime,inline_xattr,inline_data;encryptable=/dev/block/bootdevice/by-name/metadata
+/cache          ext4      /dev/block/bootdevice/by-name/cache
+/recovery       emmc      /dev/block/bootdevice/by-name/recovery   flags=backup=1
+/persist        ext4      /dev/block/bootdevice/by-name/persist    flags=fsflags=noatime,nosuid,nodev,barrier=1,noauto_da_alloc;mounttodecrypt
+/firmware       ext4      /dev/block/bootdevice/by-name/modem      flags=fsflags=ro,nosuid,nodev,barrier=0,context=u:object_r:fsg_file:s0;mounttodecrypt
+/boot           emmc      /dev/block/bootdevice/by-name/boot
+/misc           emmc      /dev/block/bootdevice/by-name/misc
 
-/boot           emmc      /dev/block/bootdevice/by-name/boot                 flags=display="Boot";backup=1
-/recovery       emmc      /dev/block/bootdevice/by-name/recovery             flags=display="Recovery";backup=1
-/system_image	emmc	  /dev/block/bootdevice/by-name/system               flags=backup=1
-/system         ext4      /dev/block/bootdevice/by-name/system               flags=display="System";backup=1;wipeingui
-/data           ext4      /dev/block/bootdevice/by-name/userdata             flags=encryptable=footer;flags=length=-16384
-/cache          ext4      /dev/block/bootdevice/by-name/cache                flags=display="Cache";backup=0;wipeingui
-/cust           ext4      /dev/block/bootdevice/by-name/cust                 flags=display="Cust";backup=1
-/misc           emmc      /dev/block/bootdevice/by-name/misc                 flags=display="Misc"
-/efs1           emmc      /dev/block/bootdevice/by-name/modemst1             flags=display="EFS";backup=1
-/efs2           emmc      /dev/block/bootdevice/by-name/modemst2             flags=backup=1;subpartitionof=/efs1
-
-/firmware       vfat      /dev/block/bootdevice/by-name/modem                flags=display="Firmware";backup=1
-
-/sdcard1        auto      /dev/block/mmcblk1p1                               flags=display="MicroSD";storage;wipeingui;removable
-/usb-otg        auto      /dev/block/sda1                                    flags=display="USB OTG";storage;wipeingui;removable
-
+/external_sd    auto      /dev/block/mmcblk1p1                     /dev/block/mmcblk1     flags=display="MicroSD Card";storage;wipeingui;removable
+/usb_otg        auto      /dev/block/sda1                          /dev/block/sda         flags=display="USB-OTG";storage;wipeingui;removable

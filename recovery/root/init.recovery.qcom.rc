@@ -1,0 +1,10 @@
+# separate copy needed to use /sbin/linker instead of /system/bin/linker
+service sbinqseecomd /sbin/qseecomd
+    oneshot
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
+
+on property:ro.crypto.state=encrypted
+    start sbinqseecomd

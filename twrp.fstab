@@ -1,0 +1,13 @@
+/system       ext4          /dev/block/bootdevice/by-name/system
+/data         f2fs          /dev/block/bootdevice/by-name/userdata       flags=encryptable=/dev/block/bootdevice/by-name/metadata
+/keymaster    emmc          /dev/block/bootdevice/by-name/keymaster
+/cache        auto          /dev/block/bootdevice/by-name/cache
+/boot         emmc          /dev/block/bootdevice/by-name/boot
+/recovery     emmc          /dev/block/bootdevice/by-name/recovery
+/oem          ext4          /dev/block/bootdevice/by-name/oem
+/persist      ext4          /dev/block/bootdevice/by-name/persist        flags=fsflags=noatime,nosuid,nodev,barrier=1,noauto_da_alloc;mounttodecrypt
+/firmware     ext4          /dev/block/bootdevice/by-name/modem          flags=fsflags=ro,nosuid,nodev,barrier=0;mounttodecrypt
+/misc         emmc          /dev/block/bootdevice/by-name/misc
+
+/external_sd  auto          /dev/block/mmcblk1p1  /dev/block/mmcblk1     flags=display="MicroSD Card";storage;wipeingui;removable
+/usb_otg      auto          /dev/block/sda1       /dev/block/sda         flags=display="USB-OTG";storage;wipeingui;removable

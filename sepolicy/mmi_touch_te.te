@@ -1,0 +1,27 @@
+type mmi_touch_sh, domain;
+type mmi_touch_sh_exec, exec_type, file_type;
+init_daemon_domain(mmi_touch_sh)
+
+# shell scripts need to execute /system/bin/sh
+allow mmi_touch_sh shell_exec:file rx_file_perms;
+allow mmi_touch_sh toolbox_exec:file rx_file_perms;
+
+# Logs to /dev/kmsg
+allow mmi_touch_sh kmsg_device:chr_file w_file_perms;
+
+# Write to /sys/path/to/firmware/forcereflash
+# Read from /sys/path/to/firmware/poweron (and others)
+allow mmi_touch_sh sysfs_mmi_touch:file rw_file_perms;
+allow mmi_touch_sh sysfs_mmi_touch:file setattr;
+allow mmi_touch_sh sysfs_mmi_touch:dir search;
+allow mmi_touch_sh system_file:dir r_file_perms;
+allow mmi_touch_sh self:capability chown;
+
+# WRONG
+allow mmi_touch_sh sysfs:dir r_dir_perms;
+allow mmi_touch_sh sysfs:file rw_file_perms;
+allow mmi_touch_sh sysfs:file setattr;
+allow mmi_touch_sh sysfs:lnk_file getattr;
+
+set_prop(mmi_touch_sh, touch_prop);
+set_prop(mmi_touch_sh, hw_rev_prop);

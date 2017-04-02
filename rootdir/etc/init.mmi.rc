@@ -1,0 +1,317 @@
+# Moto USB configuration
+import init.mmi.usb.rc
+
+on early-boot
+    write /sys/module/subsystem_restart/parameters/disable_restart_work 0x0
+    write /proc/sys/kernel/poweroff_cmd "/system/bin/reboot -p"
+
+on init
+    chown system log /sys/fs/pstore/console-ramoops-0
+    chmod 0440 /sys/fs/pstore/console-ramoops-0
+    chown system log /sys/fs/pstore/annotate-ramoops-0
+    chmod 0640 /sys/fs/pstore/annotate-ramoops-0
+    chown system log /sys/fs/pstore/dmesg-ramoops-0
+    chmod 0640 /sys/fs/pstore/dmesg-ramoops-0
+
+    # Setup kernel dropbox permissions so that dropboxd can utilize it
+    chown root diag /sys/kernel/dropbox/event
+    chown root diag /sys/kernel/dropbox/data
+
+on fs
+    # use /persist as phony PDS partition
+    symlink /persist /pds
+
+on post-fs
+    mkdir /persist/camera 0755 mot_tcmd mot_tcmd
+    mkdir /persist/camera/focus 0775 camera mot_tcmd
+    mkdir /persist/camera/ledcal 0775 camera mot_tcmd
+    mkdir /persist/batt_health 0755 mot_pwric mot_pwric
+    mkdir /persist/mdm 0770 radio radio
+    mkdir /persist/factory 0755 mot_tcmd mot_tcmd
+    mkdir /persist/factory/audio 0755 mot_tcmd system
+    mkdir /persist/factory/wlan 0755 mot_tcmd mot_tcmd
+    mkdir /persist/factory/regulatory 0755 mot_tcmd system
+    mkdir /persist/public 0755 mot_tcmd mot_tcmd
+    mkdir /persist/public/atvc 0770 mot_atvc shell
+    mkdir /persist/public/battd 0755 mot_accy mot_tcmd
+    mkdir /persist/public/hiddenmenu 0755 radio radio
+    mkdir /persist/public/hiddenmenu/data 0775 system mot_tcmd
+    mkdir /persist/public/locale 0700 system system
+    mkdir /persist/public/omadm 0700 radio radio
+    mkdir /persist/public/svcs 0770 system system
+    mkdir /persist/wifi 0755 mot_tcmd mot_tcmd
+    mkdir /persist/bt 0755 mot_tcmd bluetooth
+    mkdir /persist/wmdrm 0775 mot_drm mot_drm
+
+    chown mot_tcmd mot_tcmd /persist/factory/fti
+    chmod 0660 /persist/factory/fti
+    chown mot_tcmd mot_tcmd /persist/factory/byte
+    chmod 0660 /persist/factory/byte
+    chmod 0660 /persist/wifi/wlan_mac.bin
+    chown mot_tcmd mot_tcmd /persist/bt/bt_bdaddr
+    chmod 0664 /persist/bt/bt_bdaddr
+
+    swapon_all fstab.qcom
+    write /proc/sys/vm/page-cluster 0
+
+on post-fs-data
+
+    # Setup folders for security
+    mkdir /persist/security 02770 mot_tpapi mot_tpapi
+    mkdir /data/local/dbvc 0750 mot_tcmd shell
+
+    # Create directory used by power_supply_logger
+    mkdir /data/power_supply_logger 0750 mot_pwric log
+
+    # Create moodle directory that MOT_MOODLE can write to
+    mkdir /data/local/moodle 0770 graphics mot_tcmd
+
+    # Permissions for Factory Test of Charging Paths
+    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_auto_enable
+    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_ibatt
+    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_itrick
+    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_iusb
+    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_usb_suspend
+    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_fail_clear
+    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_usb_otg_ctl
+
+    chown root mot_mod /sys/module/qpnp_smbcharger_mmi/parameters/eb_rechrg_start_soc
+    chown root mot_mod /sys/module/qpnp_smbcharger_mmi/parameters/eb_rechrg_stop_soc
+    chown root mot_mod /sys/module/qpnp_smbcharger_mmi/parameters/eb_attach_start_soc
+    chown root mot_mod /sys/module/qpnp_smbcharger_mmi/parameters/eb_attach_stop_soc
+    chown root mot_mod /sys/module/qpnp_smbcharger_mmi/parameters/eb_low_start_soc
+    chown root mot_mod /sys/module/qpnp_smbcharger_mmi/parameters/eb_low_stop_soc
+    chown root mot_mod /sys/module/qpnp_smbcharger_mmi/parameters/eb_on_sw
+
+    chmod 0664 /sys/module/qpnp_smbcharger_mmi/parameters/eb_rechrg_start_soc
+    chmod 0664 /sys/module/qpnp_smbcharger_mmi/parameters/eb_rechrg_stop_soc
+    chmod 0664 /sys/module/qpnp_smbcharger_mmi/parameters/eb_attach_start_soc
+    chmod 0664 /sys/module/qpnp_smbcharger_mmi/parameters/eb_attach_stop_soc
+    chmod 0664 /sys/module/qpnp_smbcharger_mmi/parameters/eb_low_start_soc
+    chmod 0664 /sys/module/qpnp_smbcharger_mmi/parameters/eb_low_stop_soc
+    chmod 0664 /sys/module/qpnp_smbcharger_mmi/parameters/eb_on_sw
+
+    chown root mot_mod /sys/class/power_supply/usb/usb_priority
+    chmod 0660 /sys/class/power_supply/usb/usb_priority
+
+    # Sensor Hub calibration data directory
+    mkdir /data/misc/sensorhub 0770 system compass
+
+    # Setup folder for native to transfer data to NativeDropBoxAgent
+    mkdir /data/system/dropbox-add 0730 system diag
+
+    # Create directory for cutback
+    mkdir /data/misc/cutback 0770 radio wifi
+
+    #setup folder for WLAN WAPI
+    mkdir /data/wapi_certificate 0750 system wifi
+    chown system wifi /data/wapi_certificate
+
+    # Create greybus firmware folder
+    mkdir /data/gbfirmware 0770 mot_mod mot_mod
+
+    # Create bug2go folder
+    mkdir /data/bug2go 0770 log log
+
+    # Permissions for phone power off log
+    mkdir /data/power_log 0750 root log
+    chmod 0660 /sys/module/power_supply_log/parameters/log_file
+    write /sys/module/power_supply_log/parameters/log_file /data/power_log/power_off.log
+
+    # Subsystem RAM-dumps
+    mkdir /data/ss-ram-dumps 0750 system log
+    mkdir /data/ss-ram-dumps/bp-dumps 0750 system log
+    mkdir /data/ss-ram-dumps/riva-dumps 0750 system log
+
+    # folder for Blueooth ramdump
+    mkdir /data/bt-ram-dumps 0750 bluetooth log
+
+    # SD card encryption metadata
+    mkdir /data/misc/sds 0750 root root
+
+    # Required by FingerPrint Cards (FPC) via init so we don't need to give qseecomd or fingerprintd permissions to create them
+    mkdir /data/fpc 0700 system system
+    mkdir /data/.fps 0770 system input
+
+    #Folder for hardware properties
+    mkdir /data/hardware_revisions 0755 system system
+
+    #Create directory for adspd
+    mkdir /data/adspd 0770 audio diag
+
+    # Setup folder for camera dump subsystem
+    mkdir /data/camera_dump 0750 media media
+
+    # Imager tuning data for camera subsystem
+    mkdir /data/misc/imager 0770 camera camera
+
+    #setup folder for WLAN WAPI
+    chmod 0770 /data/wapi_certificate
+
+on boot
+   # restore default console_loglevel to KERN_DEBUG
+   # restore default_message_loglevel to KERN_WARNING
+   write /proc/sys/kernel/printk "7 4 1 7"
+
+ # Change ownership and permission for backlight
+   chown system system /sys/class/backlight/lcd-backlight:0/brightness
+   chmod 0664 /sys/class/backlight/lcd-backlight:0/brightness
+   chown system system /sys/class/backlight/lcd-backlight:0/max_brightness
+   chmod 0664 /sys/class/backlight/lcd-backlight:0/max_brightness
+   chmod 0664 /sys/class/leds/lcd-backlight/brightness
+   chown system system /sys/class/leds/white/brightness
+   chmod 0664 /sys/class/leds/white/brightness
+
+   # Change ownership for Dynamic-CABC feature
+   chown system system /sys/class/graphics/fb0/cabc_mode
+   # Change ownership for for ACL feature
+   chown system system /sys/class/graphics/fb0/acl_mode
+
+   # Change ownership and permission for vibrator
+   chown system system /sys/class/timed_output/vibrator/enable
+   chmod 0660 /sys/class/timed_output/vibrator/enable
+
+   # Change ownership and permission for laser_sensor
+   chown system system /sys/kernel/range/enable_sar
+   chmod 0660 /sys/kernel/range/enable_sar
+   chown system system /sys/kernel/range/set_delay_ms
+   chmod 0660 /sys/kernel/range/set_delay_ms
+   chown system system /sys/kernel/range/near
+   chmod 0660 /sys/kernel/range/near
+
+   # Change the ownership of display TE files for tcmds
+   chown root mot_tcmd /sys/class/graphics/fb0/te_enable
+   chown root mot_tcmd /sys/class/graphics/fb0/frame_counter
+
+   # Change ownership of aov related sysfs entries
+   wait /sys/kernel/aov/event
+   chown audio audio /sys/kernel/aov/trigger
+   chown audio audio /sys/kernel/aov/register
+   chown audio audio /sys/kernel/aov/event
+
+   # Change permission for type C params
+   chown root mot_tcmd /sys/devices/soc/78b6000.i2c/i2c-2/2-0022/CC_state
+   chown root mot_tcmd /sys/devices/soc/78b6000.i2c/i2c-2/2-0022/enable_vconn
+   # Change ownership and permission for AMPS factory testing
+   chown root mot_tcmd /sys/class/i2c-adapter/i2c-2/2-002d/enable
+   chmod 0660 /sys/class/i2c-adapter/i2c-2/2-002d/enable
+   chown root mot_tcmd /sys/class/i2c-adapter/i2c-2/2-002d/hsic_vdd
+   chmod 0660 /sys/class/i2c-adapter/i2c-2/2-002d/hsic_vdd
+
+   # Change permission for fingerprint sensor
+   chown system mot_tcmd /sys/bus/spi/devices/spi8.0/nav
+   chown system mot_tcmd /sys/bus/spi/devices/spi8.0/clk_enable
+   chown system mot_tcmd /sys/bus/spi/devices/spi8.0/dev_enable
+   chown system mot_tcmd /sys/bus/spi/devices/spi8.0/irq
+   chown system mot_tcmd /sys/bus/spi/devices/spi8.0/irq_cnt
+   chmod 0440 /sys/bus/spi/devices/spi8.0/irq_cnt
+
+   # STML4 driver parameter permissions
+   chown root mot_tcmd /sys/module/motosh/parameters/irq_disable
+   chmod 0660 /sys/module/motosh/parameters/irq_disable
+
+   #STML4 device permissions
+   chown system compass /dev/motosh
+   chmod 0660 /dev/motosh
+   chown compass compass /dev/motosh_as
+   chmod 0660 /dev/motosh_as
+   chown compass compass /dev/motosh_ms
+   chmod 0660 /dev/motosh_ms
+   chown compass compass /sys/devices/virtual/motosh/motosh_as/timestamp_time_ns
+   chmod 0440 /sys/devices/virtual/motosh/motosh_as/timestamp_time_ns
+   chown compass compass /sys/devices/virtual/motosh/motosh_as/rv_6axis_update_rate
+   chmod 0660 /sys/devices/virtual/motosh/motosh_as/rv_6axis_update_rate
+   chown compass compass /sys/devices/virtual/motosh/motosh_as/rv_9axis_update_rate
+   chmod 0660 /sys/devices/virtual/motosh/motosh_as/rv_9axis_update_rate
+   chown compass compass /sys/devices/virtual/motosh/motosh_as/game_rv_update_rate
+   chmod 0660 /sys/devices/virtual/motosh/motosh_as/game_rv_update_rate
+   chown compass compass /sys/devices/virtual/motosh/motosh_as/gravity_update_rate
+   chmod 0660 /sys/devices/virtual/motosh/motosh_as/gravity_update_rate
+   chown compass compass /sys/devices/virtual/motosh/motosh_as/linear_accel_update_rate
+   chmod 0660 /sys/devices/virtual/motosh/motosh_as/linear_accel_update_rate
+
+   # Quiet binder logs
+   write /sys/module/binder/parameters/debug_mask 0x5
+
+on charger
+    trigger early-fs
+    trigger fs
+    trigger post-fs
+    trigger post-fs-data
+    trigger moto-charger
+    class_stop main
+    class_stop late_start
+
+on moto-charger
+    setprop ro.board.platform msm8953
+    trigger firmware_mounts_complete
+    start batt_health
+    start thermal-com
+
+on property:ro.boot.dualsim=true
+   setprop persist.radio.multisim.config dsds
+   setprop ro.telephony.default_network 10,10
+
+on property:ro.boot.dualsim=false
+   setprop persist.radio.multisim.config ""
+   setprop ro.telephony.default_network 10
+
+service adspd /system/bin/adspd
+   seclabel u:r:adspd:s0
+   class main
+   socket adspdsock stream 0660 system audio
+   user audio
+   group audio input diag
+
+service batt_health /system/bin/batt_health
+    class late_start
+    user mot_pwric
+    group mot_pwric cache net_admin log
+    disabled
+
+on property:sys.boot_completed=1 && property:ro.boot.secure_hardware=0
+    start batt_health
+
+service fingerprintd /system/bin/fingerprintd
+    class late_start
+    user system
+    group input
+
+service mmi-boot-sh /system/bin/init.mmi.boot.sh
+    class core
+    user root
+    oneshot
+
+service mmi-laser-sh /system/bin/init.mmi.laser.sh
+    class core
+    user root
+    oneshot
+
+service mmi-touch-sh /system/bin/init.mmi.touch.sh
+    class core
+    user root
+    oneshot
+
+# Start Sensor daemon
+service motosh /system/bin/motosh boot
+    class late_start
+    user compass
+    group compass misc input
+    oneshot
+    seclabel u:r:sensor_hub:s0
+
+service thermal-com /system/vendor/bin/thermal-engine --minimode
+    class main
+    user root
+    disabled
+
+# Set RPS Mask for Wifi Hotspot
+on property:sys.wifi.tethering=true
+    write /sys/class/net/rmnet_data0/queues/rx-0/rps_cpus ${sys.usb.rps_mask}
+    write /sys/class/net/wlan0/queues/rx-0/rps_cpus ${sys.usb.rps_mask}
+    write /sys/class/net/wlan0/queues/rx-1/rps_cpus ${sys.usb.rps_mask}
+    write /sys/class/net/wlan0/queues/rx-2/rps_cpus ${sys.usb.rps_mask}
+    write /sys/class/net/wlan0/queues/rx-3/rps_cpus ${sys.usb.rps_mask}
+
+on property:sys.wifi.tethering=false
+    write /sys/class/net/rmnet_data0/queues/rx-0/rps_cpus ${sys.rmnet_vnd.rps_mask}

@@ -1,0 +1,13 @@
+type adspd, domain, domain_deprecated;
+type adspd_exec, exec_type, file_type;
+init_daemon_domain(adspd)
+
+allow adspd audio_device:chr_file { ioctl open read write };
+allow adspd audio_device:dir search;
+allow adspd input_device:chr_file { ioctl open read };
+allow adspd input_device:dir search;
+allow adspd sysfs_adsp:file write;
+# The below one is WRONG
+allow adspd sysfs:file write;
+
+set_prop(adspd, adspd_prop)

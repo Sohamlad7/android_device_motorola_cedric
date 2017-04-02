@@ -1,0 +1,1 @@
+allow time_daemon persist_file:file rw_file_perms;

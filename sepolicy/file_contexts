@@ -1,0 +1,39 @@
+# ADSP
+/sys/kernel/aov(/.*)?                                    u:object_r:sysfs_adsp:s0
+
+# Binaries
+/system/bin/adspd                                        u:object_r:adspd_exec:s0
+/system/bin/init\.mmi\.boot\.sh                          u:object_r:mmi_boot_exec:s0
+/system/bin/init\.mmi\.laser\.sh                         u:object_r:mmi_laser_exec:s0
+/system/bin/init\.mmi\.touch\.sh                         u:object_r:mmi_touch_sh_exec:s0
+/system/bin/motosh                                       u:object_r:sensor_hub_exec:s0
+
+# Camera
+/sys/kernel/range/offset                                 u:object_r:sysfs_mmi_laser:s0
+
+# CMActions
+/sys/homebutton/enable                                   u:object_r:sysfs_homebutton:s0
+
+# Fingerprint
+/data/.fps(/.*)?                                         u:object_r:fingerprintd_data_file:s0
+/data/fpc                                                u:object_r:fingerprintd_data_file:s0
+/sys/devices/soc/7af8000\.spi/spi_master/spi8/spi8\.0(/.*)?  u:object_r:sysfs_mmi_fp:s0
+
+# mmi_touch related /sys files
+/sys/devices/soc/78b7000\.i2c/i2c-3/3-0020(/.*)?         u:object_r:sysfs_mmi_touch:s0
+
+# Partitions
+/dev/block/bootdevice/by-name/cache                      u:object_r:cache_block_device:s0
+/dev/block/bootdevice/by-name/frp                        u:object_r:frp_block_device:s0
+/dev/block/bootdevice/by-name/metadata                   u:object_r:metadata_block_device:s0
+/dev/block/bootdevice/by-name/persist                    u:object_r:persist_block_device:s0
+
+# RIL
+/data/misc/netmgr(/.*)?                                  u:object_r:netmgr_data_file:s0
+
+# Sensors
+/dev/laser                                               u:object_r:laser_device:s0
+/dev/mmi_sys_temp                                        u:object_r:thermal_device:s0
+/dev/motosh                                              u:object_r:sensors_device:s0
+/dev/motosh_as                                           u:object_r:sensors_device:s0
+/dev/motosh_ms                                           u:object_r:sensors_device:s0

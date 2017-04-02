@@ -1,0 +1,2 @@
+allow rild persist_file:dir search;
+allow rild persist_file:file rw_file_perms;

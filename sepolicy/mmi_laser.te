@@ -1,0 +1,15 @@
+type mmi_laser, domain, domain_deprecated;
+type mmi_laser_exec, exec_type, file_type;
+init_daemon_domain(mmi_laser)
+
+# shell scripts need to execute /system/bin/sh
+allow mmi_laser shell_exec:file rx_file_perms;
+allow mmi_laser toolbox_exec:file rx_file_perms;
+
+# Logs to /dev/kmsg
+allow mmi_laser kmsg_device:chr_file w_file_perms;
+
+allow mmi_laser persist_file:dir search;
+allow mmi_laser persist_file:file r_file_perms;
+allow mmi_laser self:capability dac_override;
+allow mmi_laser sysfs_mmi_laser:file rw_file_perms;

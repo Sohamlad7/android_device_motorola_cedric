@@ -1,0 +1,137 @@
+#
+# system.prop for potter
+#
+
+# Android Run Time
+ro.sys.fw.dex2oat_thread_count=4
+
+# Audio
+audio.deep_buffer.media=true
+audio.offload.buffer.size.kb=64
+audio.offload.gapless.enabled=true
+audio.offload.pcm.16bit.enable=true
+audio.offload.pcm.24bit.enable=true
+
+persist.audio.calfile0=/etc/acdbdata/Bluetooth_cal.acdb
+persist.audio.calfile1=/etc/acdbdata/General_cal.acdb
+persist.audio.calfile2=/etc/acdbdata/Global_cal.acdb
+persist.audio.calfile3=/etc/acdbdata/Handset_cal.acdb
+persist.audio.calfile4=/etc/acdbdata/Hdmi_cal.acdb
+persist.audio.calfile5=/etc/acdbdata/Headset_cal.acdb
+persist.audio.calfile6=/etc/acdbdata/Speaker_cal.acdb
+
+persist.audio.fluence.mode=endfire
+persist.audio.fluence.speaker=true
+persist.audio.fluence.voicecall=true
+ro.qc.sdk.audio.fluencetype=none
+ro.qc.sdk.audio.ssr=false
+
+use.voice.path.for.pcm.voip=false
+
+# Bluetooth
+bluetooth.hfp.client=1
+qcom.bluetooth.soc=smd
+qcom.bt.le_dev_pwr_class=1
+ro.bluetooth.dun=true
+ro.bluetooth.hfp.ver=1.7
+ro.bluetooth.sap=true
+ro.qualcomm.bluetooth.ftp=true
+ro.qualcomm.bluetooth.hfp=true
+ro.qualcomm.bluetooth.hsp=true
+ro.qualcomm.bluetooth.map=true
+ro.qualcomm.bluetooth.nap=true
+ro.qualcomm.bluetooth.opp=true
+ro.qualcomm.bluetooth.pbap=true
+ro.qualcomm.bt.hci_transport=smd
+
+# Camera
+camera.disable_zsl_mode=1
+camera.display.umax=1920x1080
+camera.display.lmax=1280x720
+camera.hal1.packagelist=com.skype.raider,com.google.android.talk
+vidc.dec.downscalar_width=1920
+vidc.dec.downscalar_height=1088
+vidc.dec.disable.split.cpu=1
+vidc.enc.dcvs.extra-buff-count=2
+vidc.enc.disable_bframes=1
+
+# CNE
+persist.cne.feature=1
+persist.cne.logging.qxdm=3974
+persist.cne.rat.wlan.chip.oem=WCN
+persist.dpm.feature=0
+persist.sys.cnd.iwlan=1
+
+# Display
+debug.egl.hw=1
+debug.enable.sglscale=1
+debug.gralloc.enable_fb_ubwc=1
+debug.mdpcomp.logs=0
+debug.sf.hw=1
+dev.pm.dyn_samplingrate=1
+persist.demo.hdmirotationlock=false
+persist.hwc.mdpcomp.enable=true
+ro.opengles.version=196609
+ro.sf.lcd_density=480
+
+# FRP
+#ro.frp.pst=/dev/block/bootdevice/by-name/frp
+
+# IMS
+persist.radio.jbims=1
+persist.radio.RATE_ADAPT_ENABLE=1
+persist.radio.VT_ENABLE=1
+persist.radio.VT_HYBRID_ENABLE=1
+persist.radio.VT_USE_MDM_TIME=0
+
+# Media
+media.aac_51_output_enabled=true
+
+# NFC
+persist.nfc.smartcard.config=SIM1,SIM2,eSE1
+
+# NITZ
+persist.rild.nitz_plmn=
+persist.rild.nitz_long_ons_0=
+persist.rild.nitz_long_ons_1=
+persist.rild.nitz_long_ons_2=
+persist.rild.nitz_long_ons_3=
+persist.rild.nitz_short_ons_0=
+persist.rild.nitz_short_ons_1=
+persist.rild.nitz_short_ons_2=
+persist.rild.nitz_short_ons_3=
+
+# Qualcomm
+com.qc.hardware=true
+debug.qc.hardware=true
+persist.timed.enable=true
+
+# Radio
+persist.data.qmi.adb_logmask=0
+persist.radio.apn_delay=5000
+persist.radio.apm_sim_not_pwdn=1
+persist.radio.dfr_mode_set=1
+persist.radio.force_get_pref=1
+persist.radio.msgtunnel.start=true
+persist.radio.no_wait_for_card=1
+persist.radio.oem_ind_to_both=0
+persist.radio.relay_oprt_change=1
+rild.libargs=-d /dev/smd0
+rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
+
+ro.use_data_netmgrd=true
+persist.data.netmgrd.qos.enable=true
+persist.data.mode=concurrent
+
+# USB
+ro.usb.mtp=0x2e82
+ro.usb.mtp_adb=0x2e76
+ro.usb.ptp=0x2e83
+ro.usb.ptp_adb=0x2e84
+ro.usb.bpt=0x2ee5
+ro.usb.bpt_adb=0x2ee6
+ro.usb.bpteth=0x2ee7
+ro.usb.bpteth_adb=0x2ee8
+
+# Vendor Extension
+ro.vendor.extension_library=libqti-perfd-client.so

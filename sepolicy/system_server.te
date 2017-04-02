@@ -1,0 +1,2 @@
+allow system_server persist_file:dir rw_dir_perms;
+allow system_server persist_file:file rw_file_perms;

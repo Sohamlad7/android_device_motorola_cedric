@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<audio_platform_info>
+
+<acdb_ids>
+<!-- Output devices -->
+	<device name="SND_DEVICE_OUT_VOICE_HANDSET" acdb_id="7" />
+	<device name="SND_DEVICE_OUT_VOICE_HANDSET_TMUS" acdb_id="7" />
+	<device name="SND_DEVICE_OUT_HEADPHONES" acdb_id="9" />
+	<device name="SND_DEVICE_OUT_MOD_HEADPHONES" acdb_id="9" />
+	<device name="SND_DEVICE_OUT_MOD_SPKR_MOD_HEADPHONES" acdb_id="9" />
+	<device name="SND_DEVICE_OUT_INT_SPKR_MOD_HEADPHONES" acdb_id="9" />
+	<device name="SND_DEVICE_OUT_MOD_SPKR_INT_HEADPHONES" acdb_id="9" />
+	<device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" acdb_id="9" />
+	<device name="SND_DEVICE_OUT_SPEAKER_SAFE_AND_HEADPHONES" acdb_id="9" />
+	<device name="SND_DEVICE_OUT_SPEAKER" acdb_id="14" />
+	<device name="SND_DEVICE_OUT_SPEAKER_PROTECTED" acdb_id="14" />
+	<device name="SND_DEVICE_OUT_SPEAKER_REVERSE" acdb_id="14" />
+	<device name="SND_DEVICE_OUT_SPEAKER_SAFE" acdb_id="14" />
+	<device name="SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED" acdb_id="15" />
+	<device name="SND_DEVICE_OUT_INT_SPKR_MOD_HDMI" acdb_id="18" />
+	<device name="SND_DEVICE_OUT_MOD_HDMI" acdb_id="18" />
+	<device name="SND_DEVICE_OUT_MOD_SPKR_INT_HDMI" acdb_id="18" />
+	<device name="SND_DEVICE_OUT_MOD_SPKR_MOD_HDMI" acdb_id="18" />
+	<device name="SND_DEVICE_OUT_SPEAKER_AND_HDMI" acdb_id="18" />
+	<device name="SND_DEVICE_OUT_INT_SPKR_MOD_LINE" acdb_id="77" />
+	<device name="SND_DEVICE_OUT_MOD_SPKR_MOD_LINE" acdb_id="77" />
+	<device name="SND_DEVICE_OUT_MOD_VOICE_LINE" acdb_id="78" />
+	<device name="SND_DEVICE_OUT_MOD_VOICE_LINE_INT_MIC" acdb_id="78" />
+	<device name="SND_DEVICE_OUT_VOICE_LINE" acdb_id="78" />
+	<device name="SND_DEVICE_OUT_VOLTE_NB_ANC_HANDSET" acdb_id="200" />
+	<device name="SND_DEVICE_OUT_VOLTE_NB_HANDSET_TMUS" acdb_id="200" />
+	<device name="SND_DEVICE_OUT_MOD_VOICE_SPEAKER_EXTREF" acdb_id="214" />
+	<device name="SND_DEVICE_OUT_MOD_VOICE_SPEAKER_MODEC" acdb_id="214" />
+	<device name="SND_DEVICE_OUT_MOD_SPEAKER" acdb_id="215" />
+	<device name="SND_DEVICE_OUT_MOD_VOICE_SPEAKER_INTREF" acdb_id="216" />
+	<device name="SND_DEVICE_OUT_MOD_VOLTE_NB_SPEAKER_EXTREF" acdb_id="217" />
+	<device name="SND_DEVICE_OUT_MOD_VOLTE_NB_SPEAKER_MODEC" acdb_id="217" />
+	<device name="SND_DEVICE_OUT_MOD_VOLTE_NB_SPEAKER_INTREF" acdb_id="218" />
+	<device name="SND_DEVICE_OUT_VOLTE_NB_TX" acdb_id="245" />
+
+<!-- Input devices -->
+	<device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK" acdb_id="0" />
+	<device name="SND_DEVICE_IN_HANDSET_MIC_AEC" acdb_id="4" />
+	<device name="SND_DEVICE_IN_HANDSET_MIC_AEC_NS" acdb_id="4" />
+	<device name="SND_DEVICE_IN_HANDSET_MIC_NS" acdb_id="4" />
+	<device name="SND_DEVICE_IN_VOICE_TTY_VCO_HANDSET_MIC" acdb_id="4" />
+	<device name="SND_DEVICE_IN_SPEAKER_MIC_AEC" acdb_id="11" />
+	<device name="SND_DEVICE_IN_SPEAKER_MIC_AEC_NS" acdb_id="11" />
+	<device name="SND_DEVICE_IN_SPEAKER_MIC_NS" acdb_id="11" />
+	<device name="SND_DEVICE_IN_UNPROCESSED_MIC" acdb_id="11" />
+	<device name="SND_DEVICE_IN_VOICE_REC_DMIC_FLUENCE" acdb_id="35" />
+	<device name="SND_DEVICE_IN_VOICE_DMIC_TMUS" acdb_id="41" />
+	<device name="SND_DEVICE_IN_MOD_VOICE_SPEAKER_INT_MIC" acdb_id="43" />
+	<device name="SND_DEVICE_IN_UNPROCESSED_STEREO_MIC" acdb_id="43" />
+	<device name="SND_DEVICE_IN_HEADSET_MIC_AEC" acdb_id="47" />
+	<device name="SND_DEVICE_IN_MOD_HEADSET_MIC_AEC" acdb_id="47" />
+	<device name="SND_DEVICE_IN_MOD_CAMCORDER" acdb_id="50" />
+	<device name="SND_DEVICE_IN_VOICE_REC_MIC_AEC" acdb_id="62" />
+	<device name="SND_DEVICE_IN_VOICE_REC_MIC_NS" acdb_id="62" />
+	<device name="SND_DEVICE_IN_HANDSET_DMIC_AEC" acdb_id="111" />
+	<device name="SND_DEVICE_IN_HANDSET_DMIC_NS" acdb_id="111" />
+	<device name="SND_DEVICE_IN_SPEAKER_DMIC_AEC" acdb_id="117" />
+	<device name="SND_DEVICE_IN_SPEAKER_DMIC_NS" acdb_id="117" />
+	<device name="SND_DEVICE_IN_QUAD_MIC" acdb_id="125" />
+	<device name="SND_DEVICE_IN_THREE_MIC" acdb_id="125" />
+	<device name="SND_DEVICE_IN_MOD_VOICE_MIC" acdb_id="211" />
+	<device name="SND_DEVICE_IN_MOD_SPEAKER_INT_MIC_AEC_EXTREF" acdb_id="224" />
+	<device name="SND_DEVICE_IN_MOD_SPEAKER_INT_MIC_AEC_NS_EXTREF" acdb_id="224" />
+	<device name="SND_DEVICE_IN_MOD_SPEAKER_INT_MIC_AEC_INTREF" acdb_id="225" />
+	<device name="SND_DEVICE_IN_MOD_SPEAKER_INT_MIC_AEC_NS_INTREF" acdb_id="225" />
+	<device name="SND_DEVICE_IN_MOD_MIC_AEC" acdb_id="226" />
+	<device name="SND_DEVICE_IN_MOD_MIC_AEC_NS" acdb_id="226" />
+	<device name="SND_DEVICE_IN_MOD_MIC_NS" acdb_id="226" />
+</acdb_ids>
+
+<pcm_ids>
+	<usecase name="USECASE_AUDIO_PLAYBACK_LOW_LATENCY" type="out" id="12" />
+	<usecase name="USECASE_AUDIO_RECORD_LOW_LATENCY" type="in" id="12" />
+	<usecase name="USECASE_VOICEMMODE1_CALL" type="in" id="35" />
+	<usecase name="USECASE_VOICEMMODE1_CALL" type="out" id="35" />
+	<usecase name="USECASE_VOICEMMODE2_CALL" type="in" id="36" />
+	<usecase name="USECASE_VOICEMMODE2_CALL" type="out" id="36" />
+	<usecase name="USECASE_AUDIO_DSM_FEEDBACK" type="in" id="61" />
+	<usecase name="USECASE_MOTVR_COMMAND" type="in" id="40" />
+	<usecase name="USECASE_MOTVR_TRACE" type="in" id="41" />
+</pcm_ids>
+
+<backend_names>
+	<device name="SND_DEVICE_OUT_HEADPHONES" backend="headphones" />
+	<device name="SND_DEVICE_OUT_LINE" backend="headphones" />
+</backend_names>
+
+<config_params>
+	<param key="input_mic_max_count" value="3"/>
+</config_params>
+
+</audio_platform_info>

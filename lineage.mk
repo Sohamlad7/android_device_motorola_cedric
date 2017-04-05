@@ -30,3 +30,6 @@ PRODUCT_DEVICE := cedric
 PRODUCT_NAME := lineage_cedric
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
+
+PRODUCT_ENFORCE_RRO_TARGETS := \
+    framework-res

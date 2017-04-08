@@ -1,5 +1,5 @@
 <!--
-  Copyright (c) 2015 Qualcomm Technologies, Inc.
+  Copyright (c) 2016 Qualcomm Technologies, Inc.
   All Rights Reserved.
   Confidential and Proprietary - Qualcomm Technologies, Inc.
 -->
@@ -79,46 +79,32 @@ special_mode_mask values:
 <ChromatixConfigurationRoot>
   <CommonChromatixInfo>
     <ChromatixName special_mode_mask="0">
-      <ISPCommon>ov16860_common</ISPCommon>
-      <PostProc>ov16860_postproc</PostProc>
-      <CPPPreview>ov16860_cpp_snapshot</CPPPreview>
-      <CPPSnapshot>ov16860_cpp_snapshot</CPPSnapshot>
-    </ChromatixName>
-    <ChromatixName special_mode_mask="MOT_4K_VIDEO">
-      <ISPVideo>ov16860_video_4k</ISPVideo>
-      <CPPVideo>ov16860_cpp_video_4k</CPPVideo>
-      <CPPLiveshot>ov16860_cpp_liveshot_4k</CPPLiveshot>
-      <A3Video>ov16860_4k_video_3a</A3Video>
-    </ChromatixName>
-    <ChromatixName special_mode_mask="MOT_ALTM_IHDR_VIDEO">
-      <ISPVideo>ov16860_default_ihdr_video</ISPVideo>
-      <CPPLiveshot>ov16860_cpp_liveshot_ihdr</CPPLiveshot>
-      <A3Video>ov16860_ihdr_video_3a</A3Video>
-    </ChromatixName>
-    <ChromatixName special_mode_mask="MOT_4K_IHDR_VIDEO">
-      <ISPVideo>ov16860_ihdr_video_4k</ISPVideo>
-      <CPPLiveshot>ov16860_cpp_liveshot_4k_ihdr</CPPLiveshot>
-      <A3Video>ov16860_4k_ihdr_video_3a</A3Video>
+      <ISPCommon>mot_ov5695_common</ISPCommon>
+      <PostProc>mot_ov5695_postproc</PostProc>
+      <CPPPreview>mot_ov5695_cpp_snapshot</CPPPreview>
+      <CPPSnapshot>mot_ov5695_cpp_snapshot</CPPSnapshot>
+      <CPPLiveshot>mot_ov5695_cpp_liveshot</CPPLiveshot>
     </ChromatixName>
   </CommonChromatixInfo>
   <ResolutionChromatixInfo>
     <ChromatixName sensor_resolution_index="0" special_mode_mask="0">
-      <ISPPreview>ov16860_snapshot</ISPPreview>
-      <ISPSnapshot>ov16860_snapshot</ISPSnapshot>
-      <ISPVideo>ov16860_default_video</ISPVideo>
-      <CPPVideo>ov16860_cpp_video</CPPVideo>
-      <CPPLiveshot>ov16860_cpp_liveshot</CPPLiveshot>
-      <A3Preview>ov16860_zsl_preview_3a</A3Preview>
-      <A3Video>ov16860_zsl_video_3a</A3Video>
+      <ISPPreview>mot_ov5695_snapshot</ISPPreview>
+      <ISPSnapshot>mot_ov5695_snapshot</ISPSnapshot>
+      <ISPVideo>mot_ov5695_default_video</ISPVideo>
+      <ISPLiveshot>mot_ov5695_snapshot</ISPLiveshot>
+      <CPPVideo>mot_ov5695_cpp_video</CPPVideo>
+      <A3Preview>mot_ov5695_snapshot_3a</A3Preview>
+      <A3Video>mot_ov5695_default_video_3a</A3Video>
     </ChromatixName>
     <ChromatixName sensor_resolution_index="1" special_mode_mask="0">
-      <ISPPreview>ov16860_hfr_120</ISPPreview>
-      <ISPSnapshot>ov16860_hfr_120</ISPSnapshot>
-      <ISPVideo>ov16860_hfr_120</ISPVideo>
-      <CPPLiveshot>ov16860_cpp_liveshot</CPPLiveshot>
-      <CPPVideo>ov16860_cpp_hfr_120</CPPVideo>
-      <A3Preview>ov16860_hfr_120_3a</A3Preview>
-      <A3Video>ov16860_hfr_120_3a</A3Video>
+      <ISPPreview>mot_ov5695_hfr_120</ISPPreview>
+      <ISPSnapshot>mot_ov5695_hfr_120</ISPSnapshot>
+      <ISPVideo>mot_ov5695_hfr_120</ISPVideo>
+      <ISPLiveshot>mot_ov5695_hfr_120</ISPLiveshot>
+      <CPPVideo>mot_ov5695_cpp_hfr_120</CPPVideo>
+      <A3Preview>mot_ov5695_hfr_120_3a</A3Preview>
+      <A3Video>mot_ov5695_hfr_120_3a</A3Video>
     </ChromatixName>
   </ResolutionChromatixInfo>
 </ChromatixConfigurationRoot>
+

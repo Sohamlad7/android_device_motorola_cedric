@@ -38,16 +38,24 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>5</item>
+        <item>2</item>
         <item>10</item>
-        <item>40</item>
+        <item>50</item>
+        <item>90</item>
         <item>100</item>
-        <item>325</item>
-        <item>1250</item>
-        <item>3500</item>
+        <item>150</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+        <item>800</item>
+        <item>1000</item>
+        <item>1300</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>4000</item>
+        <item>8000</item>
         <item>10000</item>
-        <item>20000</item>
-        <item>30000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -56,33 +64,42 @@
          This must be overridden in platform specific overlays -->
     
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>6</item>
+        <item>3</item>
         <item>11</item>
-        <item>30</item>
-        <item>59</item>
-        <item>69</item>
-        <item>92</item>
-        <item>118</item>
-        <item>155</item>
-        <item>222</item>
+        <item>40</item>
+        <item>62</item>
+        <item>74</item>
+        <item>85</item>
+        <item>102</item>
+        <item>102</item>
+        <item>102</item>
+        <item>102</item>
+        <item>128</item>
+        <item>153</item>
+        <item>170</item>
+        <item>179</item>
+        <item>238</item>
         <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>256</item>
     </integer-array>
 
     <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
         <item>0</item>
-        <item>30</item>
-        <item>15</item>
-        <item>30</item>
+        <item>25</item>
     </integer-array>
 
     <!-- Vibrator pattern for feedback about touching a virtual key -->
     <integer-array name="config_virtualKeyVibePattern">
-        <item>35</item>
+        <item>0</item>
+        <item>34</item>
     </integer-array>
 
     <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
     <integer-array name="config_keyboardTapVibePattern">
+        <item>0</item>
         <item>25</item>
     </integer-array>
 
@@ -106,6 +123,8 @@
          should be empty.  An example would be "softap.*" -->
     <string-array translatable="false" name="config_tether_wifi_regexs">
         <item>"wlan0"</item>
+        <item>"wigig0"</item>
+        <item>"softap0"</item>
     </string-array>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
@@ -122,7 +141,6 @@
     <integer-array translatable="false" name="config_tether_upstream_types">
         <item>0</item>
         <item>1</item>
-        <item>4</item>
         <item>5</item>
         <item>7</item>
     </integer-array>
@@ -171,7 +189,7 @@
     <!-- Indicate whether closing the lid causes the device to go to sleep and opening
          it causes the device to wake up.
          The default is false. -->
-    <bool name="config_lidControlsSleep">true</bool>
+    <bool name="config_lidControlsSleep">false</bool>
 
     <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
         on the headphone/microphone jack. When false use the older uevent framework. -->
@@ -179,9 +197,9 @@
 
     <!-- Values for GPS configuration -->
     <string-array name="config_gpsParameters">
-        <item>XTRA_SERVER_1=http://xtrapath1.izatcloud.net/xtra2.bin</item>
-        <item>XTRA_SERVER_2=http://xtrapath2.izatcloud.net/xtra2.bin</item>
-        <item>XTRA_SERVER_3=http://xtrapath3.izatcloud.net/xtra2.bin</item>
+        <item>XTRA_SERVER_1=https://xtrapath1.izatcloud.net/xtra2.bin</item>
+        <item>XTRA_SERVER_2=https://xtrapath2.izatcloud.net/xtra2.bin</item>
+        <item>XTRA_SERVER_3=https://xtrapath3.izatcloud.net/xtra2.bin</item>
         <item>NTP_SERVER=north-america.pool.ntp.org</item>
         <item>SUPL_MODE=0</item>
         <item>SUPL_HOST=NONE</item>
@@ -203,7 +221,7 @@
     <bool name="config_enableMultiUserUI">true</bool>
 
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
-    <bool name="config_batterySdCardAccessibility">true</bool>
+    <bool name="config_batterySdCardAccessibility">false</bool>
 
     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
          autodetected from the Configuration. -->

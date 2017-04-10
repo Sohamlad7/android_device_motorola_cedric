@@ -82,10 +82,14 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES +=  \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
+    $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \	
     $(LOCAL_PATH)/audio/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
     $(LOCAL_PATH)/audio/audio_platform_info_extcodec.xml:system/etc/audio_platform_info_extcodec.xml \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml \
-    $(LOCAL_PATH)/audio/mixer_paths_wcd9306.xml:system/etc/mixer_paths_wcd9306.xml
+    $(LOCAL_PATH)/audio/mixer_paths_wcd9306.xml:system/etc/mixer_paths_wcd9306.xml \
+    $(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml \	
+	$(LOCAL_PATH)/audio/audio_ext_spkr.conf:system/etc/audio_ext_spkr.conf \
+	$(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \	
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:/system/etc/a2dp_audio_policy_configuration.xml \
@@ -106,9 +110,9 @@ PRODUCT_PACKAGES += \
     Snap
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/camera/msm8953_mot_camera.xml:system/etc/camera/msm8953_mot_camera.xml \
-    $(LOCAL_PATH)/configs/camera/ov5693_chromatix.xml:system/etc/camera/ov5693_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/ov16860_chromatix.xml:system/etc/camera/ov16860_chromatix.xml
+    $(LOCAL_PATH)/configs/camera/msm8953_mot_potter_camera.xml:system/etc/camera/msm8953_mot_potter_camera.xml \
+    $(LOCAL_PATH)/configs/camera/mot_ov5695_chromatix.xml:system/etc/camera/mot_ov5695_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/mot_imx362_chromatix.xml:system/etc/camera/mot_imx362_chromatix.xml
 
 # CMActions
 PRODUCT_PACKAGES += \
@@ -127,7 +131,8 @@ PRODUCT_PACKAGES += \
     libjni_livedisplay
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_cmd_smd_1080p_549.xml:system/etc/qdcm_calib_data_mipi_mot_cmd_smd_1080p_549.xml
+    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_boe_1080p_520.xml:system/etc/qdcm_calib_data_mipi_mot_vid_boe_1080p_520.xml \
+    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_tianma_1080p_520.xml:system/etc/qdcm_calib_data_mipi_mot_vid_tianma_1080p_520.xml	
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -175,7 +180,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media_profiles_rc.xml:system/etc/media_profiles_rc.xml	
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \

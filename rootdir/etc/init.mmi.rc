@@ -259,6 +259,13 @@ on boot
    # Quiet binder logs
    write /sys/module/binder/parameters/debug_mask 0x5
 
+# Pass carrier to wlan
+service init_wifi /system/bin/wlan_carrier_bin.sh
+    class main
+    user root
+    group root
+    oneshot
+
 on charger
     trigger early-fs
     trigger fs

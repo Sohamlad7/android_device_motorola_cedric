@@ -233,7 +233,8 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.mmi.touch.sh \
-    init.qcom.ril.sh
+    init.qcom.ril.sh \
+    wlan_carrier_bin.sh
 
 PRODUCT_PACKAGES += \
     fstab.qcom \

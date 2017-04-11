@@ -12,6 +12,7 @@
 /system/bin/init\.mmi\.laser\.sh                         u:object_r:mmi_laser_exec:s0
 /system/bin/init\.mmi\.touch\.sh                         u:object_r:mmi_touch_sh_exec:s0
 /system/bin/init\.oem\.hw\.sh                            u:object_r:oem-hw-sh_exec:s0
+/system/bin/wlan_carrier_bin\.sh                         u:object_r:init_wifi_exec:s0
 /system/bin/motosh                                       u:object_r:sensor_hub_exec:s0
 /system/bin/akmd09912                                    u:object_r:akmd_exec:s0
 /system/bin/fm_qsoc_patches                              u:object_r:fm_qsoc_patches_exec:s0
@@ -111,3 +112,5 @@
 /dev/stml0xx_as                                          u:object_r:sensors_device:s0
 /data/misc/sensor(/.*)?                                  u:object_r:sensors_data_file:s0
 
+# WCNSS
+/sys/module/wcnsscore/parameters(/.*)?                   u:object_r:sysfs_wcnsscore:s0

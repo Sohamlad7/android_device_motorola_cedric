@@ -11,6 +11,7 @@ audio.offload.buffer.size.kb=64
 audio.offload.gapless.enabled=true
 audio.offload.pcm.16bit.enable=true
 audio.offload.pcm.24bit.enable=true
+persist.audio.dualmic.config=endfire
 
 persist.audio.calfile0=/etc/acdbdata/Bluetooth_cal.acdb
 persist.audio.calfile1=/etc/acdbdata/General_cal.acdb
@@ -20,9 +21,9 @@ persist.audio.calfile4=/etc/acdbdata/Hdmi_cal.acdb
 persist.audio.calfile5=/etc/acdbdata/Headset_cal.acdb
 persist.audio.calfile6=/etc/acdbdata/Speaker_cal.acdb
 
-persist.audio.fluence.mode=endfire
 persist.audio.fluence.speaker=true
 persist.audio.fluence.voicecall=true
+persist.audio.fluence.voicerec=false
 ro.qc.sdk.audio.fluencetype=none
 ro.qc.sdk.audio.ssr=false
 
@@ -32,17 +33,7 @@ use.voice.path.for.pcm.voip=false
 bluetooth.hfp.client=1
 qcom.bluetooth.soc=smd
 qcom.bt.le_dev_pwr_class=1
-ro.bluetooth.dun=true
 ro.bluetooth.hfp.ver=1.7
-ro.bluetooth.sap=true
-ro.qualcomm.bluetooth.ftp=true
-ro.qualcomm.bluetooth.hfp=true
-ro.qualcomm.bluetooth.hsp=true
-ro.qualcomm.bluetooth.map=true
-ro.qualcomm.bluetooth.nap=true
-ro.qualcomm.bluetooth.opp=true
-ro.qualcomm.bluetooth.pbap=true
-ro.qualcomm.bt.hci_transport=smd
 
 # Camera
 camera.disable_zsl_mode=1
@@ -74,9 +65,6 @@ persist.hwc.mdpcomp.enable=true
 ro.opengles.version=196609
 ro.sf.lcd_density=480
 
-# FRP
-#ro.frp.pst=/dev/block/bootdevice/by-name/frp
-
 # IMS
 persist.radio.jbims=1
 persist.radio.RATE_ADAPT_ENABLE=1
@@ -86,9 +74,6 @@ persist.radio.VT_USE_MDM_TIME=0
 
 # Media
 media.aac_51_output_enabled=true
-
-# NFC
-persist.nfc.smartcard.config=SIM1,SIM2,eSE1
 
 # NITZ
 persist.rild.nitz_plmn=
@@ -118,10 +103,24 @@ persist.radio.oem_ind_to_both=0
 persist.radio.relay_oprt_change=1
 rild.libargs=-d /dev/smd0
 rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
+ro.mot.ignore_csim_appid=true
+persist.sys.ssr.restart_level=ALL_ENABLE
+persist.sys.qc.sub.rdump.on=1
+persist.radio.sw_mbn_update=1
+persist.sys.qc.sub.rdump.max=3
+persist.radio.custom_ecc=1
+persist.radio.is_wps_enabled=true
+persist.radio.mt_sms_ack=30
+persist.radio.0x9e_not_callname=1
+persist.qcril_uim_vcc_feature=1
+persist.radio.snapshot_timer=22
+persist.radio.snapshot_enabled=1
+persist.radio.call.audio.output=0
 
 ro.use_data_netmgrd=true
 persist.data.netmgrd.qos.enable=true
 persist.data.mode=concurrent
+persist.data.iwlan.enable=true
 
 # USB
 ro.usb.mtp=0x2e82

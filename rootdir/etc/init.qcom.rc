@@ -991,6 +991,13 @@ service msm_irqbalance /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqb
     user root
     group root
 
+service ssr_setup /system/bin/ssr_setup
+    oneshot
+    disabled
+
+on property:persist.sys.ssr.restart_level=*
+    start ssr_setup
+
 on charger
     wait /dev/block/bootdevice/by-name/system
     mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1

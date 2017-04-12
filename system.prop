@@ -8,10 +8,21 @@ ro.sys.fw.dex2oat_thread_count=4
 # Audio
 audio.deep_buffer.media=true
 audio.offload.buffer.size.kb=64
-audio.offload.gapless.enabled=true
-audio.offload.pcm.16bit.enable=true
-audio.offload.pcm.24bit.enable=true
+audio.offload.gapless.enabled=false
+audio.offload.multiple.enabled=false
+audio.offload.pcm.16bit.enable=false
+audio.offload.pcm.24bit.enable=false
+audio.offload.track.enable=true
 persist.audio.dualmic.config=endfire
+af.fast_track_multiplier=1
+audio.offload.disable=false
+audio.offload.min.duration.secs=60
+audio.offload.video=false
+audio.playback.mch.downsample=true
+audio_hal.period_size=240
+av.offload.enable=false
+av.debug.disable.pers.cache=1
+persist.audio.endcall.delay=250
 
 persist.audio.calfile0=/etc/acdbdata/Bluetooth_cal.acdb
 persist.audio.calfile1=/etc/acdbdata/General_cal.acdb
@@ -21,8 +32,9 @@ persist.audio.calfile4=/etc/acdbdata/Hdmi_cal.acdb
 persist.audio.calfile5=/etc/acdbdata/Headset_cal.acdb
 persist.audio.calfile6=/etc/acdbdata/Speaker_cal.acdb
 
-persist.audio.fluence.speaker=true
+persist.audio.fluence.speaker=false
 persist.audio.fluence.voicecall=true
+persist.audio.fluence.voicecomm=true
 persist.audio.fluence.voicerec=false
 ro.qc.sdk.audio.fluencetype=none
 ro.qc.sdk.audio.ssr=false
@@ -34,17 +46,24 @@ bluetooth.hfp.client=1
 qcom.bluetooth.soc=smd
 qcom.bt.le_dev_pwr_class=1
 ro.bluetooth.hfp.ver=1.7
+ro.cutoff_voltage_mv=3400
 
 # Camera
 camera.disable_zsl_mode=1
 camera.display.umax=1920x1080
 camera.display.lmax=1280x720
 camera.hal1.packagelist=com.skype.raider,com.google.android.talk
+camera.mot.startup_probing=0
+persist.camera.debug.logfile=0
+persist.camera.gyro.disable=0
+
 vidc.dec.downscalar_width=1920
 vidc.dec.downscalar_height=1088
 vidc.dec.disable.split.cpu=1
 vidc.enc.dcvs.extra-buff-count=2
 vidc.enc.disable_bframes=1
+vidc.disable.split.mode=1
+vidc.enc.disable.pq=true
 
 # CNE
 persist.cne.feature=1
@@ -53,10 +72,15 @@ persist.cne.rat.wlan.chip.oem=WCN
 persist.dpm.feature=0
 persist.sys.cnd.iwlan=1
 
+# core_ctrl
+ro.core_ctl_max_cpu=4
+ro.core_ctl_min_cpu=2
+
 # Display
 debug.egl.hw=1
 debug.enable.sglscale=1
 debug.gralloc.enable_fb_ubwc=1
+debug.gralloc.gfx_ubwc_disable=0
 debug.mdpcomp.logs=0
 debug.sf.hw=1
 dev.pm.dyn_samplingrate=1
@@ -64,6 +88,7 @@ persist.demo.hdmirotationlock=false
 persist.hwc.mdpcomp.enable=true
 ro.opengles.version=196609
 ro.sf.lcd_density=480
+persist.hwc.enable_vds=1
 
 # IMS
 persist.radio.jbims=1
@@ -71,9 +96,23 @@ persist.radio.RATE_ADAPT_ENABLE=1
 persist.radio.VT_ENABLE=1
 persist.radio.VT_HYBRID_ENABLE=1
 persist.radio.VT_USE_MDM_TIME=0
+persist.ims.disableADBLogs=2
+persist.ims.disableDebugLogs=0
+persist.ims.disableIMSLogs=0
+persist.ims.disableQXDMLogs=0
+persist.ims.rcs=false
+persist.ims.volte=true
+persist.ims.vt=false
+persist.ims.vt.epdg=false
+persist.mm.sta.enable=0
+persist.vt.supported=0
 
 # Media
 media.aac_51_output_enabled=true
+mm.enable.qcom_parser=135715
+mm.enable.sec.smoothstreaming=false
+mm.enable.smoothstreaming=false
+mmp.enable.3g2=true
 
 # NITZ
 persist.rild.nitz_plmn=
@@ -116,8 +155,26 @@ persist.qcril_uim_vcc_feature=1
 persist.radio.snapshot_timer=22
 persist.radio.snapshot_enabled=1
 persist.radio.call.audio.output=0
+persist.eab.supported=0
+ersist.mot.gps.conf.from.sim=true
+persist.net.doxlat=true
+persist.radio.REVERSE_QMI=0
+persist.radio.ROTATION_ENABLE=1
+persist.radio.adb_log_on=0
+persist.radio.calls.on.ims=true
+persist.radio.domain.ps=0
+persist.radio.eons.enabled=false
+persist.radio.ril_payload_on=0
+persist.radio.sar_sensor=1
+persist.radio.sglte_target=0
+persist.radio.sib16_support=1
+persist.rcs.presence.provision=0
+persist.rcs.supported=0
+persist.rmnet.mux=enabled
+
 
 ro.use_data_netmgrd=true
+persist.data.qmi.adb_logmask=0
 persist.data.netmgrd.qos.enable=true
 persist.data.mode=concurrent
 persist.data.iwlan.enable=true
@@ -134,3 +191,5 @@ ro.usb.bpteth_adb=0x2ee8
 
 # Vendor Extension
 ro.vendor.extension_library=libqti-perfd-client.so
+ro.vendor.at_library=libqti-at.so
+ro.vendor.gt_library=libqti-gt.so

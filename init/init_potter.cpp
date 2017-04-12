@@ -61,6 +61,16 @@ void vendor_load_properties()
     std::string radio = property_get("ro.boot.radio");
     property_set("ro.hw.device", device.c_str());
     property_set("ro.hw.radio", radio.c_str());
+    property_set("ro.hw.fps", "true");
 
-	num_sims()
+	num_sims();
+
+	if (sku == "XT1687") {
+        property_set("ro.hw.ecompass", "true");
+        property_set("ro.hw.nfc", "false");
+    }
+    else {
+        property_set("ro.hw.ecompass", "false");
+        property_set("ro.hw.nfc", "true");
+    }
 }

@@ -34,6 +34,19 @@
 #include "log.h"
 #include "util.h"
 
+void num_sims() {
+    std::string dualsim;
+
+    dualsim = property_get("ro.boot.dualsim");
+    property_set("ro.hw.dualsim", dualsim.c_str());
+
+    if (dualsim == "true") {
+        property_set("persist.radio.multisim.config", "dsds");
+    } else {
+        property_set("persist.radio.multisim.config", "");
+    }
+}
+
 void vendor_load_properties()
 {
     std::string platform = property_get("ro.board.platform");
@@ -48,4 +61,6 @@ void vendor_load_properties()
     std::string radio = property_get("ro.boot.radio");
     property_set("ro.hw.device", device.c_str());
     property_set("ro.hw.radio", radio.c_str());
+
+	num_sims()
 }

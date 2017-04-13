@@ -105,8 +105,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.msm8953 \
     libbson \
-    libshim_camera \
-    Snap
+    libshim_camera
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera/msm8953_mot_potter_camera.xml:system/etc/camera/msm8953_mot_potter_camera.xml \
@@ -129,17 +128,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     gralloc.msm8953 \
     copybit.msm8953 \
+    liboverlay \
     hwcomposer.msm8953 \
     memtrack.msm8953 \
     libtinyxml
 
 # Display Calibration
-PRODUCT_PACKAGES += \
-    libjni_livedisplay
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_boe_1080p_520.xml:system/etc/qdcm_calib_data_mipi_mot_vid_boe_1080p_520.xml \
-    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_tianma_1080p_520.xml:system/etc/qdcm_calib_data_mipi_mot_vid_tianma_1080p_520.xml	
+# PRODUCT_PACKAGES += \
+#    libjni_livedisplay
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -246,6 +242,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
+
+# Sensors
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sensors/hals.conf:system/etc/sensors/hals.conf \
+    $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf
 
 # Thermal
 PRODUCT_COPY_FILES += \

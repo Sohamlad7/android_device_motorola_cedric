@@ -1,5 +1,9 @@
 # ADSP
 /sys/kernel/aov(/.*)?                                    u:object_r:sysfs_adsp:s0
+/data/adspd(/.*)?                                        u:object_r:adspd_data_file:s0
+
+# AMPS
+/dev/hidraw[0-9]*                                        u:object_r:amps_raw_device:s0
 
 # Binaries
 /system/bin/adspd                                        u:object_r:adspd_exec:s0
@@ -7,9 +11,10 @@
 /system/bin/init\.mmi\.laser\.sh                         u:object_r:mmi_laser_exec:s0
 /system/bin/init\.mmi\.touch\.sh                         u:object_r:mmi_touch_sh_exec:s0
 /system/bin/motosh                                       u:object_r:sensor_hub_exec:s0
+/system/bin/akmd09912                                    u:object_r:akmd_exec:s0
 
 # Camera
-/sys/kernel/range/offset                                 u:object_r:sysfs_mmi_laser:s0
+/sys/kernel/range(/.*)?                                 u:object_r:sysfs_mmi_laser:s0
 
 # CMActions
 /sys/homebutton/enable                                   u:object_r:sysfs_homebutton:s0
@@ -17,10 +22,68 @@
 # Fingerprint
 /data/.fps(/.*)?                                         u:object_r:fingerprintd_data_file:s0
 /data/fpc                                                u:object_r:fingerprintd_data_file:s0
-/sys/devices/soc/7af8000\.spi/spi_master/spi8/spi8\.0(/.*)?  u:object_r:sysfs_mmi_fp:s0
+/data/fpc/socket                                         u:object_r:fpc_socket:s0
+
+/sys/devices/soc/7af8000.spi/spi_master/spi8/spi8.0(/.*)? u:object_r:sysfs_fpc:s0
 
 # mmi_touch related /sys files
 /sys/devices/soc/78b7000\.i2c/i2c-3/3-0020(/.*)?         u:object_r:sysfs_mmi_touch:s0
+
+# Modem
+/persist/mdm(/.*)?                                       u:object_r:persist_modem_file:s0
+
+/persist/prop(/.*)?                                      u:object_r:persist_omadm_file:s0
+/persist/prov(/.*)?                                      u:object_r:persist_drm_file:s0
+/persist/omadm(/.*)?                                     u:object_r:persist_omadm_file:s0
+/persist/omadm_database(/.*)?                            u:object_r:persist_omadm_file:s0
+/persist/omadm_cust_database(/.*)?                       u:object_r:persist_omadm_file:s0
+/persist/public(/.*)?                                    u:object_r:pds_public_file:s0
+/persist/camera(/.*)?                                    u:object_r:persist_camera_file:s0
+/persist/captouch_(.*)?                                  u:object_r:persist_antcap_file:s0
+/persist/telephony(/.*)?                                 u:object_r:pds_telephony_file:s0
+/persist/public/telephony(/.*)?                          u:object_r:pds_telephony_file:s0
+/persist/batt_health(/.*)?                               u:object_r:pds_batt_file:s0
+/persist/public/omadm(/.*)?                              u:object_r:pds_omadm_file:s0
+/persist/factory/audio(/.*)?                             u:object_r:persist_audio_file:s0
+
+/data/wapi_certificate(/.*)?                             u:object_r:wapi_supplicant_data_file:s0
+
+/data/misc/akmd(/.*)?                                    u:object_r:akmd_data_file:s0
+
+/data/local/dbvc(/.*)?                                   u:object_r:dbvc_data_file:s0
+/data/local/moodle(/.*)?                                 u:object_r:moodle_data_file:s0
+/data/misc/cutback(/.*)?                                 u:object_r:cutback_data_file:s0
+
+/data/misc/sds(/.*)?                                     u:object_r:sds_data_file:s0
+
+/sys/class/capsense(/.*)?                                u:object_r:sysfs_capsense:s0
+/sys/module/qpnp_bms(/.*)?                               u:object_r:sysfs_batt:s0
+/sys/module/cnss_pci(/.*)?                               u:object_r:sysfs_cnss:s0
+
+/sys/devices/iio_sysfs_trigger(/.*)?                     u:object_r:sysfs_sensors:s0
+/sys/devices/virtual/stm401/stm401_ms(/.*)?              u:object_r:sysfs_sensors:s0
+/sys/devices/virtual/stm401/stm401_as(/.*)?              u:object_r:sysfs_sensors:s0
+
+/sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger(/.*)? u:object_r:sysfs_batt:s0
+
+/dev/rmi0                                                u:object_r:synaptics_rmi_device:s0
+/dev/sec                                                 u:object_r:shwi_device:s0
+/dev/kgsl                                                u:object_r:gpu_device:s0
+/dev/isdbt                                               u:object_r:isdbt_device:s0
+/dev/ttyHS3                                              u:object_r:adspd_device:s0
+/dev/akm8963                                             u:object_r:compass_device:s0
+/dev/drv2605                                             u:object_r:haptics_device:s0
+/dev/akm09912                                            u:object_r:compass_device:s0
+/dev/motcamera0                                          u:object_r:camera_device:s0
+/dev/akm8963_dev                                         u:object_r:compass_device:s0
+/dev/stml0xx_akm                                         u:object_r:compass_device:s0
+/dev/akm09912_dev                                        u:object_r:compass_device:s0
+/dev/mot_hob_ram                                         u:object_r:hob_device:s0
+
+
+/dev/bcm2079x-i2c                                        u:object_r:nfc_device:s0
+
+/dev/fb_quickdraw                                        u:object_r:graphics_fb_device:s0
 
 # Partitions
 /dev/block/bootdevice/by-name/cache                      u:object_r:cache_block_device:s0
@@ -37,3 +100,11 @@
 /dev/motosh                                              u:object_r:sensors_device:s0
 /dev/motosh_as                                           u:object_r:sensors_device:s0
 /dev/motosh_ms                                           u:object_r:sensors_device:s0
+/dev/stm401.*                                            u:object_r:sensors_device:s0
+/dev/lis3dh                                              u:object_r:sensors_device:s0
+/dev/stml0xx                                             u:object_r:sensors_device:s0
+/dev/l3g4200d                                            u:object_r:sensors_device:s0
+/dev/stml0xx_ms                                          u:object_r:sensors_device:s0
+/dev/stml0xx_as                                          u:object_r:sensors_device:s0
+/data/misc/sensor(/.*)?                                  u:object_r:sensors_data_file:s0
+

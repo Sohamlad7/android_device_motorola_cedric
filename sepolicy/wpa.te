@@ -1,0 +1,2 @@
+allow wpa cutback_data_file:sock_file write;
+allow wpa rild:unix_dgram_socket sendto;

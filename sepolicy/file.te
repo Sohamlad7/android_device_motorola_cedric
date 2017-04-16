@@ -1,5 +1,30 @@
+# ADSP
+type adspd_data_file, file_type, data_file_type;
+
 # FSG
 type fsg_file, fs_type, contextmount_type;
+
+# Modem
+type persist_modem_file, file_type, data_file_type;
+
+type persist_omadm_file, file_type, data_file_type;
+type sds_data_file, file_type, data_file_type;
+type pds_public_file, file_type, data_file_type;
+type persist_camera_file, file_type, data_file_type;
+type persist_antcap_file, file_type, data_file_type;
+type pds_telephony_file, file_type, data_file_type;
+type pds_batt_file, file_type, data_file_type;
+type pds_omadm_file, file_type, data_file_type;
+type persist_audio_file, file_type, data_file_type;
+
+type moodle_data_file, file_type, data_file_type;
+type cutback_data_file, file_type, data_file_type;
+
+type dbvc_data_file, file_type, data_file_type;
+
+type akmd_data_file, file_type, data_file_type;
+
+type wapi_supplicant_data_file, file_type, data_file_type;
 
 # RIL
 type netmgr_data_file, file_type, data_file_type;
@@ -10,3 +35,12 @@ type sysfs_homebutton, fs_type, sysfs_type;
 type sysfs_mmi_fp, fs_type, sysfs_type;
 type sysfs_mmi_laser, fs_type, sysfs_type;
 type sysfs_mmi_touch, fs_type, sysfs_type;
+
+type sysfs_capsense, fs_type, sysfs_type;
+type sysfs_batt, fs_type, sysfs_type;
+type sysfs_cnss, fs_type, sysfs_type;
+type sysfs_fpc, fs_type, sysfs_type;
+type sysfs_sensors, fs_type, sysfs_type;
+
+type fpc_socket, file_type;
+

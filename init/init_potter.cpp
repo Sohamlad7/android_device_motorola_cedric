@@ -50,6 +50,7 @@ void num_sims() {
 void vendor_load_properties()
 {
     std::string platform = property_get("ro.board.platform");
+
     if (platform != ANDROID_TARGET)
         return;
 
@@ -63,9 +64,9 @@ void vendor_load_properties()
     property_set("ro.hw.radio", radio.c_str());
     property_set("ro.hw.fps", "true");
 
-	num_sims();
+    num_sims();
 
-	if (sku == "XT1687") {
+    if (sku == "XT1687") {
         property_set("ro.hw.ecompass", "true");
         property_set("ro.hw.nfc", "false");
     }
@@ -74,3 +75,4 @@ void vendor_load_properties()
         property_set("ro.hw.nfc", "true");
     }
 }
+

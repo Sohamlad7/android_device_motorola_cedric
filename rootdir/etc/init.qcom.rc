@@ -847,12 +847,10 @@ service loc_launcher /system/bin/loc_launcher
     class late_start
     group gps inet qcom_diag wifi
 
-service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
+service fm_qsoc_patches /system/bin/fm_qsoc_patches 199217 0
     class late_start
-    user system
-    group system
-    disabled
-    oneshot
+    user bluetooth
+    group bluetooth net_bt_admin net_admin
 
 on property:crypto.driver.load=1
      insmod /system/lib/modules/qce.ko

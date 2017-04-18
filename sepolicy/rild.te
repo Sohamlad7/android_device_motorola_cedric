@@ -3,7 +3,7 @@ allow rild persist_file:dir search;
 allow rild persist_file:file rw_file_perms;
 
 allow rild cutback_data_file:dir rw_dir_perms;
-allow rild cutback_data_file:sock_file rw_file_perms;
+allow rild cutback_data_file:sock_file create_file_perms;
 allow rild sensorservice_service:service_manager find;
 allow rild system_server:binder { transfer call };
 allow rild system_server:unix_stream_socket { read getopt write };

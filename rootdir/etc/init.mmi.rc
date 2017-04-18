@@ -313,7 +313,7 @@ service mmi-touch-sh /system/bin/init.mmi.touch.sh
 
 # Start Sensor daemon
 service motosh /system/bin/motosh boot
-    class late_start
+    class main
     user compass
     group compass misc input
     oneshot

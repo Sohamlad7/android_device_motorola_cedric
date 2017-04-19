@@ -1,0 +1,3 @@
+type fm_qsoc_patches, domain, domain_deprecated;
+type fm_qsoc_patches_exec, exec_type, file_type;
+init_daemon_domain(fm_qsoc_patches)

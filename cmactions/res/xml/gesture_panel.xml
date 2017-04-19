@@ -58,11 +58,50 @@
         android:key="fp_key"
         android:title="@string/fingerprint_title" >
 
-
         <SwitchPreference
             android:key="fp_home"
-            android:title="@string/fingerprint_as_home_title"
-            android:summary="@string/fingerprint_as_home_summary" />
+            android:title="Fingerprint Gestures"
+            android:summary="Use fingerprint gestures" />
+
+        <ListPreference
+            android:dependency="fp_home"
+            android:title="Fingerprint Tap"
+            android:summary="Select action for single tap"
+            android:dialogTitle="Select action for single tap"
+            android:key="fp_keys"
+            android:defaultValue="0"
+            android:entries="@array/fp_keys_listArray"
+            android:entryValues="@array/fp_keys_listValues" />
+
+        <ListPreference
+            android:dependency="fp_home"
+            android:title="Fingerprint Long Press"
+            android:summary="Select action for long press"
+            android:dialogTitle="Select action for long press"
+            android:key="fp_key_hold"
+            android:defaultValue="0"
+            android:entries="@array/fp_keys_listArray"
+            android:entryValues="@array/fp_keys_listValues" />
+
+        <ListPreference
+            android:dependency="fp_home"
+            android:title="Fingerprint Swipe Left"
+            android:summary="Select action for swipe left"
+            android:dialogTitle="Select action for swipe left"
+            android:key="fp_key_left"
+            android:defaultValue="0"
+            android:entries="@array/fp_keys_listArray"
+            android:entryValues="@array/fp_keys_listValues" />
+
+        <ListPreference
+            android:dependency="fp_home"
+            android:title="Fingerprint Swipe Right"
+            android:summary="Select action for swipe right"
+            android:dialogTitle="Select action for swipe right"
+            android:key="fp_key_right"
+            android:defaultValue="0"
+            android:entries="@array/fp_keys_listArray"
+            android:entryValues="@array/fp_keys_listValues" />
 
     </PreferenceCategory>
 

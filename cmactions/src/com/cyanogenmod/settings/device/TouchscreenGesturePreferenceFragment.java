@@ -23,16 +23,10 @@ import android.os.Bundle;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceCategory;
 import android.support.v14.preference.PreferenceFragment;
+import android.support.v7.preference.Preference;
 import android.support.v14.preference.SwitchPreference;
-import android.text.TextUtils;
-
-import java.io.File;
-
-import org.cyanogenmod.internal.util.FileUtils;
-import org.cyanogenmod.internal.util.ScreenType;
 
 public class TouchscreenGesturePreferenceFragment extends PreferenceFragment {
     private SwitchPreference mFlipPref;
@@ -67,34 +61,6 @@ public class TouchscreenGesturePreferenceFragment extends PreferenceFragment {
         //Users may deny DND access after giving it
         if (!mNotificationManager.isNotificationPolicyAccessGranted()) {
             mFlipPref.setChecked(false);
-        }
-    }
-
-    @Override
-    public void addPreferencesFromResource(int preferencesResId) {
-        super.addPreferencesFromResource(preferencesResId);
-        // Initialize node preferences
-        for (String pref : Constants.sBooleanNodePreferenceMap.keySet()) {
-            SwitchPreference b = (SwitchPreference) findPreference(pref);
-            if (b == null) continue;
-            b.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    String node = Constants.sBooleanNodePreferenceMap.get(preference.getKey());
-                    if (!TextUtils.isEmpty(node)) {
-                        Boolean value = (Boolean) newValue;
-                        FileUtils.writeLine(node, value ? "1" : "0");
-                        return true;
-                    }
-                    return false;
-                }
-            });
-            String node = Constants.sBooleanNodePreferenceMap.get(pref);
-            if (new File(node).exists()) {
-                String curNodeValue = FileUtils.readOneLine(node);
-                b.setChecked(curNodeValue.equals("1"));
-            } else {
-                b.setEnabled(false);
-            }
         }
     }
 

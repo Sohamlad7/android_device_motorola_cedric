@@ -26,8 +26,6 @@ import android.util.Log;
 
 import com.cyanogenmod.settings.device.ServiceWrapper.LocalBinder;
 
-import org.cyanogenmod.internal.util.FileUtils;
-
 public class BootCompletedReceiver extends BroadcastReceiver {
     static final String TAG = "CMActions";
     private ServiceWrapper mServiceWrapper;
@@ -38,13 +36,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Restore nodes to saved preference values
         for (String pref : Constants.sButtonPrefKeys) {
-             String value = Constants.isPreferenceEnabled(context, pref) ? "1" : "0";
-             String node = Constants.sBooleanNodePreferenceMap.get(pref);
-
-             if (!FileUtils.writeLine(node, value)) {
-                 Log.w(TAG, "Write to node " + node +
-                       " failed while restoring saved preference values");
-             }
+             Constants.writePreference(context, pref);
         }
 
         context.startService(new Intent(context, ServiceWrapper.class));

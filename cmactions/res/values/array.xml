@@ -16,7 +16,7 @@
 -->
 <resources>
     <string-array name="fp_keys_listArray">
-	<item>None</item>
+        <item>None</item>
         <item>Home</item>
         <item>Power</item>
         <item>Back</item>
@@ -26,7 +26,7 @@
     </string-array>
 
     <string-array name="fp_keys_listValues">
-	<item>0</item>
+        <item>0</item>
         <item>102</item>
         <item>116</item>
         <item>158</item>

@@ -24,10 +24,10 @@ FIRMWARE_ADSP_IMAGES := \
 
 FIRMWARE_ADSP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FIRMWARE_MODEM_IMAGES)))
 $(FIRMWARE_ADSP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-    @echo "ADSP Firmware link: $@"
-    @mkdir -p $(dir $@)
-    @rm -rf $@
-    $(hide) ln -sf /firmware/image/$(notdir $@) $@
+	@echo "ADSP Firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_ADSP_SYMLINKS)
 
@@ -36,10 +36,10 @@ FIRMWARE_CPPF_IMAGES := \
 
 FIRMWARE_CPPF_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FIRMWARE_CPPF_IMAGES)))
 $(FIRMWARE_CPPF_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-    @echo "Fingerprint Firmware link: $@"
-    @mkdir -p $(dir $@)
-    @rm -rf $@
-    $(hide) ln -sf /firmware/image/$(notdir $@) $@
+	@echo "Fingerprint Firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_CPPF_SYMLINKS)
 
@@ -50,10 +50,10 @@ FIRMWARE_FINGERPRINT_IMAGES := \
 
 FIRMWARE_FINGERPRINT_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FIRMWARE_FINGERPRINT_IMAGES)))
 $(FIRMWARE_FINGERPRINT_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-    @echo "Fingerprint Firmware link: $@"
-    @mkdir -p $(dir $@)
-    @rm -rf $@
-    $(hide) ln -sf /firmware/image/$(notdir $@) $@
+	@echo "Fingerprint Firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_FINGERPRINT_SYMLINKS)
 
@@ -65,10 +65,10 @@ FIRMWARE_MODEM_IMAGES := \
 
 FIRMWARE_MODEM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FIRMWARE_MODEM_IMAGES)))
 $(FIRMWARE_MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-    @echo "Modem Firmware link: $@"
-    @mkdir -p $(dir $@)
-    @rm -rf $@
-    $(hide) ln -sf /firmware/image/$(notdir $@) $@
+	@echo "Modem Firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_MODEM_SYMLINKS)
 
@@ -78,9 +78,9 @@ FIRMWARE_WCNSS_IMAGES := \
 
 FIRMWARE_WCNSS_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FIRMWARE_WCNSS_IMAGES)))
 $(FIRMWARE_WCNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-    @echo "WCNSS Firmware link: $@"
-    @mkdir -p $(dir $@)
-    @rm -rf $@
+	@echo "WCNSS Firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
     $(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_WCNSS_SYMLINKS)
@@ -91,10 +91,10 @@ FIRMWARE_WIDEVINE_IMAGES := \
 
 FIRMWARE_WIDEVINE_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(FIRMWARE_WIDEVINE_IMAGES)))
 $(FIRMWARE_WIDEVINE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-    @echo "Widevine Firmware link: $@"
-    @mkdir -p $(dir $@)
-    @rm -rf $@
-    $(hide) ln -sf /firmware/image/$(notdir $@) $@
+	@echo "Widevine Firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_WIDEVINE_SYMLINKS)
 

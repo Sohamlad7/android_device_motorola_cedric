@@ -81,7 +81,7 @@ $(FIRMWARE_WCNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "WCNSS Firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-    $(hide) ln -sf /firmware/image/$(notdir $@) $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_WCNSS_SYMLINKS)
 

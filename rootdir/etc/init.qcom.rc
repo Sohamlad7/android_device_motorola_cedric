@@ -804,6 +804,9 @@ service iprenew_wigig0 /system/bin/dhcpcd -n
 on property:wifi.ftmd.load=true
     insmod /system/lib/modules/pronto/pronto_wlan.ko con_mode=5
 
+on property:ro.hw.dtv=true
+    insmod /system/lib/modules/isdbt.ko
+
 service wlan_logging /system/bin/cnss_diag -q -f
     class main
     user system

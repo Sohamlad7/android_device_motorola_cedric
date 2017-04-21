@@ -78,6 +78,10 @@ void vendor_load_properties()
         property_set("ro.hw.nfc", "true");
     }
 
+    if (sku == "XT1683") {
+        property_set("ro.hw.dtv", "true");
+    }
+
     sysinfo(&sys);
 
     if (sys.totalram > 3072ull * 1024 * 1024) {

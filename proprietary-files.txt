@@ -157,7 +157,6 @@ etc/permissions/qti_permissions.xml
 -framework/qcrilhook.jar
 lib/hw/camera.msm8937.so:lib/hw/camera.vendor.msm8937.so
 lib/hw/fingerprint.msm8937.so
-lib/hw/gps.default.so
 lib/hw/sensorhub.msm8937.so
 lib/hw/sensors.msm8937.so
 lib/libadropbox.so
@@ -175,16 +174,10 @@ lib/libdtvtuner.so
 lib/libfamily_photo.so
 lib/libfilterpack_facedetect.so
 lib/lib_fpc_tac_shared.so
-lib/libgnsspps.so
-lib/libgps.utils.so
 lib/libjscore.so
 lib/libjustshoot.so
 lib/libloc_api_v02.so
-lib/libloc_core.so
 lib/libloc_ds_api.so
-lib/libloc_eng.so
-lib/libloc_pla.so
-lib/libloc_stub.so
 lib/libmbs.so
 lib/libmdmcutback.so
 lib/libmmcamera_interface.so

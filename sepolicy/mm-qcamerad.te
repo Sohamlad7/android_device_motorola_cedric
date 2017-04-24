@@ -1,3 +1,4 @@
+allow mm-qcamerad debug_prop:property_service set;
 allow mm-qcamerad laser_device:chr_file { read write ioctl open };
 allow mm-qcamerad persist_file:dir search;
 allow mm-qcamerad persist_file:file { read getattr open };

@@ -7,9 +7,11 @@
 
 # Binaries
 /system/bin/adspd                                        u:object_r:adspd_exec:s0
+/system/bin/hci_qcomm_init                               u:object_r:config_bluetooth_exec:s0
 /system/bin/init\.mmi\.boot\.sh                          u:object_r:mmi_boot_exec:s0
 /system/bin/init\.mmi\.laser\.sh                         u:object_r:mmi_laser_exec:s0
 /system/bin/init\.mmi\.touch\.sh                         u:object_r:mmi_touch_sh_exec:s0
+/system/bin/init\.oem\.hw\.sh                            u:object_r:oem-hw-sh_exec:s0
 /system/bin/motosh                                       u:object_r:sensor_hub_exec:s0
 /system/bin/akmd09912                                    u:object_r:akmd_exec:s0
 /system/bin/fm_qsoc_patches                              u:object_r:fm_qsoc_patches_exec:s0

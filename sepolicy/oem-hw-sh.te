@@ -1,0 +1,17 @@
+type oem-hw-sh, domain;
+type oem-hw-sh_exec, exec_type, file_type;
+init_daemon_domain(oem-hw-sh)
+
+allow oem-hw-sh hw_block_device:blk_file { open read write };
+allow oem-hw-sh init:unix_stream_socket connectto;
+allow oem-hw-sh kmsg_device:chr_file { write open };
+allow oem-hw-sh proc:file { write getattr open read };
+allow oem-hw-sh property_socket:sock_file write;
+allow oem-hw-sh rootfs:file {entrypoint read open };
+allow oem-hw-sh self:capability dac_override;
+allow oem-hw-sh shell_exec:file { entrypoint read getattr };
+allow oem-hw-sh system_file:file execute_no_trans;
+allow oem-hw-sh system_prop:property_service set;
+allow oem-hw-sh toolbox_exec:file { execute execute_no_trans getattr open read };
+allow oem-hw-sh touch_prop:file { getattr open read };
+allow oem-hw-sh touch_prop:property_service set;

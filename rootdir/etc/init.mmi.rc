@@ -123,8 +123,6 @@ on post-fs-data
 
     # Permissions for phone power off log
     mkdir /data/power_log 0750 root log
-    chmod 0660 /sys/module/power_supply_log/parameters/log_file
-    write /sys/module/power_supply_log/parameters/log_file /data/power_log/power_off.log
 
     # Subsystem RAM-dumps
     mkdir /data/ss-ram-dumps 0750 system log

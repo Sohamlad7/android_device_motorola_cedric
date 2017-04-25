@@ -165,6 +165,15 @@ on boot
    chown root mot_tcmd /sys/module/stml0xx/parameters/irq_disable
    chmod 0660 /sys/module/stml0xx/parameters/irq_disable
 
+   chown root mot_tcmd /sys/module/phy_msm_usb/parameters/host_mode_disable
+   chmod 0660 /sys/module/phy_msm_usb/parameters/host_mode_disable
+   chown root mot_tcmd /sys/devices/soc/7000000.ssusb/disable_id_pin
+   chmod 0220 /sys/devices/soc/7000000.ssusb/disable_id_pin
+    
+   # change permission for capsensor
+   chmod 0660 /sys/class/capsense/enable
+   chown system system sys/class/capsense/enable
+
    #STML0 device permissions
    chown system compass /dev/stml0xx
    chmod 0660 /dev/stml0xx
@@ -297,16 +306,25 @@ service fingerprintd /system/bin/fingerprintd
     group input
 
 service mmi-boot-sh /system/bin/init.mmi.boot.sh
+    seclabel u:r:mmi_boot:s0
     class core
     user root
     oneshot
 
 service mmi-laser-sh /system/bin/init.mmi.laser.sh
+    seclabel u:r:mmi_laser:s0
     class core
     user root
     oneshot
 
 service mmi-touch-sh /system/bin/init.mmi.touch.sh
+    seclabel u:r:mmi_touch:s0
+    class core
+    user root
+    oneshot
+
+service oem-hw-sh /system/bin/init.oem.hw.sh
+    seclabel u:r:oem-hw-sh:s0
     class core
     user root
     oneshot

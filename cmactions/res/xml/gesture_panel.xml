@@ -63,6 +63,12 @@
             android:title="Fingerprint Gestures"
             android:summary="Use fingerprint gestures" />
 
+        <SwitchPreference
+            android:key="fp_haptic"
+            android:dependency="fp_home"
+            android:title="Fingerprint Gestures Haptic Feedback"
+            android:summary="Vibrate on actions" />
+
         <ListPreference
             android:dependency="fp_home"
             android:title="Fingerprint Tap"

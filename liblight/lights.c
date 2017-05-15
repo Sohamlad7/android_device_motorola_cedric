@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 The CyanogenMod Project
+ * Copyright (C) 2015 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,32 +12,37 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * Blinking patterns reference:
- * https://github.com/MotorolaMobilityLLC/kernel-msm/commit/3b521f965fae990b2a7f13a6fc98fcf0ea50f66b
- *
  */
 
 #include <cutils/log.h>
+#include <cutils/properties.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <pthread.h>
+#include <math.h>
+
+#include <sys/ioctl.h>
+#include <sys/types.h>
 
 #include <hardware/lights.h>
 
 /******************************************************************************/
 
-
-#define LED_LIGHT_ON  3
 #define LED_LIGHT_OFF 0
+#define LED_LIGHT_ON 10
 
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 
+static struct light_state_t g_battery;
+static struct light_state_t g_notification;
+
 char const*const CHARGING_LED_FILE
-        = "/sys/class/leds/white/brightness";
+        = "/sys/class/leds/charging/brightness";
 
 char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
@@ -89,7 +94,7 @@ rgb_to_brightness(struct light_state_t const* state)
 }
 
 static int
-set_light_backlight(__attribute__((unused)) struct light_device_t* dev,
+set_light_backlight(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     int err = 0;
@@ -101,28 +106,52 @@ set_light_backlight(__attribute__((unused)) struct light_device_t* dev,
 }
 
 static int
-set_light_notifications(struct light_device_t* dev, struct light_state_t const* state)
+set_speaker_light_locked(struct light_device_t* dev,
+        struct light_state_t const* state)
 {
     int brightness_level;
-    int err = 0;
-
-    if (!dev)
-        return -1;
-
-    pthread_mutex_lock(&g_lock);
 
     if (is_lit(state))
         brightness_level = LED_LIGHT_ON;
     else
         brightness_level = LED_LIGHT_OFF;
 
-    err = write_int(CHARGING_LED_FILE, brightness_level);
+    return write_int(CHARGING_LED_FILE, brightness_level);
+}
 
+static void
+handle_speaker_battery_locked(struct light_device_t* dev)
+{
+    if (is_lit(&g_notification)) {
+        set_speaker_light_locked(dev, &g_notification);
+    } else {
+        set_speaker_light_locked(dev, &g_battery);
+    }
+}
+
+static int
+set_light_battery(struct light_device_t* dev,
+        struct light_state_t const* state)
+{
+    int err = 0;
+    pthread_mutex_lock(&g_lock);
+    g_battery = *state;
+    handle_speaker_battery_locked(dev);
     pthread_mutex_unlock(&g_lock);
     return err;
 }
 
-
+static int
+set_light_notifications(struct light_device_t* dev,
+        struct light_state_t const* state)
+{
+    int err = 0;
+    pthread_mutex_lock(&g_lock);
+    g_notification = *state;
+    handle_speaker_battery_locked(dev);
+    pthread_mutex_unlock(&g_lock);
+    return err;
+}
 
 /** Close the lights device */
 static int
@@ -152,6 +181,8 @@ static int open_lights(const struct hw_module_t* module, char const* name,
         set_light = set_light_backlight;
     else if (0 == strcmp(LIGHT_ID_NOTIFICATIONS, name))
         set_light = set_light_notifications;
+    else if (0 == strcmp(LIGHT_ID_BATTERY, name))
+        set_light = set_light_battery;
     else
         return -EINVAL;
 
@@ -182,7 +213,8 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
     .version_major = 1,
     .version_minor = 0,
     .id = LIGHTS_HARDWARE_MODULE_ID,
-    .name = "MSM8953 lights Module",
-    .author = "Google, Inc., Alberto97, dhacker29",
+    .name = "lights Module",
+    .author = "Google, Inc., dhacker29",
     .methods = &lights_module_methods,
 };
+

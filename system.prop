@@ -77,6 +77,11 @@ ro.core_ctl_max_cpu=4
 ro.core_ctl_min_cpu=2
 
 # Dalvik
+dalvik.vm.heapgrowthlimit=192m
+dalvik.vm.heapmaxfree=8m
+dalvik.vm.heapminfree=512k
+dalvik.vm.heapsize=384m
+dalvik.vm.heapstartsize=8m
 dalvik.vm.heaptargetutilization=0.75
 
 # Display

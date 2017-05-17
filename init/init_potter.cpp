@@ -27,9 +27,7 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <fcntl.h>
 #include <stdlib.h>
-#include <sys/sysinfo.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
@@ -51,7 +49,6 @@ void num_sims() {
 
 void vendor_load_properties()
 {
-    struct sysinfo sys;
     std::string platform = property_get("ro.board.platform");
 
     if (platform != ANDROID_TARGET)
@@ -81,27 +78,5 @@ void vendor_load_properties()
     if (sku == "XT1683") {
         property_set("ro.hw.dtv", "true");
     }
-
-    sysinfo(&sys);
-
-    if (sys.totalram > 3072ull * 1024 * 1024) {
-        property_set("dalvik.vm.heapstartsize", "8m");
-        property_set("dalvik.vm.heapgrowthlimit", "384m");
-        property_set("dalvik.vm.heapsize", "1024m");
-        property_set("dalvik.vm.heapminfree", "4m");
-        property_set("dalvik.vm.heapmaxfree", "16m");
-    } else if (sys.totalram > 2048ull * 1024 * 1024) {
-        property_set("dalvik.vm.heapstartsize", "8m");
-        property_set("dalvik.vm.heapgrowthlimit", "288m");
-        property_set("dalvik.vm.heapsize", "768m");
-        property_set("dalvik.vm.heapminfree", "512k");
-        property_set("dalvik.vm.heapmaxfree", "8m");
-    } else {
-        property_set("dalvik.vm.heapstartsize", "16m");
-        property_set("dalvik.vm.heapgrowthlimit", "192m");
-        property_set("dalvik.vm.heapsize", "512m");
-        property_set("dalvik.vm.heapminfree", "2m");
-        property_set("dalvik.vm.heapmaxfree", "8m");
-   }
 }
 

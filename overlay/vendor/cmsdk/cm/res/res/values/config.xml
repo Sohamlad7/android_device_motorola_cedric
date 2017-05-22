@@ -39,4 +39,18 @@
          battery LEDs would set this config to 11. -->
     <integer name="config_deviceLightCapabilities">0</integer>
 
+    <!-- Display mode remapping table.
+         If the mode names returned by the backend do not match
+         the predefined and translated strings in the Settings
+         app, they can be remapped here. The format is
+         "oldname:newname", one per entry. -->
+    <string-array name="config_displayModeMappings" translatable="false">
+        <item>Standard:standard</item>
+        <item>Vibrant:dynamic</item>
+        <item>Native:astronomy</item>
+    </string-array>
+
+    <!-- Should we filter any display modes which are unampped? -->
+    <bool name="config_filterDisplayModes">true</bool>
+
 </resources>

@@ -151,12 +151,6 @@ on boot
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
     setprop net.tcp.buffersize.wifi    524288,2097152,4194304,262144,524288,1048576
 
-
-    setprop ro.telephony.call_ring.multiple false
-
-    #enable camera read sensors data
-    setprop persist.camera.gyro.disable 0
-
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
     #For bridgemgr daemon to inform the USB driver of the correct transport
@@ -233,9 +227,6 @@ on boot
     chmod 0664 /sys/class/graphics/fb0/mode
     chown system graphics /sys/class/graphics/fb0/msm_cmd_autorefresh_en
     chmod 0664 /sys/class/graphics/fb0/msm_cmd_autorefresh_en
-
-    setprop debug.gralloc.enable_fb_ubwc 1
-    setprop debug.gralloc.gfx_ubwc_disable 0
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -592,28 +583,6 @@ on property:bluetooth.hciattach=true
 on property:bluetooth.hciattach=false
     setprop bluetooth.status off
 
-#service hciattach_ath3k /system/bin/sh /system/etc/init.ath3k.bt.sh
-#     class late_start
-#     user bluetooth
-#     group system bluetooth net_bt_admin misc
-#     disabled
-#     oneshot
-
-# Service not used
-#service bt-dun /system/bin/dun-server /dev/smd7 /dev/rfcomm0
-#    class late_start
-#    user bluetooth
-#    group bluetooth net_bt_admin inet
-#    disabled
-#    oneshot
-
-#service bt-sap /system/bin/sapd 15
-#    user bluetooth
-#    group bluetooth net_bt_admin
-#    class late_start
-#    disabled
-#    oneshot
-
 service btsnoop /system/bin/btsnoop
    user bluetooth
    group bluetooth net_bt_admin sdcard_rw sdcard_r media_rw
@@ -628,31 +597,12 @@ service ftmd /system/bin/ftmdaemon
     disabled
     oneshot
 
-#service bridgemgrd /system/bin/bridgemgrd
-#    class late_start
-#    user radio
-#    group radio qcom_diag
-#    disabled
-
 service port-bridge /system/bin/port-bridge
     class main
     user radio system
     group radio system inet
     disabled
     oneshot
-
-#service qmiproxy /system/bin/qmiproxy
-#    class main
-#    user radio
-#    group radio qcom_diag
-#    disabled
-
-# QMUX must be in multiple groups to support external process connections
-#service qmuxd /system/bin/qmuxd
-#    class main
-#    user root
-#    group radio audio bluetooth gps nfc qcom_diag
-#    disabled
 
 service netmgrd /system/bin/netmgrd
     class main
@@ -837,29 +787,6 @@ service qcom-sh /system/bin/sh /init.qcom.sh
     user root
     oneshot
 
-service sensor-sh /system/bin/sh /init.qcom.sensors.sh
-    class core
-    user root
-    oneshot
-
-service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
-    class late_start
-    user root
-    disabled
-    oneshot
-
-service wifi-sdio-on /system/bin/sh /system/etc/init.qcom.sdio.sh
-    class late_start
-    group wifi inet
-    disabled
-    oneshot
-
-service wifi-crda /system/bin/sh /system/etc/init.crda.sh
-   class late_start
-   user root
-   disabled
-   oneshot
-
 service atfwd /system/bin/ATFWD-daemon
     class late_start
     user system
@@ -872,31 +799,9 @@ service hostapd /system/bin/hostapd -dd /data/misc/wifi/hostapd.conf
     oneshot
     disabled
 
-#service ds_fmc_appd /system/bin/ds_fmc_appd -p "rmnet0" -D
-#    class late_start
-#    group radio wifi inet
-#    disabled
-#    oneshot
-
-#on property:persist.data.ds_fmc_app.mode=1
-#    start ds_fmc_appd
-
-#service ims_regmanager /system/bin/exe-ims-regmanagerprocessnative
-#    class late_start
-#    group net_bt_admin inet radio wifi
-#    disabled
-
-#on property:persist.ims.regmanager.mode=1
-#    start ims_regmanager
-
 on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
-
-#service battery_monitor /system/bin/battery_monitor
-#    user system
-#    group system
-#    disabled
 
 service ril-daemon2 /system/bin/rild -c 2
     class main
@@ -913,21 +818,6 @@ service ril-daemon3 /system/bin/rild -c 3
     user root
     disabled
     group radio cache inet misc audio sdcard_r sdcard_rw qcom_diag diag log
-
-#service usb_uicc_enable /system/bin/sh /system/etc/init.qcom.uicc.sh
-#    class late_start
-#    user root
-#    disabled
-#    oneshot
-
-#service usb_uicc_daemon /system/bin/usb_uicc_client
-#    class main
-#    user system
-#    group system log net_raw
-#    oneshot
-
-#on property:sys.usb_uicc.enabled=1
-#    start usb_uicc_enable
 
 service hostapd /system/bin/hostapd -dd /data/misc/wifi/hostapd.conf
     class late_start

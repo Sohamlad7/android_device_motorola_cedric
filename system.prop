@@ -192,7 +192,7 @@ persist.radio.sib16_support=1
 persist.rcs.presence.provision=0
 persist.rcs.supported=0
 persist.rmnet.mux=enabled
-
+ro.telephony.call_ring.multiple=false
 
 ro.use_data_netmgrd=true
 persist.data.qmi.adb_logmask=0

@@ -47,7 +47,7 @@
     <string-array name="config_displayModeMappings" translatable="false">
         <item>Standard:standard</item>
         <item>Vibrant:dynamic</item>
-        <item>Native:astronomy</item>
+        <item>Comfort:astronomy</item>
     </string-array>
 
     <!-- Should we filter any display modes which are unampped? -->

@@ -56,6 +56,7 @@ camera.hal1.packagelist=com.skype.raider,com.google.android.talk
 camera.mot.startup_probing=0
 persist.camera.debug.logfile=0
 persist.camera.gyro.disable=0
+debug.camera.control_pdaf=on
 
 vidc.dec.downscalar_width=1920
 vidc.dec.downscalar_height=1088

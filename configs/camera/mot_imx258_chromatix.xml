@@ -1,5 +1,5 @@
 <!--
-  Copyright (c) 2016 Qualcomm Technologies, Inc.
+  Copyright (c) 2015 Qualcomm Technologies, Inc.
   All Rights Reserved.
   Confidential and Proprietary - Qualcomm Technologies, Inc.
 -->
@@ -78,57 +78,35 @@ special_mode_mask values:
 
 <ChromatixConfigurationRoot>
   <CommonChromatixInfo>
-    <ChromatixName special_mode_mask="0">
-      <ISPCommon>mot_imx362_common</ISPCommon>
-      <PostProc>mot_imx362_postproc</PostProc>
-    </ChromatixName>
-    <ChromatixName special_mode_mask="MOT_4K_VIDEO">
-      <ISPVideo>mot_imx362_video_4k</ISPVideo>
-      <CPPVideo>mot_imx362_cpp_video_4k</CPPVideo>
-      <A3Video>mot_imx362_4k_video_3a</A3Video>
+    <ChromatixName>
+      <ISPCommon>mot_imx258_common</ISPCommon>
+      <PostProc>mot_imx258_postproc</PostProc>
+      <CPPPreview>mot_imx258_cpp_preview</CPPPreview>
+      <CPPSnapshot>mot_imx258_cpp_snapshot</CPPSnapshot>
+      <CPPLiveshot>mot_imx258_cpp_liveshot</CPPLiveshot>
     </ChromatixName>
     <ChromatixName special_mode_mask="MOT_ALTM_IHDR_VIDEO">
-      <ISPVideo>mot_imx362_ihdr_video</ISPVideo>
-      <A3Video>mot_imx362_ihdr_video_3a</A3Video>
-    </ChromatixName>
-    <ChromatixName special_mode_mask="MOT_4K_IHDR_VIDEO">
-      <ISPVideo>mot_imx362_ihdr_video_4k</ISPVideo>
-      <A3Video>mot_imx362_4k_ihdr_video_3a</A3Video>
+      <ISPVideo>mot_imx258_ihdr_video</ISPVideo>
+      <A3Video>mot_imx258_ihdr_video_3a</A3Video>
     </ChromatixName>
   </CommonChromatixInfo>
   <ResolutionChromatixInfo>
-    <ChromatixName sensor_resolution_index="0" special_mode_mask="0">
-      <ISPPreview>mot_imx362_snapshot</ISPPreview>
-      <ISPSnapshot>mot_imx362_snapshot</ISPSnapshot>
-      <ISPVideo>mot_imx362_default_video</ISPVideo>
-      <CPPPreview>mot_imx362_cpp_preview</CPPPreview>
-      <CPPSnapshot>mot_imx362_cpp_snapshot</CPPSnapshot>
-      <CPPVideo>mot_imx362_cpp_video</CPPVideo>
-      <CPPLiveshot>mot_imx362_cpp_liveshot</CPPLiveshot>
-      <A3Preview>mot_imx362_fullsize_preview_3a</A3Preview>
-      <A3Video>mot_imx362_fullsize_video_3a</A3Video>
+    <ChromatixName sensor_resolution_index="0">
+      <ISPPreview>mot_imx258_snapshot</ISPPreview>
+      <ISPSnapshot>mot_imx258_snapshot</ISPSnapshot>
+      <ISPVideo>mot_imx258_default_video</ISPVideo>
+      <CPPVideo>mot_imx258_cpp_video</CPPVideo>
+      <A3Preview>mot_imx258_zsl_preview_3a</A3Preview>
+      <A3Video>mot_imx258_zsl_video_3a</A3Video>
     </ChromatixName>
-    <ChromatixName sensor_resolution_index="1" special_mode_mask="0">
-      <ISPPreview>mot_imx362_hfr_60</ISPPreview>
-      <ISPSnapshot>mot_imx362_hfr_60</ISPSnapshot>
-      <ISPVideo>mot_imx362_hfr_60</ISPVideo>
-      <CPPPreview>mot_imx362_cpp_hfr_60</CPPPreview>
-      <CPPSnapshot>mot_imx362_cpp_hfr_60</CPPSnapshot>
-      <CPPVideo>mot_imx362_cpp_hfr_60</CPPVideo>
-      <CPPLiveshot>mot_imx362_cpp_hfr_60</CPPLiveshot>
-      <A3Preview>mot_imx362_hfr_60_3a</A3Preview>
-      <A3Video>mot_imx362_hfr_60_3a</A3Video>
-    </ChromatixName>
-    <ChromatixName sensor_resolution_index="2" special_mode_mask="0">
-      <ISPPreview>mot_imx362_hfr_120</ISPPreview>
-      <ISPSnapshot>mot_imx362_hfr_120</ISPSnapshot>
-      <ISPVideo>mot_imx362_hfr_120</ISPVideo>
-      <CPPPreview>mot_imx362_cpp_hfr_120</CPPPreview>
-      <CPPSnapshot>mot_imx362_cpp_hfr_120</CPPSnapshot>
-      <CPPVideo>mot_imx362_cpp_hfr_120</CPPVideo>
-      <CPPLiveshot>mot_imx362_cpp_hfr_120</CPPLiveshot>
-      <A3Preview>mot_imx362_hfr_120_3a</A3Preview>
-      <A3Video>mot_imx362_hfr_120_3a</A3Video>
+    <ChromatixName sensor_resolution_index="1">
+      <ISPPreview>mot_imx258_hfr_120</ISPPreview>
+      <ISPSnapshot>mot_imx258_hfr_120</ISPSnapshot>
+      <ISPVideo>mot_imx258_hfr_120</ISPVideo>
+      <CPPVideo>mot_imx258_cpp_hfr_120</CPPVideo>
+      <A3Preview>mot_imx258_hfr_120_3a</A3Preview>
+      <A3Video>mot_imx258_hfr_120_3a</A3Video>
     </ChromatixName>
   </ResolutionChromatixInfo>
 </ChromatixConfigurationRoot>
+

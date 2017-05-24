@@ -17,7 +17,7 @@
 
 set -e
 
-DEVICE=potter
+DEVICE=cedric
 VENDOR=motorola
 
 # Load extractutils and do some sanity checks

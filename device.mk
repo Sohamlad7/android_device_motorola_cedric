@@ -27,8 +27,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
@@ -62,7 +60,7 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_PACKAGES += \
     audiod \
     audio.a2dp.default \
-    audio.primary.msm8953 \
+    audio.primary.msm8937 \
     audio.r_submix.default \
     audio.usb.default \
     libaudio-resampler \
@@ -70,7 +68,11 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libqcompostprocbundle \
     libshim_adsp \
-    tinymix
+    tinymix \
+    cplay \
+    tinycap \
+    tinypcminfo \
+    tinyplay
 
 PRODUCT_COPY_FILES +=  \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
@@ -95,16 +97,14 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm8953 \
     libbson \
     libshim_camera \
     Snap
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/camera/msm8953_mot_potter_camera.xml:system/etc/camera/msm8953_mot_potter_camera.xml \
+    $(LOCAL_PATH)/configs/camera/msm8937_mot_camera.xml:system/etc/camera/msm8937_mot_camera.xml \
     $(LOCAL_PATH)/configs/camera/mot_ov5695_chromatix.xml:system/etc/camera/mot_ov5695_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/mot_imx362_chromatix.xml:system/etc/camera/mot_imx362_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/vfwconfig.json:system/etc/camera/vfwconfig.json
+    $(LOCAL_PATH)/configs/camera/mot_imx258_chromatix.xml:system/etc/camera/mot_imx258_chromatix.xml
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/flp.conf:system/etc/flp.conf \
@@ -120,20 +120,16 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    gralloc.msm8953 \
-    copybit.msm8953 \
+    gralloc.msm8937 \
+    copybit.msm8937 \
     liboverlay \
-    hwcomposer.msm8953 \
-    memtrack.msm8953 \
+    hwcomposer.msm8937 \
+    memtrack.msm8937 \
     libtinyxml
 
 # Display Calibration
-PRODUCT_PACKAGES += \
-    libjni_livedisplay
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_boe_1080p_520.xml:system/etc/qdcm_calib_data_mipi_mot_vid_boe_1080p_520.xml \
-    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_tianma_1080p_520.xml:system/etc/qdcm_calib_data_mipi_mot_vid_tianma_1080p_520.xml
+# PRODUCT_PACKAGES += \
+#    libjni_livedisplay
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -152,7 +148,9 @@ PRODUCT_PACKAGES += \
 # FM
 PRODUCT_PACKAGES += \
     FMRadio \
-    libfmjni
+    libfmjni \
+    fmhalservice \
+    libqcomfm_jni
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
@@ -175,8 +173,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/ft5x06_ts.kl:system/usr/keylayout/ft5x06_ts.kl \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    $(LOCAL_PATH)/keylayout/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl \
     $(LOCAL_PATH)/keylayout/synaptics_dsx.kl:system/usr/keylayout/synaptics_dsx.kl \
-    $(LOCAL_PATH)/keylayout/synaptics_dsxv26.kl:system/usr/keylayout/synaptics_dsxv26.kl \
     $(LOCAL_PATH)/keylayout/synaptics_rmi4_i2c.kl:system/usr/keylayout/synaptics_rmi4_i2c.kl \
     $(LOCAL_PATH)/keylayout/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl
 
@@ -186,11 +184,12 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.msm8953
+    lights.msm8937
 
 # Media
 PRODUCT_PACKAGES += \
-    libc2dcolorconvert
+    libc2dcolorconvert \
+    libmm-omxcore
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
@@ -202,22 +201,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
-
-# NFC
-PRODUCT_COPY_FILES += \
-    frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-    $(LOCAL_PATH)/configs/libnfc-nxp.conf:system/etc/libnfc-nxp.conf
-
-PRODUCT_PACKAGES += \
-    libnfc \
-    libnfc_jni \
-    nfc_nci.pn54x.default \
-    NfcNci \
-    Tag \
-    com.android.nfc_extras
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -233,7 +216,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.msm8953
+    power.msm8937
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -251,14 +234,11 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     ueventd.qcom.rc
 
-# Releasetools script
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/check_features.sh:install/bin/check_features.sh
-
 # RIL
 PRODUCT_PACKAGES += \
     librmnetctl \
-    libxml2
+    libxml2 \
+    rmnetcli
 
 # Sensors
 PRODUCT_COPY_FILES += \
@@ -267,7 +247,7 @@ PRODUCT_COPY_FILES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine-potter.conf:system/etc/thermal-engine-potter.conf
+    $(LOCAL_PATH)/configs/thermal-engine-cedric.conf:system/etc/thermal-engine-cedric.conf
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -285,7 +265,8 @@ PRODUCT_PACKAGES += \
     libqsap_sdk \
     libQWiFiSoftApCfg \
     tcpdump \
-    wcnss_service
+    wcnss_service \
+    libwifi-hal-qcom
 
 # Wifi Symlinks
 PRODUCT_PACKAGES += \
@@ -297,7 +278,7 @@ PRODUCT_PACKAGES += \
     WCNSS_wlan_dictionary.dat
 
 PRODUCT_COPY_FILES += \
-    kernel/motorola/msm8953/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+    kernel/motorola/msm8937/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 
 # ZAF

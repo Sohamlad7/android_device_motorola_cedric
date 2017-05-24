@@ -14,9 +14,9 @@
 # limitations under the License.
 #
 
-# Inherit from potter device
-$(call inherit-product, device/motorola/potter/device.mk)
+# Inherit from cedric device
+$(call inherit-product, device/motorola/cedric/device.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := potter
-PRODUCT_NAME := full_potter
+PRODUCT_DEVICE := cedric
+PRODUCT_NAME := full_cedric

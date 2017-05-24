@@ -1,4 +1,4 @@
-# Proprietary files for potter
+# Proprietary files for cedric
 
 -app/datastatusnotification/datastatusnotification.apk
 -app/embms/embms.apk

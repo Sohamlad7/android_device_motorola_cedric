@@ -1,5 +1,5 @@
 #
-# system.prop for potter
+# system.prop for cedric
 #
 
 # Android Run Time
@@ -56,15 +56,6 @@ camera.hal1.packagelist=com.skype.raider,com.google.android.talk
 camera.mot.startup_probing=0
 persist.camera.debug.logfile=0
 persist.camera.gyro.disable=0
-debug.camera.control_pdaf=on
-
-persist.camera.pdaf_logging=1
-persist.camera.stats.TuningDbg=1
-persist.camera.pdaf.debug_mask=1
-persist.camera.log3a=1
-persist.camera.z.log_level=2
-persist.camera.hal.debug=1
-persist.camera.dpd.log_level=2
 
 vidc.dec.downscalar_width=1920
 vidc.dec.downscalar_height=1088
@@ -201,7 +192,7 @@ persist.radio.sib16_support=1
 persist.rcs.presence.provision=0
 persist.rcs.supported=0
 persist.rmnet.mux=enabled
-ro.telephony.call_ring.multiple=false
+
 
 ro.use_data_netmgrd=true
 persist.data.qmi.adb_logmask=0

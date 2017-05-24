@@ -14,20 +14,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
--include vendor/motorola/potter/BoardConfigVendor.mk
+-include vendor/motorola/cedric/BoardConfigVendor.mk
 
-DEVICE_PATH := device/motorola/potter
+LOCAL_PATH := device/motorola/cedric
 
 BOARD_VENDOR := motorola-qcom
 
-TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Platform
-TARGET_BOARD_PLATFORM := msm8953
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno506
+TARGET_BOARD_PLATFORM := msm8937
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno505
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := MSM8953
+TARGET_BOOTLOADER_BOARD_NAME := MSM8937
 TARGET_NO_BOOTLOADER := true
 
 # Architecture
@@ -38,23 +38,22 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a53
 
 # Asserts
-TARGET_OTA_ASSERT_DEVICE := potter,potter_retail
-
-# Init
-TARGET_INIT_VENDOR_LIB := libinit_potter
-TARGET_RECOVERY_DEVICE_MODULES := libinit_potter
+TARGET_OTA_ASSERT_DEVICE := cedric,cedric_retail
+BLOCK_BASED_OTA := false
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237
 BOARD_KERNEL_CMDLINE += ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 vmalloc=350M
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
+BOARD_KERNEL_LZ4C_DT := true
 TARGET_CUSTOM_DTBTOOL := dtbTool_moto
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_ARCH := arm
-TARGET_KERNEL_CONFIG := potter_defconfig
-TARGET_KERNEL_SOURCE := kernel/motorola/msm8953
+TARGET_KERNEL_CONFIG := lineageos_cedric_defconfig
+TARGET_KERNEL_SOURCE := kernel/motorola/msm8937
 
 # Audio
 AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := true
@@ -71,7 +70,7 @@ USE_CUSTOM_AUDIO_POLICY := 1
 USE_XML_AUDIO_POLICY_CONF := 1
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
@@ -104,6 +103,8 @@ USE_OPENGL_RENDERER := true
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 
+TARGET_USES_SDM := false
+
 # FM
 BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
@@ -123,7 +124,7 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216        #    16384 * 1024 mmcblk0p37
 BOARD_CACHEIMAGE_PARTITION_SIZE := 260014080      #   253920 * 1024 mmcblk0p52
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16879616    #    16484 * 1024 mmcblk0p38
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3510353920    #  3428080 * 1024 mmcblk0p53
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3455451136    #  3428080 * 1024 mmcblk0p53
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 26401026048 # 25782252 * 1024 mmcblk0p54
 
 # Peripheral manager
@@ -143,28 +144,24 @@ BOARD_PROVIDES_RILD := true
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-# Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)/releasetools
-
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
 
 # Sensor
 USE_SENSOR_MULTI_HAL := true
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
-BOARD_HAS_QCOM_WLAN_SDK := true
 BOARD_WLAN_DEVICE := qcwcn
 BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
-WIFI_DRIVER_FW_PATH_AP := "ap"
-WIFI_DRIVER_FW_PATH_STA := "sta"
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
+WIFI_DRIVER_MODULE_NAME := "wlan"
 WPA_SUPPLICANT_VERSION := VER_0_8_X

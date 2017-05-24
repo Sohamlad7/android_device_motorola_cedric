@@ -58,6 +58,14 @@ persist.camera.debug.logfile=0
 persist.camera.gyro.disable=0
 debug.camera.control_pdaf=on
 
+persist.camera.pdaf_logging=1
+persist.camera.stats.TuningDbg=1
+persist.camera.pdaf.debug_mask=1
+persist.camera.log3a=1
+persist.camera.z.log_level=2
+persist.camera.hal.debug=1
+persist.camera.dpd.log_level=2
+
 vidc.dec.downscalar_width=1920
 vidc.dec.downscalar_height=1088
 vidc.dec.disable.split.cpu=1

@@ -123,10 +123,10 @@ static char *camera_fixup_getparams(int id, const char *settings)
     params.set("visionfw", "on");
     params.set("pdaf-control-mode", "on");
     params.set("af-roi-enabled", "on");
-    #params.set("auto-exposure", "frame-average");
-    #params.set("dbg-log-aec", "frame-average");
-    #params.set("dbg-log-awb", "frame-average");
-    #params.set("dbg-log-af", "on");
+    //params.set("auto-exposure", "frame-average");
+    //params.set("dbg-log-aec", "frame-average");
+    //params.set("dbg-log-awb", "frame-average");
+    //params.set("dbg-log-af", "on");
 
 
 #if !LOG_NDEBUG

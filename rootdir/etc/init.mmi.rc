@@ -137,7 +137,7 @@ on post-fs-data
 
     # Required by FingerPrint Cards (FPC) via init so we don't need to give qseecomd or fingerprintd permissions to create them
     mkdir /data/fpc 0700 system system
-    mkdir /data/.fps 0770 system input
+    mkdir /data/.fps 0770 system fingerp
 
     #Folder for hardware properties
     mkdir /data/hardware_revisions 0755 system system
@@ -192,12 +192,12 @@ on boot
    chmod 0660 /sys/class/i2c-adapter/i2c-2/2-002d/hsic_vdd
 
    # Change permission for fingerprint sensor
-   chown system mot_tcmd /sys/bus/spi/devices/spi8.0/nav
-   chown system mot_tcmd /sys/bus/spi/devices/spi8.0/clk_enable
-   chown system mot_tcmd /sys/bus/spi/devices/spi8.0/dev_enable
-   chown system mot_tcmd /sys/bus/spi/devices/spi8.0/irq
-   chown system mot_tcmd /sys/bus/spi/devices/spi8.0/irq_cnt
-   chmod 0440 /sys/bus/spi/devices/spi8.0/irq_cnt
+   chown system mot_tcmd /sys/bus/spi/devices/spi6.0/nav
+   chown system mot_tcmd /sys/bus/spi/devices/spi6.0/clk_enable
+   chown system mot_tcmd /sys/bus/spi/devices/spi6.0/dev_enable
+   chown system mot_tcmd /sys/bus/spi/devices/spi6.0/irq
+   chown system mot_tcmd /sys/bus/spi/devices/spi6.0/irq_cnt
+   chmod 0440 /sys/bus/spi/devices/spi6.0/irq_cnt
 
  # Change ownership and permission for backlight
    chown system system /sys/class/backlight/lcd-backlight:0/brightness
@@ -276,7 +276,7 @@ on charger
     class_stop late_start
 
 on moto-charger
-    setprop ro.board.platform msm8953
+    setprop ro.board.platform msm8937
     trigger firmware_mounts_complete
     start batt_health
     start thermal-com

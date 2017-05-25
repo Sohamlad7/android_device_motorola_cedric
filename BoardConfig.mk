@@ -39,7 +39,6 @@ TARGET_CPU_VARIANT := cortex-a53
 
 # Asserts
 TARGET_OTA_ASSERT_DEVICE := cedric,cedric_retail
-BLOCK_BASED_OTA := false
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237

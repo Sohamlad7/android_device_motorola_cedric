@@ -1,7 +1,7 @@
 [
   {
-    "repository":  "android_kernel_motorola_msm8937",
-    "target_path": "kernel/motorola/msm8937"
+    "repository":  "android_kernel_motorola_msm8953",
+    "target_path": "kernel/motorola/msm8953"
   },
   {
     "repository": "android_device_qcom_common",

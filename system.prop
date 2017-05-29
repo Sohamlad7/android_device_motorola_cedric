@@ -49,6 +49,9 @@ ro.bluetooth.hfp.ver=1.7
 ro.cutoff_voltage_mv=3400
 
 # Camera
+persist.camera.is_type=1
+persist.camera.gyro.android=1
+
 camera.disable_zsl_mode=1
 camera.display.umax=1920x1080
 camera.display.lmax=1280x720

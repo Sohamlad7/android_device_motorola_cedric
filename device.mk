@@ -249,7 +249,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2 \
-    rmnetcli
+    rmnetcli \
+    libshim_ril
 
 # Sensors
 PRODUCT_COPY_FILES += \

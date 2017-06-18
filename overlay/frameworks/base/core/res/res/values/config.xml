@@ -198,24 +198,9 @@
         on the headphone/microphone jack. When false use the older uevent framework. -->
     <bool name="config_useDevInputEventForAudioJack">true</bool>
 
-    <!-- Values for GPS configuration -->
-    <string-array name="config_gpsParameters">
-        <item>XTRA_SERVER_1=https://xtrapath1.izatcloud.net/xtra2.bin</item>
-        <item>XTRA_SERVER_2=https://xtrapath2.izatcloud.net/xtra2.bin</item>
-        <item>XTRA_SERVER_3=https://xtrapath3.izatcloud.net/xtra2.bin</item>
-        <item>NTP_SERVER=north-america.pool.ntp.org</item>
-        <item>SUPL_MODE=0</item>
-        <item>SUPL_HOST=NONE</item>
-        <item>SUPL_PORT=7275</item>
-        <item>SUPL_VER=0x20000</item>
-        <item>LPP_PROFILE=3</item>
-        <item>NMEA_PROVIDER=0</item>
-        <item>A_GLONASS_POS_PROTOCOL_SELECT=0</item>
-        <item>ERR_ESTIMATE=0</item>
-        <item>INTERMEDIATE_POS=0</item>
-        <item>SUPL_ES=0</item>
-        <item>GPS_LOCK=2</item>
-    </string-array>
+    <!-- Enable overlay for all location components. -->
+    <string name="config_networkLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
+    <string name="config_fusedLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
 
     <!-- Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">4</integer>

@@ -15,10 +15,9 @@
 /system/bin/wlan_carrier_bin\.sh                         u:object_r:init_wifi_exec:s0
 /system/bin/motosh                                       u:object_r:sensor_hub_exec:s0
 /system/bin/akmd09912                                    u:object_r:akmd_exec:s0
-/system/bin/fm_qsoc_patches                              u:object_r:fm_qsoc_patches_exec:s0
 
 # Camera
-/sys/kernel/range(/.*)?                                  u:object_r:sysfs_mmi_laser:s0
+/sys/kernel/range(/.*)?                                 u:object_r:sysfs_mmi_laser:s0
 
 # CMActions
 /sys/homebutton(/.*)?                                    u:object_r:sysfs_homebutton:s0

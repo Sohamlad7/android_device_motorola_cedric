@@ -100,7 +100,6 @@ USE_OPENGL_RENDERER := true
 
 # FM
 BOARD_HAVE_QCOM_FM := true
-TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm

@@ -240,6 +240,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.mmi.touch.sh \
     init.qcom.ril.sh \
+    init.qcom.bt.sh \
+    init.qcom.fm.sh \
     wlan_carrier_bin.sh
 
 PRODUCT_PACKAGES += \

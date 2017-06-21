@@ -23,6 +23,7 @@ audio_hal.period_size=240
 av.offload.enable=false
 av.debug.disable.pers.cache=1
 persist.audio.endcall.delay=250
+qcom.hw.aac.encoder=false
 
 persist.audio.calfile0=/etc/acdbdata/Bluetooth_cal.acdb
 persist.audio.calfile1=/etc/acdbdata/General_cal.acdb

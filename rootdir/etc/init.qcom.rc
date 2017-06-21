@@ -552,7 +552,7 @@ on property:sys.shutdown.requested=*
     stop per_proxy
 
 on property:ro.hw.ecompass=true
-    start ecompassd
+    enable ecompassd
 
 service config_bt_addr /system/bin/btnvtool -O
     class core
@@ -772,7 +772,6 @@ service fm_qsoc_patches /system/bin/fm_qsoc_patches 199217 0
     class late_start
     user bluetooth
     group bluetooth net_bt_admin net_admin
-    oneshot
 
 on property:crypto.driver.load=1
      insmod /system/lib/modules/qce.ko

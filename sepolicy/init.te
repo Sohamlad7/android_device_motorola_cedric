@@ -12,6 +12,8 @@ allow init socket_device:sock_file { create setattr unlink };
 allow init system_data_file:file { rename append };
 allow init firmware_file:dir mounton;
 
+allow init fm_radio_device:chr_file write;
+
 # ptt_socket_app
 allow init dnsproxyd_socket:sock_file write;
 allow init netd:unix_stream_socket connectto;

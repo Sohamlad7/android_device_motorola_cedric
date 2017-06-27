@@ -104,11 +104,12 @@ persist.ims.disableDebugLogs=0
 persist.ims.disableIMSLogs=0
 persist.ims.disableQXDMLogs=0
 persist.ims.rcs=false
-persist.ims.volte=true
+persist.ims.volte=false
 persist.ims.vt=false
 persist.ims.vt.epdg=false
 persist.mm.sta.enable=0
 persist.vt.supported=0
+ro.config.hw_volte_on=true
 
 # Media
 media.aac_51_output_enabled=true

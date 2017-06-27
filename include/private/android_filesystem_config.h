@@ -68,7 +68,6 @@
 #define AID_MTP           1024  /* MTP USB driver access */
 #define AID_UNUSED2       1025  /* deprecated, DO NOT USE */
 #define AID_DRMRPC        1026  /* group for drm rpc */
-#define AID_NFC           1027  /* nfc subsystem */
 #define AID_SDCARD_R      1028  /* external storage read access */
 #define AID_CLAT          1029  /* clat part of nat464 */
 #define AID_LOOP_RADIO    1030  /* loop radio devices */
@@ -211,7 +210,6 @@ static const struct android_id_info android_ids[] = {
     { "mtp",           AID_MTP, },
     // AID_UNUSED2
     { "drmrpc",        AID_DRMRPC, },
-    { "nfc",           AID_NFC, },
     { "sdcard_r",      AID_SDCARD_R, },
     { "clat",          AID_CLAT, },
     { "loop_radio",    AID_LOOP_RADIO, },

@@ -85,8 +85,6 @@
 /dev/mot_hob_ram                                         u:object_r:hob_device:s0
 
 
-/dev/bcm2079x-i2c                                        u:object_r:nfc_device:s0
-
 /dev/fb_quickdraw                                        u:object_r:graphics_fb_device:s0
 
 # Partitions

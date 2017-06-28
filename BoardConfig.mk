@@ -77,7 +77,6 @@ BLUETOOTH_HCI_USE_MCT := true
 # Camera
 TARGET_CAMERASERVICE_CLOSES_NATIVE_HANDLES := true
 USE_DEVICE_SPECIFIC_CAMERA := true
-TARGET_TS_MAKEUP := true
 
 # Charger
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness

@@ -92,6 +92,9 @@ ro.opengles.version=196609
 persist.hwc.enable_vds=1
 ro.sf.lcd_density=440
 
+# FM
+ro.fm.transmitter=false
+
 # IMS
 persist.radio.jbims=1
 persist.radio.RATE_ADAPT_ENABLE=1

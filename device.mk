@@ -162,6 +162,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fingerprintd
 
+# FM
+PRODUCT_PACKAGES += \
+    FMRadio \
+    libfmjni \
+    fmhalservice \
+    libqcomfm_jni
+
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
     fs_config_files

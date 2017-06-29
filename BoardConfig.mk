@@ -51,7 +51,7 @@ BOARD_KERNEL_LZ4C_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_CONFIG := cedric_defconfig
-TARGET_KERNEL_SOURCE := kernel/motorola/msm8953
+TARGET_KERNEL_SOURCE := kernel/motorola/msm8937
 
 # Audio
 AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := true

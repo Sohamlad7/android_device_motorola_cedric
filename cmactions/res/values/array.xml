@@ -23,7 +23,6 @@
         <item>Recents</item>
         <item>Volume Up</item>
         <item>Volume Down</item>
-        <item>Voice Assistant</item>
     </string-array>
 
     <string-array name="fp_keys_listValues">
@@ -34,6 +33,5 @@
         <item>580</item>
         <item>115</item>
         <item>114</item>
-        <item>582</item>
     </string-array>
 </resources>

@@ -70,11 +70,7 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libqcompostprocbundle \
     libshim_adsp \
-    tinymix \
-    cplay \
-    tinycap \
-    tinypcminfo \
-    tinyplay
+    tinymix
 
 PRODUCT_COPY_FILES += \
     hardware/qcom/audio-caf/msm8937/configs/msm8937/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
@@ -158,9 +154,7 @@ PRODUCT_PACKAGES += \
 # FM
 PRODUCT_PACKAGES += \
     FMRadio \
-    libfmjni \
-    fmhalservice \
-    libqcomfm_jni
+    libfmjni
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
@@ -198,8 +192,7 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libmm-omxcore
+    libc2dcolorconvert
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
@@ -251,7 +244,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2 \
-    rmnetcli \
     libshim_ril
 
 # Sensors
@@ -279,8 +271,7 @@ PRODUCT_PACKAGES += \
     libqsap_sdk \
     libQWiFiSoftApCfg \
     tcpdump \
-    wcnss_service \
-    libwifi-hal-qcom
+    wcnss_service
 
 # Wifi Symlinks
 PRODUCT_PACKAGES += \

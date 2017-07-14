@@ -66,6 +66,7 @@
         <SwitchPreference
             android:key="fp_haptic"
             android:dependency="fp_home"
+            android:defaultValue="0"
             android:title="Fingerprint Gestures Haptic Feedback"
             android:summary="Vibrate on actions" />
 

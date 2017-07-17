@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2017 Erfan Abdi
+     Copyright (C) 2017 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -24,8 +24,10 @@
         <item>Volume Up</item>
         <item>Volume Down</item>
         <item>Voice Assistant</item>
+        <item>Play/Pause</item>
+        <item>Previous Track</item>
+        <item>Next Track</item>
     </string-array>
-
     <string-array name="fp_keys_listValues">
         <item>0</item>
         <item>102</item>
@@ -35,5 +37,8 @@
         <item>115</item>
         <item>114</item>
         <item>582</item>
+        <item>164</item>
+        <item>165</item>
+        <item>163</item>
     </string-array>
 </resources>

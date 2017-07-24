@@ -22,7 +22,7 @@ FIRMWARE_ADSP_IMAGES := \
     adsp.b07 adsp.b08 adsp.b09 adsp.b10 adsp.b11 adsp.b12 adsp.b13 \
     adsp.b14 adsp.mdt
 
-FIRMWARE_ADSP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FIRMWARE_MODEM_IMAGES)))
+FIRMWARE_ADSP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FIRMWARE_ADSP_IMAGES)))
 $(FIRMWARE_ADSP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "ADSP Firmware link: $@"
 	@mkdir -p $(dir $@)

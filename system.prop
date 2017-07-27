@@ -89,8 +89,8 @@ persist.dpm.feature=0
 persist.sys.cnd.iwlan=1
 
 # core_ctrl
-ro.core_ctl_max_cpu=4
-ro.core_ctl_min_cpu=2
+ro.vendor.qti.core_ctl_min_cpu=2
+ro.vendor.qti.core_ctl_max_cpu=4
 
 # Dalvik
 dalvik.vm.heapstartsize=8m

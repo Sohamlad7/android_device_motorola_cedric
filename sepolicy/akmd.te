@@ -1,3 +1,7 @@
 type akmd, domain, domain_deprecated;
 type akmd_exec, exec_type, file_type;
 init_daemon_domain(akmd)
+
+allow akmd akmd_data_file:file rw_file_perms;
+allow akmd akmd_data_file:dir rw_dir_perms;
+allow akmd compass_device:chr_file rw_file_perms;

@@ -128,7 +128,7 @@ public class CMActionsSettings {
                 mFlipToMuteEnabled = sharedPreferences.getBoolean(GESTURE_FLIP_TO_MUTE_KEY, false);
             } else if (GESTURE_LIFT_TO_SILENCE_KEY.equals(key)) {
                 mLiftToSilenceEnabled = sharedPreferences.getBoolean(GESTURE_LIFT_TO_SILENCE_KEY, false);
-            } else if (Constants.FP_HOME_KEY.equals(key) || Constants.FP_KEYS.equals(key) || Constants.FP_KEY_HOLD.equals(key) ||  Constants.FP_KEY_LEFT.equals(key) || Constants.FP_KEY_RIGHT.equals(key)) {
+            } else if (Constants.FP_HOME_KEY.equals(key) || Constants.FP_HAPTIC_KEY.equals(key) || Constants.FP_KEYS.equals(key) || Constants.FP_KEY_HOLD.equals(key) ||  Constants.FP_KEY_LEFT.equals(key) || Constants.FP_KEY_RIGHT.equals(key)) {
                 Constants.writePreference(mContext, key);
                 updated = false;
             } else {

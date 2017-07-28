@@ -41,7 +41,8 @@
 
         <activity
             android:name=".TouchscreenGesturePreferenceActivity"
-            android:label="@string/screen_gestures_panel_title"
+            android:label="@string/moto_actions_title"
+            android:summary="@string/moto_actions_summary"
             android:theme="@style/CMActions">
             <intent-filter>
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />

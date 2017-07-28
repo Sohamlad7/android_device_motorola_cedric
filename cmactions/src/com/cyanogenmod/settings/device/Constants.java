@@ -36,6 +36,10 @@ public class Constants {
     // Swap nodes
     public static final String FP_HOME_NODE = "/sys/homebutton/enable";
 
+    // Haptic node
+    public static final String FP_HAPTIC_NODE = "/sys/homebutton/haptic";
+    public static final String FP_HAPTIC_KEY = "fp_haptic";
+
     // List of keys
     public static final String FP_KEYS = "fp_keys";
     public static final String FP_KEY_HOLD = "fp_key_hold";
@@ -60,6 +64,7 @@ public class Constants {
         FP_KEY_HOLD,
         FP_KEY_RIGHT,
         FP_KEY_LEFT,
+        FP_HAPTIC_KEY,
     };
 
     static {
@@ -68,11 +73,13 @@ public class Constants {
         sBooleanNodePreferenceMap.put(FP_KEY_HOLD, FP_KEY_HOLD_NODE);
         sBooleanNodePreferenceMap.put(FP_KEY_LEFT, FP_KEY_LEFT_NODE);
         sBooleanNodePreferenceMap.put(FP_KEY_RIGHT, FP_KEY_RIGHT_NODE);
+        sBooleanNodePreferenceMap.put(FP_HAPTIC_KEY, FP_HAPTIC_NODE);
         sNodeDefaultMap.put(FP_HOME_KEY, false);
         sNodeDefaultMap.put(FP_KEYS, "0");
         sNodeDefaultMap.put(FP_KEY_HOLD, "0");
         sNodeDefaultMap.put(FP_KEY_LEFT, "0");
         sNodeDefaultMap.put(FP_KEY_RIGHT, "0");
+        sNodeDefaultMap.put(FP_HAPTIC_KEY, false);
     }
 
     public static boolean isPreferenceEnabled(Context context, String key) {

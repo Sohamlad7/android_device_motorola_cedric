@@ -155,6 +155,10 @@ TARGET_PROVIDES_KEYMASTER := true
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+# Manifest
+DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/configs/manifest.xml
+DEVICE_MATRIX_FILE   := $(LOCAL_PATH)/configs/compatibility_matrix.xml
+
 # Media
 # TARGET_USES_MEDIA_EXTENSIONS := true
 

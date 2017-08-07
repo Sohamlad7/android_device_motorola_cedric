@@ -182,11 +182,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl
 
-# HIDL
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml \
-    $(LOCAL_PATH)/compatibility_matrix.xml:system/vendor/compatibility_matrix.xml
-
 # IMS
 PRODUCT_PACKAGES += \
     libshim_ims

@@ -105,6 +105,9 @@ BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/cmhw
 # CNE / DPM
 BOARD_USES_QCNE := true
 
+# CPUsets
+ENABLE_CPUSETS := true
+
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
 

@@ -147,6 +147,9 @@ on boot
     #Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
 
+    # Prevents permission denied error for telephony
+    chmod 0644 /proc/cmdline
+
     setprop wifi.interface wlan0
 
 #   Define TCP buffer sizes for various networks

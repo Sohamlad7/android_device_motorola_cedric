@@ -187,7 +187,8 @@ PRODUCT_COPY_FILES += \
 # GPS
 PRODUCT_PACKAGES += \
     libgnsspps \
-    gps.msm8937
+    gps.msm8937 \
+    libshims_get_process_name
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \

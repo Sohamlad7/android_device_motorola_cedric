@@ -502,7 +502,7 @@ service ims_rtp_daemon /system/bin/ims_rtp_daemon
    class main
    user system
    socket ims_rtpd stream 0660 system radio
-   group radio diag diag inet log
+   group radio diag inet log
    disabled
 
 on property:sys.ims.DATA_DAEMON_STATUS=1
@@ -511,7 +511,7 @@ on property:sys.ims.DATA_DAEMON_STATUS=1
 service imscmservice /system/bin/imscmservice
     class main
     user system
-    group radio diag diag log
+    group radio diag log
     disabled
     writepid /dev/cpuset/system-background/tasks
 
@@ -818,23 +818,19 @@ service ril-daemon /system/bin/rild
     socket cutback stream 660 media radio
     socket wpa_wlan0 dgram 660 wifi wifi
     user root
-    group radio cache inet misc audio log diag diag net_raw wifi compass
+    group radio cache inet misc audio log diag net_raw wifi compass
     writepid /dev/cpuset/system-background/tasks
 
-service ril-daemon2 /system/bin/rild -c 2
+service ril-daemon2 /vendor/bin/hw/rild -c 2
     class main
-    socket rild2 stream 660 root radio
-    socket rild-debug2 stream 660 radio system
     user root
-    group radio cache inet misc audio sdcard_r sdcard_rw diag diag log
+    group radio cache inet misc audio sdcard_r sdcard_rw diag log
     
-service ril-daemon3 /system/bin/rild -c 3
+service ril-daemon3 /vendor/bin/hw/rild -c 3
     class main
-    socket rild3 stream 660 root radio
-    socket rild-debug3 stream 660 radio system
     user root
     disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw diag diag log
+    group radio cache inet misc audio sdcard_r sdcard_rw diag log
 
 service rild2-wrapper /system/bin/sh /system/etc/init.qcom.ril.sh
     class late_start

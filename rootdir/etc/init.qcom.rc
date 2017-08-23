@@ -549,8 +549,20 @@ on property:wc_transport.start_fmhci=false
 
 service start_hci_filter /system/bin/wcnss_filter
     class late_start
-    user root
-    group bluetooth diag system wakelock diag log
+    user bluetooth
+    group bluetooth diag
+    disabled
+
+on property:wc_transport.start_root=true
+    start hci_filter_root
+
+on property:wc_transport.start_root=false
+    stop hci_filter_root
+
+service hci_filter_root /system/bin/wcnss_filter
+    class late_start
+    user bluetooth
+    group bluetooth diag system
     disabled
 
 #net_admin capability needed to write rfkill sysfs entry

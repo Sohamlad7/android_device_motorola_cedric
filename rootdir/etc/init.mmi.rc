@@ -290,7 +290,6 @@ on property:ro.boot.dualsim=false
    setprop ro.telephony.default_network 10
 
 service adspd /system/bin/adspd
-   seclabel u:r:adspd:s0
    class main
    socket adspdsock stream 0660 system audio
    user audio
@@ -311,25 +310,21 @@ service fingerprintd /system/bin/fingerprintd
     group input
 
 service mmi-boot-sh /system/bin/init.mmi.boot.sh
-    seclabel u:r:mmi_boot:s0
     class core
     user root
     oneshot
 
 service mmi-laser-sh /system/bin/init.mmi.laser.sh
-    seclabel u:r:mmi_laser:s0
     class core
     user root
     oneshot
 
 service mmi-touch-sh /system/bin/init.mmi.touch.sh
-    seclabel u:r:mmi_touch:s0
     class core
     user root
     oneshot
 
 service oem-hw-sh /system/bin/init.oem.hw.sh
-    seclabel u:r:oem-hw-sh:s0
     class core
     user root
     oneshot
@@ -340,7 +335,6 @@ service motosh /system/bin/motosh boot
     user compass
     group compass misc input
     oneshot
-    seclabel u:r:sensor_hub:s0
 
 service thermal-com /system/vendor/bin/thermal-engine --minimode
     class main

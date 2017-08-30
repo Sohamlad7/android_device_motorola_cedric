@@ -283,7 +283,7 @@ on boot
    chmod 0660 /persist/chargeonly/cooldown
 
 # Pass carrier to wlan
-service init_wifi /system/vendor/bin/sh /system/vendor/bin/wlan_carrier_bin.sh
+service vendor.init_wifi /system/vendor/bin/sh /system/vendor/bin/wlan_carrier_bin.sh
     class main
     user root
     group root
@@ -301,8 +301,8 @@ on charger
 on moto-charger
     setprop ro.board.platform msm8937
     trigger firmware_mounts_complete
-    start charge_only_mode
-    start thermal-com
+    start vendor.charge_only_mode
+    start vendor.thermal-com
 
 on property:ro.boot.dualsim=true
    setprop persist.radio.multisim.config dsds
@@ -313,7 +313,7 @@ on property:ro.boot.dualsim=false
    setprop ro.telephony.default_network 10
 
 on property:ro.boot.hwrev=*
-   start mmi-boot-sh
+   start vendor.mmi-boot-sh
 
 service adspd /system/vendor/bin/adspd
    class main
@@ -321,7 +321,7 @@ service adspd /system/vendor/bin/adspd
    user audio
    group audio input diag
 
-service mmi-boot-sh /system/vendor/bin/sh /system/vendor/bin/init.mmi.boot.sh
+service vendor.mmi-boot-sh /system/vendor/bin/sh /system/vendor/bin/init.mmi.boot.sh
     class core
     user root
     oneshot
@@ -339,12 +339,12 @@ service motosh /system/vendor/bin/motosh boot
     group compass misc input
     oneshot
 
-service charge_only_mode /system/bin/charge_only_mode
+service vendor.charge_only_mode /system/bin/charge_only_mode
     user root
     group graphics system input
     disabled
 
-service thermal-com /system/vendor/bin/thermal-engine --minimode
+service vendor.thermal-com /system/vendor/bin/thermal-engine --minimode
     class main
     user root
     disabled

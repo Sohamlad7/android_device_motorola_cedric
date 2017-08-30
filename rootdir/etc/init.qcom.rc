@@ -134,7 +134,7 @@ on boot
     chown radio radio /data/vendor/radio/db_check_done
     chmod 0660 /data/vendor/radio/db_check_done
 
-    start rmt_storage
+    start vendor.rmt_storage
 
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
@@ -474,7 +474,7 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
-service charger /charger
+service vendor.charger /charger
     class charger
     group log
     seclabel u:r:charger:s0
@@ -487,13 +487,13 @@ on property:persist.usb.chgdisabled=1
 on property:persist.usb.chgdisabled=0
     write /sys/class/power_supply/battery/charging_enabled 1
 
-service qseecomd /system/vendor/bin/qseecomd
+service vendor.qseecomd /system/vendor/bin/qseecomd
    class core
    user root
    group root
    writepid /dev/cpuset/system-background/tasks
 
-service thermal-engine /system/vendor/bin/thermal-engine
+service vendor.thermal-engine /system/vendor/bin/thermal-engine
    class main
    user root
    socket thermal-send-client stream 0666 system system
@@ -503,7 +503,7 @@ service thermal-engine /system/vendor/bin/thermal-engine
    group root
    writepid /dev/cpuset/system-background/tasks
 
-service time_daemon /system/vendor/bin/time_daemon
+service vendor.time_daemon /system/vendor/bin/time_daemon
    class late_start
    user root
    group root
@@ -521,30 +521,30 @@ on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
 #start camera server as daemon
-service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
+service vendor.qcamerasvr /system/vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
     writepid /dev/cpuset/system-background/tasks
 
-service cnd /system/vendor/bin/cnd
+service vendor.cnd /system/vendor/bin/cnd
     class main
     user system
     group system wifi inet radio wakelock net_admin
 
-service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
+service vendor.qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     class late_start
     user system
     group system
     writepid /dev/cpuset/system-background/tasks
 
-service wcnss-service /system/bin/wcnss_service
+service vendor.wcnss-service /system/bin/wcnss_service
     class main
     user system
     group system wifi radio
     oneshot
 
-service adsprpcd /system/vendor/bin/adsprpcd
+service vendor.adsprpcd /system/vendor/bin/adsprpcd
     class main
     user media
     group media
@@ -556,25 +556,25 @@ service ecompassd /system/vendor/bin/akmd09912
     group compass misc input
     disabled
 
-service energy-awareness /system/vendor/bin/energy-awareness
+service vendor.energy-awareness /system/vendor/bin/energy-awareness
     class main
     user root
     group system
     oneshot
 
-service irsc_util /system/vendor/bin/irsc_util "/system/vendor/etc/sec_config"
+service vendor.irsc_util /system/vendor/bin/irsc_util "/system/vendor/etc/sec_config"
     class core
     user root
     oneshot
 
-service imsqmidaemon /system/vendor/bin/imsqmidaemon
+service vendor.imsqmidaemon /system/vendor/bin/imsqmidaemon
     class main
     user system
     socket ims_qmid stream 0660 system radio
     group radio log diag
     writepid /dev/cpuset/system-background/tasks
 
-service imsdatadaemon /system/vendor/bin/imsdatadaemon
+service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
@@ -583,16 +583,16 @@ service imsdatadaemon /system/vendor/bin/imsdatadaemon
     disabled
 
 on property:vendor.ims.QMI_DAEMON_STATUS=1
-    start imsdatadaemon
+    start vendor.imsdatadaemon
 
-service ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
+service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
     class main
     user system
     socket ims_rtpd stream 0660 system radio
     group radio diag inet log
     disabled
 
-service imsrcsservice /system/vendor/bin/imsrcsd
+service vendor.imsrcsservice /system/vendor/bin/imsrcsd
     class main
     user system
     group radio diag inet log
@@ -600,10 +600,10 @@ service imsrcsservice /system/vendor/bin/imsrcsd
     disabled
 
 on property:vendor.ims.DATA_DAEMON_STATUS=1
-    start ims_rtp_daemon
-    start imsrcsservice
+    start vendor.ims_rtp_daemon
+    start vendor.imsrcsservice
 
-service rmt_storage /system/vendor/bin/rmt_storage
+service vendor.rmt_storage /system/vendor/bin/rmt_storage
     class core
     user root
     ioprio rt 0
@@ -641,18 +641,18 @@ service fmhal_service /system/vendor/bin/fmhal_service
     group bluetooth net_bt_admin net_admin
     disabled
 
-service tftp_server /system/vendor/bin/tftp_server
+service vendor.tftp_server /system/vendor/bin/tftp_server
    class core
    user root
    writepid /dev/cpuset/system-background/tasks
 
-service per_mgr /system/vendor/bin/pm-service
+service vendor.per_mgr /system/vendor/bin/pm-service
     class core
     user system
     group system net_raw
     writepid /dev/cpuset/system-background/tasks
 
-service per_proxy /system/vendor/bin/pm-proxy
+service vendor.per_proxy /system/vendor/bin/pm-proxy
     class core
     user system
     group system
@@ -660,20 +660,20 @@ service per_proxy /system/vendor/bin/pm-proxy
     writepid /dev/cpuset/system-background/tasks
 
 on property:init.svc.per_mgr=running
-    start per_proxy
+    start vendor.per_proxy
 
 on property:sys.shutdown.requested=*
-    stop per_proxy
+    stop vendor.per_proxy
 
 on property:ro.hw.ecompass=true
     enable ecompassd
 
-service netmgrd /system/vendor/bin/netmgrd
+service vendor.netmgrd /system/vendor/bin/netmgrd
     class main
     group radio system wakelock
     writepid /dev/cpuset/system-background/tasks
 
-service qti /system/vendor/bin/qti
+service vendor.qti /system/vendor/bin/qti
     class main
     user radio
     group radio net_raw oem_2950 usb net_admin
@@ -681,7 +681,7 @@ service qti /system/vendor/bin/qti
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
-    stop netmgrd
+    stop vendor.netmgrd
 
 # Adjust socket buffer to enlarge TCP receive window for high bandwidth
 # but only if ro.data.large_tcp_window_size property is set.
@@ -794,7 +794,7 @@ service dhcpcd_bnep4 /system/bin/dhcpcd -BKLG
     disabled
     oneshot
 
-service loc_launcher /system/vendor/bin/loc_launcher
+service vendor.loc_launcher /system/vendor/bin/loc_launcher
     #loc_launcher will start as root and set its uid to gps
     class late_start
     group gps inet oem_2950 wifi
@@ -821,7 +821,7 @@ on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
-service ril-daemon2 /vendor/bin/hw/rild -c 2
+service vendor.ril-daemon2 /vendor/bin/hw/rild -c 2
     class main
     user radio
     group radio cache inet misc audio log readproc wakelock

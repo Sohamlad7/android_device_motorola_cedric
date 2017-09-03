@@ -195,11 +195,11 @@
 # Block devices
 /dev/block/bootdevice/by-name/hob          0660 radio radio
 /dev/block/bootdevice/by-name/dhob         0660 radio radio
-/dev/block/bootdevice/by-name/clogo        0660 root mot_tcmd
-/dev/block/bootdevice/by-name/cid          0660 root mot_tcmd
+/dev/block/bootdevice/by-name/clogo        0660 root oem_5004
+/dev/block/bootdevice/by-name/cid          0660 root oem_5004
 /dev/block/bootdevice/by-name/logs         0640 root log
-/dev/block/bootdevice/by-name/utags        0660 mot_tcmd system
-/dev/block/bootdevice/by-name/utagsBackup  0660 mot_tcmd system
+/dev/block/bootdevice/by-name/utags        0660 oem_5004 system
+/dev/block/bootdevice/by-name/utagsBackup  0660 oem_5004 system
 
 # Broadcast devices
 /dev/tsc_mux0             0660   media       media
@@ -283,53 +283,53 @@
 /dev/i2c-*                0660   system     system
 
 #JOT fixture devices for AMPS factory testing
-/dev/hidraw0              0660   root       mot_tcmd
-/dev/hidraw1              0660   root       mot_tcmd
+/dev/hidraw0              0660   root       oem_5004
+/dev/hidraw1              0660   root       oem_5004
 
 # MOD device
-/sys/devices/soc/75b5000.i2c/i2c-7/7-0072 irq_enable 0660 mot_tcmd mot_tcmd
-/sys/devices/soc/0.apba_ctrl apba_enable 0660 mot_tcmd mot_mod
-/sys/devices/soc/0.apba_ctrl apba_mode 0660 mot_tcmd mot_mod
-/sys/devices/soc/0.apba_ctrl flash_partition 0220 mot_tcmd mot_mod
-/sys/devices/soc/0.apba_ctrl unipro_mid 0440 root mot_mod
-/sys/devices/soc/0.apba_ctrl unipro_pid 0440 root mot_mod
-/sys/devices/soc/0.apba_ctrl vid 0440 root mot_mod
-/sys/devices/soc/0.apba_ctrl pid 0440 root mot_mod
-/sys/devices/soc/0.apba_ctrl fw_version 0440 root mot_mod
-/sys/devices/soc/0.apba_ctrl fw_version_str 0440 root mot_mod
-/sys/devices/soc/soc:muc_svc@0/mods_interfaces/* hotplug 0660 root mot_mod
-/sys/devices/soc/soc:muc_svc@0/mods_interfaces/* uevent 0660 root mot_mod
-/sys/devices/soc/soc:muc_svc@0/mods_interfaces/* current_limit 0220 root mot_mod
-/sys/devices/soc/soc:muc_svc@0/mods_interfaces/* rtc_sync 0220 root mot_mod
-/sys/devices/soc/soc:muc_svc@0 flashmode 0660 root mot_mod
-/sys/devices/soc/soc:muc_svc@0 reset 0660 root mot_mod
-/sys/devices/soc/0.muc/0.muc:muc_svc@0/mods_interfaces/* hotplug 0660 root mot_mod
-/sys/devices/soc/0.muc/0.muc:muc_svc@0/mods_interfaces/* uevent 0660 root mot_mod
-/sys/devices/soc/0.muc/0.muc:muc_svc@0 flashmode 0660 root mot_mod
-/sys/devices/platform/mods_ap uevent 0660 root mot_mod
-/sys/devices/platform/mods_ap/* uevent 0660 root mot_mod
-/sys/devices/platform/mods_ap/greybus1 uevent 0664 root mot_mod
+/sys/devices/soc/75b5000.i2c/i2c-7/7-0072 irq_enable 0660 oem_5004 oem_5004
+/sys/devices/soc/0.apba_ctrl apba_enable 0660 oem_5004 oem_5020
+/sys/devices/soc/0.apba_ctrl apba_mode 0660 oem_5004 oem_5020
+/sys/devices/soc/0.apba_ctrl flash_partition 0220 oem_5004 oem_5020
+/sys/devices/soc/0.apba_ctrl unipro_mid 0440 root oem_5020
+/sys/devices/soc/0.apba_ctrl unipro_pid 0440 root oem_5020
+/sys/devices/soc/0.apba_ctrl vid 0440 root oem_5020
+/sys/devices/soc/0.apba_ctrl pid 0440 root oem_5020
+/sys/devices/soc/0.apba_ctrl fw_version 0440 root oem_5020
+/sys/devices/soc/0.apba_ctrl fw_version_str 0440 root oem_5020
+/sys/devices/soc/soc:muc_svc@0/mods_interfaces/* hotplug 0660 root oem_5020
+/sys/devices/soc/soc:muc_svc@0/mods_interfaces/* uevent 0660 root oem_5020
+/sys/devices/soc/soc:muc_svc@0/mods_interfaces/* current_limit 0220 root oem_5020
+/sys/devices/soc/soc:muc_svc@0/mods_interfaces/* rtc_sync 0220 root oem_5020
+/sys/devices/soc/soc:muc_svc@0 flashmode 0660 root oem_5020
+/sys/devices/soc/soc:muc_svc@0 reset 0660 root oem_5020
+/sys/devices/soc/0.muc/0.muc:muc_svc@0/mods_interfaces/* hotplug 0660 root oem_5020
+/sys/devices/soc/0.muc/0.muc:muc_svc@0/mods_interfaces/* uevent 0660 root oem_5020
+/sys/devices/soc/0.muc/0.muc:muc_svc@0 flashmode 0660 root oem_5020
+/sys/devices/platform/mods_ap uevent 0660 root oem_5020
+/sys/devices/platform/mods_ap/* uevent 0660 root oem_5020
+/sys/devices/platform/mods_ap/greybus1 uevent 0664 root oem_5020
 
 # MOD display device
-/sys/devices/platform/mods_ap/greybus1/*/*/display/display* state 0660 root mot_mod
-/sys/devices/platform/mods_ap/greybus1/*/*/display/display* config 0444 root mot_mod
-/sys/devices/platform/mods_ap/greybus1/*/*/display/display* notification 0660 root mot_mod
+/sys/devices/platform/mods_ap/greybus1/*/*/display/display* state 0660 root oem_5020
+/sys/devices/platform/mods_ap/greybus1/*/*/display/display* config 0444 root oem_5020
+/sys/devices/platform/mods_ap/greybus1/*/*/display/display* notification 0660 root oem_5020
 
 # MOD light device
-/sys/devices/platform/mods_ap/greybus1/*/*/leds/mod_light*::backlight brightness 0660 root mot_mod
+/sys/devices/platform/mods_ap/greybus1/*/*/leds/mod_light*::backlight brightness 0660 root oem_5020
 
 # RAW device
-/dev/gbraw*             0660   root   mot_mod
+/dev/gbraw*             0660   root   oem_5020
 # Audio device
-/sys/devices/platform/mods_codec.0 uevent 0660 root mot_mod
-/sys/devices/platform/mods_codec.0/* uevent 0660 root mot_mod
+/sys/devices/platform/mods_codec.0 uevent 0660 root oem_5020
+/sys/devices/platform/mods_codec.0/* uevent 0660 root oem_5020
 
 # MOD camera device
 /dev/mot_camera_ext*               0660   system     camera
 /sys/devices/virtual/video4linux/mot_camera_ext* open_mode 0660 system camera
-/sys/devices/virtual/video4linux/mot_camera_ext* uevent 0660 root mot_mod
+/sys/devices/virtual/video4linux/mot_camera_ext* uevent 0660 root oem_5020
 /sys/devices/virtual/video4linux/video* open_mode 0660 system camera
-/sys/devices/virtual/video4linux/video* uevent 0660 root mot_mod
+/sys/devices/virtual/video4linux/video* uevent 0660 root oem_5020
 
 # Laser device
 /dev/laser                0660   system     camera
@@ -338,7 +338,7 @@
 /dev/drv2605              0660   system     system
 
 #DTV
-/dev/isdbt                 0660 mot_dtv  mot_dtv
+/dev/isdbt                 0660 oem_5019  oem_5019
 
 #Egistec fingerprint
 /dev/esfp0		  0660   system     system

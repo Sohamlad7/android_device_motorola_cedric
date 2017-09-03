@@ -22,33 +22,33 @@ on fs
     symlink /persist /pds
 
 on post-fs
-    mkdir /persist/camera 0755 mot_tcmd mot_tcmd
-    mkdir /persist/camera/focus 0775 camera mot_tcmd
-    mkdir /persist/camera/ledcal 0775 camera mot_tcmd
-    mkdir /persist/batt_health 0755 mot_pwric mot_pwric
+    mkdir /persist/camera 0755 oem_5004 oem_5004
+    mkdir /persist/camera/focus 0775 camera oem_5004
+    mkdir /persist/camera/ledcal 0775 camera oem_5004
+    mkdir /persist/batt_health 0755 oem_5001 oem_5001
     mkdir /persist/mdm 0770 radio radio
-    mkdir /persist/factory 0755 mot_tcmd mot_tcmd
-    mkdir /persist/factory/audio 0755 mot_tcmd system
-    mkdir /persist/factory/wlan 0755 mot_tcmd mot_tcmd
-    mkdir /persist/factory/regulatory 0755 mot_tcmd system
-    mkdir /persist/public 0755 mot_tcmd mot_tcmd
-    mkdir /persist/public/atvc 0770 mot_atvc shell
-    mkdir /persist/public/battd 0755 mot_accy mot_tcmd
+    mkdir /persist/factory 0755 oem_5004 oem_5004
+    mkdir /persist/factory/audio 0755 oem_5004 system
+    mkdir /persist/factory/wlan 0755 oem_5004 oem_5004
+    mkdir /persist/factory/regulatory 0755 oem_5004 system
+    mkdir /persist/public 0755 oem_5004 oem_5004
+    mkdir /persist/public/atvc 0770 oem_5012 shell
+    mkdir /persist/public/battd 0755 oem_5000 oem_5004
     mkdir /persist/public/hiddenmenu 0755 radio radio
-    mkdir /persist/public/hiddenmenu/data 0775 system mot_tcmd
+    mkdir /persist/public/hiddenmenu/data 0775 system oem_5004
     mkdir /persist/public/locale 0700 system system
     mkdir /persist/public/omadm 0700 radio radio
     mkdir /persist/public/svcs 0770 system system
-    mkdir /persist/wifi 0755 mot_tcmd mot_tcmd
-    mkdir /persist/bt 0755 mot_tcmd bluetooth
-    mkdir /persist/wmdrm 0775 mot_drm mot_drm
+    mkdir /persist/wifi 0755 oem_5004 oem_5004
+    mkdir /persist/bt 0755 oem_5004 bluetooth
+    mkdir /persist/wmdrm 0775 oem_5003 oem_5003
 
-    chown mot_tcmd mot_tcmd /persist/factory/fti
+    chown oem_5004 oem_5004 /persist/factory/fti
     chmod 0660 /persist/factory/fti
-    chown mot_tcmd mot_tcmd /persist/factory/byte
+    chown oem_5004 oem_5004 /persist/factory/byte
     chmod 0660 /persist/factory/byte
     chmod 0660 /persist/wifi/wlan_mac.bin
-    chown mot_tcmd mot_tcmd /persist/bt/bt_bdaddr
+    chown oem_5004 oem_5004 /persist/bt/bt_bdaddr
     chmod 0664 /persist/bt/bt_bdaddr
 
     swapon_all fstab.qcom
@@ -62,31 +62,31 @@ on post-fs-data
     chmod 0770 /data/wapi_certificate
 	
     # Setup folders for security
-    mkdir /persist/security 02770 mot_tpapi mot_tpapi
-    mkdir /data/local/dbvc 0750 mot_tcmd shell
+    mkdir /persist/security 02770 oem_5007 oem_5007
+    mkdir /data/local/dbvc 0750 oem_5004 shell
 
     # Create directory used by power_supply_logger
-    mkdir /data/power_supply_logger 0750 mot_pwric log
+    mkdir /data/power_supply_logger 0750 oem_5001 log
 
     # Create moodle directory that MOT_MOODLE can write to
-    mkdir /data/local/moodle 0770 graphics mot_tcmd
+    mkdir /data/local/moodle 0770 graphics oem_5004
 
     # Permissions for Factory Test of Charging Paths
-    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_auto_enable
-    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_ibatt
-    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_itrick
-    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_iusb
-    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_usb_suspend
-    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_fail_clear
-    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_usb_otg_ctl
+    chown oem_5001 oem_5001 /sys/class/power_supply/battery/device/force_chg_auto_enable
+    chown oem_5001 oem_5001 /sys/class/power_supply/battery/device/force_chg_ibatt
+    chown oem_5001 oem_5001 /sys/class/power_supply/battery/device/force_chg_itrick
+    chown oem_5001 oem_5001 /sys/class/power_supply/battery/device/force_chg_iusb
+    chown oem_5001 oem_5001 /sys/class/power_supply/battery/device/force_chg_usb_suspend
+    chown oem_5001 oem_5001 /sys/class/power_supply/battery/device/force_chg_fail_clear
+    chown oem_5001 oem_5001 /sys/class/power_supply/battery/device/force_chg_usb_otg_ctl
 
-    chown root mot_mod /sys/module/qpnp_smbcharger_mmi/parameters/eb_rechrg_start_soc
-    chown root mot_mod /sys/module/qpnp_smbcharger_mmi/parameters/eb_rechrg_stop_soc
-    chown root mot_mod /sys/module/qpnp_smbcharger_mmi/parameters/eb_attach_start_soc
-    chown root mot_mod /sys/module/qpnp_smbcharger_mmi/parameters/eb_attach_stop_soc
-    chown root mot_mod /sys/module/qpnp_smbcharger_mmi/parameters/eb_low_start_soc
-    chown root mot_mod /sys/module/qpnp_smbcharger_mmi/parameters/eb_low_stop_soc
-    chown root mot_mod /sys/module/qpnp_smbcharger_mmi/parameters/eb_on_sw
+    chown root oem_5020 /sys/module/qpnp_smbcharger_mmi/parameters/eb_rechrg_start_soc
+    chown root oem_5020 /sys/module/qpnp_smbcharger_mmi/parameters/eb_rechrg_stop_soc
+    chown root oem_5020 /sys/module/qpnp_smbcharger_mmi/parameters/eb_attach_start_soc
+    chown root oem_5020 /sys/module/qpnp_smbcharger_mmi/parameters/eb_attach_stop_soc
+    chown root oem_5020 /sys/module/qpnp_smbcharger_mmi/parameters/eb_low_start_soc
+    chown root oem_5020 /sys/module/qpnp_smbcharger_mmi/parameters/eb_low_stop_soc
+    chown root oem_5020 /sys/module/qpnp_smbcharger_mmi/parameters/eb_on_sw
 
     chmod 0664 /sys/module/qpnp_smbcharger_mmi/parameters/eb_rechrg_start_soc
     chmod 0664 /sys/module/qpnp_smbcharger_mmi/parameters/eb_rechrg_stop_soc
@@ -96,7 +96,7 @@ on post-fs-data
     chmod 0664 /sys/module/qpnp_smbcharger_mmi/parameters/eb_low_stop_soc
     chmod 0664 /sys/module/qpnp_smbcharger_mmi/parameters/eb_on_sw
 
-    chown root mot_mod /sys/class/power_supply/usb/usb_priority
+    chown root oem_5020 /sys/class/power_supply/usb/usb_priority
     chmod 0660 /sys/class/power_supply/usb/usb_priority
 
     # Sensor Hub calibration data directory
@@ -116,7 +116,7 @@ on post-fs-data
     chown system wifi /data/wapi_certificate
 
     # Create greybus firmware folder
-    mkdir /data/gbfirmware 0770 mot_mod mot_mod
+    mkdir /data/gbfirmware 0770 oem_5020 oem_5020
 
     # Create bug2go folder
     mkdir /data/bug2go 0770 log log
@@ -160,12 +160,12 @@ on boot
    write /proc/sys/kernel/printk "7 4 1 7"
 
    # STML0 driver parameter permissions
-   chown root mot_tcmd /sys/module/stml0xx/parameters/irq_disable
+   chown root oem_5004 /sys/module/stml0xx/parameters/irq_disable
    chmod 0660 /sys/module/stml0xx/parameters/irq_disable
 
-   chown root mot_tcmd /sys/module/phy_msm_usb/parameters/host_mode_disable
+   chown root oem_5004 /sys/module/phy_msm_usb/parameters/host_mode_disable
    chmod 0660 /sys/module/phy_msm_usb/parameters/host_mode_disable
-   chown root mot_tcmd /sys/devices/soc/7000000.ssusb/disable_id_pin
+   chown root oem_5004 /sys/devices/soc/7000000.ssusb/disable_id_pin
    chmod 0220 /sys/devices/soc/7000000.ssusb/disable_id_pin
     
    # change permission for capsensor
@@ -183,20 +183,20 @@ on boot
    chmod 0660 /dev/stml0xx_akm
 
    # Change permission for type C params
-   chown root mot_tcmd /sys/devices/soc/78b6000.i2c/i2c-2/2-0022/CC_state
-   chown root mot_tcmd /sys/devices/soc/78b6000.i2c/i2c-2/2-0022/enable_vconn
+   chown root oem_5004 /sys/devices/soc/78b6000.i2c/i2c-2/2-0022/CC_state
+   chown root oem_5004 /sys/devices/soc/78b6000.i2c/i2c-2/2-0022/enable_vconn
    # Change ownership and permission for AMPS factory testing
-   chown root mot_tcmd /sys/class/i2c-adapter/i2c-2/2-002d/enable
+   chown root oem_5004 /sys/class/i2c-adapter/i2c-2/2-002d/enable
    chmod 0660 /sys/class/i2c-adapter/i2c-2/2-002d/enable
-   chown root mot_tcmd /sys/class/i2c-adapter/i2c-2/2-002d/hsic_vdd
+   chown root oem_5004 /sys/class/i2c-adapter/i2c-2/2-002d/hsic_vdd
    chmod 0660 /sys/class/i2c-adapter/i2c-2/2-002d/hsic_vdd
 
    # Change permission for fingerprint sensor
-   chown system mot_tcmd /sys/bus/spi/devices/spi6.0/nav
-   chown system mot_tcmd /sys/bus/spi/devices/spi6.0/clk_enable
-   chown system mot_tcmd /sys/bus/spi/devices/spi6.0/dev_enable
-   chown system mot_tcmd /sys/bus/spi/devices/spi6.0/irq
-   chown system mot_tcmd /sys/bus/spi/devices/spi6.0/irq_cnt
+   chown system oem_5004 /sys/bus/spi/devices/spi6.0/nav
+   chown system oem_5004 /sys/bus/spi/devices/spi6.0/clk_enable
+   chown system oem_5004 /sys/bus/spi/devices/spi6.0/dev_enable
+   chown system oem_5004 /sys/bus/spi/devices/spi6.0/irq
+   chown system oem_5004 /sys/bus/spi/devices/spi6.0/irq_cnt
    chmod 0440 /sys/bus/spi/devices/spi6.0/irq_cnt
 
  # Change ownership and permission for backlight
@@ -238,16 +238,16 @@ on boot
    chmod 0660 /sys/class/i2c-dev/i2c-6/device/6-0049/set_delay_ms
 
 # Change the ownership of display TE files for tcmds
-   chown root mot_tcmd /sys/class/graphics/fb0/te_enable
-   chown root mot_tcmd /sys/class/graphics/fb0/frame_counter
+   chown root oem_5004 /sys/class/graphics/fb0/te_enable
+   chown root oem_5004 /sys/class/graphics/fb0/frame_counter
 
 
 # FPC device parameter permissions
-   chown system mot_tcmd /sys/bus/spi/devices/spi12.0/nav
-   chown system mot_tcmd /sys/bus/spi/devices/spi12.0/clk_enable
-   chown system mot_tcmd /sys/bus/spi/devices/spi12.0/dev_enable
-   chown system mot_tcmd /sys/bus/spi/devices/spi12.0/irq
-   chown system mot_tcmd /sys/bus/spi/devices/spi12.0/irq_cnt
+   chown system oem_5004 /sys/bus/spi/devices/spi12.0/nav
+   chown system oem_5004 /sys/bus/spi/devices/spi12.0/clk_enable
+   chown system oem_5004 /sys/bus/spi/devices/spi12.0/dev_enable
+   chown system oem_5004 /sys/bus/spi/devices/spi12.0/irq
+   chown system oem_5004 /sys/bus/spi/devices/spi12.0/irq_cnt
    chmod 0440 /sys/bus/spi/devices/spi12.0/irq_cnt
 
 # Change ownership of aov related sysfs entries
@@ -298,8 +298,8 @@ service adspd /system/bin/adspd
 
 service batt_health /system/bin/batt_health
     class late_start
-    user mot_pwric
-    group mot_pwric cache net_admin log
+    user oem_5001
+    group oem_5001 cache net_admin log
     disabled
 
 on property:sys.boot_completed=1 && property:ro.boot.secure_hardware=0

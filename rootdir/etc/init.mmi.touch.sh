@@ -130,9 +130,9 @@ if [ "$selinux" == "permissive" ]; then
 fi
 
 # Set permissions to enable factory touch tests
-chown root:mot_tcmd $touch_path/drv_irq
-chown root:mot_tcmd $touch_path/hw_irqstat
-chown root:mot_tcmd $touch_path/reset
+chown root:oem_5004 $touch_path/drv_irq
+chown root:oem_5004 $touch_path/hw_irqstat
+chown root:oem_5004 $touch_path/reset
 # Set permissions to allow Bug2Go access to touch statistics
 chown root:log $touch_path/stats
 

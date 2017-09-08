@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2015-2016 The CyanogenMod Project
+     Copyright (C) 2017 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License"
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <PreferenceCategory
+        android:key="actions_key"
+        android:title="@string/actions_title">
+
+        <SwitchPreference
+            android:key="gesture_camera_action"
+            android:defaultValue="true"
+            android:title="@string/camera_gesture_title"
+            android:summary="@string/camera_gesture_summary" />
+
+        <SwitchPreference
+            android:key="gesture_chop_chop"
+            android:defaultValue="true"
+            android:title="@string/chop_chop_gesture_title"
+            android:summary="@string/chop_chop_gesture_summary" />
+
+        <SwitchPreference
+            android:key="gesture_ir_silencer"
+            android:defaultValue="false"
+            android:title="@string/hand_wave_silencer_title"
+            android:summary="@string/hand_wave_silencer_summary" />
+
+        <SwitchPreference
+            android:key="gesture_flip_to_mute"
+            android:defaultValue="false"
+            android:title="@string/flip_to_mute_title"
+            android:summary="@string/flip_to_mute_summary" />
+
+        <SwitchPreference
+            android:key="gesture_lift_to_silence"
+            android:defaultValue="false"
+            android:title="@string/lift_to_silence_title"
+            android:summary="@string/lift_to_silence_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="fp_key"
+        android:title="@string/fingerprint_title" >
+
+        <SwitchPreference
+            android:key="fp_home"
+            android:title="Fingerprint Gestures"
+            android:summary="Use fingerprint gestures" />
+
+        <SwitchPreference
+            android:key="fp_home_scr_off"
+            android:dependency="fp_home"
+            android:title="Fingerprint Gestures when screen off"
+            android:summary="Use fingerprint gestures when screen off" />
+
+        <SwitchPreference
+            android:key="fp_haptic"
+            android:dependency="fp_home"
+            android:defaultValue="0"
+            android:title="Fingerprint Gestures Haptic Feedback"
+            android:summary="Vibrate on actions" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="fp_keys_scr_on"
+        android:title="Screen On Gestures" >
+
+        <ListPreference
+            android:dependency="fp_home"
+            android:title="Fingerprint Tap"
+            android:summary="%s"
+            android:dialogTitle="Select action for single tap"
+            android:key="fp_keys"
+            android:defaultValue="0"
+            android:entries="@array/fp_keys_listArray"
+            android:entryValues="@array/fp_keys_listValues" />
+
+        <ListPreference
+            android:dependency="fp_home"
+            android:title="Fingerprint Long Press"
+            android:summary="%s"
+            android:dialogTitle="Select action for long press"
+            android:key="fp_key_hold"
+            android:defaultValue="0"
+            android:entries="@array/fp_keys_listArray"
+            android:entryValues="@array/fp_keys_listValues" />
+
+        <ListPreference
+            android:dependency="fp_home"
+            android:title="Fingerprint Swipe Left"
+            android:summary="%s"
+            android:dialogTitle="Select action for swipe left"
+            android:key="fp_key_left"
+            android:defaultValue="0"
+            android:entries="@array/fp_keys_listArray"
+            android:entryValues="@array/fp_keys_listValues" />
+
+        <ListPreference
+            android:dependency="fp_home"
+            android:title="Fingerprint Swipe Right"
+            android:summary="%s"
+            android:dialogTitle="Select action for swipe right"
+            android:key="fp_key_right"
+            android:defaultValue="0"
+            android:entries="@array/fp_keys_listArray"
+            android:entryValues="@array/fp_keys_listValues" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="fp_keys_scr_off"
+        android:title="Screen Off Gestures" >
+
+        <ListPreference
+            android:dependency="fp_home_scr_off"
+            android:title="Fingerprint Tap"
+            android:summary="%s"
+            android:dialogTitle="Select action for single tap"
+            android:key="fp_keys_off"
+            android:defaultValue="0"
+            android:entries="@array/fp_keys_listArray"
+            android:entryValues="@array/fp_keys_listValues" />
+
+        <ListPreference
+            android:dependency="fp_home_scr_off"
+            android:title="Fingerprint Long Press"
+            android:summary="%s"
+            android:dialogTitle="Select action for long press"
+            android:key="fp_key_hold_off"
+            android:defaultValue="0"
+            android:entries="@array/fp_keys_listArray"
+            android:entryValues="@array/fp_keys_listValues" />
+
+        <ListPreference
+            android:dependency="fp_home_scr_off"
+            android:title="Fingerprint Swipe Left"
+            android:summary="%s"
+            android:dialogTitle="Select action for swipe left"
+            android:key="fp_key_left_off"
+            android:defaultValue="0"
+            android:entries="@array/fp_keys_listArray"
+            android:entryValues="@array/fp_keys_listValues" />
+
+        <ListPreference
+            android:dependency="fp_home_scr_off"
+            android:title="Fingerprint Swipe Right"
+            android:summary="%s"
+            android:dialogTitle="Select action for swipe right"
+            android:key="fp_key_right_off"
+            android:defaultValue="0"
+            android:entries="@array/fp_keys_listArray"
+            android:entryValues="@array/fp_keys_listValues" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

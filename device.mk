@@ -171,9 +171,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/uinput-fpc.idc:system/usr/idc/uinput-fpc.idc
 
 # FM
-#PRODUCT_PACKAGES += \
-#    FMRadio \
-#    libfmjni
+PRODUCT_PACKAGES += \
+    FMRadio \
+    libfmjni
 
 # GPS Configurations
 PRODUCT_COPY_FILES += \

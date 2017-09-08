@@ -102,7 +102,7 @@ TARGET_USES_OVERLAY := true
 USE_OPENGL_RENDERER := true
 
 # FM
-# BOARD_HAVE_QCOM_FM := true
+BOARD_HAVE_QCOM_FM := true
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm

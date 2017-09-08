@@ -70,6 +70,7 @@ QCOM_BT_READ_ADDR_FROM_PROP := true
 # Camera
 TARGET_CAMERASERVICE_CLOSES_NATIVE_HANDLES := true
 USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_USES_NON_TREBLE_CAMERA := true
 
 # Charger
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness

@@ -298,12 +298,11 @@ PRODUCT_COPY_FILES += \
 
 # Sensor Configurations
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sensors/hals.conf:system/vendor/etc/sensors/_hals.conf \
-    $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf
+    $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf \
+    $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf
 
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
-    sensors.msm8937
+    android.hardware.sensors@1.0-impl
 
 # Thermal
 PRODUCT_COPY_FILES += \

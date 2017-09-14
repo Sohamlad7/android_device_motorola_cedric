@@ -81,8 +81,7 @@ public class ProximitySilencer extends PhoneStateListener implements SensorEvent
         }
 
         if (!isNear && mIsRinging) {
-            Log.d(TAG, "event: [" + event.values.length + "]: " + event.values[0] + ", " +
-                event.values[1] + ", " + event.values[2] + " covered " + Boolean.toString(mCoveredRinging));
+            Log.d(TAG, "event: " + event.values[0] + ", " + " covered " + Boolean.toString(mCoveredRinging));
             if (mCoveredRinging) {
                 Log.d(TAG, "Silencing ringer");
                 mTelecomManager.silenceRinger();

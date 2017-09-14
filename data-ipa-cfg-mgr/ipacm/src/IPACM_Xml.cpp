@@ -267,8 +267,8 @@ static int ipacm_cfg_xml_parse_tree
 					{
 						str_size = strlen(content);
 						memset(content_buf, 0, sizeof(content_buf));
-						memcpy(content_buf, (void *)content, str_size);
-						strlcpy(config->iface_config.iface_entries[config->iface_config.num_iface_entries - 1].iface_name, content_buf, str_size+1);
+						strlcpy(content_buf, content, MAX_XML_STR_LEN);
+						strlcpy(config->iface_config.iface_entries[config->iface_config.num_iface_entries - 1].iface_name, content_buf, IPA_IFACE_NAME_LEN);
 						IPACMDBG_H("Name %s\n", config->iface_config.iface_entries[config->iface_config.num_iface_entries - 1].iface_name);
 					}
 				}
@@ -644,12 +644,9 @@ static int IPACM_firewall_xml_parse_tree
 						memset(content_buf, 0, sizeof(content_buf));
 						memcpy(content_buf, (void *)content, str_size);
 						content_buf[MAX_XML_STR_LEN-1] = '\0';
-						if (content_buf > 0)
-						{
-							config->extd_firewall_entries[config->num_extd_firewall_entries - 1].attrib.u.v4.dst_addr_mask
-								 = ntohl(inet_addr(content_buf));
-							IPACMDBG_H("IPv4 destination subnet mask is: %s \n", content_buf);
-						}
+						config->extd_firewall_entries[config->num_extd_firewall_entries - 1].attrib.u.v4.dst_addr_mask
+							 = ntohl(inet_addr(content_buf));
+						IPACMDBG_H("IPv4 destination subnet mask is: %s \n", content_buf);
 					}
 				}
 				else if (0 == IPACM_util_icmp_string((char*)xml_node->name, IPV4TypeOfService_TAG))

@@ -7,19 +7,19 @@ ro.sys.fw.dex2oat_thread_count=4
 
 # Audio
 audio.deep_buffer.media=true
-audio.offload.buffer.size.kb=64
-audio.offload.gapless.enabled=false
-audio.offload.multiple.enabled=false
-audio.offload.pcm.16bit.enable=false
-audio.offload.pcm.24bit.enable=false
+vendor.audio.offload.buffer.size.kb=64
+vendor.audio.offload.gapless.enabled=false
+vendor.audio.offload.multiple.enabled=false
+vendor.audio.offload.pcm.16bit.enable=false
+vendor.audio.offload.pcm.24bit.enable=false
 audio.offload.track.enable=true
 persist.audio.dualmic.config=endfire
 af.fast_track_multiplier=1
 audio.offload.disable=false
 audio.offload.min.duration.secs=60
 audio.offload.video=false
-audio.playback.mch.downsample=true
-audio_hal.period_size=240
+vendor.audio.playback.mch.downsample=true
+vendor.audio_hal.period_size=240
 av.offload.enable=false
 av.debug.disable.pers.cache=1
 persist.audio.endcall.delay=250
@@ -33,14 +33,14 @@ persist.audio.calfile4=/etc/acdbdata/Hdmi_cal.acdb
 persist.audio.calfile5=/etc/acdbdata/Headset_cal.acdb
 persist.audio.calfile6=/etc/acdbdata/Speaker_cal.acdb
 
-persist.audio.fluence.speaker=false
-persist.audio.fluence.voicecall=true
-persist.audio.fluence.voicecomm=true
-persist.audio.fluence.voicerec=false
+persist.vendor.audio.fluence.speaker=false
+persist.vendor.audio.fluence.voicecall=true
+persist.vendor.audio.fluence.voicecomm=true
+persist.vendor.audio.fluence.voicerec=false
 ro.qc.sdk.audio.fluencetype=none
 ro.qc.sdk.audio.ssr=false
 
-use.voice.path.for.pcm.voip=false
+vendor.use.voice.path.for.pcm.voip=false
 
 # Bluetooth
 bluetooth.hfp.client=1

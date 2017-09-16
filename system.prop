@@ -69,7 +69,7 @@ camera.display.lmax=1280x720
 camera.mot.startup_probing=0
 persist.camera.debug.logfile=0
 persist.camera.gyro.disable=0
-
+persist.camera.HAL3.enabled=1
 vidc.dec.downscalar_width=1920
 vidc.dec.downscalar_height=1088
 vidc.dec.disable.split.cpu=1

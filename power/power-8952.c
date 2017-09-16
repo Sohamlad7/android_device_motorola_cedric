@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2015, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -48,28 +48,145 @@
 #include "performance.h"
 #include "power-common.h"
 
-static int saved_interactive_mode = -1;
-static int display_hint_sent;
 static int video_encode_hint_sent;
-static int cam_preview_hint_sent;
+static int current_power_profile = PROFILE_BALANCED;
 
-pthread_mutex_t camera_hint_mutex = PTHREAD_MUTEX_INITIALIZER;
-static int camera_hint_ref_count;
 static void process_video_encode_hint(void *metadata);
-//static void process_cam_preview_hint(void *metadata);
+
+extern void interaction(int duration, int num_args, int opt_list[]);
+
+static int profile_high_performance_8952[11] = {
+    SCHED_BOOST_ON,
+    0x704, 0x4d04, /* Enable all CPUs */
+    CPU0_MIN_FREQ_TURBO_MAX, CPU1_MIN_FREQ_TURBO_MAX,
+    CPU2_MIN_FREQ_TURBO_MAX, CPU3_MIN_FREQ_TURBO_MAX,
+    CPU4_MIN_FREQ_TURBO_MAX, CPU5_MIN_FREQ_TURBO_MAX,
+    CPU6_MIN_FREQ_TURBO_MAX, CPU7_MIN_FREQ_TURBO_MAX,
+};
+
+static int profile_power_save_8952[] = {
+    0x8fe, 0x3dfd, /* 1 big core, 2 little cores*/
+    CPUS_ONLINE_MAX_LIMIT_2,
+    CPU0_MAX_FREQ_NONTURBO_MAX, CPU1_MAX_FREQ_NONTURBO_MAX,
+    CPU2_MAX_FREQ_NONTURBO_MAX, CPU3_MAX_FREQ_NONTURBO_MAX,
+};
+
+int get_number_of_profiles() {
+    return 3;
+}
+
+static void set_power_profile(int profile) {
+
+    if (profile == current_power_profile)
+        return;
+
+    ALOGV("%s: profile=%d", __func__, profile);
+
+    if (current_power_profile != PROFILE_BALANCED) {
+        undo_hint_action(DEFAULT_PROFILE_HINT_ID);
+        ALOGV("%s: hint undone", __func__);
+    }
+
+    if (profile == PROFILE_HIGH_PERFORMANCE) {
+        int *resource_values = profile_high_performance_8952;
+        perform_hint_action(DEFAULT_PROFILE_HINT_ID, resource_values,
+                ARRAY_SIZE(resource_values));
+        ALOGD("%s: set performance mode", __func__);
+
+    } else if (profile == PROFILE_POWER_SAVE) {
+        int *resource_values = profile_power_save_8952;
+        perform_hint_action(DEFAULT_PROFILE_HINT_ID, resource_values,
+                ARRAY_SIZE(resource_values));
+        ALOGD("%s: set powersave", __func__);
+    }
+
+    current_power_profile = profile;
+}
 
 int  power_hint_override(struct power_module *module, power_hint_t hint,
         void *data)
 {
+    int duration, duration_hint;
+    static struct timespec s_previous_boost_timespec;
+    struct timespec cur_boost_timespec;
+    long long elapsed_time;
+    int resources_launch[] = {
+        ALL_CPUS_PWR_CLPS_DIS,
+        SCHED_BOOST_ON,
+        SCHED_PREFER_IDLE_DIS,
+        0x20f,
+        0x4001,
+        0x4101,
+        0x4201,
+    };
+    int resources_cpu_boost[] = {
+        ALL_CPUS_PWR_CLPS_DIS,
+        SCHED_BOOST_ON,
+        SCHED_PREFER_IDLE_DIS,
+        0x20d,
+    };
+    int resources_interaction_boost[] = {
+        SCHED_PREFER_IDLE_DIS,
+        0x20d,
+        0x3d01,
+    };
 
-    switch(hint) {
-        case POWER_HINT_VSYNC:
-            break;
+    if (hint == POWER_HINT_SET_PROFILE) {
+        set_power_profile(*(int32_t *)data);
+        return HINT_HANDLED;
+    }
+
+    // Skip other hints in custom power modes
+    if (current_power_profile != PROFILE_BALANCED) {
+        return HINT_HANDLED;
+    }
+
+    switch (hint) {
+        case POWER_HINT_INTERACTION:
+            duration = 500;
+            duration_hint = 0;
+
+            if (data) {
+                duration_hint = *((int *)data);
+            }
+
+            duration = duration_hint > 0 ? duration_hint : 500;
+
+            clock_gettime(CLOCK_MONOTONIC, &cur_boost_timespec);
+            elapsed_time = calc_timespan_us(s_previous_boost_timespec, cur_boost_timespec);
+            if (elapsed_time > 750000)
+                elapsed_time = 750000;
+            // don't hint if it's been less than 250ms since last boost
+            // also detect if we're doing anything resembling a fling
+            // support additional boosting in case of flings
+            else if (elapsed_time < 250000 && duration <= 750)
+                return HINT_HANDLED;
+
+            s_previous_boost_timespec = cur_boost_timespec;
+
+            if (duration >= 1500) {
+                interaction(duration, ARRAY_SIZE(resources_cpu_boost),
+                        resources_cpu_boost);
+            } else {
+                interaction(duration, ARRAY_SIZE(resources_interaction_boost),
+                        resources_interaction_boost);
+            }
+            return HINT_HANDLED;
+        case POWER_HINT_LAUNCH:
+            duration = 2000;
+            interaction(duration, ARRAY_SIZE(resources_launch),
+                    resources_launch);
+            return HINT_HANDLED;
+        case POWER_HINT_CPU_BOOST:
+            duration = *(int32_t *)data / 1000;
+            if (duration > 0) {
+                interaction(duration, ARRAY_SIZE(resources_cpu_boost),
+                        resources_cpu_boost);
+            }
+            return HINT_HANDLED;
         case POWER_HINT_VIDEO_ENCODE:
-        {
             process_video_encode_hint(data);
             return HINT_HANDLED;
-        }
     }
     return HINT_NONE;
 }
@@ -77,9 +194,6 @@ int  power_hint_override(struct power_module *module, power_hint_t hint,
 int  set_interactive_override(struct power_module *module, int on)
 {
     char governor[80];
-    char tmp_str[NODE_MAX];
-    struct video_encode_metadata_t video_encode_metadata;
-    int rc;
 
     ALOGI("Got set_interactive hint");
 
@@ -98,14 +212,10 @@ int  set_interactive_override(struct power_module *module, int on)
         /* Display off. */
              if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
                 (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
-            /* timer rate - 40mS*/
-            int resource_values[] = {0x41424000, 0x28,
-                                     };
-               if (!display_hint_sent) {
-                   perform_hint_action(DISPLAY_STATE_HINT_ID,
-                   resource_values, sizeof(resource_values)/sizeof(resource_values[0]));
-                  display_hint_sent = 1;
-                }
+               int resource_values[] = {TR_MS_CPU0_50, TR_MS_CPU4_50};
+
+                perform_hint_action(DISPLAY_STATE_HINT_ID,
+                        resource_values, ARRAY_SIZE(resource_values));
              } /* Perf time rate set for CORE0,CORE4 8952 target*/
 
     } else {
@@ -114,13 +224,10 @@ int  set_interactive_override(struct power_module *module, int on)
                 (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
 
              undo_hint_action(DISPLAY_STATE_HINT_ID);
-             display_hint_sent = 0;
           }
    }
-    saved_interactive_mode = !!on;
     return HINT_HANDLED;
 }
-
 
 /* Video Encode Hint */
 static void process_video_encode_hint(void *metadata)
@@ -139,7 +246,7 @@ static void process_video_encode_hint(void *metadata)
                             if (get_scaling_governor_check_cores(governor,
                                 sizeof(governor),CPU3) == -1) {
                                     ALOGE("Can't obtain scaling governor.");
-                                    // return HINT_HANDLED;
+                                    return;
                             }
                     }
             }
@@ -164,39 +271,22 @@ static void process_video_encode_hint(void *metadata)
         if ((strncmp(governor, INTERACTIVE_GOVERNOR,
             strlen(INTERACTIVE_GOVERNOR)) == 0) &&
             (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
-            /* Sched_load and migration_notification disable
-             * timer rate - 40mS*/
-            int resource_values[] = {0x41430000, 0x1,
-                                     0x41434000, 0x1,
-                                     0x41424000, 0x28,
-                                     };
-            pthread_mutex_lock(&camera_hint_mutex);
-            camera_hint_ref_count++;
-            if (camera_hint_ref_count == 1) {
-                if (!video_encode_hint_sent) {
-                    perform_hint_action(video_encode_metadata.hint_id,
-                    resource_values,
-                    sizeof(resource_values)/sizeof(resource_values[0]));
-                    video_encode_hint_sent = 1;
-                }
-           }
-           pthread_mutex_unlock(&camera_hint_mutex);
+            int resource_values[] = {TR_MS_CPU0_30, TR_MS_CPU4_30};
+            if (!video_encode_hint_sent) {
+                perform_hint_action(video_encode_metadata.hint_id,
+                resource_values,
+                ARRAY_SIZE(resource_values));
+                video_encode_hint_sent = 1;
+            }
         }
     } else if (video_encode_metadata.state == 0) {
         if ((strncmp(governor, INTERACTIVE_GOVERNOR,
             strlen(INTERACTIVE_GOVERNOR)) == 0) &&
             (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
-            pthread_mutex_lock(&camera_hint_mutex);
-            camera_hint_ref_count--;
-            if (!camera_hint_ref_count) {
-                undo_hint_action(video_encode_metadata.hint_id);
-                video_encode_hint_sent = 0;
-            }
-            pthread_mutex_unlock(&camera_hint_mutex);
+            undo_hint_action(video_encode_metadata.hint_id);
+            video_encode_hint_sent = 0;
             return ;
         }
     }
     return;
 }
-
-

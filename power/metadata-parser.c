@@ -34,7 +34,8 @@
 #include "metadata-defs.h"
 
 int parse_metadata(char *metadata, char **metadata_saveptr,
-        char *attribute, int attribute_size, char *value, int value_size)
+        char *attribute, int attribute_size, char *value,
+        unsigned int value_size)
 {
     char *attribute_string;
     char *attribute_value_delim;
@@ -66,6 +67,38 @@ int parse_metadata(char *metadata, char **metadata_saveptr,
     }
 
     return METADATA_PARSING_CONTINUE;
+}
+
+int parse_cam_preview_metadata(char *metadata,
+    struct cam_preview_metadata_t *cam_preview_metadata)
+{
+    char attribute[1024], value[1024], *saveptr;
+    char *temp_metadata = metadata;
+    int parsing_status;
+
+    while ((parsing_status = parse_metadata(temp_metadata, &saveptr,
+            attribute, sizeof(attribute), value, sizeof(value))) == METADATA_PARSING_CONTINUE) {
+        if (strlen(attribute) == strlen("hint_id") &&
+            (strncmp(attribute, "hint_id", strlen("hint_id")) == 0)) {
+            if (strlen(value) > 0) {
+                cam_preview_metadata->hint_id = atoi(value);
+            }
+        }
+
+        if (strlen(attribute) == strlen("state") &&
+            (strncmp(attribute, "state", strlen("state")) == 0)) {
+            if (strlen(value) > 0) {
+                cam_preview_metadata->state = atoi(value);
+            }
+        }
+
+        temp_metadata = NULL;
+    }
+
+    if (parsing_status == METADATA_PARSING_ERR)
+        return -1;
+
+    return 0;
 }
 
 int parse_video_encode_metadata(char *metadata,
@@ -120,6 +153,38 @@ int parse_video_decode_metadata(char *metadata,
             (strncmp(attribute, "state", strlen("state")) == 0)) {
             if (strlen(value) > 0) {
                 video_decode_metadata->state = atoi(value);
+            }
+        }
+
+        temp_metadata = NULL;
+    }
+
+    if (parsing_status == METADATA_PARSING_ERR)
+        return -1;
+
+    return 0;
+}
+
+int parse_audio_metadata(char *metadata,
+    struct audio_metadata_t *audio_metadata)
+{
+    char attribute[1024], value[1024], *saveptr;
+    char *temp_metadata = metadata;
+    int parsing_status;
+
+    while ((parsing_status = parse_metadata(temp_metadata, &saveptr,
+            attribute, sizeof(attribute), value, sizeof(value))) == METADATA_PARSING_CONTINUE) {
+        if (strlen(attribute) == strlen("hint_id") &&
+            (strncmp(attribute, "hint_id", strlen("hint_id")) == 0)) {
+            if (strlen(value) > 0) {
+                audio_metadata->hint_id = atoi(value);
+            }
+        }
+
+        if (strlen(attribute) == strlen("state") &&
+            (strncmp(attribute, "state", strlen("state")) == 0)) {
+            if (strlen(value) > 0) {
+                audio_metadata->state = atoi(value);
             }
         }
 

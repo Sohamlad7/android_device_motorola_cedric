@@ -30,6 +30,11 @@ import android.support.v7.preference.Preference;
 import android.support.v14.preference.SwitchPreference;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.text.TextUtils;
+
+import java.io.File;
+
+import org.lineageos.internal.util.FileUtils;
 
 public class TouchscreenGesturePreferenceFragment extends PreferenceFragment {
     private SwitchPreference mFlipPref;

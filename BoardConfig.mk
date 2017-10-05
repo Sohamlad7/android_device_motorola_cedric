@@ -41,19 +41,24 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-# Recovery
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/root/etc/twrp.fstab
-BOARD_SUPPRESS_SECURE_ERASE := true
-#RECOVERY_GRAPHICS_USE_LINELENGTH := true
+# Crypto
+TARGET_HW_DISK_ENCRYPTION := true
+TW_INCLUDE_CRYPTO := true
+TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
+#TW_CRYPTO_USE_SYSTEM_VOLD := true
+TW_CRYPTO_USE_SYSTEM_VOLD := qseecomd
 
-# TWRP specific build flags
+# TWRP
+BOARD_SUPPRESS_SECURE_ERASE := true
+TARGET_RECOVERY_FSTAB := device/motorola/cedric/twrp.fstab
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
+TW_INPUT_BLACKLIST := "hbtp_vm"
+#TW_NEW_ION_HEAP := true
 TW_THEME := portrait_hdpi
-TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+TW_SCREEN_BLANK_ON_BOOT := true
 TW_DEFAULT_EXTERNAL_STORAGE := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
-
 
 # Encryption support
 TW_INCLUDE_CRYPTO := true

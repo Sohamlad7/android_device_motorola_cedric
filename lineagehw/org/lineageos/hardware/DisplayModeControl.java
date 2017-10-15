@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.cyanogenmod.hardware;
+package org.lineageos.hardware;
 
 import android.util.Log;
 
-import cyanogenmod.hardware.DisplayMode;
+import lineageos.hardware.DisplayMode;
 
 /*
  * Display Modes API

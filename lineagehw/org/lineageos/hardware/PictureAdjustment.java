@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.cyanogenmod.hardware;
+package org.lineageos.hardware;
 
 import android.util.Range;
 
-import cyanogenmod.hardware.HSIC;
+import lineageos.hardware.HSIC;
 
 /**
  * Color balance support

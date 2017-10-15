@@ -24,6 +24,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 
+import org.lineageos.settings.device.actions.Constants;
+
 public class ScreenReceiver extends BroadcastReceiver {
     private final ScreenStateNotifier mNotifier;
 

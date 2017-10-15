@@ -25,11 +25,11 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import org.cyanogenmod.internal.util.FileUtils;
+import org.lineageos.internal.util.FileUtils;
 
 public class Constants {
 
-    private static final String TAG = "CMActions";
+    private static final String TAG = "LineageActions";
 
     // Swap keys
     public static final String FP_HOME_KEY = "fp_home";

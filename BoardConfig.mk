@@ -103,9 +103,8 @@ BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_NO_CHARGER_LED := true
 
-# CMHW
-BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/cmhw
+# LineageHW
+BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/lineagehw
 
 # CNE / DPM
 BOARD_USES_QCNE := true

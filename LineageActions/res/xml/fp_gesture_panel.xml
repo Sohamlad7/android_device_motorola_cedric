@@ -15,6 +15,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <SwitchPreference
+        android:key="fp_home_scr_off"
+        android:enabled="false"
+        android:title="@string/fingerprint_gestures_screenoff_title"
+        android:summary="@string/fingerprint_gestures_screenoff_summary" />
+
     <PreferenceCategory
         android:key="fp_keys_scr_on"
         android:title="@string/fingerprint_actions_screenon" >
@@ -70,12 +76,6 @@
             android:entries="@array/fp_keys_listArray"
             android:entryValues="@array/fp_keys_listValues" />
     </PreferenceCategory>
-
-    <SwitchPreference
-        android:key="fp_home_scr_off"
-        android:enabled="false"
-        android:title="@string/fingerprint_gestures_screenoff_title"
-        android:summary="@string/fingerprint_gestures_screenoff_summary" />
 
     <PreferenceCategory
         android:key="fp_keys_scr_off"

@@ -195,13 +195,17 @@ on boot
     # FPC home button permissions
     chown system system /sys/homebutton/enable
     chown system system /sys/homebutton/haptic
+    chown system system /sys/homebutton/haptic_off
     chown system system /sys/homebutton/key
     chown system system /sys/homebutton/key_hold
-    chown system system /sys/homebutton/key_up
-    chown system system /sys/homebutton/key_down
     chown system system /sys/homebutton/key_dbltap
     chown system system /sys/homebutton/key_left
     chown system system /sys/homebutton/key_right
+    chown system system /sys/homebutton/key_screenoff
+    chown system system /sys/homebutton/key_screenoff_hold
+    chown system system /sys/homebutton/key_screenoff_dbltap
+    chown system system /sys/homebutton/key_screenoff_left
+    chown system system /sys/homebutton/key_screenoff_right
 
     # Display
     chown system graphics /sys/class/graphics/fb1/hpd
@@ -851,7 +855,7 @@ on property:sys.boot_completed=1
 
     # Apply inter-cluster load balancer restrictions
     write /proc/sys/kernel/sched_restrict_cluster_spill 1
-    
+
     # set sync wakee policy tunable
     write /proc/sys/kernel/sched_prefer_sync_wakee_to_waker 1
 
@@ -870,7 +874,7 @@ on property:sys.boot_completed=1
     write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/up_scale 250
     write /sys/class/devfreq/soc:qcom,cpubw/min_freq 1611
     write /sys/class/devfreq/soc:qcom,gpubw/bw_hwmon/io_percent 40
-    
+
     # disable thermal & BCL core_control to update interactive gov settings
     write /sys/module/msm_thermal/core_control/enabled 0
     write /sys/devices/soc/soc:qcom,bcl/mode "disable"

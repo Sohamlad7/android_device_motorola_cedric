@@ -2,3 +2,6 @@ allow system_app sysfs_homebutton:dir r_dir_perms;
 allow system_app sysfs_homebutton:file rw_file_perms;
 allow system_app fingerprintd:binder call;
 
+# Screen off gestures
+allow system_app sysfs_screen_off_gestures:dir search;
+allow system_app sysfs_screen_off_gestures:file rw_file_perms;

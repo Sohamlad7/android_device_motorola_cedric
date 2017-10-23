@@ -114,3 +114,9 @@
 
 # WCNSS
 /sys/module/wcnsscore/parameters(/.*)?                   u:object_r:sysfs_wcnsscore:s0
+
+# Screen off gestures
+/sys/android_touch/gesture_swipe_right                   u:object_r:sysfs_screen_off_gestures:s0
+/sys/android_touch/gesture_swipe_left                    u:object_r:sysfs_screen_off_gestures:s0
+/sys/android_touch/gesture_swipe_down                    u:object_r:sysfs_screen_off_gestures:s0
+/sys/android_touch/gesture_swipe_up                      u:object_r:sysfs_screen_off_gestures:s0

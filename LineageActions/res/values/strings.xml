@@ -16,6 +16,79 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Title and summary -->
     <string name="moto_actions_title">Moto Actions</string>
-    <string name="moto_actions_summary">Manage custom actions and fingerprint gestures</string>
+
+    <!-- Device gestures -->
+    <string name="device_gestures_title">Device gestures</string>
+    <string name="device_gestures_summary">Manage device gestures</string>
+
+    <!-- Ambient display gestures -->
+    <string name="ambient_display_manage_summary">Manage ambient display gestures</string>
+
+    <!-- Fingerprint gestures -->
+    <string name="fingerprint_gestures_title">Fingerprint gestures</string>
+    <string name="fingerprint_gestures_summary">Use fingerprint gestures</string>
+    <string name="fingerprint_gestures_manage_summary">Manage fingerprint gestures</string>
+    <string name="fingerprint_actions_screenon">Actions with screen on</string>
+    <string name="fingerprint_tap_title">Single tap</string>
+    <string name="fingerprint_tap_dlg_title">Select action for single tap</string>
+    <string name="fingerprint_double_tap_title">Double tap</string>
+    <string name="fingerprint_double_tap_dlg_title">Select action for double tap</string>
+    <string name="fingerprint_long_tap_title">Long tap</string>
+    <string name="fingerprint_long_tap_dlg_title">Select action for long tap</string>
+    <string name="fingerprint_swipe_left_title">Swipe left</string>
+    <string name="fingerprint_swipe_left_dlg_title">Select action for swipe left</string>
+    <string name="fingerprint_swipe_right_title">Swipe right</string>
+    <string name="fingerprint_swipe_right_dlg_title">Select action for swipe right</string>
+
+    <!-- Fingerprint gestures screen off -->
+    <string name="fingerprint_gestures_screenoff_title">Fingerprint gestures when screen off</string>
+    <string name="fingerprint_gestures_screenoff_summary">Use fingerprint gestures when screen off.\n\nFingerprint unlocking must be disabled to use this feature.</string>
+    <string name="fingerprint_actions_screenoff">Actions with screen off</string>
+
+    <!-- Actions -->
+    <string name="action_none">None</string>
+    <string name="action_home">Home</string>
+    <string name="action_power">Screen on/off</string>
+    <string name="action_wake">Wake</string>
+    <string name="action_back">Back</string>
+    <string name="action_recents">Recents</string>
+    <string name="action_volume_up">Volume up</string>
+    <string name="action_volume_down">Volume down</string>
+    <string name="action_voice_assistant">Voice assistant</string>
+    <string name="action_play_pause">Play/pause</string>
+    <string name="action_previous_track">Previous track</string>
+    <string name="action_next_track">Next track</string>
+    <string name="action_flashlight">Flashlight on/off</string>
+    <string name="action_camera">Open camera</string>
+    <string name="action_screenshot">Take screenshot</string>
+    <string name="action_browser">Open browser</string>
+    <string name="action_dialer">Open dialer</string>
+    <string name="action_email">Open email app</string>
+    <string name="action_messages">Open messages app</string>
+    <string name="action_pip">Picture-in-Picture mode</string>
+
+    <!-- Screen off gestures -->
+    <string name="screen_off_gestures_title">Screen off gestures</string>
+    <string name="screen_off_gestures_manage_summary">Manage gestures when screen is off</string>
+    <string name="screen_off_gestures_swipe_left_title">Swipe left</string>
+    <string name="screen_off_gestures_swipe_left_dlg_title">Select action for swipe left</string>
+    <string name="screen_off_gestures_swipe_right_title">Swipe right</string>
+    <string name="screen_off_gestures_swipe_right_dlg_title">Select action for swipe right</string>
+    <string name="screen_off_gestures_swipe_up_title">Swipe up</string>
+    <string name="screen_off_gestures_swipe_up_dlg_title">Select action for swipe up</string>
+    <string name="screen_off_gestures_swipe_down_title">Swipe down</string>
+    <string name="screen_off_gestures_swipe_down_dlg_title">Select action for swipe down</string>
+
+   <!-- Double tap to wake -->
+   <string name="tap_to_wake">Tap to wake</string>
+   <string name="tap_to_wake_summary">Double-tap anywhere on the screen to wake device</string>
+
+   <!-- Screen off gestures haptic feedback -->
+   <string name="haptic_feedback">Haptic feedback</string>
+   <string name="haptic_feedback_summary">Vibrate when a touchscreen gesture is detected</string>
+   
+   <!-- Pip -->
+   <string name="app_does_not_support_pip">App does not support picture-in-picture mode.</string>
 </resources>

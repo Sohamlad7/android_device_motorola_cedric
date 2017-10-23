@@ -16,29 +16,87 @@
 -->
 <resources>
     <string-array name="fp_keys_listArray">
-        <item>None</item>
-        <item>Home</item>
-        <item>Power</item>
-        <item>Back</item>
-        <item>Recents</item>
-        <item>Volume Up</item>
-        <item>Volume Down</item>
-        <item>Voice Assistant</item>
-        <item>Play/Pause</item>
-        <item>Previous Track</item>
-        <item>Next Track</item>
+        <item>@string/action_none</item>
+        <item>@string/action_home</item>
+        <item>@string/action_power</item>
+        <item>@string/action_back</item>
+        <item>@string/action_recents</item>
+        <item>@string/action_volume_up</item>
+        <item>@string/action_volume_down</item>
+        <item>@string/action_voice_assistant</item>
+        <item>@string/action_play_pause</item>
+        <item>@string/action_previous_track</item>
+        <item>@string/action_next_track</item>
+        <item>@string/action_flashlight</item>
+        <item>@string/action_camera</item>
+        <item>@string/action_screenshot</item>
+        <item>@string/action_pip</item>
     </string-array>
     <string-array name="fp_keys_listValues">
         <item>0</item>
-        <item>102</item>
-        <item>116</item>
-        <item>158</item>
-        <item>580</item>
-        <item>115</item>
-        <item>114</item>
-        <item>582</item>
-        <item>164</item>
-        <item>165</item>
-        <item>163</item>
+        <item>100</item> <!-- home -->
+        <item>101</item> <!-- power -->
+        <item>102</item> <!-- back -->
+        <item>103</item> <!-- recents -->
+        <item>104</item> <!-- volume up -->
+        <item>105</item> <!-- volume down -->
+        <item>106</item> <!-- voice assistant -->
+        <item>107</item> <!-- play/pause -->
+        <item>108</item> <!-- previous track -->
+        <item>109</item> <!-- next track -->
+        <item>110</item> <!-- flashlight -->
+        <item>111</item> <!-- camera -->
+        <item>112</item> <!-- screenshot -->
+        <item>120</item> <!-- pip -->
+    </string-array>
+
+    <string-array name="fp_keys_screen_off_listArray">
+        <item>@string/action_none</item>
+        <item>@string/action_power</item>
+        <item>@string/action_volume_up</item>
+        <item>@string/action_volume_down</item>
+        <item>@string/action_play_pause</item>
+        <item>@string/action_previous_track</item>
+        <item>@string/action_next_track</item>
+        <item>@string/action_flashlight</item>
+        <item>@string/action_camera</item>
+    </string-array>
+    <string-array name="fp_keys_screen_off_listValues">
+        <item>0</item>
+        <item>101</item> <!-- power -->
+        <item>104</item> <!-- volume up -->
+        <item>105</item> <!-- volume down -->
+        <item>107</item> <!-- play/pause -->
+        <item>108</item> <!-- previous track -->
+        <item>109</item> <!-- next track -->
+        <item>110</item> <!-- flashlight -->
+        <item>111</item> <!-- camera -->
+    </string-array>
+    
+    <string-array name="screen_off_listArray">
+        <item>@string/action_none</item>
+        <item>@string/action_wake</item>
+        <item>@string/action_play_pause</item>
+        <item>@string/action_previous_track</item>
+        <item>@string/action_next_track</item>
+        <item>@string/action_flashlight</item>
+        <item>@string/action_camera</item>
+        <item>@string/action_browser</item>
+        <item>@string/action_dialer</item>
+        <item>@string/action_email</item>
+        <item>@string/action_messages</item>
+    </string-array>
+    <string-array name="screen_off_listValues">
+        <item>0</item>
+        <item>101</item> <!-- wake/power -->
+        <item>107</item> <!-- play/pause -->
+        <item>108</item> <!-- previous track -->
+        <item>109</item> <!-- next track -->
+        <item>110</item> <!-- flashlight -->
+        <item>111</item> <!-- camera -->
+        <item>116</item> <!-- browser -->
+        <item>117</item> <!-- dialer -->
+        <item>118</item> <!-- email -->
+        <item>119</item> <!-- messages -->
     </string-array>
 </resources>

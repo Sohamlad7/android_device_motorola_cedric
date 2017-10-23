@@ -41,16 +41,8 @@ public class ScreenReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
             mNotifier.screenTurnedOff();
-
-            for (String pref : Constants.sButtonScreenOffPrefKeys) {
-                 Constants.writePreference(context, pref);
-            }
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
             mNotifier.screenTurnedOn();
-
-            for (String pref : Constants.sButtonPrefKeys) {
-                 Constants.writePreference(context, pref);
-            }
         }
     }
 }

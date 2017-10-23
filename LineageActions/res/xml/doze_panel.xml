@@ -17,29 +17,24 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <PreferenceCategory
-        android:key="ambient_display_key"
-        android:title="@string/ambient_display_title">
+   <SwitchPreference
+        android:key="doze_enabled"
+        android:defaultValue="true"
+        android:title="@string/ambient_display_enable_title"
+        android:summary="@string/ambient_display_enable_summary" />
 
-        <lineageos.preference.SecureSettingSwitchPreference
-            android:key="doze_enabled"
-            android:defaultValue="true"
-            android:title="@string/ambient_display_enable_title"
-            android:summary="@string/ambient_display_enable_summary" />
+    <SwitchPreference
+        android:key="gesture_pick_up"
+        android:defaultValue="true"
+        android:title="@string/pick_up_gesture_title"
+        android:summary="@string/pick_up_gesture_summary"
+        android:dependency="doze_enabled" />
 
-        <SwitchPreference
-            android:key="gesture_pick_up"
-            android:defaultValue="true"
-            android:title="@string/pick_up_gesture_title"
-            android:summary="@string/pick_up_gesture_summary"
-            android:dependency="doze_enabled" />
-
-        <SwitchPreference
-            android:key="gesture_hand_wave"
-            android:defaultValue="true"
-            android:title="@string/hand_wave_gesture_title"
-            android:summary="@string/hand_wave_gesture_summary"
-            android:dependency="doze_enabled" />
-    </PreferenceCategory>
+    <SwitchPreference
+        android:key="gesture_hand_wave"
+        android:defaultValue="true"
+        android:title="@string/hand_wave_gesture_title"
+        android:summary="@string/hand_wave_gesture_summary"
+        android:dependency="doze_enabled" />
 
 </PreferenceScreen>

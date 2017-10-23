@@ -6,3 +6,6 @@ allow system_server rild:binder transfer;
 allow system_server sysfs_capsense:dir search;
 allow system_server sysfs_capsense:file rw_file_perms;
 
+# Screen off gestures
+allow system_server sysfs_screen_off_gestures:dir search;
+allow system_server sysfs_screen_off_gestures:file rw_file_perms;

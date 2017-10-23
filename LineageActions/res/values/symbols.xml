@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <java-symbol type="string" name="app_does_not_support_pip" />
+</resources>

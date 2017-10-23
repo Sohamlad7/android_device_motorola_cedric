@@ -14,6 +14,10 @@
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
+    <uses-sdk
+        android:minSdkVersion="26"
+        android:targetSdkVersion="26" />
+
     <application
         android:allowBackup="true"
         android:label="@string/moto_actions_title"
@@ -34,7 +38,7 @@
         </service>
 
         <activity
-            android:name=".DozeSettings"
+            android:name=".DozeSettingsActivity"
             android:label="@string/ambient_display_title"
             android:theme="@style/LineageActions">
             <intent-filter>
@@ -49,7 +53,7 @@
             android:summary="@string/device_gestures_summary"
             android:theme="@style/LineageActions">
             <intent-filter>
-                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
             <meta-data
                 android:name="com.android.settings.category"
@@ -63,19 +67,19 @@
         </activity>
 
         <activity
-            android:name=".GestureSettings"
+            android:name=".GestureSettingsActivity"
             android:label="@string/device_gestures_title"
             android:theme="@style/LineageActions">
         </activity>
 
         <activity
-            android:name=".FPGestureSettings"
+            android:name=".FPGestureSettingsActivity"
             android:label="@string/fingerprint_gestures_title"
             android:theme="@style/LineageActions">
         </activity>
 
         <activity
-            android:name=".ScreenOffGestureSettings"
+            android:name=".ScreenOffGestureSettingsActivity"
             android:label="@string/screen_off_gestures_title"
             android:theme="@style/LineageActions">
         </activity>

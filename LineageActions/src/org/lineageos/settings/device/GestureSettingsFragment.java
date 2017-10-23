@@ -22,32 +22,36 @@ import android.os.Bundle;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.SwitchPreference;
+import android.support.v14.preference.PreferenceFragment;
+import android.support.v7.preference.PreferenceCategory;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceClickListener;
+import android.support.v14.preference.SwitchPreference;
 import android.view.MenuItem;
 
-public class GestureSettings extends PreferenceActivity {
+public class GestureSettingsFragment extends PreferenceFragment {
 
     private SwitchPreference mFlipPref;
     private NotificationManager mNotificationManager;
     private boolean mFlipClick = false;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.actions_panel);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
         mFlipPref = (SwitchPreference) findPreference("gesture_flip_to_mute");
 
         mFlipPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
             public boolean onPreferenceClick(Preference preference) {
                 if (!mNotificationManager.isNotificationPolicyAccessGranted()) {
                     mFlipPref.setChecked(false);
-                    new AlertDialog.Builder(GestureSettings.this)
+                    new AlertDialog.Builder(getActivity())
                             .setTitle(getString(R.string.flip_to_mute_title))
                             .setMessage(getString(R.string.dnd_access))
                             .setNegativeButton(android.R.string.cancel, null)
@@ -75,15 +79,6 @@ public class GestureSettings extends PreferenceActivity {
         if (mNotificationManager.isNotificationPolicyAccessGranted() && mFlipClick) {
             mFlipPref.setChecked(true);
         }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 }

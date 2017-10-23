@@ -15,31 +15,17 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <SwitchPreference
-        android:key="fp_home"
-        android:title="@string/fingerprint_gestures_title"
-        android:summary="@string/fingerprint_gestures_summary" />
-
-    <SwitchPreference
-        android:key="fp_home_scr_off"
-        android:dependency="fp_home"
-        android:enabled="false"
-        android:title="@string/fingerprint_gestures_screenoff_title"
-        android:summary="@string/fingerprint_gestures_screenoff_summary" />
-
     <PreferenceCategory
         android:key="fp_keys_scr_on"
         android:title="@string/fingerprint_actions_screenon" >
 
         <SwitchPreference
             android:key="fp_haptic"
-            android:dependency="fp_home"
             android:defaultValue="0"
             android:title="@string/haptic_feedback"
             android:summary="@string/haptic_feedback_summary" />
 
         <ListPreference
-            android:dependency="fp_home"
             android:title="@string/fingerprint_tap_title"
             android:summary="%s"
             android:dialogTitle="@string/fingerprint_tap_dlg_title"
@@ -49,7 +35,6 @@
             android:entryValues="@array/fp_keys_listValues" />
 
         <ListPreference
-            android:dependency="fp_home"
             android:title="@string/fingerprint_double_tap_title"
             android:summary="%s"
             android:dialogTitle="@string/fingerprint_double_tap_dlg_title"
@@ -59,7 +44,6 @@
             android:entryValues="@array/fp_keys_listValues" />
 
         <ListPreference
-            android:dependency="fp_home"
             android:title="@string/fingerprint_long_tap_title"
             android:summary="%s"
             android:dialogTitle="@string/fingerprint_long_tap_dlg_title"
@@ -69,7 +53,6 @@
             android:entryValues="@array/fp_keys_listValues" />
 
         <ListPreference
-            android:dependency="fp_home"
             android:title="@string/fingerprint_swipe_left_title"
             android:summary="%s"
             android:dialogTitle="@string/fingerprint_swipe_left_dlg_title"
@@ -79,7 +62,6 @@
             android:entryValues="@array/fp_keys_listValues" />
 
         <ListPreference
-            android:dependency="fp_home"
             android:title="@string/fingerprint_swipe_right_title"
             android:summary="%s"
             android:dialogTitle="@string/fingerprint_swipe_right_dlg_title"
@@ -88,6 +70,12 @@
             android:entries="@array/fp_keys_listArray"
             android:entryValues="@array/fp_keys_listValues" />
     </PreferenceCategory>
+
+    <SwitchPreference
+        android:key="fp_home_scr_off"
+        android:enabled="false"
+        android:title="@string/fingerprint_gestures_screenoff_title"
+        android:summary="@string/fingerprint_gestures_screenoff_summary" />
 
     <PreferenceCategory
         android:key="fp_keys_scr_off"

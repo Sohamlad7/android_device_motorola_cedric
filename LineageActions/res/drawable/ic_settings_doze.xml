@@ -4,14 +4,14 @@
     android:height="24dp"
     android:viewportWidth="1000.000000"
     android:viewportHeight="1000.000000"
-    android:tint="?android:attr/colorAccent">
+    android:tint="?android:attr/colorControlNormal">
 
     <group
         android:translateY="1000.000000"
         android:scaleX="0.100000"
         android:scaleY="-0.100000">
         <path
-            android:fillColor="@android:color/white"
+            android:fillColor="#FFFFFFFF"
             android:strokeWidth="1"
             android:pathData="M3022 9600 c-109 -29 -187 -74 -272 -160 -87 -86 -131 -163 -160 -276 -20 -76 -20
 -127 -20 -4094 0 -3967 0 -4018 20 -4094 29 -113 73 -190 160 -276 86 -87 163 -131

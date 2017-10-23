@@ -16,14 +16,43 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    
     <style name="LineageActions" parent="@android:style/Theme.DeviceDefault.Settings">
-        <item name="preferenceTheme">@style/SettingsPreference</item>
+        <item name="dialogPreferenceStyle">@style/LineageActions.DialogPreferenceStyle</item>
+        <item name="preferenceCategoryStyle">@style/LineageActions.PreferenceCategoryStyle</item>
+        <item name="preferenceFragmentStyle">@style/LineageActions.PreferenceFragmentStyle</item>
+        <item name="preferenceStyle">@style/LineageActions.PreferenceStyle</item>
+        <item name="preferenceTheme">@style/LineageActions.PreferenceTheme</item>
+        <item name="switchPreferenceStyle">@style/LineageActions.SwitchPreferenceStyle</item>
     </style>
 
-    <!-- Preferences -->
-    <style name="SettingsPreference">
+    <style name="LineageActions.DialogPreferenceStyle" parent="@style/LineageActions.PreferenceStyle">
+    </style>
+
+    <style name="LineageActions.PreferenceCategoryStyle" parent="@*android:style/Preference.DeviceDefault.Category">
+        <item name="allowDividerAbove">true</item>
+        <item name="allowDividerBelow">true</item>
+        <item name="android:layout">@layout/preference_category_material_settings</item>
+    </style>
+
+    <style name="LineageActions.PreferenceFragmentStyle" parent="@*android:style/PreferenceFragment.Material">
+        <item name="allowDividerAfterLastItem">false</item>
+    </style>
+
+    <style name="LineageActions.PreferenceStyle" parent="@*android:style/Preference.DeviceDefault">
         <item name="allowDividerAbove">false</item>
         <item name="allowDividerBelow">true</item>
         <item name="singleLineTitle">false</item>
+        <item name="android:layout">@layout/preference_material_settings</item>
+    </style>
+
+    <style name="LineageActions.PreferenceTheme">
+    </style>
+
+    <style name="LineageActions.SwitchPreferenceStyle" parent="@style/LineageActions.PreferenceStyle">
+        <item name="widgetLayout">@*android:layout/preference_widget_switch</item>
+    </style>
+
+    <style name="LineageActions.SwitchBar" parent="@android:style/ThemeOverlay.Material.ActionBar">
     </style>
 </resources>

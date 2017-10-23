@@ -18,44 +18,44 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <PreferenceScreen
+    <Preference
         android:key="gestures"
         android:title="@string/device_gestures_title"
         android:summary="@string/device_gestures_summary"
         android:icon="@drawable/ic_settings_gestures">
             <intent
                 android:targetPackage="org.lineageos.settings.device"
-                android:targetClass="org.lineageos.settings.device.GestureSettings" />
-    </PreferenceScreen>
+                android:targetClass="org.lineageos.settings.device.GestureSettingsActivity" />
+    </Preference>
 
-    <PreferenceScreen
+    <Preference
         android:key="doze"
         android:title="@string/ambient_display_title"
         android:summary="@string/ambient_display_manage_summary"
         android:icon="@drawable/ic_settings_doze">
             <intent
                 android:targetPackage="org.lineageos.settings.device"
-                android:targetClass="org.lineageos.settings.device.DozeSettings" />
-    </PreferenceScreen>
+                android:targetClass="org.lineageos.settings.device.DozeSettingsActivity" />
+    </Preference>
 
-    <PreferenceScreen
+    <Preference
         android:key="fp_gestures"
         android:title="@string/fingerprint_gestures_title"
         android:summary="@string/fingerprint_gestures_manage_summary"
         android:icon="@drawable/ic_settings_fingerprint">
             <intent
                 android:targetPackage="org.lineageos.settings.device"
-                android:targetClass="org.lineageos.settings.device.FPGestureSettings" />
-    </PreferenceScreen>
+                android:targetClass="org.lineageos.settings.device.FPGestureSettingsActivity" />
+    </Preference>
 
-    <PreferenceScreen
+    <Preference
         android:key="screen_off_gestures"
         android:title="@string/screen_off_gestures_title"
         android:summary="@string/screen_off_gestures_manage_summary"
         android:icon="@drawable/ic_settings_screen_off_gestures">
             <intent
                 android:targetPackage="org.lineageos.settings.device"
-                android:targetClass="org.lineageos.settings.device.ScreenOffGestureSettings" />
-    </PreferenceScreen>
+                android:targetClass="org.lineageos.settings.device.ScreenOffGestureSettingsActivity" />
+    </Preference>
 
 </PreferenceScreen>

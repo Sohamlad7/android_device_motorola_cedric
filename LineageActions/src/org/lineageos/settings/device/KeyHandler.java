@@ -671,7 +671,7 @@ public class KeyHandler implements DeviceKeyHandler {
     }
 
     private void fireGoogleNowOnTap() {
-        doHapticFeedbackFP(false);
+        doHapticFeedbackFP(true);
         mSearchManagerService = ISearchManager.Stub.asInterface(ServiceManager.getService(Context.SEARCH_SERVICE));
         if (mSearchManagerService != null) {
             try {
@@ -679,7 +679,6 @@ public class KeyHandler implements DeviceKeyHandler {
             } catch (RemoteException e) {
             }
         }
-        doHapticFeedbackFP(true);
     }
 
     private int str2int(String str){

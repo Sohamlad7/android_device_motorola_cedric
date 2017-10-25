@@ -511,6 +511,9 @@ public class KeyHandler implements DeviceKeyHandler {
         if (isHapticFeedbackEnabledOnFP && (action == ACTION_CAMERA || action == ACTION_FLASHLIGHT)) {
             vibrate(action == ACTION_CAMERA ? 500 : 250);
         }
+        if (isHapticFeedbackEnabledOnFP && action == ACTION_POWER) {
+            doHapticFeedbackFP(false);
+        }
         switch (action) {
             case ACTION_HOME:
                 if (!mKeyguardManager.inKeyguardRestrictedInputMode()) {
@@ -563,7 +566,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 }
                 break;
         }
-        if (isHapticFeedbackEnabledOnFP && action != ACTION_VOICE_ASSISTANT && action != ACTION_CAMERA && action != ACTION_FLASHLIGHT) { // prevent double vibration
+        if (isHapticFeedbackEnabledOnFP && action != ACTION_VOICE_ASSISTANT && action != ACTION_CAMERA && action != ACTION_FLASHLIGHT && action != ACTION_POWER) { // prevent double vibration
             doHapticFeedbackFP(false);
         }
     }
@@ -762,6 +765,9 @@ public class KeyHandler implements DeviceKeyHandler {
         if (haptic && (action == ACTION_CAMERA || action == ACTION_FLASHLIGHT)) {
             vibrate(action == ACTION_CAMERA ? 500 : 250);
         }
+        if (haptic && action == ACTION_POWER){
+            doHapticFeedbackScreenOff();
+        }
         switch (action) {
             case ACTION_POWER:
                 toggleScreenState();
@@ -794,7 +800,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 openMessages();
                 break;
         }
-        if (action != ACTION_FLASHLIGHT && action != ACTION_CAMERA) {
+        if (action != ACTION_FLASHLIGHT && action != ACTION_CAMERA && action != ACTION_POWER) {
             doHapticFeedbackScreenOff();
         }
     }

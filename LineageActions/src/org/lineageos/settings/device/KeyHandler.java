@@ -645,11 +645,11 @@ public class KeyHandler implements DeviceKeyHandler {
                 KeyEvent.ACTION_UP);
 
         // add a small delay to make sure everything behind got focus
-        handler.post(new Runnable(){
+        handler.postDelayed(new Runnable(){
             @Override
             public void run() {
                 im.injectInputEvent(downEvent,InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
-            }});
+            }}, 10);
 
         handler.postDelayed(new Runnable(){
             @Override
@@ -658,7 +658,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 if (mIsHapticFeedbackEnabledOnSystem_){
                     setHapticFeedbackEnabledOnSystem(true);
                 }
-            }}, 10);
+            }}, 20);
     }
 
     private static void sendCloseSystemWindows(String reason) {

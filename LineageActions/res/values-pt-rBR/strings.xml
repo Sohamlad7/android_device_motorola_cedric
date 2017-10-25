@@ -54,6 +54,7 @@
     <string name="action_wake">Acordar o dispositivo</string>
     <string name="action_back">Voltar</string>
     <string name="action_recents">Recentes</string>
+    <string name="action_last_app">Último app</string>
     <string name="action_volume_up">Aumentar volume</string>
     <string name="action_volume_down">Diminuir volume</string>
     <string name="action_voice_assistant">Assistente de voz</string>

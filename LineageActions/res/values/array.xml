@@ -21,6 +21,7 @@
         <item>@string/action_power</item>
         <item>@string/action_back</item>
         <item>@string/action_recents</item>
+        <item>@string/action_last_app</item>
         <item>@string/action_volume_up</item>
         <item>@string/action_volume_down</item>
         <item>@string/action_voice_assistant</item>
@@ -38,6 +39,7 @@
         <item>101</item> <!-- power -->
         <item>102</item> <!-- back -->
         <item>103</item> <!-- recents -->
+        <item>121</item> <!-- last app -->
         <item>104</item> <!-- volume up -->
         <item>105</item> <!-- volume down -->
         <item>106</item> <!-- voice assistant -->

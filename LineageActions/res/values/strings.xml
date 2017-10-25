@@ -54,6 +54,7 @@
     <string name="action_wake">Wake</string>
     <string name="action_back">Back</string>
     <string name="action_recents">Recents</string>
+    <string name="action_last_app">Last app</string>
     <string name="action_volume_up">Volume up</string>
     <string name="action_volume_down">Volume down</string>
     <string name="action_voice_assistant">Voice assistant</string>

@@ -278,6 +278,7 @@ on charger
 on moto-charger
     setprop ro.board.platform msm8937
     trigger firmware_mounts_complete
+    start charge_only_mode
     start batt_health
     start thermal-com
 
@@ -335,6 +336,11 @@ service motosh /system/bin/motosh boot
     user compass
     group compass misc input
     oneshot
+
+service charge_only_mode /system/bin/charge_only_mode
+    user root
+    group graphics system input
+    disabled
 
 service thermal-com /system/vendor/bin/thermal-engine --minimode
     class main

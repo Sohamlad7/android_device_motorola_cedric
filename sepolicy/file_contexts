@@ -7,6 +7,7 @@
 
 # Binaries
 /system/bin/adspd                                        u:object_r:adspd_exec:s0
+/system/bin/charge_only_mode                             u:object_r:charge_only_exec:s0
 /system/bin/hci_qcomm_init                               u:object_r:config_bluetooth_exec:s0
 /system/bin/init\.mmi\.boot\.sh                          u:object_r:mmi_boot_exec:s0
 /system/bin/init\.mmi\.laser\.sh                         u:object_r:mmi_laser_exec:s0
@@ -21,6 +22,9 @@
 
 # CMActions
 /sys/homebutton(/.*)?                                    u:object_r:sysfs_homebutton:s0
+
+# Motorola services
+/data/chargeonlymode(/.*)?                               u:object_r:chargeonly_data_file:s0
 
 # Fingerprint
 /data/.fps(/.*)?                                         u:object_r:fingerprintd_data_file:s0

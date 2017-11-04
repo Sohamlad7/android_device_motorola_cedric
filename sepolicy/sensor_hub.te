@@ -1,4 +1,4 @@
-type sensor_hub, domain, domain_deprecated;
+type sensor_hub, domain;
 type sensor_hub_exec, exec_type, file_type;
 init_daemon_domain(sensor_hub)
 

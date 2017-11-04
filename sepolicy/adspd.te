@@ -1,4 +1,4 @@
-type adspd, domain, domain_deprecated;
+type adspd, domain;
 type adspd_exec, exec_type, file_type;
 init_daemon_domain(adspd)
 

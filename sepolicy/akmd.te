@@ -1,4 +1,4 @@
-type akmd, domain, domain_deprecated;
+type akmd, domain;
 type akmd_exec, exec_type, file_type;
 init_daemon_domain(akmd)
 

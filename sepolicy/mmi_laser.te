@@ -1,4 +1,4 @@
-type mmi_laser, domain, domain_deprecated;
+type mmi_laser, domain;
 type mmi_laser_exec, exec_type, file_type;
 init_daemon_domain(mmi_laser)
 

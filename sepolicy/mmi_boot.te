@@ -1,4 +1,4 @@
-type mmi_boot, domain, domain_deprecated;
+type mmi_boot, domain;
 type mmi_boot_exec, exec_type, file_type;
 init_daemon_domain(mmi_boot)
 

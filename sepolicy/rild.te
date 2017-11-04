@@ -8,6 +8,4 @@ allow rild persist_file:file rw_file_perms;
 allow rild sensorservice_service:service_manager find;
 allow rild system_server:binder { transfer call };
 allow rild system_server:unix_stream_socket { read getopt write };
-allow rild wpa:unix_dgram_socket sendto;
-allow rild wpa_socket:sock_file { read write };
 

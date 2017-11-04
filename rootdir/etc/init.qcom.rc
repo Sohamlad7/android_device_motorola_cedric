@@ -465,6 +465,10 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     group camera system inet input graphics
     writepid /dev/cpuset/system-background/tasks
 
+service cnd /system/bin/cnd
+    class main
+    socket cnd stream 660 root inet
+
 service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     class late_start
     user system
@@ -513,6 +517,14 @@ service imscmservice /system/bin/imscmservice
 
 on property:sys.ims.DATA_DAEMON_STATUS=1
     start imscmservice
+
+service imsdatadaemon /system/bin/imsdatadaemon
+    class main
+    user system
+    socket ims_datad stream 0660 system radio
+    group system wifi radio inet log diag
+    disabled
+    writepid /dev/cpuset/system-background/tasks
 
 on property:sys.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
@@ -804,7 +816,7 @@ on property:ro.data.large_tcp_window_size=true
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
 service ril-daemon2 /vendor/bin/hw/rild -c 2
-     class main
+    class main
     user radio
     group radio cache inet misc audio log readproc wakelock
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW

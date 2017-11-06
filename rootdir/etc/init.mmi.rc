@@ -25,7 +25,6 @@ on post-fs
     mkdir /persist/camera 0755 oem_5004 oem_5004
     mkdir /persist/camera/focus 0775 camera oem_5004
     mkdir /persist/camera/ledcal 0775 camera oem_5004
-    mkdir /persist/batt_health 0755 oem_5001 oem_5001
     mkdir /persist/mdm 0770 radio radio
     mkdir /persist/factory 0755 oem_5004 oem_5004
     mkdir /persist/factory/audio 0755 oem_5004 system
@@ -279,7 +278,6 @@ on moto-charger
     setprop ro.board.platform msm8937
     trigger firmware_mounts_complete
     start charge_only_mode
-    start batt_health
     start thermal-com
 
 on property:ro.boot.dualsim=true
@@ -295,15 +293,6 @@ service adspd /system/bin/adspd
    socket adspdsock stream 0660 system audio
    user audio
    group audio input diag
-
-service batt_health /system/bin/batt_health
-    class late_start
-    user oem_5001
-    group oem_5001 cache net_admin log
-    disabled
-
-on property:sys.boot_completed=1 && property:ro.boot.secure_hardware=0
-    start batt_health
 
 service fingerprintd /system/bin/fingerprintd
     class late_start

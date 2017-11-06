@@ -7,13 +7,11 @@ bin/adspd
 bin/adsprpcd
 bin/akmd09912
 bin/ATFWD-daemon
-bin/batt_health
 bin/btnvtool
 bin/charge_only_mode
 bin/cnd
 bin/cnss-daemon
 bin/cnss_diag
-bin/dbvc_atvc_property_set
 bin/dun-server
 bin/fm_qsoc_patches
 bin/ftmdaemon

@@ -16,7 +16,6 @@ type pds_public_file, file_type, data_file_type;
 type persist_camera_file, file_type, data_file_type;
 type persist_antcap_file, file_type, data_file_type;
 type pds_telephony_file, file_type, data_file_type;
-type pds_batt_file, file_type, data_file_type;
 type pds_omadm_file, file_type, data_file_type;
 type persist_audio_file, file_type, data_file_type;
 

@@ -21,7 +21,6 @@ import android.app.ActivityManager;
 import android.app.ActivityManagerNative;
 import android.app.ISearchManager;
 import android.app.KeyguardManager;
-import android.app.NotificationManager;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
@@ -92,7 +91,6 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final long[] LONG_PRESS_VIBRATION_PATTERN = new long[] {0, 25, 10};
     private final Context mContext;
     private final PowerManager mPowerManager;
-    private final NotificationManager mNotificationManager;
     WakeLock mProximityWakeLock;
     WakeLock mGestureWakeLock;
     private KeyguardManager mKeyguardManager;
@@ -147,8 +145,6 @@ public class KeyHandler implements DeviceKeyHandler {
         mContext = context;
 
         mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-        mNotificationManager
-                = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         mScreenOffGesturesHandler = new ScreenOffGesturesHandler();
         mFPScreenOffGesturesHandler = new FPScreenOffGesturesHandler();
 

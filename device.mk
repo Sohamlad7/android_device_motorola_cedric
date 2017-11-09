@@ -306,6 +306,7 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
+    wifi_symlinks \
     hostapd_default.conf \
     hostapd \
     wpa_supplicant \
@@ -330,15 +331,6 @@ PRODUCT_PACKAGES += \
     tcpdump \
     wcnss_service \
     libwpa_client
-
-# Wifi Symlinks
-PRODUCT_PACKAGES += \
-    WCNSS_qcom_cfg.ini \
-    WCNSS_qcom_wlan_nv.bin \
-    WCNSS_qcom_wlan_nv_Argentina.bin \
-    WCNSS_qcom_wlan_nv_Brazil.bin \
-    WCNSS_qcom_wlan_nv_India.bin \
-    WCNSS_wlan_dictionary.dat
 
 # Wifi Configurations
 PRODUCT_COPY_FILES += \

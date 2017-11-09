@@ -132,8 +132,8 @@ USE_OPENGL_RENDERER := true
 BOARD_HAVE_QCOM_FM := true
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_RECOVERY_DEVICE_MODULES := libinit_msm
+TARGET_INIT_VENDOR_LIB := libinit_cedric
+TARGET_RECOVERY_DEVICE_MODULES := libinit_cedric
 
 # Keymaster
 TARGET_PROVIDES_KEYMASTER := true

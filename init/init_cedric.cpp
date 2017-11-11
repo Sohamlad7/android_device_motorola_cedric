@@ -1,5 +1,6 @@
 /*
-   Copyright (c) 2016, The CyanogenMod Project
+   Copyright (c) 2014, The Linux Foundation. All rights reserved.
+
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
    met:
@@ -12,6 +13,7 @@
     * Neither the name of The Linux Foundation nor the names of its
       contributors may be used to endorse or promote products derived
       from this software without specific prior written permission.
+
    THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
    WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
@@ -25,49 +27,55 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <sys/sysinfo.h>
+#include <stdlib.h>
+#define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
+#include <sys/_system_properties.h>
 
+#include "vendor_init.h"
 #include "property_service.h"
+#include "log.h"
+#include "util.h"
 
-char const *heapstartsize;
-char const *heapgrowthlimit;
-char const *heapsize;
-char const *heapminfree;
-char const *text_large_cache_height;
-void check_device()
+void property_override(char const prop[], char const value[])
 {
-    struct sysinfo sys;
+    prop_info *pi;
 
-    sysinfo(&sys);
+    pi = (prop_info*) __system_property_find(prop);
+    if (pi)
+        __system_property_update(pi, value, strlen(value));
+    else
+        __system_property_add(prop, strlen(prop), value, strlen(value));
+}
 
-    if (sys.totalram > 2048ull * 1024 * 1024) {
-        // from - phone-xxhdpi-3072-dalvik-heap.mk
-        heapstartsize = "8m";
-        heapgrowthlimit = "192m";
-        heapsize = "384m";
-        heapminfree = "512k";
-	text_large_cache_height = "2048";
+void num_sims() {
+    std::string dualsim;
+
+    dualsim = property_get("ro.boot.dualsim");
+    property_set("ro.hw.dualsim", dualsim.c_str());
+
+    if (dualsim == "true") {
+        property_set("persist.radio.multisim.config", "dsds");
     } else {
-        // from - phone-xxhdpi-2048-dalvik-heap.mk
-        heapstartsize = "16m";
-        heapgrowthlimit = "192m";
-        heapsize = "512m";
-        heapminfree = "2m";
-	text_large_cache_height = "1024";
+        property_set("persist.radio.multisim.config", "");
     }
 }
 
 void vendor_load_properties()
 {
-    check_device();
+    std::string platform = property_get("ro.board.platform");
 
-    property_set("dalvik.vm.heapstartsize", heapstartsize);
-    property_set("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
-    property_set("dalvik.vm.heapsize", heapsize);
-    property_set("dalvik.vm.heaptargetutilization", "0.75");
-    property_set("dalvik.vm.heapminfree", heapminfree);
-    property_set("dalvik.vm.heapmaxfree", "8m");
+        return;
 
-    property_set("ro.hwui.text_large_cache_height", text_large_cache_height);
+    std::string sku = property_get("ro.boot.hardware.sku");
+    property_override("ro.product.model", sku.c_str());
+
+    // rmt_storage
+    std::string device = property_get("ro.boot.device");
+    std::string radio = property_get("ro.boot.radio");
+    property_set("ro.hw.device", device.c_str());
+    property_set("ro.hw.radio", radio.c_str());
+    property_set("ro.hw.fps", "true");
+
+    num_sims();
 
 }

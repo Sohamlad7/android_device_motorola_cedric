@@ -238,7 +238,7 @@ on boot
     chown system graphics /sys/class/graphics/fb0/msm_cmd_autorefresh_en
     chmod 0664 /sys/class/graphics/fb0/msm_cmd_autorefresh_en
 
-    write /dev/cpuset/top-app/cpus 0-7
+    write /dev/cpuset/top-app/cpus 0-3
     write /dev/cpuset/top-app/boost/cpus 0-3
     write /dev/cpuset/foreground/cpus 0-7
     write /dev/cpuset/foreground/boost/cpus 0-3

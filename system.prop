@@ -58,6 +58,7 @@ ro.qualcomm.bluetooth.nap=true
 ro.bluetooth.sap=true
 ro.bluetooth.dun=true
 ro.qualcomm.bluetooth.map=true
+persist.bt.enableAptXHD=true
 
 # Camera
 persist.camera.is_type=1

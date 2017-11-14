@@ -25,11 +25,13 @@ import android.view.MenuItem;
 
 import static android.provider.Settings.Secure.DOUBLE_TAP_TO_WAKE;
 import static org.lineageos.settings.device.actions.Constants.KEY_GESTURE_ENABLE_HAPTIC_FEEDBACK;
+import static org.lineageos.settings.device.actions.Constants.KEY_GESTURE_ENABLE_PROXIMITY_SENSOR;
 
 public class ScreenOffGestureSettingsFragment extends PreferenceFragment {
 
     private SwitchPreference mTapToWake;
     private SwitchPreference mHapticFeedback;
+    private SwitchPreference mProximitySensor;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -58,6 +60,17 @@ public class ScreenOffGestureSettingsFragment extends PreferenceFragment {
             public boolean onPreferenceChange(Preference preference, Object objValue) {
                 boolean value = (Boolean) objValue;
                 Settings.System.putInt(getActivity().getContentResolver(), KEY_GESTURE_ENABLE_HAPTIC_FEEDBACK, value ? 1 : 0);
+                return true;
+            }
+        });
+
+        mProximitySensor = (SwitchPreference) findPreference("proximity_sensor");
+        mProximitySensor.setChecked(Settings.System.getInt(getActivity().getContentResolver(), KEY_GESTURE_ENABLE_PROXIMITY_SENSOR, 1) == 1);
+        mProximitySensor.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object objValue) {
+                boolean value = (Boolean) objValue;
+                Settings.System.putInt(getActivity().getContentResolver(), KEY_GESTURE_ENABLE_PROXIMITY_SENSOR, value ? 1 : 0);
                 return true;
             }
         });

@@ -92,4 +92,8 @@
    
    <!-- Pip -->
    <string name="app_does_not_support_pip">O aplicativo não tem suporte ao modo picture-in-picture.</string>
+
+   <!-- Proximity sensor -->
+   <string name="allow_proximity_sensor_title">Habilitar o sensor de proximidade</string>
+   <string name="allow_proximity_sensor_summary">Verificar o sensor de proximidade antes de executar a ação</string>
 </resources>

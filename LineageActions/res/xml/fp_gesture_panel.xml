@@ -89,6 +89,13 @@
             android:title="@string/haptic_feedback"
             android:summary="@string/haptic_feedback_summary" />
 
+        <SwitchPreference
+            android:key="fp_proximity_check_scr_off"
+            android:dependency="fp_home_scr_off"
+            android:defaultValue="1"
+            android:title="@string/allow_proximity_sensor_title"
+            android:summary="@string/allow_proximity_sensor_summary" />
+
         <ListPreference
             android:dependency="fp_home_scr_off"
             android:title="@string/fingerprint_tap_title"

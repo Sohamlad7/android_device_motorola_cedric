@@ -199,6 +199,7 @@ on boot
     chown system system /sys/homebutton/enable
     chown system system /sys/homebutton/haptic
     chown system system /sys/homebutton/haptic_off
+    chown system system /sys/homebutton/proximity_check_off 
     chown system system /sys/homebutton/key
     chown system system /sys/homebutton/key_hold
     chown system system /sys/homebutton/key_dbltap

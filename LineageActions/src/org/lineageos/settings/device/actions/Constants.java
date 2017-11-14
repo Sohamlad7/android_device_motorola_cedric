@@ -107,6 +107,10 @@ public class Constants {
     public static final String FP_HAPTIC_SCREENOFF_NODE = "/sys/homebutton/haptic_off";
     public static final String FP_HAPTIC_SCREENOFF_KEY = "fp_haptic_scr_off";
 
+    // Proximity check node
+    public static final String FP_PROXIMITY_CHECK_SCREENOFF_NODE = "/sys/homebutton/proximity_check_off";
+    public static final String FP_PROXIMITY_CHECK_SCREENOFF_KEY = "fp_proximity_check_scr_off";
+
     // List of keys
     public static final String FP_KEYS = "fp_keys";
     public static final String FP_KEY_DBLTAP = "fp_key_dbltap";
@@ -174,6 +178,7 @@ public class Constants {
     
     // Screen off gestures haptic
     public static final String KEY_GESTURE_ENABLE_HAPTIC_FEEDBACK = "screen_off_gesture_haptic_feedback";
+    public static final String KEY_GESTURE_ENABLE_PROXIMITY_SENSOR = "screen_off_gesture_proximity_sensor";
 
     // Holds <preference_key> -> <proc_node> mapping
     public static final Map<String, String> sBooleanNodePreferenceMap = new HashMap<>();
@@ -186,6 +191,7 @@ public class Constants {
         FP_HOME_KEY_OFF,
         FP_HAPTIC_KEY,
         FP_HAPTIC_SCREENOFF_KEY,
+        FP_PROXIMITY_CHECK_SCREENOFF_KEY,
         FP_KEYS,
         FP_KEY_DBLTAP,
         FP_KEY_HOLD,
@@ -208,6 +214,7 @@ public class Constants {
         sBooleanNodePreferenceMap.put(FP_HOME_KEY_OFF, FP_HOME_OFF_NODE);
         sBooleanNodePreferenceMap.put(FP_HAPTIC_KEY, FP_HAPTIC_NODE);
         sBooleanNodePreferenceMap.put(FP_HAPTIC_SCREENOFF_KEY, FP_HAPTIC_SCREENOFF_NODE);
+        sBooleanNodePreferenceMap.put(FP_PROXIMITY_CHECK_SCREENOFF_KEY, FP_PROXIMITY_CHECK_SCREENOFF_NODE);
         sBooleanNodePreferenceMap.put(FP_KEYS, FP_KEYS_NODE);
         sBooleanNodePreferenceMap.put(FP_KEY_DBLTAP, FP_KEY_DBLTAP_NODE);
         sBooleanNodePreferenceMap.put(FP_KEY_HOLD, FP_KEY_HOLD_NODE);
@@ -226,6 +233,7 @@ public class Constants {
         sNodeDefaultMap.put(FP_HOME_KEY_OFF, false);
         sNodeDefaultMap.put(FP_HAPTIC_KEY, false);
         sNodeDefaultMap.put(FP_HAPTIC_SCREENOFF_KEY, false);
+        sNodeDefaultMap.put(FP_PROXIMITY_CHECK_SCREENOFF_KEY, true);
         sNodeDefaultMap.put(FP_KEYS, "0");
         sNodeDefaultMap.put(FP_KEY_DBLTAP, "0");
         sNodeDefaultMap.put(FP_KEY_HOLD, "0");

@@ -28,6 +28,11 @@
         android:title="@string/haptic_feedback"
         android:summary="@string/haptic_feedback_summary" />
 
+    <SwitchPreference
+        android:key="proximity_sensor"
+        android:title="@string/allow_proximity_sensor_title"
+        android:summary="@string/allow_proximity_sensor_summary" />
+
     <ListPreference
         android:title="@string/screen_off_gestures_swipe_left_title"
         android:summary="%s"

@@ -40,7 +40,7 @@ public final class FileUtils {
      * @return the read line contents, or null on failure
      */
     public static String readOneLine(String fileName) {
-        String line = null;
+        String line = "0";
         BufferedReader reader = null;
 
         try {

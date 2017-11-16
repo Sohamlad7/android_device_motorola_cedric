@@ -64,7 +64,7 @@ import android.widget.Toast;
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.util.ArrayUtils;
 
-import org.lineageos.internal.util.FileUtils;
+import org.lineageos.settings.device.util.FileUtils;
 
 import java.util.List;
 

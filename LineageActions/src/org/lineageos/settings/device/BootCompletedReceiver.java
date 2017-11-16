@@ -27,7 +27,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.util.Log;
 
-import org.lineageos.internal.util.FileUtils;
+import org.lineageos.settings.device.util.FileUtils;
 import org.lineageos.settings.device.actions.Constants;
 import org.lineageos.settings.device.ServiceWrapper.LocalBinder;
 

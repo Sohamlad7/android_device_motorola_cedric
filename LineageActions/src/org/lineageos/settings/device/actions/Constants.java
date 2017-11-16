@@ -25,7 +25,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import org.lineageos.internal.util.FileUtils;
+import org.lineageos.settings.device.util.FileUtils;
 
 public class Constants {
 

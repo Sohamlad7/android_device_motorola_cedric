@@ -16,6 +16,7 @@
 
 # Inherit from cedric device
 $(call inherit-product, device/motorola/cedric/device.mk)
+$(call inherit-product, device/motorola/cedric/dexpreopt.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := cedric

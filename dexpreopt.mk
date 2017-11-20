@@ -1,0 +1,7 @@
+$(call add-product-dex-preopt-module-config,services,disable)
+$(call add-product-dex-preopt-module-config,ethernet-service,disable)
+$(call add-product-dex-preopt-module-config,wifi-service,disable)
+$(call add-product-dex-preopt-module-config,SettingsProvider,disable)
+$(call add-product-dex-preopt-module-config,Telecom,disable)
+$(call add-product-dex-preopt-module-config,com.android.location.provider,disable)
+$(call add-product-dex-preopt-module-config,FusedLocation,disable)

@@ -42,10 +42,9 @@
     <string name="fingerprint_swipe_right_title">Swipe right</string>
     <string name="fingerprint_swipe_right_dlg_title">Select action for swipe right</string>
 
-    <!-- Fingerprint gestures screen off -->
-    <string name="fingerprint_gestures_screenoff_title">Fingerprint gestures when screen off</string>
-    <string name="fingerprint_gestures_screenoff_summary">Use fingerprint gestures when screen off.\n\nFingerprint unlocking must be disabled to use this feature.</string>
-    <string name="fingerprint_actions_screenoff">Actions with screen off</string>
+    <!-- Screen on gestures haptic feedback -->
+    <string name="haptic_feedback">Haptic feedback</string>
+    <string name="haptic_feedback_summary">Vibrate when a touchscreen gesture is detected</string>
 
     <!-- Actions -->
     <string name="action_none">None</string>
@@ -70,26 +69,6 @@
     <string name="action_messages">Open messages app</string>
     <string name="action_pip">Picture-in-Picture mode</string>
 
-    <!-- Screen off gestures -->
-    <string name="screen_off_gestures_title">Screen off gestures</string>
-    <string name="screen_off_gestures_manage_summary">Manage gestures when screen is off</string>
-    <string name="screen_off_gestures_swipe_left_title">Swipe left</string>
-    <string name="screen_off_gestures_swipe_left_dlg_title">Select action for swipe left</string>
-    <string name="screen_off_gestures_swipe_right_title">Swipe right</string>
-    <string name="screen_off_gestures_swipe_right_dlg_title">Select action for swipe right</string>
-    <string name="screen_off_gestures_swipe_up_title">Swipe up</string>
-    <string name="screen_off_gestures_swipe_up_dlg_title">Select action for swipe up</string>
-    <string name="screen_off_gestures_swipe_down_title">Swipe down</string>
-    <string name="screen_off_gestures_swipe_down_dlg_title">Select action for swipe down</string>
-
-   <!-- Double tap to wake -->
-   <string name="tap_to_wake">Tap to wake</string>
-   <string name="tap_to_wake_summary">Double-tap anywhere on the screen to wake device</string>
-
-   <!-- Screen off gestures haptic feedback -->
-   <string name="haptic_feedback">Haptic feedback</string>
-   <string name="haptic_feedback_summary">Vibrate when a touchscreen gesture is detected</string>
-   
    <!-- Pip -->
    <string name="app_does_not_support_pip">App does not support picture-in-picture mode.</string>
 

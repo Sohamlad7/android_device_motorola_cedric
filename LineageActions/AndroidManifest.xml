@@ -90,12 +90,6 @@
             android:theme="@style/LineageActions">
         </activity>
 
-        <activity
-            android:name=".ScreenOffGestureSettingsActivity"
-            android:label="@string/screen_off_gestures_title"
-            android:theme="@style/LineageActions">
-        </activity>
-
     </application>
 
 </manifest>

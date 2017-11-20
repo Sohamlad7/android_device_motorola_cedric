@@ -42,10 +42,9 @@
     <string name="fingerprint_swipe_right_title">Deslizar para a direita</string>
     <string name="fingerprint_swipe_right_dlg_title">Selecione a ação para deslizar para a direita</string>
 
-    <!-- Fingerprint gestures screen off -->
-    <string name="fingerprint_gestures_screenoff_title">Habilitar com a tela desligada</string>
-    <string name="fingerprint_gestures_screenoff_summary">Habilitar os gestos no sensor biométrico quando a tela estiver desligada.\n\nO desbloqueio por impressão digital deve estar desativado para usar esse recurso.</string>
-    <string name="fingerprint_actions_screenoff">Ações com a tela desligada</string>
+    <!-- Screen on gestures haptic feedback -->
+    <string name="haptic_feedback">Retorno tátil</string>
+    <string name="haptic_feedback_summary">Vibrar quando um gesto for detectado</string>
 
     <!-- Actions -->
     <string name="action_none">Não fazer nada</string>
@@ -70,26 +69,6 @@
     <string name="action_messages">Abrir app de mensagens</string>
     <string name="action_pip">Modo picture-in-picture</string>
 
-    <!-- Screen off gestures -->
-    <string name="screen_off_gestures_title">Gestos com a tela desligada</string>
-    <string name="screen_off_gestures_manage_summary">Gerenciar os gestos com a tela desligada</string>
-    <string name="screen_off_gestures_swipe_left_title">Deslizar para a esquerda</string>
-    <string name="screen_off_gestures_swipe_left_dlg_title">Selecione a ação para deslizar para a esquerda</string>
-    <string name="screen_off_gestures_swipe_right_title">Deslizar para a direita</string>
-    <string name="screen_off_gestures_swipe_right_dlg_title">Selecione a ação para deslizar para a direita</string>
-    <string name="screen_off_gestures_swipe_up_title">Deslizar para cima</string>
-    <string name="screen_off_gestures_swipe_up_dlg_title">Selecione a ação para deslizar para cima</string>
-    <string name="screen_off_gestures_swipe_down_title">Deslizar para baixo</string>
-    <string name="screen_off_gestures_swipe_down_dlg_title">Selecione a ação para deslizar para baixo</string>
-
-   <!-- Double tap to wake -->
-   <string name="tap_to_wake">Tocar para ativar</string>
-   <string name="tap_to_wake_summary">Toque duas vezes em qualquer parte da tela para ativar o dispositivo</string>
-
-   <!-- Screen off gestures haptic feedback -->
-   <string name="haptic_feedback">Retorno tátil</string>
-   <string name="haptic_feedback_summary">Vibrar quando um gesto for detectado</string>
-   
    <!-- Pip -->
    <string name="app_does_not_support_pip">O aplicativo não tem suporte ao modo picture-in-picture.</string>
 

@@ -40,8 +40,6 @@ import static org.lineageos.settings.device.actions.Constants.FP_HOME_KEY_OFF;
 
 public class FPGestureSettingsFragment extends PreferenceFragment {
 
-    private SwitchPreference mFPScreenOffGesture;
-    private PreferenceCategory mFPScreenOffCategory;
     private PreferenceCategory mFPScreenOnCategory;
 
     private TextView mSwitchBarText;
@@ -83,21 +81,14 @@ public class FPGestureSettingsFragment extends PreferenceFragment {
         mSwitchBarText.setText(isFPGestureEnabled() ? R.string.switch_bar_on :
                 R.string.switch_bar_off);
     }
-    
+
     private void updatePrefs(boolean enabled){
         Editor prefEditor = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
         prefEditor.putBoolean(FP_HOME_KEY, enabled);
-        prefEditor.apply(); 
+        prefEditor.apply();
         mFPScreenOnCategory.setEnabled(enabled);
-        mFPScreenOffGesture.setEnabled(enabled);
-        mFPScreenOffCategory.setEnabled(enabled);
-        if(enabled){
-            boolean hasEnrolledFingerprints = hasEnrolledFingerprints();
-            mFPScreenOffGesture.setEnabled(!hasEnrolledFingerprints);
-            mFPScreenOffCategory.setEnabled(!hasEnrolledFingerprints);
-        }
     }
-    
+
     private boolean isFPGestureEnabled(){
         return Constants.isPreferenceEnabled(getActivity(), FP_HOME_KEY);
     }
@@ -105,8 +96,6 @@ public class FPGestureSettingsFragment extends PreferenceFragment {
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.fp_gesture_panel);
-        mFPScreenOffGesture = (SwitchPreference) findPreference(FP_HOME_KEY_OFF);
-        mFPScreenOffCategory = (PreferenceCategory) findPreference("fp_keys_scr_off");
         mFPScreenOnCategory = (PreferenceCategory) findPreference("fp_keys_scr_on");
         updatePrefs(isFPGestureEnabled());
     }

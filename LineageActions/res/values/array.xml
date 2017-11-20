@@ -74,31 +74,4 @@
         <item>110</item> <!-- flashlight -->
         <item>111</item> <!-- camera -->
     </string-array>
-    
-    <string-array name="screen_off_listArray">
-        <item>@string/action_none</item>
-        <item>@string/action_wake</item>
-        <item>@string/action_play_pause</item>
-        <item>@string/action_previous_track</item>
-        <item>@string/action_next_track</item>
-        <item>@string/action_flashlight</item>
-        <item>@string/action_camera</item>
-        <item>@string/action_browser</item>
-        <item>@string/action_dialer</item>
-        <item>@string/action_email</item>
-        <item>@string/action_messages</item>
-    </string-array>
-    <string-array name="screen_off_listValues">
-        <item>0</item>
-        <item>101</item> <!-- wake/power -->
-        <item>107</item> <!-- play/pause -->
-        <item>108</item> <!-- previous track -->
-        <item>109</item> <!-- next track -->
-        <item>110</item> <!-- flashlight -->
-        <item>111</item> <!-- camera -->
-        <item>116</item> <!-- browser -->
-        <item>117</item> <!-- dialer -->
-        <item>118</item> <!-- email -->
-        <item>119</item> <!-- messages -->
-    </string-array>
 </resources>

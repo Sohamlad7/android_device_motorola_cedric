@@ -48,14 +48,4 @@
                 android:targetClass="org.lineageos.settings.device.FPGestureSettingsActivity" />
     </Preference>
 
-    <Preference
-        android:key="screen_off_gestures"
-        android:title="@string/screen_off_gestures_title"
-        android:summary="@string/screen_off_gestures_manage_summary"
-        android:icon="@drawable/ic_settings_screen_off_gestures">
-            <intent
-                android:targetPackage="org.lineageos.settings.device"
-                android:targetClass="org.lineageos.settings.device.ScreenOffGestureSettingsActivity" />
-    </Preference>
-
 </PreferenceScreen>

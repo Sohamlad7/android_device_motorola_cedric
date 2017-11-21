@@ -88,7 +88,6 @@ public class KeyHandler implements DeviceKeyHandler {
             .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
             .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
             .build();
-    private static final long[] LONG_PRESS_VIBRATION_PATTERN = new long[] {0, 25, 10};
     private final Context mContext;
     private final PowerManager mPowerManager;
     WakeLock mProximityWakeLock;
@@ -551,11 +550,12 @@ public class KeyHandler implements DeviceKeyHandler {
         if (isDoubleTap && action != ACTION_CAMERA && action != ACTION_FLASHLIGHT) {
             isHapticFeedbackEnabledOnFP = false;
         }
-        if (isHapticFeedbackEnabledOnFP && (action == ACTION_CAMERA || action == ACTION_FLASHLIGHT)) {
-            vibrate(action == ACTION_CAMERA ? 500 : 250);
-        }
-        if (isHapticFeedbackEnabledOnFP && action == ACTION_POWER) {
-            doHapticFeedbackFP(false);
+        if (isHapticFeedbackEnabledOnFP){
+            if (action == ACTION_CAMERA || action == ACTION_FLASHLIGHT) {
+                vibrate(action == ACTION_CAMERA ? 500 : 250);
+            }else if (action != ACTION_VOICE_ASSISTANT) {
+                doHapticFeedbackFP(false);
+            }
         }
         switch (action) {
             case ACTION_HOME:
@@ -613,9 +613,6 @@ public class KeyHandler implements DeviceKeyHandler {
                     switchToLastApp(mContext);
                 }
                 break;
-        }
-        if (isHapticFeedbackEnabledOnFP && action != ACTION_VOICE_ASSISTANT && action != ACTION_CAMERA && action != ACTION_FLASHLIGHT && action != ACTION_POWER) { // prevent double vibration
-            doHapticFeedbackFP(false);
         }
     }
 
@@ -912,12 +909,16 @@ public class KeyHandler implements DeviceKeyHandler {
         }
 
         if (isHapticFeedbackEnabledOnFP()) {
-            int owningUid;
-            String owningPackage;
-            owningUid = android.os.Process.myUid();
-            owningPackage = mContext.getOpPackageName();
-            VibrationEffect effect = longpress ? VibrationEffect.createWaveform(LONG_PRESS_VIBRATION_PATTERN, -1) : VibrationEffect.get(VibrationEffect.EFFECT_CLICK);
-            mVibrator.vibrate(owningUid, owningPackage, effect, VIBRATION_ATTRIBUTES);
+            mHandler.post(new Runnable() {
+                public void run() {
+                    int owningUid;
+                    String owningPackage;
+                    owningUid = android.os.Process.myUid();
+                    owningPackage = mContext.getOpPackageName();
+                    VibrationEffect effect = VibrationEffect.createOneShot(longpress ? 50 : 40, VibrationEffect.DEFAULT_AMPLITUDE);
+                    mVibrator.vibrate(owningUid, owningPackage, effect, VIBRATION_ATTRIBUTES);
+                }
+            });
         }
     }
 

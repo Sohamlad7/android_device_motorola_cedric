@@ -14,11 +14,20 @@
 # limitations under the License.
 #
 
+# Inherit from those products. Most specific first.
+$(call inherit-product, device/motorola/cedric/core_32_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
 # Inherit from cedric device
 $(call inherit-product, device/motorola/cedric/device.mk)
+
+# Dexpreopt fixes
 $(call inherit-product, device/motorola/cedric/dexpreopt.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := cedric
 PRODUCT_NAME := full_cedric
 PRODUCT_MODEL := Moto G5
+
+# for specific
+$(call inherit-product, vendor/motorola/cedric/cedric-vendor.mk)

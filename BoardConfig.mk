@@ -56,6 +56,11 @@ TARGET_USES_64_BIT_BINDER := true
 # Asserts
 TARGET_OTA_ASSERT_DEVICE := cedric,cedric_retail
 
+# GPS
+TARGET_NO_RPC := true
+USE_DEVICE_SPECIFIC_GPS := true
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
+
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237
 BOARD_KERNEL_CMDLINE += ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 vmalloc=350M androidboot.selinux=permissive

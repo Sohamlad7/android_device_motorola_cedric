@@ -80,6 +80,7 @@ camera_module_t HAL_MODULE_INFO_SYM = {
 typedef struct wrapper_camera_device {
     camera_device_t base;
     int id;
+    int camera_released;
     camera_device_t *vendor;
 } wrapper_camera_device_t;
 
@@ -395,13 +396,18 @@ static int camera_send_command(struct camera_device *device,
 
 static void camera_release(struct camera_device *device)
 {
+    wrapper_camera_device_t* wrapper_dev = NULL;
+  
     if (!device)
         return;
+  
+    wrapper_dev = (wrapper_camera_device_t*) device;
 
     ALOGV("%s->%08X->%08X", __FUNCTION__, (uintptr_t)device,
-            (uintptr_t)(((wrapper_camera_device_t*)device)->vendor));
+            (uintptr_t)(wrapper_dev->vendor));
 
     VENDOR_CALL(device, release);
+    wrapper_dev->camera_released = true;
 }
 
 static int camera_dump(struct camera_device *device, int fd)
@@ -432,6 +438,13 @@ static int camera_device_close(hw_device_t *device)
     }
 
     wrapper_dev = (wrapper_camera_device_t*) device;
+  
+   if (!wrapper_dev->camera_released) {
+     ALOGI("%s: releasing camera device with id %d", __FUNCTION__,
+           wrapper_dev->id);
+     VENDOR_CALL(wrapper_dev, release);
+     wrapper_dev->camera_released = true;
+   }
 
     wrapper_dev->vendor->common.close((hw_device_t*)wrapper_dev->vendor);
     if (wrapper_dev->base.ops)
@@ -494,6 +507,7 @@ static int camera_device_open(const hw_module_t *module, const char *name,
             goto fail;
         }
         memset(camera_device, 0, sizeof(*camera_device));
+        camera_device->camera_released = false;
         camera_device->id = cameraid;
 
         rv = gVendorModule->common.methods->open(

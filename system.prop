@@ -157,7 +157,6 @@ mm.enable.qcom_parser=135715
 mm.enable.sec.smoothstreaming=false
 mm.enable.smoothstreaming=false
 mmp.enable.3g2=true
-persist.media.treble_omx=false
 
 # NITZ
 persist.rild.nitz_plmn=

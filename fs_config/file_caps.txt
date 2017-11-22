@@ -22,6 +22,12 @@ value:2951
 [AID_RFS_SHARED]
 value:2952
 
+[AID_RFS_OLD]
+value:3012
+
+[AID_RFS_SHARED_OLD]
+value:3013
+
 [system/bin/imsdatadaemon]
 user: AID_SYSTEM
 group: AID_SYSTEM

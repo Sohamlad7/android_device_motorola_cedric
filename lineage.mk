@@ -17,6 +17,7 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/motorola/cedric/full_cedric.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # for specific

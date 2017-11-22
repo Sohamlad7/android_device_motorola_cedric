@@ -288,7 +288,7 @@ on property:ro.boot.dualsim=false
    setprop persist.radio.multisim.config ""
    setprop ro.telephony.default_network 10
 
-service adspd /system/bin/adspd
+service adspd /system/vendor/bin/adspd
    class main
    socket adspdsock stream 0660 system audio
    user audio

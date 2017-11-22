@@ -24,3 +24,25 @@ allow init persist_file:filesystem { getattr mount relabelfrom relabelto };
 
 # Screen off gestures
 allow init sysfs_screen_off_gestures:file { rw_file_perms setattr };
+
+allow init debugfs_tracing:file write;
+allow init diag_device:chr_file { ioctl write };
+
+allow init self:capability2 block_suspend;
+allow init self:netlink_route_socket read;
+allow init self:netlink_socket { bind create };
+allow init sysfs_devices_system_cpu:dir write;
+# allow init system_file:file execute_no_trans;
+allow init system_server:unix_stream_socket read;
+allow init thermal_device:chr_file ioctl;
+allow init video_device:chr_file { ioctl write };
+# allow init vendor_file:file execute_no_trans;
+
+allow init netd_socket:sock_file write;
+allow init qdsp_device:chr_file ioctl;
+
+allow init wcnss_device:chr_file write;
+
+allow init hci_attach_dev:chr_file { ioctl write };
+
+

@@ -1,4 +1,5 @@
 type adspd_prop, property_type;
+type hw_rev_prop, property_type;
 type motosh_prop, property_type;
 type hw_rev_prop, property_type;
 type touch_prop, property_type;

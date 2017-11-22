@@ -42,7 +42,6 @@ type sysfs_capsense, fs_type, sysfs_type;
 type sysfs_batt, fs_type, sysfs_type;
 type sysfs_cnss, fs_type, sysfs_type;
 type sysfs_fpc, fs_type, sysfs_type;
-type sysfs_sensors, fs_type, sysfs_type;
 
 type fpc_socket, file_type;
 type sysfs_wcnsscore, fs_type, sysfs_type;

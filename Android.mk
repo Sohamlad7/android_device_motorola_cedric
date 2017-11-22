@@ -296,6 +296,13 @@ $(LOCAL_BUILT_MODULE):
 include device/motorola/cedric/tftp.mk
 include device/motorola/cedric/expat.mk
 
+NUKE_NOTEPAD := $(TARGET_OUT)/app/Notepadv3Solution
+$(NUKE_NOTEPAD): $(LOCAL_INSTALLED_MODULE)
+	@echo "Removing: $@"
+	@rm -rf $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(NUKE_NOTEPAD)
+
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
 endif

@@ -1,4 +1,0 @@
-allow hal_fingerprint_default tee_device:chr_file ioctl;
-
-allow hal_fingerprint_default sysfs_fpc:dir search;
-allow hal_fingerprint_default sysfs_fpc:file rw_file_perms;

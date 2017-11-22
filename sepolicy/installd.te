@@ -1,4 +1,0 @@
-allow installd debugfs_tracing:file { open write };
-allow installd firmware_file:filesystem quotaget;
-allow installd fsg_file:filesystem quotaget;
-allow installd persist_file:filesystem quotaget;

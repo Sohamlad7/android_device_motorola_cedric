@@ -1,1 +1,0 @@
-allow timeservice_app init:unix_stream_socket connectto;

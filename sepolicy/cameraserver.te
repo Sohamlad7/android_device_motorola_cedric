@@ -1,5 +1,2 @@
 # Shouldn't do this here
 allow cameraserver self:netlink_kobject_uevent_socket { read bind create setopt };
-
-# allow cameraserver default_android_service:service_manager add;
-allow cameraserver hal_perf_hwservice:hwservice_manager find;

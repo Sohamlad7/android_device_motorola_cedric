@@ -9,11 +9,3 @@ allow system_server sysfs_capsense:file rw_file_perms;
 # Screen off gestures
 allow system_server sysfs_screen_off_gestures:dir search;
 allow system_server sysfs_screen_off_gestures:file rw_file_perms;
-
-
-allow system_server qti_debugfs:file { getattr open read };
-allow system_server sensors_device:chr_file { ioctl open read };
-
-# allow system_server default_android_service:service_manager { add find };
-
-allow system_server alarm_boot_prop:file { getattr open read };

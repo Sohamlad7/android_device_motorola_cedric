@@ -26,10 +26,10 @@
 #
 
 # the DIAG device node is not world writable/readable.
-/dev/diag                 0660   system     qcom_diag
-/dev/ttydiag0             0660   system     qcom_diag
-/dev/ttydiag1             0660   system     qcom_diag
-/dev/ttydiag2             0660   system     qcom_diag
+/dev/diag                 0660   system     oem_2950
+/dev/ttydiag0             0660   system     oem_2950
+/dev/ttydiag1             0660   system     oem_2950
+/dev/ttydiag2             0660   system     oem_2950
 
 /dev/genlock              0666   system     system
 /dev/kgsl                 0666   system     system

@@ -259,6 +259,7 @@ PRODUCT_PACKAGES += \
     init.qcom.ril.sh \
     init.qcom.bt.sh \
     init.qcom.fm.sh \
+    init.qcom.post_boot.sh \
     wlan_carrier_bin.sh
 
 PRODUCT_PACKAGES += \

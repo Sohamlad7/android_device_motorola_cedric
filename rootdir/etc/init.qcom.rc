@@ -833,126 +833,14 @@ on charger
     setprop sys.usb.configfs 0
     setprop persist.sys.usb.config mass_storage
     write /sys/class/leds/white/trigger "battery-full"
+    
+service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
+    class late_start
+    user root
+    disabled
+    oneshot
 
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
-    setprop sys.io.scheduler bfq
-
-    # scheduler settings
-    write /proc/sys/kernel/sched_window_stats_policy 3
-    write /proc/sys/kernel/sched_ravg_hist_size 3
-
-    # task packing settings
-    write /sys/devices/system/cpu/cpu0/sched_static_cpu_pwr_cost 0
-    write /sys/devices/system/cpu/cpu1/sched_static_cpu_pwr_cost 0
-    write /sys/devices/system/cpu/cpu2/sched_static_cpu_pwr_cost 0
-    write /sys/devices/system/cpu/cpu3/sched_static_cpu_pwr_cost 0
-    write /sys/devices/system/cpu/cpu4/sched_static_cpu_pwr_cost 0
-    write /sys/devices/system/cpu/cpu5/sched_static_cpu_pwr_cost 0
-    write /sys/devices/system/cpu/cpu6/sched_static_cpu_pwr_cost 0
-    write /sys/devices/system/cpu/cpu7/sched_static_cpu_pwr_cost 0
-
-    # init task load, restrict wakeups to preferred cluster
-    write /proc/sys/kernel/sched_init_task_load 15
-
-    # spill load is set to 100% by default in the kernel
-    write /proc/sys/kernel/sched_spill_nr_run 3
-
-    # Apply inter-cluster load balancer restrictions
-    write /proc/sys/kernel/sched_restrict_cluster_spill 1
-
-    # set sync wakee policy tunable
-    write /proc/sys/kernel/sched_prefer_sync_wakee_to_waker 1
-
-    write /sys/class/devfreq/soc:qcom,mincpubw/governor "cpufreq"
-
-    write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/io_percent 34
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/guard_band_mbps 0
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hist_memory 20
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/hyst_length 10
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/idle_mbps 1600
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/low_power_delay 20
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/low_power_io_percent 34
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/mbps_zones "1611 3221 5859 6445 7104"
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/sample_ms 4
-    write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/up_scale 250
-    write /sys/class/devfreq/soc:qcom,cpubw/min_freq 1611
-    write /sys/class/devfreq/soc:qcom,gpubw/bw_hwmon/io_percent 40
-
-    # disable thermal & BCL core_control to update interactive gov settings
-    write /sys/module/msm_thermal/core_control/enabled 0
-    write /sys/devices/soc/soc:qcom,bcl/mode "disable"
-    write /sys/devices/soc/soc:qcom,bcl/hotplug_mask 0
-    write /sys/devices/soc/soc:qcom,bcl/hotplug_soc_mask 0
-    write /sys/devices/soc/soc:qcom,bcl/mode "enable"
-
-    # governor settings
-    write /sys/devices/system/cpu/cpu0/online 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay "19000 1401600:39000"
-    write /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load 85
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1401600
-    write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 0
-    write /sys/devices/system/cpu/cpufreq/interactive/target_loads "85 1401600:80"
-    write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 39000
-    write /sys/devices/system/cpu/cpufreq/interactive/sampling_down_factor 40000
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 652800
-
-    # re-enable thermal & BCL core_control now
-    write /sys/module/msm_thermal/core_control/enabled 1
-    write /sys/devices/soc/soc:qcom,bcl/mode "disable"
-    write /sys/devices/soc/soc:qcom,bcl/hotplug_mask 192
-    write /sys/devices/soc/soc:qcom,bcl/hotplug_soc_mask 240
-    write /sys/devices/soc/soc:qcom,bcl/mode "enable"
-
-    # Bring up all cores online
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu2/online 1
-    write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/devices/system/cpu/cpu4/online 1
-    write /sys/devices/system/cpu/cpu5/online 1
-    write /sys/devices/system/cpu/cpu6/online 1
-    write /sys/devices/system/cpu/cpu7/online 1
-
-    # Enable low power modes
-    write /sys/module/lpm_levels/parameters/sleep_disabled 0
-
-    # SMP scheduler
-    write /proc/sys/kernel/sched_upmigrate 100
-    write /proc/sys/kernel/sched_downmigrate 100
-
-    # Enable sched guided freq control
-    write /sys/devices/system/cpu/cpufreq/interactive/use_sched_load 1
-    write /sys/devices/system/cpu/cpufreq/interactive/use_migration_notif 1
-    write /proc/sys/kernel/sched_freq_inc_notify 200000
-    write /proc/sys/kernel/sched_freq_dec_notify 200000
-
-    # Log kernel wake-up source
-    write /sys/module/msm_show_resume_irq/parameters/debug_mask 1
-
-    write /sys/module/process_reclaim/parameters/enable_process_reclaim 1
-    write /sys/module/process_reclaim/parameters/pressure_max 70
-    write /sys/module/process_reclaim/parameters/swap_opt_eff 30
-    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
-    write /sys/module/process_reclaim/parameters/pressure_min 50
-    write /sys/module/process_reclaim/parameters/per_swap_size 512
-    write /sys/module/lowmemorykiller/parameters/minfree "15360,19200,23040,26880,34415,43737"
-    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
-
-    #Reset read ahead for dm-1 to 128KB
-    write /sys/block/dm-1/queue/read_ahead_kb 128
-    #Reset the "read ahead" setting for system patition
-    # result: ext4: 32KB, dm_verity:64KB, block layer: 128KB
-    write /sys/fs/ext4/dm-0/inode_readahead_blks 8
-    write /sys/module/dm_verity/parameters/prefetch_cluster 65536
-
-    write /sys/block/mmcblk0/bdi/read_ahead_kb 128
-    write /sys/block/mmcblk0/queue/read_ahead_kb 128
-    write /sys/block/dm-0/queue/read_ahead_kb 128
-    write /sys/block/dm-1/queue/read_ahead_kb 128
-    #WDSP FW boot sysfs node used by STHAL
-    chown media audio /sys/kernel/wdsp0/boot
-    rm /data/system/perfd/default_values
-    start perfd
+    start qcom-post-boot
+    

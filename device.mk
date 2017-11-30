@@ -100,7 +100,8 @@ PRODUCT_PACKAGES += \
     camera.device@3.2-impl \
     android.hardware.camera.provider@2.4-impl \
     libshim_camera_hal \
-    libshims_camera
+    libshims_camera \
+    camera.msm8937
 
 # Camera Configurations
 PRODUCT_COPY_FILES += \

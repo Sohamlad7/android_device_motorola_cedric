@@ -149,7 +149,7 @@ done
 unset readiness
 
 device_property=ro.hw.device
-hwrev_property=ro.hw.revision
+hwrev_property=ro.boot.hardware.revision
 firmware_path=/system/etc/firmware
 
 let dec_cfg_id_boot=0; dec_cfg_id_latest=0;

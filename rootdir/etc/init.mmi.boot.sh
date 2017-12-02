@@ -44,7 +44,7 @@ if [ "$minor2" == "0" ]; then
 		minor1=""
 	fi
 fi
-setprop ro.hw.revision p${hw%??}$minor1$minor2
+setprop ro.boot.hardware.revision p${hw%??}$minor1$minor2
 unset hw cinfo m1 m2 minor1 minor2
 
 # Let kernel know our image version/variant/crm_version

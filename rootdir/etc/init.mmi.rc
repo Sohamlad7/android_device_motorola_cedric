@@ -120,9 +120,6 @@ on post-fs-data
     # Create bug2go folder
     mkdir /data/bug2go 0770 log log
 
-    # Permissions for phone power off log
-    mkdir /data/power_log 0750 root log
-
     # Subsystem RAM-dumps
     mkdir /data/ss-ram-dumps 0750 system log
     mkdir /data/ss-ram-dumps/bp-dumps 0750 system log

@@ -22,9 +22,7 @@ BOARD_VENDOR := motorola-qcom
 
 # AIDs and CAPS
 TARGET_ALLOW_LEGACY_AIDS := true
-TARGET_FS_CONFIG_GEN := \
-    $(LOCAL_PATH)/fs_config/mot_aids.txt \
-    $(LOCAL_PATH)/fs_config/file_caps.txt
+TARGET_FS_CONFIG_GEN := $(LOCAL_PATH)/config.fs
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8937

@@ -353,14 +353,6 @@ on property:sys.wifi.tethering=true
 
 on property:sys.wifi.tethering=false
     write /sys/class/net/rmnet_data0/queues/rx-0/rps_cpus ${sys.rmnet_vnd.rps_mask}
-    write /sys/module/wlan/parameters/fwpath apdown
-
-#Override fwpath string when wpa_supplicant server was killed
-on property:init.svc.wpa_supplicant=running
-    write /sys/module/wlan/parameters/fwpath sta
-
-on property:init.svc.wpa_supplicant=stopped
-    write /sys/module/wlan/parameters/fwpath wpadown
 
 on property:ro.bootmode=normal
    write /sys/module/usb3813_hub/parameters/boost_val 3

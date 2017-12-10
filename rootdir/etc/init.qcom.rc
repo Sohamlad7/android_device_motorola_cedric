@@ -25,7 +25,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import /vendor/etc/init/hw/init.mmi.rc
+import /init.mmi.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug

@@ -225,7 +225,6 @@ include device/qcom/sepolicy/sepolicy.mk
 
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true
-PRODUCT_COMPATIBILITY_MATRIX_LEVEL_OVERRIDE := 27
 
 # Sensor
 BOARD_USES_MOT_SENSOR_HUB := true

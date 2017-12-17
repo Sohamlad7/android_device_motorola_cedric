@@ -79,8 +79,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
 TW_INCLUDE_CRYPTO := true
-TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
-#TW_CRYPTO_USE_SYSTEM_VOLD := true
+TARGET_CRYPTFS_HW_PATH := device/motorola/cedric/cryptfs_hw
 TW_CRYPTO_USE_SYSTEM_VOLD := qseecomd
 
 # TWRP
@@ -94,7 +93,3 @@ TW_THEME := portrait_hdpi
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_DEFAULT_EXTERNAL_STORAGE := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
-
-# Encryption support
-TW_INCLUDE_CRYPTO := true
-TARGET_HW_DISK_ENCRYPTION := true

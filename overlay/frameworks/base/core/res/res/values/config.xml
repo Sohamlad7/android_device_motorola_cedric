@@ -260,9 +260,6 @@
          provisioning, availability etc -->
     <bool name="config_carrier_volte_available">true</bool>
 
-    <!-- Flag specifying whether VT is available on device -->
-    <bool name="config_device_vt_available">true</bool>
-
     <!-- Flag specifying whether VT should be available for carrier: independent of
      carrier provisioning. If false: hard disabled. If true: then depends on carrier
      provisioning, availability etc -->
@@ -278,6 +275,15 @@
          carrier provisioning. If false: hard disabled. If true: then depends on carrier
          provisioning, availability etc -->
     <bool name="config_carrier_wfc_ims_available">true</bool>
+
+    <!-- Flag specifying whether VT is available on device -->
+    <bool name="config_device_vt_available">true</bool>
+
+    <!-- ImsService package name to bind to by default, if config_dynamic_bind_ims is true -->
+    <string name="config_ims_package">org.codeaurora.ims</string>
+
+    <!-- Flag specifying whether or not IMS will use the ImsResolver dynamically -->
+    <bool name="config_dynamic_bind_ims">true</bool>
 
     <!-- Boolean indicating if current platform supports BLE peripheral mode -->
     <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>

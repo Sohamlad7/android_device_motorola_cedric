@@ -132,9 +132,6 @@ BOARD_NO_CHARGER_LED := true
 # CNE / DPM
 BOARD_USES_QCNE := true
 
-# CPUsets
-ENABLE_CPUSETS := true
-
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
 

@@ -18,6 +18,8 @@
 
 DEVICE_PATH := device/motorola/cedric
 
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
+
 BOARD_VENDOR := motorola-qcom
 
 # AIDs and CAPS

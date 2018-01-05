@@ -27,6 +27,9 @@ LOCAL_SHARED_LIBRARIES := \
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_MODULE := fingerprint.msm8937
 LOCAL_MODULE_TAGS := optional
+LOCAL_32_BIT_ONLY := true
 
 include $(BUILD_SHARED_LIBRARY)
+
+include $(call all-makefiles-under,$(LOCAL_PATH))
 

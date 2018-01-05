@@ -26,7 +26,6 @@ WITH_DEXPREOPT := true
 WITH_LINEAGE_CHARGER := false
 
 # AIDs and CAPS
-TARGET_ALLOW_LEGACY_AIDS := true
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Platform

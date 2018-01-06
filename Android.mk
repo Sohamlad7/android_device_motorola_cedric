@@ -254,23 +254,23 @@ LOCAL_MODULE_SUFFIX := -timestamp
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-$(LOCAL_BUILT_MODULE): ACTUAL_INI_FILE := /system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
-$(LOCAL_BUILT_MODULE): WCNSS_INI_SYMLINK := $(TARGET_OUT)/etc/wifi/WCNSS_qcom_cfg.ini
+$(LOCAL_BUILT_MODULE): ACTUAL_INI_FILE := /vendor/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+$(LOCAL_BUILT_MODULE): WCNSS_INI_SYMLINK := $(TARGET_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
-$(LOCAL_BUILT_MODULE): ACTUAL_BIN_FILE := /system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
-$(LOCAL_BUILT_MODULE): WCNSS_BIN_SYMLINK := $(TARGET_OUT)/etc/wifi/WCNSS_qcom_wlan_nv.bin
+$(LOCAL_BUILT_MODULE): ACTUAL_BIN_FILE := /vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
+$(LOCAL_BUILT_MODULE): WCNSS_BIN_SYMLINK := $(TARGET_OUT_VENDOR)/etc/wifi/WCNSS_qcom_wlan_nv.bin
 
-$(LOCAL_BUILT_MODULE): ACTUAL_BIN_ARG_FILE := /system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_Argentina.bin
-$(LOCAL_BUILT_MODULE): WCNSS_BIN_ARG_SYMLINK := $(TARGET_OUT)/etc/wifi/WCNSS_qcom_wlan_nv_Argentina.bin
+$(LOCAL_BUILT_MODULE): ACTUAL_BIN_ARG_FILE := /vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv_Argentina.bin
+$(LOCAL_BUILT_MODULE): WCNSS_BIN_ARG_SYMLINK := $(TARGET_OUT_VENDOR)/etc/wifi/WCNSS_qcom_wlan_nv_Argentina.bin
 
-$(LOCAL_BUILT_MODULE): ACTUAL_BIN_BR_FILE := /system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_Brazil.bin
-$(LOCAL_BUILT_MODULE): WCNSS_BIN_BR_SYMLINK := $(TARGET_OUT)/etc/wifi/WCNSS_qcom_wlan_nv_Brazil.bin
+$(LOCAL_BUILT_MODULE): ACTUAL_BIN_BR_FILE := /vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv_Brazil.bin
+$(LOCAL_BUILT_MODULE): WCNSS_BIN_BR_SYMLINK := $(TARGET_OUT_VENDOR)/etc/wifi/WCNSS_qcom_wlan_nv_Brazil.bin
 
-$(LOCAL_BUILT_MODULE): ACTUAL_BIN_IN_FILE := /system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_India.bin
-$(LOCAL_BUILT_MODULE): WCNSS_BIN_IN_SYMLINK := $(TARGET_OUT)/etc/wifi/WCNSS_qcom_wlan_nv_India.bin
+$(LOCAL_BUILT_MODULE): ACTUAL_BIN_IN_FILE := /vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv_India.bin
+$(LOCAL_BUILT_MODULE): WCNSS_BIN_IN_SYMLINK := $(TARGET_OUT_VENDOR)/etc/wifi/WCNSS_qcom_wlan_nv_India.bin
 
-$(LOCAL_BUILT_MODULE): ACTUAL_DAT_FILE := /system/etc/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
-$(LOCAL_BUILT_MODULE): WCNSS_DAT_SYMLINK := $(TARGET_OUT)/etc/wifi/WCNSS_wlan_dictionary.dat
+$(LOCAL_BUILT_MODULE): ACTUAL_DAT_FILE := /vendor/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
+$(LOCAL_BUILT_MODULE): WCNSS_DAT_SYMLINK := $(TARGET_OUT_VENDOR)/etc/wifi/WCNSS_wlan_dictionary.dat
 
 $(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/Android.mk
 $(LOCAL_BUILT_MODULE):

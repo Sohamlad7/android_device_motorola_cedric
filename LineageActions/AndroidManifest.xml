@@ -15,8 +15,8 @@
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
     <uses-sdk
-        android:minSdkVersion="26"
-        android:targetSdkVersion="26" />
+        android:minSdkVersion="27"
+        android:targetSdkVersion="27" />
 
     <application
         android:allowBackup="true"

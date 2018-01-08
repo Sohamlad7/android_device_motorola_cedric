@@ -291,8 +291,7 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libshim_ril \
     libprotobuf-cpp-full \
-    libxml2 \
-    rild_socket
+    libxml2
 
 #RIL
 PRODUCT_PACKAGES += \

@@ -135,7 +135,7 @@ ro.hwui.text_large_cache_width=2048
 ro.hwui.text_large_cache_height=2048
 
 # IMS
-persist.radio.jbims=1
+persist.vendor.radio.jbims=1
 persist.radio.RATE_ADAPT_ENABLE=1
 persist.radio.VT_ENABLE=1
 persist.radio.VT_HYBRID_ENABLE=1
@@ -178,29 +178,26 @@ persist.timed.enable=true
 # Radio
 persist.data.qmi.adb_logmask=0
 persist.radio.apn_delay=5000
+persist.radio.adam=true
 persist.radio.apm_sim_not_pwdn=1
-persist.radio.dfr_mode_set=1
-persist.radio.force_get_pref=1
+persist.vendor.radio.dfr_mode_set=1
+persist.vendor.radio.force_get_pref=1
 persist.radio.msgtunnel.start=true
-persist.radio.no_wait_for_card=1
-persist.radio.oem_ind_to_both=0
-persist.radio.relay_oprt_change=1
+persist.vendor.radio.no_wait_for_card=1
+persist.vendor.radio.oem_ind_to_both=0
+persist.vendor.radio.relay_oprt_change=1
 rild.libargs=-d /dev/smd0
-rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
+rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
 ro.mot.ignore_csim_appid=true
 persist.sys.ssr.restart_level=ALL_ENABLE
 persist.sys.qc.sub.rdump.on=1
-persist.radio.sw_mbn_update=1
+persist.vendor.radio.sw_mbn_update=1
 persist.sys.qc.sub.rdump.max=3
-persist.radio.custom_ecc=1
-persist.radio.is_wps_enabled=true
-persist.radio.mt_sms_ack=30
-persist.radio.0x9e_not_callname=1
-persist.qcril_uim_vcc_feature=1
-persist.radio.snapshot_timer=22
-persist.radio.snapshot_enabled=1
-persist.radio.call.audio.output=0
-persist.eab.supported=0
+persist.vendor.radio.custom_ecc=1
+persist.vendor.radio.is_wps_enabled=true
+persist.vendor.radio.mt_sms_ack=30
+persist.vendor.radio.0x9e_not_callname=1
+persist.vendor.qcril_uim_vcc_feature=1
 persist.mot.gps.conf.from.sim=true
 persist.net.doxlat=true
 persist.radio.REVERSE_QMI=0
@@ -208,15 +205,14 @@ persist.radio.ROTATION_ENABLE=1
 persist.radio.adb_log_on=0
 persist.radio.calls.on.ims=true
 persist.radio.domain.ps=0
-persist.radio.eons.enabled=false
-persist.radio.ril_payload_on=0
 persist.radio.sar_sensor=1
-persist.radio.sglte_target=0
+persist.vendor.radio.sib16_support=1
 persist.radio.sib16_support=1
-persist.rcs.presence.provision=0
-persist.rcs.supported=0
+persist.vendor.radio.rat_on=combine
 persist.rmnet.mux=enabled
 ro.telephony.call_ring.multiple=false
+persist.vendor.radio.eri64_as_home=1
+persist.vendor.radio.data_con_rprt=1
 
 ro.use_data_netmgrd=true
 persist.data.qmi.adb_logmask=0
@@ -225,6 +221,17 @@ persist.data.mode=concurrent
 persist.data.iwlan.enable=true
 
 ro.sys.sdcardfs=false
+
+# RmNet Data
+persist.rmnet.data.enable=true
+persist.data.wda.enable=true
+persist.data.df.dl_mode=5
+persist.data.df.ul_mode=5
+persist.data.df.agg.dl_pkt=10
+persist.data.df.agg.dl_size=4096
+persist.data.df.mux_count=8
+persist.data.df.iwlan_mux=9
+persist.data.df.dev_name=rmnet_usb0
 
 # SensorService
 system_init.startsensorservice=0

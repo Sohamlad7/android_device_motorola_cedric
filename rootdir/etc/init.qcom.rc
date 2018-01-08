@@ -827,11 +827,6 @@ on property:crypto.driver.load=1
      insmod /system/lib/modules/qce.ko
      insmod /system/lib/modules/qcedev.ko
 
-service qcom-sh /system/bin/sh /system/vendor/bin/init.qcom.sh
-    class late_start
-    user root
-    oneshot
-
 service atfwd /system/vendor/bin/ATFWD-daemon
     class late_start
     user system

@@ -36,7 +36,6 @@ type sysfs_adsp, fs_type, sysfs_type;
 type sysfs_homebutton, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_mmi_fp, fs_type, sysfs_type;
 type sysfs_mmi_laser, fs_type, sysfs_type;
-type sysfs_mmi_touch, fs_type, sysfs_type;
 
 type sysfs_capsense, fs_type, sysfs_type;
 type sysfs_batt, fs_type, sysfs_type;

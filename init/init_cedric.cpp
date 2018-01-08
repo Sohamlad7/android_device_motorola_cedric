@@ -76,6 +76,7 @@ void vendor_load_properties()
     property_set("ro.hw.device", device.c_str());
     property_set("ro.hw.radio", radio.c_str());
     property_set("ro.hw.fps", "true");
+    property_set("ro.hw.imager", "12MP");
 
     num_sims();
 

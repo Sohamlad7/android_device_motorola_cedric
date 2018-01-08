@@ -292,11 +292,7 @@ PRODUCT_PACKAGES += \
     libshim_ril \
     libprotobuf-cpp-full \
     libxml2 \
-    rild_socket \
-    rild_32
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rild/rild.rc:system/vendor/etc/init/rild.rc
+    rild_socket
 
 #RIL
 PRODUCT_PACKAGES += \

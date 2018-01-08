@@ -651,38 +651,6 @@ on property:sys.shutdown.requested=*
 on property:ro.hw.ecompass=true
     enable ecompassd
 
-service config_bt_addr /system/vendor/bin/btnvtool -O
-    class core
-    user bluetooth
-    group bluetooth radio
-    oneshot
-
-service config_bluetooth /system/bin/sh /system/vendor/etc/init.qcom.bt.sh "onboot"
-    class core
-    user bluetooth
-    group bluetooth system
-    oneshot
-
-service hciattach /system/bin/sh /system/vendor/etc/init.qcom.bt.sh
-    class late_start
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
-
-on property:bluetooth.hciattach=true
-    start hciattach
-
-on property:bluetooth.hciattach=false
-    setprop bluetooth.status off
-
-service btsnoop /system/bin/btsnoop
-   user bluetooth
-   group bluetooth net_bt_admin sdcard_rw sdcard_r media_rw
-   class late_start
-   disabled
-   oneshot
-
 service netmgrd /system/vendor/bin/netmgrd
     class main
     group radio system wakelock

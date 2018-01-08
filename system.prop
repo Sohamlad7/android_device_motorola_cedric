@@ -151,6 +151,8 @@ persist.ims.vt.epdg=false
 persist.mm.sta.enable=0
 persist.vt.supported=0
 ro.config.hw_volte_on=true
+persist.volte_enabled_by_hw=1
+persist.dbg.volte_avail_ovr=1
 
 # Media
 media.aac_51_output_enabled=true

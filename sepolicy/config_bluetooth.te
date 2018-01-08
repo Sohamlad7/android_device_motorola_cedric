@@ -1,3 +1,0 @@
-type config_bluetooth, domain;
-type config_bluetooth_exec, exec_type, file_type;
-init_daemon_domain(config_bluetooth)

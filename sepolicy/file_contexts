@@ -11,8 +11,6 @@
 /system/bin/hci_qcomm_init                               u:object_r:config_bluetooth_exec:s0
 /system/bin/init\.mmi\.boot\.sh                          u:object_r:mmi_boot_exec:s0
 /system/bin/init\.mmi\.laser\.sh                         u:object_r:mmi_laser_exec:s0
-/system/bin/init\.mmi\.touch\.sh                         u:object_r:mmi_touch_sh_exec:s0
-/system/bin/init\.oem\.hw\.sh                            u:object_r:oem-hw-sh_exec:s0
 /system/bin/wlan_carrier_bin\.sh                         u:object_r:init_wifi_exec:s0
 /system/bin/motosh                                       u:object_r:sensor_hub_exec:s0
 /system/bin/akmd09912                                    u:object_r:akmd_exec:s0
@@ -33,9 +31,6 @@
 /data/fpc/socket                                         u:object_r:fpc_socket:s0
 
 /sys/devices/soc/7af8000.spi/spi_master/spi8/spi8.0(/.*)? u:object_r:sysfs_fpc:s0
-
-# mmi_touch related /sys files
-/sys/devices/soc/78b7000\.i2c/i2c-3/3-0020(/.*)?         u:object_r:sysfs_mmi_touch:s0
 
 # Modem
 /persist/mdm(/.*)?                                       u:object_r:persist_modem_file:s0

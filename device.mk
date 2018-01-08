@@ -129,7 +129,7 @@ PRODUCT_PACKAGES += \
     libgenlock \
     libtinyxml
 
-PRODUCT_PACKAGES += android.hardware.media.omx@1.0-impl
+PRODUCT_PACKAGES += android.hardware.media.omx
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \

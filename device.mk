@@ -298,6 +298,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rild/rild.rc:system/vendor/etc/init/rild.rc
 
+#RIL
+PRODUCT_PACKAGES += \
+    android.hardware.radio@1.0
+
 # Seccomp policy
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp_policy/mediacodec.policy:system/vendor/etc/seccomp_policy/mediacodec.policy \

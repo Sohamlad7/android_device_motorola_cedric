@@ -8,13 +8,11 @@
 # Binaries
 /system/bin/adspd                                        u:object_r:adspd_exec:s0
 /system/bin/charge_only_mode                             u:object_r:charge_only_exec:s0
-/system/bin/hci_qcomm_init                               u:object_r:config_bluetooth_exec:s0
 /system/bin/init\.mmi\.boot\.sh                          u:object_r:mmi_boot_exec:s0
 /system/bin/init\.mmi\.laser\.sh                         u:object_r:mmi_laser_exec:s0
 /system/bin/wlan_carrier_bin\.sh                         u:object_r:init_wifi_exec:s0
 /system/bin/motosh                                       u:object_r:sensor_hub_exec:s0
 /system/bin/akmd09912                                    u:object_r:akmd_exec:s0
-/system/etc/init\.qcom\.bt\.sh                           u:object_r:bluetooth_loader_exec:s0
 
 # Camera
 /sys/kernel/range(/.*)?                                 u:object_r:sysfs_mmi_laser:s0

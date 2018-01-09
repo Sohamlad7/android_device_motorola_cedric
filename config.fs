@@ -1,3 +1,18 @@
+#
+# Copyright (C) 2017 The LineageOS Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 [AID_QCOM_DIAG]
 value:2950
 
@@ -7,29 +22,71 @@ value:2951
 [AID_RFS_SHARED]
 value:2952
 
-[AID_RFS_OLD]
-value:3012
+[system/vendor/bin/wcnss_filter]
+mode: 0755
+user: AID_BLUETOOTH
+group: AID_BLUETOOTH
+caps: BLOCK_SUSPEND
 
-[AID_RFS_SHARED_OLD]
-value:3013
+[system/vendor/bin/cnss-daemon]
+mode: 0755
+user: AID_BLUETOOTH
+group: AID_BLUETOOTH
+caps: NET_BIND_SERVICE
 
-[system/bin/imsdatadaemon]
+[system/vendor/bin/imsdatadaemon]
 user: AID_SYSTEM
 group: AID_SYSTEM
 mode: 0755
 caps: NET_BIND_SERVICE
 
-[system/bin/ims_rtp_daemon]
+[system/vendor/bin/ims_rtp_daemon]
 user: AID_SYSTEM
 group: AID_RADIO
 mode: 0755
 caps: NET_BIND_SERVICE
 
-[system/bin/pm-service]
+[system/vendor/bin/pm-service]
 user: AID_SYSTEM
 group: AID_SYSTEM
 mode: 0755
 caps: NET_BIND_SERVICE
+
+[system/vendor/bin/cnd]
+mode: 0755
+user: AID_SYSTEM
+group: AID_SYSTEM
+caps: NET_BIND_SERVICE BLOCK_SUSPEND NET_ADMIN
+
+[system/vendor/bin/slim_daemon]
+mode: 0755
+user:  AID_GPS
+group: AID_GPS
+caps: NET_BIND_SERVICE
+
+[system/vendor/bin/xtwifi-client]
+mode: 0755
+user:  AID_GPS
+group: AID_GPS
+caps: NET_BIND_SERVICE BLOCK_SUSPEND
+
+[system/vendor/bin/mm-qcamera-daemon]
+mode: 0700
+user: AID_CAMERA
+group: AID_SHELL
+caps: SYS_NICE
+
+[firmware/]
+mode: 0771
+user: AID_SYSTEM
+group: AID_SYSTEM
+caps: 0
+
+[persist/]
+mode: 0771
+user: AID_SYSTEM
+group: AID_SYSTEM
+caps: 0
 
 [AID_MOT_ACCY]
 value: 5000

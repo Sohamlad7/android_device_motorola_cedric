@@ -282,4 +282,8 @@
     <!-- Boolean indicating if current platform supports BLE peripheral mode -->
     <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
 
+   <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
+   in hardware. -->
+   <bool name="config_setColorTransformAccelerated">true</bool>
+
 </resources>

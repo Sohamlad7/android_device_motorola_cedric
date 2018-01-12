@@ -227,11 +227,19 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service \
     lights.msm8937
 
+# Display Calibration
+PRODUCT_PACKAGES += \
+    libjni_livedisplay
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service.widevine
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_inx_1080p_497.xml:system/vendor/etc/qdcm_calib_data_mipi_mot_vid_inx_1080p_497.xml \
+    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_tianma_1080p_497.xml:system/vendor/etc/qdcm_calib_data_mipi_mot_vid_tianma_1080p_497.xml
 
 # Media
 PRODUCT_PACKAGES += \

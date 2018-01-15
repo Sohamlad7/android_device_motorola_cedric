@@ -288,7 +288,9 @@ PRODUCT_PACKAGES += \
     init.mmi.rc \
     init.mmi.usb.rc \
     init.qcom.rc \
-    ueventd.qcom.rc
+
+PRODUCT_COPY_FILES += \
+     $(LOCAL_PATH)/rootdir/etc/ueventd.qcom.rc:system/vendor/ueventd.rc
 
 # Powerhint configuration file
 PRODUCT_COPY_FILES += \

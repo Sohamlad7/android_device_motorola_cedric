@@ -1,5 +1,18 @@
+# binder_call(init, mm-qcamerad);
+#binder_call(init, hwservicemanager);
+# binder_call(init, servicemanager);
+
+allow init hwservicemanager:binder call;
+allow init mm-qcamerad:binder transfer;
+allow init platform_app:binder transfer;
+
+allow init sysfs_devices_system_cpu:dir write;
+allow init sysfs_lowmemorykiller:dir write;
+allow init system_app:binder transfer;
+allow init system_data_file:file lock;
+
 allow init audio_device:chr_file { write ioctl };
-allow init input_device:chr_file ioctl;
+allow init input_device:chr_file rw_file_perms;
 allow init sensors_device:chr_file { write ioctl };
 allow init tee_device:chr_file { write ioctl };
 
@@ -24,3 +37,25 @@ allow init persist_file:filesystem { getattr mount relabelfrom relabelto };
 
 # Screen off gestures
 allow init sysfs_screen_off_gestures:file { rw_file_perms setattr };
+
+# binder_call(batterystats_service, servicemanager);
+# allow init batterystats_service:service_manager find;
+
+# binder_call(hal_sensors_hwservice, servicemanager);
+# allow init hal_sensors_hwservice:service_manager find;
+
+allow init self:capability sys_nice;
+
+allow init bt_firmware_file:filesystem { associate };
+allow init firmware_file:filesystem { associate };
+allow init firmware_file:dir mounton;
+
+allow init sensors_device:chr_file { rw_file_perms create };
+
+allow init self:netlink_route_socket { bind create getopt nlmsg_read read setopt write };
+
+allow init self:capability2 { block_suspend };
+
+allow init hal_sensors_hwservice:hwservice_manager find;
+
+allow init { domain -lmkd -crash_dump }:process noatsecure;

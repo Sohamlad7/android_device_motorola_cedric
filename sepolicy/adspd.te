@@ -1,5 +1,5 @@
 type adspd, domain;
-type adspd_exec, exec_type, file_type;
+type adspd_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(adspd)
 
 allow adspd audio_device:chr_file { ioctl open read write };

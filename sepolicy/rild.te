@@ -1,11 +1,14 @@
-allow rild cutback_data_file:dir rw_dir_perms;
-allow rild cutback_data_file:sock_file create_file_perms;
-allow rild fsg_file:file r_file_perms;
-allow rild fsg_file:dir r_dir_perms;
-allow rild fsg_file:lnk_file read;
-allow rild persist_file:dir search;
-allow rild persist_file:file rw_file_perms;
-allow rild sensorservice_service:service_manager find;
-allow rild system_server:binder { transfer call };
-allow rild system_server:unix_stream_socket { read getopt write };
+binder_call(rild, servicemanager);
+binder_call(rild, audioserver_service);
+binder_call(rild, per_mgr_service_old);
+allow rild per_mgr_service_old:service_manager find;
+set_prop(rild, diag_prop);
+allow rild nv_data_file:dir rw_dir_perms;
+allow rild nv_data_file:file create_file_perms;
+allow rild radio_data_file:dir rw_dir_perms;
+allow rild radio_data_file:file create_file_perms;
+allow rild fsg_file:file { getattr open read };
+
+allow rild cutback_data_file:dir { add_name remove_name write };
+allow rild cutback_data_file:sock_file { create unlink write };
 

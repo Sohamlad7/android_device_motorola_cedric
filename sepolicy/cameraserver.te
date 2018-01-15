@@ -1,2 +1,58 @@
-# Shouldn't do this here
-allow cameraserver self:netlink_kobject_uevent_socket { read bind create setopt };
+binder_call(cameraserver, servicemanager);
+
+allow cameraserver nfc_data_file:dir search;
+allow cameraserver nfc_data_file:fifo_file write;
+allow cameraserver nfc_data_file:fifo_file open;
+
+allow cameraserver sensorservice_service:service_manager { find };
+allow cameraserver system_file:dir { read open };
+
+allow cameraserver sdcardfs:dir { read write open getattr add_name remove_name rw_file_perms rmdir search };
+allow cameraserver sdcardfs:file { create open read write unlink getattr };
+allow cameraserver storage_file:dir search;
+
+allow cameraserver persist_file:file { read write open create getattr create_file_perms rw_file_perms };
+allow cameraserver persist_file:dir { read write open create_file_perms rw_file_perms search add_name create };
+allow cameraserver fuse:file { read write open create getattr create_file_perms rw_file_perms };
+allow cameraserver fuse:dir { read write open create_file_perms rw_file_perms search add_name create };
+allow cameraserver tmpfs:file { read write open create getattr create_file_perms rw_file_perms };
+allow cameraserver tmpfs:dir { read write open create_file_perms rw_file_perms search add_name create };
+allow cameraserver storage_file:dir r_dir_perms;
+allow cameraserver storage_file:lnk_file r_file_perms;
+allow cameraserver mnt_user_file:dir r_dir_perms;
+allow cameraserver mnt_user_file:lnk_file r_file_perms;
+allow cameraserver media_rw_data_file:dir { open read search write add_name };
+allow cameraserver media_rw_data_file:file { create read write open };
+
+allow cameraserver sysfs:file { open write };
+
+allow cameraserver cameraserver:process { execmem };
+
+####
+allow cameraserver debug_prop:file { r_file_perms };
+allow cameraserver debug_prop:property_service set;
+
+#######
+#allow cameraserver persist_file:file rw_file_perms;
+#allow cameraserver persist_file:file setattr;
+allow cameraserver shell_exec:file { read open execute };
+allow cameraserver self:socket create;
+allow cameraserver camera_prop:property_service set;
+allow cameraserver init:unix_stream_socket connectto;
+allow cameraserver sensors_persist_file:file { open read };
+allow cameraserver property_socket:sock_file write;
+#allow cameraserver cameraserver:socket { { getattr read ioctl lock } { append write lock } };
+allow cameraserver shell_exec:file { execute getattr };
+allow cameraserver system_file:file execute;
+
+allow cameraserver debugfs:dir { read open };
+
+
+
+allow cameraserver nfc_data_file:file { open write };
+allow cameraserver socket_device:sock_file write;
+
+allow cameraserver hal_perf_default:binder call;
+
+allow cameraserver sysfs_battery_supply:dir search;
+allow cameraserver sysfs_battery_supply:file { getattr open read };

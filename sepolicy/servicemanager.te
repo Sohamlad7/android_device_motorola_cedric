@@ -1,0 +1,37 @@
+allow servicemanager init:dir search;
+allow servicemanager init:file { open read };
+allow servicemanager init:process getattr;
+allow servicemanager qseeproxy:dir search;
+allow servicemanager qseeproxy:file { open read };
+allow servicemanager rild:dir search;
+allow servicemanager rild:file { open read };
+allow servicemanager rild:process getattr;
+
+allow servicemanager hal_fingerprint_default:dir search;
+allow servicemanager hal_fingerprint_default:file read;
+allow servicemanager qseeproxy:process getattr;
+
+
+allow servicemanager hal_camera_default:dir search;
+allow servicemanager hal_camera_default:file { open read };
+allow servicemanager hal_camera_default:process getattr;
+
+allow servicemanager hal_fingerprint_default:file open;
+allow servicemanager hal_fingerprint_default:process getattr;
+
+allow servicemanager wcnss_service:dir search;
+allow servicemanager wcnss_service:file { open read };
+
+allow servicemanager esepmdaemon:dir search;
+allow servicemanager esepmdaemon:file { open read };
+allow servicemanager esepmdaemon:process getattr;
+
+allow servicemanager per_mgr:dir search;
+allow servicemanager per_mgr:file { open read };
+allow servicemanager per_mgr:process getattr;
+allow servicemanager wcnss_service:process getattr;
+
+allow servicemanager hal_gnss_qti:dir search;
+allow servicemanager hal_gnss_qti:file { open read };
+allow servicemanager hal_gnss_qti:process getattr;
+

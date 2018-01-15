@@ -5,7 +5,14 @@ allow system_server persist_file:file create_file_perms;
 allow system_server rild:binder transfer;
 allow system_server sysfs_capsense:dir search;
 allow system_server sysfs_capsense:file rw_file_perms;
+allow system_server init:unix_stream_socket { read };
+# allow system_server dalvikcache_data_file:file { execute };
 
 # Screen off gestures
 allow system_server sysfs_screen_off_gestures:dir search;
 allow system_server sysfs_screen_off_gestures:file rw_file_perms;
+
+allow system_server qti_debugfs:file { getattr open read };
+allow system_server init:unix_stream_socket write;
+
+get_prop(system_server, alarm_boot_prop)

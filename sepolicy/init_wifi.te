@@ -1,5 +1,5 @@
 type init_wifi, domain;
-type init_wifi_exec, exec_type, file_type;
+type init_wifi_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(init_wifi)
 
 # shell scripts need to execute /system/bin/sh

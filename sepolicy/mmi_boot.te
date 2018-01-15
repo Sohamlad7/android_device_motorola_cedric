@@ -1,5 +1,5 @@
 type mmi_boot, domain;
-type mmi_boot_exec, exec_type, file_type;
+type mmi_boot_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(mmi_boot)
 
 # shell scripts need to execute /system/bin/sh

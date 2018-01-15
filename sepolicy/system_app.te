@@ -1,7 +1,19 @@
-allow system_app sysfs_homebutton:dir r_dir_perms;
-allow system_app sysfs_homebutton:file rw_file_perms;
-allow system_app fingerprintd:binder call;
+allow system_app proc_touchpanel:dir search;
+allow system_app sysfs_vibrator:file rw_file_perms;
+allow system_app sysfs_vibrator:dir search;
+allow system_app sysfs_graphics:file rw_file_perms;
+allow system_app sysfs_graphics:dir search;
+allow system_app proc_touchpanel:file rw_file_perms;
+allow system_app sysfs_fpc:file rw_file_perms;
+allow system_app fuse_device:filesystem getattr;
+allow system_app time_daemon:unix_stream_socket connectto;
 
-# Screen off gestures
-allow system_app sysfs_screen_off_gestures:dir search;
-allow system_app sysfs_screen_off_gestures:file rw_file_perms;
+allow system_app init:unix_stream_socket { read write };
+allow system_app sysfs_homebutton:file write;
+allow system_app sysfs_screen_off_gestures:file write;
+
+get_prop(system_app, diag_prop);
+get_prop(system_app, qemu_hw_mainkeys_prop);
+binder_call(system_app, qtitetherservice_service);
+binder_call(system_app, wificond);
+

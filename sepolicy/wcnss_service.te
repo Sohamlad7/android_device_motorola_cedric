@@ -1,1 +1,8 @@
-allow wcnss_service self:capability { setgid setuid };
+binder_call(wcnss_service, servicemanager);
+set_prop(wcnss_service, wifi_prop);
+get_prop(wcnss_service, diag_prop);
+allow wcnss_service toolbox_exec:file { execute getattr execute_no_trans read open };
+allow wcnss_service shell_exec:file { execute getattr execute_no_trans read open };
+allowxperm wcnss_service self:udp_socket ioctl priv_sock_ioctls;
+
+allow wcnss_service per_mgr_service_old:service_manager find;

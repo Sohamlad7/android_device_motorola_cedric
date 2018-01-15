@@ -1,5 +1,5 @@
 # Moto USB configuration
-import /init.mmi.usb.rc
+import /system/vendor/etc/init/hw/init.mmi.usb.rc
 
 on early-boot
     write /sys/module/subsystem_restart/parameters/disable_restart_work 0x0
@@ -64,6 +64,7 @@ on post-fs
     chmod 0711 /persist/rfs/msm/mpss
     chmod 0771 /persist/rfs/msm/mpss/mot_rfs
 
+    swapon_all /system/vendor/etc/fstab.qcom
     write /proc/sys/vm/page-cluster 0
 
 on post-fs-data

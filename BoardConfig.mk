@@ -180,6 +180,8 @@ DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/configs/compatibility_matrix.xml
 # Media
 # TARGET_USES_MEDIA_EXTENSIONS := true
 
+PRODUCT_BOOT_JARS += telephony-ext
+
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4

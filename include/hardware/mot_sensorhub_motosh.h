@@ -11,6 +11,7 @@
 #include <sys/types.h>
 
 #include <hardware/hardware.h>
+#include <hardware/sensors.h>
 #include <linux/stml0xx.h>
 
 __BEGIN_DECLS
@@ -31,6 +32,13 @@ __BEGIN_DECLS
 #define SENSOR_TYPE_MOTO_MOD_CURRENT_DRAIN SENSOR_TYPE_DEVICE_PRIVATE_BASE + 13
 #define SENSOR_TYPE_SENSOR_SYNC         SENSOR_TYPE_DEVICE_PRIVATE_BASE + 14
 #define SENSOR_TYPE_ULTRASOUND_GESTURE  SENSOR_TYPE_DEVICE_PRIVATE_BASE + 15
+
+// Motorola sensor type strings
+#define SENSOR_STRING_TYPE_DISPLAY_ROTATE         SENSOR_STRING_TYPE_DEVICE_ORIENTATION
+#define SENSOR_STRING_TYPE_MOTO_GLANCE_GESTURE    "com.motorola.sensor.glance"
+#define SENSOR_STRING_TYPE_MOTO_MOD_CURRENT_DRAIN "com.motorola.sensor.mod.current_drain"
+#define SENSOR_STRING_TYPE_SENSOR_SYNC            "com.motorola.sensor.sensor_sync"
+#define SENSOR_STRING_TYPE_ULTRASOUND_GESTURE     "com.motorola.sensor.ultrasound_gesture"
 
 // com.motorola.slpc.modalitymanager algorithms
 #define SENSORHUB_ALGO_MODALITY         29

@@ -1,3 +1,5 @@
+binder_call(system_server, rild);
+
 allow system_server sysfs_homebutton:file rw_file_perms;
 allow system_server sysfs_homebutton:dir r_dir_perms;
 allow system_server persist_file:dir create_dir_perms;

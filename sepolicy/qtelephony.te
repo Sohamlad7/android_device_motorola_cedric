@@ -1,0 +1,1 @@
+allow qtelephony radio_service:service_manager find;

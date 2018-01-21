@@ -1,0 +1,4 @@
+get_prop(untrusted_app, camera_prop);
+get_prop(untrusted_app_25, camera_prop);
+allow untrusted_app sysfs_zram:dir { search read };
+allow untrusted_app sysfs_zram:file { open read getattr };

@@ -1,3 +1,0 @@
-service sensorservice /vendor/bin/sensorservice_32
-    class main
-    user root

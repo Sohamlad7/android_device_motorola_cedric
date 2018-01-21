@@ -11,7 +11,7 @@
 #include <sys/types.h>
 
 #include <hardware/hardware.h>
-#include <linux/stm401.h>
+#include <linux/stml0xx.h>
 
 __BEGIN_DECLS
 
@@ -33,11 +33,11 @@ __BEGIN_DECLS
 #define SENSOR_TYPE_ULTRASOUND_GESTURE  SENSOR_TYPE_DEVICE_PRIVATE_BASE + 15
 
 // com.motorola.slpc.modalitymanager algorithms
-#define SENSORHUB_ALGO_MODALITY         STM401_IDX_MODALITY
-#define SENSORHUB_ALGO_ORIENTATION      STM401_IDX_ORIENTATION
-#define SENSORHUB_ALGO_STOWED           STM401_IDX_STOWED
-#define SENSORHUB_ALGO_ACCUM_MODALITY   STM401_IDX_ACCUM_MODALITY
-#define SENSORHUB_ALGO_ACCUM_MVMT       STM401_IDX_ACCUM_MVMT
+#define SENSORHUB_ALGO_MODALITY         29
+#define SENSORHUB_ALGO_ORIENTATION      36
+#define SENSORHUB_ALGO_STOWED           43
+#define SENSORHUB_ALGO_ACCUM_MODALITY   50
+#define SENSORHUB_ALGO_ACCUM_MVMT       52
 
 // original movement algorithm
 #define SENSORHUB_ALGO_MOVEMENT         5

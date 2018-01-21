@@ -37,7 +37,7 @@
 #include <sys/time.h>
 #include <sys/types.h>
 
-#include "mot_sensorhub_stml0xx.h"
+#include <hardware/mot_sensorhub_stml0xx.h>
 
 #include "utils/sensor_time.h"
 

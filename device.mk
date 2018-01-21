@@ -323,8 +323,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf
 
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
-    sensorservice_32
+    android.hardware.sensors@1.0-impl
 
 # Thermal
 PRODUCT_COPY_FILES += \

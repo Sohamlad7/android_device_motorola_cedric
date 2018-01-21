@@ -233,9 +233,6 @@ persist.data.df.mux_count=8
 persist.data.df.iwlan_mux=9
 persist.data.df.dev_name=rmnet_usb0
 
-# SensorService
-system_init.startsensorservice=0
-
 # USB
 ro.usb.mtp=0x2e82
 ro.usb.mtp_adb=0x2e76

@@ -426,7 +426,7 @@ std::vector<struct sensor_t> sSensorList = {
         .flags = SENSOR_FLAG_ON_CHANGE_MODE | SENSOR_FLAG_WAKE_UP,
         .reserved = { 0, 0 } },
 #endif
-/*    { .name = "Glance Gesture",
+    { .name = "Glance Gesture",
       .vendor = VENDOR_MOT,
       .version = 1,
       .handle = SENSORS_HANDLE_BASE+ID_GLANCE_GESTURE,
@@ -441,7 +441,7 @@ std::vector<struct sensor_t> sSensorList = {
       .requiredPermission = "",
       .maxDelay = 0,
       .flags = SENSOR_FLAG_SPECIAL_REPORTING_MODE | SENSOR_FLAG_WAKE_UP,
-      .reserved = {0,0}},*/
+      .reserved = {0,0}},
     { .name = "Moto Glance Gesture",
       .vendor = VENDOR_MOT,
       .version = 1,

@@ -1,5 +1,12 @@
-allow rmt_storage fsg_file:dir search;
-allow rmt_storage fsg_file:file { read open };
+allow rmt_storage sysfs_rmt_storage:file rw_file_perms;
+allow rmt_storage sysfs_rmt_storage:dir { search open };
+allow rmt_storage sysfs_uio:file r_file_perms;
+allow rmt_storage sysfs_uio:dir { read open search };
+allow rmt_storage sysfs_uio:lnk_file { read };
+allow rmt_storage debugfs_rmt_storage:dir search;
+allow rmt_storage debugfs_rmt_storage:file w_file_perms;
+
+allow rmt_storage fsg_file:file { open read };
 allow rmt_storage self:capability dac_override;
 
 allow rmt_storage fsg_file:dir search;

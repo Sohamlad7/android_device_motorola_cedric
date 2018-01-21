@@ -2,3 +2,6 @@ allow netmgrd netmgr_data_file:dir { add_name search write };
 allow netmgrd netmgr_data_file:file create;
 allow netmgrd netmgr_data_file:file rw_file_perms;
 allow netmgrd self:capability dac_override;
+allow netmgrd net_data_file:dir r_dir_perms;
+allow netmgrd netd_socket:sock_file write;
+allow netmgrd toolbox_exec:file { execute getattr execute_no_trans read open };

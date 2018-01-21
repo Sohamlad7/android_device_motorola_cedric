@@ -1,0 +1,5 @@
+binder_call(per_mgr, servicemanager);
+allow per_mgr self:capability net_raw;
+allow per_mgr per_mgr_service_old:service_manager { add find };
+allow per_mgr servicemanager:binder { call transfer };
+

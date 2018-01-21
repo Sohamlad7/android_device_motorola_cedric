@@ -1,1 +1,3 @@
-allow time_daemon persist_file:file rw_file_perms;
+get_prop(time_daemon, diag_prop);
+
+allow time_daemon persist_file:file { open read write };

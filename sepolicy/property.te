@@ -2,3 +2,6 @@ type adspd_prop, property_type;
 type motosh_prop, property_type;
 type hw_rev_prop, property_type;
 type touch_prop, property_type;
+type diag_prop, property_type;
+type thermal_prop, property_type;
+type qti_telephony_prop, property_type;

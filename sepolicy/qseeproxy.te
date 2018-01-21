@@ -1,0 +1,3 @@
+binder_call(qseeproxy, servicemanager);
+allow qseeproxy self:process getattr;
+allow qseeproxy qseeproxy_service_old:service_manager { add find };

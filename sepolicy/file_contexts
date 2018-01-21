@@ -6,12 +6,12 @@
 /dev/hidraw[0-9]*                                        u:object_r:amps_raw_device:s0
 
 # Binaries
-#/system/vendor/bin/adspd                                        u:object_r:adspd_exec:s0
+/system/vendor/bin/adspd                                        u:object_r:adspd_exec:s0
 /system/bin/charge_only_mode                             u:object_r:charge_only_exec:s0
-#/system/vendor/bin/init\.mmi\.boot\.sh                          u:object_r:mmi_boot_exec:s0
-#/system/vendor/bin/init\.mmi\.laser\.sh                         u:object_r:mmi_laser_exec:s0
-#/system/vendor/bin/wlan_carrier_bin\.sh                         u:object_r:init_wifi_exec:s0
-#/system/vendor/bin/motosh                                       u:object_r:sensor_hub_exec:s0
+/system/vendor/bin/init\.mmi\.boot\.sh                          u:object_r:mmi_boot_exec:s0
+/system/vendor/bin/init\.mmi\.laser\.sh                         u:object_r:mmi_laser_exec:s0
+/system/vendor/bin/wlan_carrier_bin\.sh                         u:object_r:init_wifi_exec:s0
+/system/vendor/bin/motosh                                       u:object_r:sensor_hub_exec:s0
 /system/vendor/bin/akmd09912                                    u:object_r:akmd_exec:s0
 
 # Camera
@@ -126,11 +126,10 @@
 /data/vendor/time(/.*)?                                         u:object_r:time_data_file:s0
 
 /system/vendor/bin/perfd           u:object_r:perfd_exec:s0
-/system/vendor/bin/hw/android\.hardware\.power@1\.1-service\.qti          u:object_r:hal_power_default_exec:s0
+/system/vendor/bin/hw/android\.hardware\.power@1\.1-service-qti          u:object_r:hal_power_default_exec:s0
 /system/vendor/radio(/.*)? u:object_r:radio_data_file:s0
-/system/vendor/bin/sensorservice_32          u:object_r:hal_sensors_default_exec:s0
 
-/system/vendor/bin/qmi_motext_hook u:object_r:radio_data_file:s0
+/system/vendor/bin/qmi_motext_hook u:object_r:rild_exec:s0
 
 /sys/kernel/debug/rmt_storage(/.*)? u:object_r:debugfs_rmt_storage:s0
 

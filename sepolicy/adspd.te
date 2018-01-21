@@ -2,6 +2,12 @@ type adspd, domain;
 type adspd_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(adspd)
 
+binder_use(adspd)
+binder_service(adspd)
+binder_call(adspd, system_server)
+
+allow adspd vendor_shell_exec:file entrypoint;
+
 allow adspd audio_device:chr_file { ioctl open read write };
 allow adspd audio_device:dir search;
 allow adspd input_device:chr_file { ioctl open read };

@@ -5,8 +5,12 @@ init_daemon_domain(sensor_hub)
 binder_use(sensor_hub)
 binder_service(sensor_hub)
 
+allow sensor_hub vendor_shell_exec:file entrypoint;
+
 allow sensor_hub sensors_device:chr_file rw_file_perms;
 set_prop(sensor_hub, motosh_prop)
 
 allow sensor_hub firmware_file:file { getattr open read };
 allow sensor_hub vendor_file:file rx_file_perms;
+
+allow sensor_hub firmware_file:dir search;

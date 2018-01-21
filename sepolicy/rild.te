@@ -1,6 +1,6 @@
 binder_call(rild, servicemanager);
 binder_call(rild, audioserver_service);
-binder_call(rild, per_mgr_service_old);
+binder_call(rild, system_server);
 allow rild per_mgr_service_old:service_manager find;
 set_prop(rild, diag_prop);
 allow rild nv_data_file:dir rw_dir_perms;
@@ -12,3 +12,5 @@ allow rild fsg_file:file { getattr open read };
 allow rild cutback_data_file:dir { add_name remove_name write };
 allow rild cutback_data_file:sock_file { create unlink write };
 
+allow rild rild_exec:file execute_no_trans;
+allow rild cutback_data_file:dir search;

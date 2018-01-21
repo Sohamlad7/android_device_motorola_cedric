@@ -35,3 +35,11 @@ allow servicemanager hal_gnss_qti:dir search;
 allow servicemanager hal_gnss_qti:file { open read };
 allow servicemanager hal_gnss_qti:process getattr;
 
+allow servicemanager hal_sensors_default:dir search;
+allow servicemanager hal_sensors_default:file { open read };
+allow servicemanager hal_sensors_default:process getattr;
+
+allow servicemanager sensors:dir search;
+allow servicemanager sensors:file { open read };
+allow servicemanager sensors:process getattr;
+

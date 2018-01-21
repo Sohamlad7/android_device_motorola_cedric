@@ -47,8 +47,6 @@ allow cameraserver system_file:file execute;
 
 allow cameraserver debugfs:dir { read open };
 
-
-
 allow cameraserver nfc_data_file:file { open write };
 allow cameraserver socket_device:sock_file write;
 

@@ -2,9 +2,14 @@ type init_wifi, domain;
 type init_wifi_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(init_wifi)
 
+binder_use(init_wifi)
+binder_service(init_wifi)
+binder_call(init_wifi, system_server)
+
 # shell scripts need to execute /system/bin/sh
-allow init_wifi shell_exec:file rx_file_perms;
-allow init_wifi toolbox_exec:file rx_file_perms;
+allow init_wifi vendor_shell_exec:file rx_file_perms;
+allow init_wifi vendor_toolbox_exec:file rx_file_perms;
+allow init_wifi vendor_shell_exec:file entrypoint;
 
 allow init_wifi sysfs_wcnsscore:file rw_file_perms;
 allow init_wifi sysfs_wcnsscore:dir rw_dir_perms;

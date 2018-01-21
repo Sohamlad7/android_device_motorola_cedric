@@ -2,9 +2,14 @@ type mmi_boot, domain;
 type mmi_boot_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(mmi_boot)
 
+binder_use(mmi_boot)
+binder_service(mmi_boot)
+binder_call(mmi_boot, system_server)
+
 # shell scripts need to execute /system/bin/sh
-allow mmi_boot shell_exec:file rx_file_perms;
-allow mmi_boot toolbox_exec:file rx_file_perms;
+allow mmi_boot vendor_shell_exec:file rx_file_perms;
+allow mmi_boot vendor_toolbox_exec:file rx_file_perms;
+allow mmi_boot vendor_shell_exec:file entrypoint;
 
 allow mmi_boot radio_data_file:dir { add_name search write };
 allow mmi_boot radio_data_file:file { create setattr };

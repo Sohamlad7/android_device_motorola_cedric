@@ -1,0 +1,20 @@
+binder_call(hal_sensors_default, hwservicemanager)
+binder_call(hal_sensors_default, servicemanager)
+
+binder_call(hal_sensors_default, mm-qcamerad)
+binder_call(hal_sensors_default, system_server)
+
+binder_call(hal_sensors_default, system_app)
+binder_call(hal_sensors_default, priv_app)
+binder_call(hal_sensors_default, platform_app)
+
+allow hal_sensors_default self:capability { dac_override };
+allow hal_sensors_default sensors_device:chr_file { ioctl open read };
+allow hal_sensors_default sysfs:file { open read write };
+allow hal_sensors_default system_data_file:file { getattr open read };
+
+allow hal_sensors_default proc_net:file { getattr open read };
+allow hal_sensors_default sysfs_capsense:dir search;
+allow hal_sensors_default sysfs_capsense:file { open write };
+
+

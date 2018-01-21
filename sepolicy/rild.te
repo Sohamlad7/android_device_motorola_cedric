@@ -9,8 +9,9 @@ allow rild radio_data_file:dir rw_dir_perms;
 allow rild radio_data_file:file create_file_perms;
 allow rild fsg_file:file { getattr open read };
 
-allow rild cutback_data_file:dir { add_name remove_name write };
-allow rild cutback_data_file:sock_file { create unlink write };
+allow rild cutback_data_file:dir rw_dir_perms;
+allow rild cutback_data_file:sock_file create_file_perms;
 
 allow rild rild_exec:file execute_no_trans;
-allow rild cutback_data_file:dir search;
+
+allow rild fwk_sensor_hwservice:hwservice_manager find;

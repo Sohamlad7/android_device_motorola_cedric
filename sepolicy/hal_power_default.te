@@ -1,1 +1,2 @@
-allow hal_power_default sysfs:file write;
+allow hal_power_default sysfs:file rw_file_perms;
+

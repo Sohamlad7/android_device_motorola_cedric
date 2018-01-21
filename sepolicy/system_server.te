@@ -15,4 +15,6 @@ allow system_server sysfs_screen_off_gestures:file rw_file_perms;
 allow system_server qti_debugfs:file { getattr open read };
 allow system_server init:unix_stream_socket write;
 
+allow system_server sensors_device:chr_file { ioctl open read };
+
 get_prop(system_server, alarm_boot_prop)

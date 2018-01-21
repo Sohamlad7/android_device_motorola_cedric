@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/system/vendor/bin/sh
 carrier=`getprop ro.boot.carrier`
 
 case "$carrier" in

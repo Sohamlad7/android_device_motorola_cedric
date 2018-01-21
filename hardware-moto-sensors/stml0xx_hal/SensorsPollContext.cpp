@@ -37,7 +37,7 @@
 #include <cutils/properties.h>
 
 #include <hardware/sensors.h>
-#include <hardware/mot_sensorhub_stml0xx.h>
+#include "mot_sensorhub_stml0xx.h"
 
 #include "SensorList.h"
 #include "Sensors.h"

@@ -1,9 +1,8 @@
-typeattribute platform_app mlstrustedsubject;
-
-# binder_call(platform_app, init);
+binder_call(platform_app, hal_sensors_default);
 
 allow platform_app isdbt_device:chr_file rw_file_perms;
 allow platform_app rootfs:dir getattr;
 
 allow platform_app init:unix_stream_socket { read write };
+allow platform_app hal_sensors_default:unix_stream_socket { read write };
 

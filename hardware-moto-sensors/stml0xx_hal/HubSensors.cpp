@@ -34,7 +34,7 @@
 
 #include <cutils/log.h>
 
-#include "mot_sensorhub_stml0xx.h"
+#include <hardware/mot_sensorhub_stml0xx.h>
 
 #include "HubSensors.h"
 

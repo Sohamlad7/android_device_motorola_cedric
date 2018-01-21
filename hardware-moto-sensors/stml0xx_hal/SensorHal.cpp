@@ -24,7 +24,7 @@
 #include <cutils/log.h>
 
 #include <hardware/sensors.h>
-#include "mot_sensorhub_stml0xx.h"
+#include <hardware/mot_sensorhub_stml0xx.h>
 
 #include "SensorList.h"
 

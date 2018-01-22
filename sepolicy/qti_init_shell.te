@@ -1,3 +1,4 @@
+set_prop(qti_init_shell, hw_rev_prop);
 allow qti_init_shell apk_data_file:dir { write add_name create };
 allow qti_init_shell apk_data_file:file { create write setattr };
 allow qti_init_shell hci_attach_dev:chr_file { read write open ioctl };

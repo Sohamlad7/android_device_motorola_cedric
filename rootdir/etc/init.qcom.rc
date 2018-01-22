@@ -328,8 +328,6 @@ on post-fs-data
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
 
-    mkdir /data/misc/ipa 0700 net_admin net_admin
-
     mkdir /data/vendor/ramdump 0771 root system
     mkdir /data/vendor/bluetooth 0770 bluetooth bluetooth
     mkdir /data/vendor/ramdump/bluetooth 0770 bluetooth bluetooth
@@ -357,10 +355,6 @@ on post-fs-data
     #create netmgr log dir
     mkdir /data/vendor/netmgr 0770 radio radio
     chmod 0770 /data/vendor/netmgr
-
-    #create ipacm log dir
-    mkdir /data/vendor/ipa 0770 radio radio
-    chmod 0770 /data/vendor/ipa
 
     # Create the directories used by CnE subsystem
     mkdir /data/connectivity 0771 system system
@@ -668,18 +662,6 @@ on property:ro.hw.ecompass=true
 service netmgrd /system/vendor/bin/netmgrd
     class main
     group radio system wakelock
-    writepid /dev/cpuset/system-background/tasks
-
-service ipacm-diag /system/vendor/bin/ipacm-diag
-    class main
-    user system
-    socket ipacm_log_file dgram 660 system net_admin
-    group net_admin oem_2950
-
-service ipacm /system/bin/ipacm
-    class main
-    user net_admin
-    group net_admin inet
     writepid /dev/cpuset/system-background/tasks
 
 service qti /system/vendor/bin/qti

@@ -67,10 +67,6 @@
     <string name="action_dialer">Abrir discador</string>
     <string name="action_email">Abrir app de mail</string>
     <string name="action_messages">Abrir app de mensagens</string>
-    <string name="action_pip">Modo picture-in-picture</string>
-
-   <!-- Pip -->
-   <string name="app_does_not_support_pip">O aplicativo não tem suporte ao modo picture-in-picture.</string>
 
    <!-- Proximity sensor -->
    <string name="allow_proximity_sensor_title">Habilitar o sensor de proximidade</string>

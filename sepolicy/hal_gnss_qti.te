@@ -1,4 +1,19 @@
 binder_call(hal_gnss_qti, servicemanager);
 get_prop(hal_gnss_qti, diag_prop);
 allow hal_gnss_qti per_mgr_service_old:service_manager find;
+allow hal_gnss_qti debug_prop:file read;
+allow hal_gnss_qti property_socket:sock_file write;
 
+# Most HALs are not allowed to use network sockets. Qcom library
+# libqdi is used across multiple processes which are clients of
+# netmgrd including the GNSS HAL. libqdi first attempts to get the network
+# interface using an IOCTL on a UDP INET socket, which isn't allowed here.
+# If that fails, it falls back to using libc's if_nameindex() which requires
+# a netlink route socket, which HALs may use. Due to the initial
+# attempt to use a UDP socket, we still see a selinux denial,
+# but it is safe to ignore.
+# TODO (b/37730994) Remove udp_socket requirement from
+# libqdi and have all its clients use netlink route
+# sockets.
+# Taken from device/google/wahoo
+dontaudit hal_gnss_qti self:udp_socket create;

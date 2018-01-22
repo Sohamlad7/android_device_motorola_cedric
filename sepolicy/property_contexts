@@ -1,5 +1,5 @@
-hw.aov.disable_hotword  u:object_r:adspd_prop:s0
-hw.aov.hotword_dsp_path u:object_r:adspd_prop:s0
-hw.motosh.booted        u:object_r:motosh_prop:s0
-ro.hw.revision          u:object_r:hw_rev_prop:s0
-hw.touch.status         u:object_r:touch_prop:s0
+hw.aov.disable_hotword             u:object_r:adspd_prop:s0
+hw.aov.hotword_dsp_path            u:object_r:adspd_prop:s0
+hw.motosh.booted                   u:object_r:motosh_prop:s0
+ro.boot.hardware.revision          u:object_r:hw_rev_prop:s0
+hw.touch.status                    u:object_r:touch_prop:s0

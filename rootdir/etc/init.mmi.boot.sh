@@ -25,7 +25,6 @@ rev="p${hw%??}$minor1$minor2"
 rev2=`echo $rev | tr '[:upper:]' '[:lower:]'`
 
 setprop ro.boot.hardware.revision $rev2
-setprop ro.hw.revision $rev2
 unset hw cinfo m1 m2 minor1 minor2
 
 # Let kernel know our image version/variant/crm_version

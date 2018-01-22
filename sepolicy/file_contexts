@@ -134,3 +134,7 @@
 /sys/kernel/debug/rmt_storage(/.*)? u:object_r:debugfs_rmt_storage:s0
 
 /data/vendor/nfc(/.*)? u:object_r:nfc_data_file:s0
+
+# Fingerprint custom hal
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service_32 u:object_r:hal_fingerprint_default_exec:s0
+

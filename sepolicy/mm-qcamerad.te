@@ -3,6 +3,7 @@ binder_use(mm-qcamerad);
 binder_call(mm-qcamerad, binderservicedomain);
 binder_call(mm-qcamerad, appdomain);
 binder_call(mm-qcamerad, hal_sensors_default);
+set_prop(mm-qcamerad, camera_prop);
 
 allow servicemanager mm-qcamerad:dir { search };
 allow servicemanager mm-qcamerad:file { read open };

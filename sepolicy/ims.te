@@ -1,0 +1,4 @@
+allow ims debug_prop:property_service set;
+get_prop(ims, debug_prop);
+allow ims self:capability net_raw;
+allow ims diag_device:chr_file { read write };

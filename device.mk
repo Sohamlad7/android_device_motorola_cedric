@@ -274,7 +274,6 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.qcom.fm.sh \
-    init.qcom.post_boot.sh \
     wlan_carrier_bin.sh
 
 PRODUCT_PACKAGES += \

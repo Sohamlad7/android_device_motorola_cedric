@@ -2,9 +2,6 @@
 # system.prop for cedric
 #
 
-# Android Run Time
-ro.sys.fw.dex2oat_thread_count=4
-
 # Audio
 audio.deep_buffer.media=true
 vendor.audio.offload.buffer.size.kb=64

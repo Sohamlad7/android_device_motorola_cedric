@@ -1,2 +1,3 @@
 type qseeproxy_service_old,           service_manager_type;
-type per_mgr_service_old,           service_manager_type;
+type per_mgr_service_old,             service_manager_type;
+type camera_bgproc_service,           service_manager_type;

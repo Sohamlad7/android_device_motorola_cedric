@@ -1,3 +1,4 @@
 com.qualcomm.qti.qseeproxy                     u:object_r:qseeproxy_service_old:s0
-vendor.qcom.PeripheralManager                     u:object_r:per_mgr_service_old:s0
+vendor.qcom.PeripheralManager                  u:object_r:per_mgr_service_old:s0
+media.camera_bgproc                            u:object_r:camera_bgproc_service:s0
 

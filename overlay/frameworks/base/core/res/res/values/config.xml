@@ -38,24 +38,28 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>2</item>
-        <item>10</item>
+        <item>1</item>
+        <item>6</item>
+	<item>12</item>
+        <item>25</item>
         <item>50</item>
-        <item>90</item>
-        <item>100</item>
-        <item>150</item>
-        <item>200</item>
-        <item>300</item>
-        <item>400</item>
+        <item>80</item>
+        <item>120</item>
+        <item>175</item>
+        <item>250</item>
+        <item>350</item>
         <item>500</item>
-        <item>800</item>
+        <item>750</item>
         <item>1000</item>
-        <item>1300</item>
+        <item>1400</item>
         <item>2000</item>
-        <item>3000</item>
-        <item>4000</item>
-        <item>8000</item>
+        <item>3500</item>
+        <item>6000</item>
         <item>10000</item>
+        <item>15000</item>
+        <item>20000</item>
+        <item>30000</item>
+        <item>65535</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -64,25 +68,29 @@
          This must be overridden in platform specific overlays -->
     
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>3</item>
-        <item>11</item>
-        <item>40</item>
-        <item>62</item>
-        <item>74</item>
-        <item>85</item>
-        <item>102</item>
-        <item>102</item>
-        <item>102</item>
-        <item>102</item>
-        <item>128</item>
+        <item>7</item>
+        <item>10</item>
+	<item>13</item>
+        <item>16</item>
+        <item>22</item>
+	<item>28</item>
+        <item>34</item>
+        <item>43</item>
+        <item>52</item>
+        <item>61</item>
+        <item>72</item>
+        <item>83</item>
+        <item>94</item>
+        <item>105</item>
+        <item>117</item>
+        <item>129</item>
+        <item>141</item>
         <item>153</item>
-        <item>170</item>
+        <item>166</item>
         <item>179</item>
-        <item>238</item>
-        <item>255</item>
-        <item>255</item>
-        <item>255</item>
-        <item>256</item>
+        <item>192</item>
+        <item>205</item>
+        <item>218</item>
     </integer-array>
 
     <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->

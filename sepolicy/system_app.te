@@ -10,7 +10,6 @@ allow system_app time_daemon:unix_stream_socket connectto;
 
 allow system_app init:unix_stream_socket { read write };
 allow system_app sysfs_homebutton:file write;
-allow system_app sysfs_screen_off_gestures:file write;
 
 get_prop(system_app, diag_prop);
 get_prop(system_app, qemu_hw_mainkeys_prop);

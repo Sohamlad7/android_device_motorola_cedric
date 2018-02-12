@@ -135,45 +135,6 @@ public class Constants {
     public static final String FP_KEY_SCREENOFF_LEFT_NODE = "/sys/homebutton/key_screenoff_left";
     public static final String FP_KEY_SCREENOFF_RIGHT_NODE = "/sys/homebutton/key_screenoff_right";
 
-    // Screen off gestures
-    public static final int GESTURE_SWIPE_RIGHT_SCANCODE = 622;
-    public static final int GESTURE_SWIPE_LEFT_SCANCODE = 623;
-    public static final int GESTURE_SWIPE_DOWN_SCANCODE = 624;
-    public static final int GESTURE_SWIPE_UP_SCANCODE = 625;
-    public static final int GESTURE_DOUBLE_TAP_SCANCODE = 626;
-    public static final int[] sSupportedScreenOffGestures = new int[]{
-            GESTURE_SWIPE_RIGHT_SCANCODE,
-            GESTURE_SWIPE_LEFT_SCANCODE,
-            GESTURE_SWIPE_DOWN_SCANCODE,
-            GESTURE_SWIPE_UP_SCANCODE,
-            GESTURE_DOUBLE_TAP_SCANCODE
-    };
-    public static final int[] sScreenOffSupportedActions = new int[]{
-            ACTION_POWER,
-            ACTION_PLAY_PAUSE,
-            ACTION_PREVIOUS_TRACK,
-            ACTION_NEXT_TRACK,
-            ACTION_FLASHLIGHT,
-            ACTION_CAMERA,
-            ACTION_BROWSER,
-            ACTION_DIALER,
-            ACTION_EMAIL,
-            ACTION_MESSAGES
-    };
-
-    // List of screen off gestures keys
-    public static final String GESTURE_SWIPE_RIGHT = "screen_off_gestures_swipe_right";
-    public static final String GESTURE_SWIPE_LEFT = "screen_off_gestures_swipe_left";
-    public static final String GESTURE_SWIPE_DOWN = "screen_off_gestures_swipe_down";
-    public static final String GESTURE_SWIPE_UP = "screen_off_gestures_swipe_up";
-
-    // Screen off gestures nodes
-    public static final String GESTURE_SWIPE_RIGHT_NODE = "/sys/android_touch/gesture_swipe_right";
-    public static final String GESTURE_SWIPE_LEFT_NODE = "/sys/android_touch/gesture_swipe_left";
-    public static final String GESTURE_SWIPE_DOWN_NODE = "/sys/android_touch/gesture_swipe_down";
-    public static final String GESTURE_SWIPE_UP_NODE = "/sys/android_touch/gesture_swipe_up";
-    public static final String GESTURE_DOUBLE_TAP_NODE = "/sys/android_touch/doubletap2wake";
-    
     // Screen off gestures haptic
     public static final String KEY_GESTURE_ENABLE_HAPTIC_FEEDBACK = "screen_off_gesture_haptic_feedback";
     public static final String KEY_GESTURE_ENABLE_PROXIMITY_SENSOR = "screen_off_gesture_proximity_sensor";
@@ -201,10 +162,6 @@ public class Constants {
         FP_KEY_RIGHT_OFF,
         FP_KEY_LEFT_OFF,
         FP_HOME_KEY_OFF,
-        GESTURE_SWIPE_RIGHT,
-        GESTURE_SWIPE_LEFT,
-        GESTURE_SWIPE_DOWN,
-        GESTURE_SWIPE_UP
     };
 
     static {
@@ -223,10 +180,6 @@ public class Constants {
         sBooleanNodePreferenceMap.put(FP_KEY_HOLD_OFF, FP_KEY_SCREENOFF_HOLD_NODE);
         sBooleanNodePreferenceMap.put(FP_KEY_LEFT_OFF, FP_KEY_SCREENOFF_LEFT_NODE);
         sBooleanNodePreferenceMap.put(FP_KEY_RIGHT_OFF, FP_KEY_SCREENOFF_RIGHT_NODE);
-        sBooleanNodePreferenceMap.put(GESTURE_SWIPE_RIGHT, GESTURE_SWIPE_RIGHT_NODE);
-        sBooleanNodePreferenceMap.put(GESTURE_SWIPE_LEFT, GESTURE_SWIPE_LEFT_NODE);
-        sBooleanNodePreferenceMap.put(GESTURE_SWIPE_DOWN, GESTURE_SWIPE_DOWN_NODE);
-        sBooleanNodePreferenceMap.put(GESTURE_SWIPE_UP, GESTURE_SWIPE_UP_NODE);
         sNodeDefaultMap.put(FP_HOME_KEY, false);
         sNodeDefaultMap.put(FP_HOME_KEY_OFF, false);
         sNodeDefaultMap.put(FP_HAPTIC_KEY, false);
@@ -242,10 +195,6 @@ public class Constants {
         sNodeDefaultMap.put(FP_KEY_HOLD_OFF, "0");
         sNodeDefaultMap.put(FP_KEY_LEFT_OFF, "0");
         sNodeDefaultMap.put(FP_KEY_RIGHT_OFF, "0");
-        sNodeDefaultMap.put(GESTURE_SWIPE_RIGHT, "0");
-        sNodeDefaultMap.put(GESTURE_SWIPE_LEFT, "0");
-        sNodeDefaultMap.put(GESTURE_SWIPE_DOWN, "0");
-        sNodeDefaultMap.put(GESTURE_SWIPE_UP, "0");
     }
 
     public static boolean isPreferenceEnabled(Context context, String key) {
@@ -263,7 +212,7 @@ public class Constants {
         String value = "1";
 
         if (!pref.equals(FP_KEYS) && !pref.equals(FP_KEY_DBLTAP) && !pref.equals(FP_KEY_HOLD) && !pref.equals(FP_KEY_LEFT) && !pref.equals(FP_KEY_RIGHT) &&
-            !pref.equals(FP_KEYS_OFF) && !pref.equals(FP_KEY_DBLTAP_OFF) && !pref.equals(FP_KEY_HOLD_OFF) && !pref.equals(FP_KEY_LEFT_OFF) && !pref.equals(FP_KEY_RIGHT_OFF) && !pref.equals(GESTURE_SWIPE_RIGHT) && !pref.equals(GESTURE_SWIPE_LEFT) && !pref.equals(GESTURE_SWIPE_DOWN) && !pref.equals(GESTURE_SWIPE_UP))
+            !pref.equals(FP_KEYS_OFF) && !pref.equals(FP_KEY_DBLTAP_OFF) && !pref.equals(FP_KEY_HOLD_OFF) && !pref.equals(FP_KEY_LEFT_OFF) && !pref.equals(FP_KEY_RIGHT_OFF))
             value = isPreferenceEnabled(context, pref) ? "1" : "0";
         else
             value = GetPreference(context, pref);

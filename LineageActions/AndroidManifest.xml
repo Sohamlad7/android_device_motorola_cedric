@@ -21,7 +21,7 @@
     <application
         android:allowBackup="true"
         android:label="@string/moto_actions_title"
-        android:icon="@drawable/ic_gesture"
+        android:icon="@mipmap/ic_launcher"
         android:persistent="true">
 
         <provider

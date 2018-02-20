@@ -795,9 +795,9 @@ service dhcpcd_bnep4 /system/bin/dhcpcd -BKLG
     oneshot
 
 service vendor.loc_launcher /system/vendor/bin/loc_launcher
-    #loc_launcher will start as root and set its uid to gps
     class late_start
-    group gps inet oem_2950 wifi
+    user gps
+    group gps
     writepid /dev/cpuset/system-background/tasks
 
 service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf

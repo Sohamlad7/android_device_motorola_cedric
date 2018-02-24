@@ -68,6 +68,11 @@ void vendor_load_properties()
         return;
 
     std::string sku = android::base::GetProperty("ro.boot.hardware.sku", "");
+
+    // fingerprint
+    property_override("ro.build.description", "cedric-7.0/NPPS25.137-72-4/4:user/release-keys");
+    property_override("ro.build.fingerprint", "motorola/cedric/cedric:7.0/NPPS25.137-72-4/4:user/release-keys");
+
     property_set("ro.product.model", sku.c_str());
 
     // rmt_storage
@@ -76,7 +81,7 @@ void vendor_load_properties()
     property_set("ro.hw.device", device.c_str());
     property_set("ro.hw.radio", radio.c_str());
     property_set("ro.hw.fps", "true");
-    property_set("ro.hw.imager", "12MP");
+    property_set("ro.hw.imager", "13MP");
 
     num_sims();
 

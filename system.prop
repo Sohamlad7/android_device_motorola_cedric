@@ -217,8 +217,6 @@ persist.data.netmgrd.qos.enable=true
 persist.data.mode=concurrent
 persist.data.iwlan.enable=true
 
-ro.sys.sdcardfs=false
-
 # RmNet Data
 persist.rmnet.data.enable=true
 persist.data.wda.enable=true

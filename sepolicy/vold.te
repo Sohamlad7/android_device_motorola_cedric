@@ -1,1 +1,2 @@
 allow vold persist_file:dir { ioctl open read };
+allow vold metadata_block_device:blk_file { rw_file_perms };

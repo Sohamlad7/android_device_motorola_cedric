@@ -86,6 +86,10 @@ on init
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
+    start vendor.qseecomd
+    wait_for_prop sys.listeners.registered true
+    write /dev/ipa 1
+
     # Allow subsystem (modem etc) debugging
     write /sys/kernel/boot_adsp/boot 1
     write /sys/kernel/boot_cdsp/boot 1

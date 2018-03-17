@@ -219,8 +219,6 @@ persist.data.iwlan.enable=true
 
 ro.sys.sdcardfs=false
 
-persist.vendor.radio.add_power_save=1
-
 # RmNet Data
 persist.rmnet.data.enable=true
 persist.data.wda.enable=true

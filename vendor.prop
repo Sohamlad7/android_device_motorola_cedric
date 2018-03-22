@@ -113,6 +113,9 @@ debug.gralloc.enable_fb_ubwc=1
 persist.camera.preview.ubwc=0
 persist.camera.video.ubwc=0
 
+# FRP
+ro.frp.pst=/dev/block/platform/soc/7824900.sdhci/by-name/frp
+
 # FM
 ro.fm.transmitter=false
 

@@ -278,7 +278,7 @@
 /dev/subsys_*         0640   system     system
 
 # Add device block for FRP
-/dev/block/bootdevice/by-name/frp 0600 system system
+/dev/block/platform/soc/7824900.sdhci/by-name/frp 0600 system system
 
 # Ultrasound device
 /dev/usf1                 0660   system     system

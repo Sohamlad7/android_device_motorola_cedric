@@ -130,7 +130,8 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8937 \
     memtrack.msm8937 \
     libgenlock \
-    libtinyxml
+    libtinyxml \
+    libdisplayconfig
 
 PRODUCT_PACKAGES += android.hardware.media.omx
 

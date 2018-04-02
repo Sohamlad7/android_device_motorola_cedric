@@ -4,3 +4,7 @@
 
 allow untrusted_app_25 init:unix_stream_socket { read write };
 
+allow untrusted_app_25 proc_stat:file read;
+allow untrusted_app_25 qemu_hw_mainkeys_prop:file read;
+allow untrusted_app_25 self:udp_socket ioctl;
+allow untrusted_app_25 vold_exec:file read;

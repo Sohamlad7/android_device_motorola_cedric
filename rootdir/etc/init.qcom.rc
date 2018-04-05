@@ -933,8 +933,8 @@ on property:sys.boot_completed=1
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
     # SMP scheduler
-    write /proc/sys/kernel/sched_upmigrate 100
-    write /proc/sys/kernel/sched_downmigrate 100
+    write /proc/sys/kernel/sched_upmigrate 93
+    write /proc/sys/kernel/sched_downmigrate 83
 
     # Enable sched guided freq control
     write /sys/devices/system/cpu/cpufreq/interactive/use_sched_load 1

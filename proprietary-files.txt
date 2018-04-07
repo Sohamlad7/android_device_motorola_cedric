@@ -43,7 +43,6 @@ vendor/bin/xtwifi-client
 vendor/bin/xtwifi-inet-agent
 vendor/bin/loc_launcher
 vendor/bin/xtra-daemon
-vendor/bin/cnss-daemon
 vendor/bin/ATFWD-daemon
 vendor/bin/lowi-server
 vendor/bin/audioflacapp

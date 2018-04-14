@@ -241,13 +241,7 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/bin/adspd|libshim_adsp.so \
     /system/lib/lib_motsensorlistener.so|libsensor.so \
     /system/lib/libjustshoot.so|libshims_camera.so \
-    /system/vendor/lib/libmmcamera2_stats_modules.so|libsensor.so \
-    /system/vendor/lib/libmmcamera2_sensor_modules.so|libsensor.so \
-    /system/vendor/lib/libmmcamera2_imglib_modules.so|libsensor.so \
-    /system/vendor/lib/libmmcamera2_iface_modules.so|libsensor.so \
-    /system/vendor/lib/libmmcamera2_q3a_core.so|libsensor.so \
-    /system/vendor/lib/libmmcamera2_mct.so|libsensor.so \
-    /system/vendor/lib/libmmcamera_imglib.so|libsensor.so \
+    /system/vendor/lib/libHui.so|libshim_camera_hal.so \
     /system/vendor/lib64/libmdmcutback.so|libqsap_shim.so
 
 # Wifi

@@ -25,20 +25,16 @@ LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := DisplayEventReceiver.c
+LOCAL_SRC_FILES := camera_hal.cpp
 LOCAL_MODULE := libshim_camera_hal
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-
 LOCAL_SRC_FILES := MediaCodec.cpp
-
 LOCAL_SHARED_LIBRARIES := libstagefright libmedia
-
 LOCAL_MODULE := libshims_camera
 LOCAL_MODULE_TAGS := optional
-
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
@@ -49,4 +45,3 @@ LOCAL_MODULE := libqsap_shim
 LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
-

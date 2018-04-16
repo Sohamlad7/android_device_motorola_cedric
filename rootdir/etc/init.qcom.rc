@@ -271,6 +271,9 @@ on boot
     # Create vpp directory
     mkdir /persist/vpp 0770 media media
 
+    # default country code
+    setprop ro.boot.wificountrycode 00
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /tombstones/modem 0771 system system

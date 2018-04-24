@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2016 The CyanogenMod Project
+ * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +20,7 @@ package org.lineageos.hardware;
 import android.util.Range;
 
 import lineageos.hardware.HSIC;
+import vendor.lineage.livedisplay.V1_0.Feature;
 
 /**
  * Picture adjustment support
@@ -29,7 +31,7 @@ import lineageos.hardware.HSIC;
 public class PictureAdjustment {
 
     private static final boolean sHasNativeSupport =
-            LiveDisplayVendorImpl.hasNativeFeature(LiveDisplayVendorImpl.PICTURE_ADJUSTMENT);
+            LiveDisplayVendorImpl.getInstance().hasNativeFeature(Feature.PICTURE_ADJUSTMENT);
 
     /**
      * Whether device supports picture adjustment
@@ -48,7 +50,7 @@ public class PictureAdjustment {
      */
     public static HSIC getHSIC() {
         if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.native_getPictureAdjustment();
+            return LiveDisplayVendorImpl.getInstance().getPictureAdjustment();
         }
         return null;
     }
@@ -63,7 +65,7 @@ public class PictureAdjustment {
      */
     public static HSIC getDefaultHSIC() {
         if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.native_getDefaultPictureAdjustment();
+            return LiveDisplayVendorImpl.getInstance().getDefaultPictureAdjustment();
         }
         return null;
     }
@@ -77,7 +79,7 @@ public class PictureAdjustment {
      */
     public static boolean setHSIC(final HSIC hsic) {
         if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.native_setPictureAdjustment(hsic);
+            return LiveDisplayVendorImpl.getInstance().setPictureAdjustment(hsic);
         }
         return false;
     }
@@ -88,7 +90,7 @@ public class PictureAdjustment {
      */
     public static Range<Float> getHueRange() {
         if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.native_getHueRange();
+            return LiveDisplayVendorImpl.getInstance().getHueRange();
         }
         return new Range(0.0f, 0.0f);
     }
@@ -99,7 +101,7 @@ public class PictureAdjustment {
      */
     public static Range<Float> getSaturationRange() {
         if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.native_getSaturationRange();
+            return LiveDisplayVendorImpl.getInstance().getSaturationRange();
         }
         return new Range(0.0f, 0.0f);
     }
@@ -110,7 +112,7 @@ public class PictureAdjustment {
      */
     public static Range<Float> getIntensityRange() {
         if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.native_getIntensityRange();
+            return LiveDisplayVendorImpl.getInstance().getIntensityRange();
         }
         return new Range(0.0f, 0.0f);
     }
@@ -121,7 +123,7 @@ public class PictureAdjustment {
      */
     public static Range<Float> getContrastRange() {
         if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.native_getContrastRange();
+            return LiveDisplayVendorImpl.getInstance().getContrastRange();
         }
         return new Range(0.0f, 0.0f);
     }
@@ -135,7 +137,7 @@ public class PictureAdjustment {
      */
     public static Range<Float> getSaturationThresholdRange() {
         if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.native_getSaturationThresholdRange();
+            return LiveDisplayVendorImpl.getInstance().getSaturationThresholdRange();
         }
         return new Range(0.0f, 0.0f);
     }

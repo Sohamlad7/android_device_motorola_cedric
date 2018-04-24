@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2013 The CyanogenMod Project
+ * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +17,10 @@
 
 package org.lineageos.hardware;
 
-import org.lineageos.internal.util.FileUtils;
-
 import android.util.Log;
+
+import org.lineageos.internal.util.FileUtils;
+import vendor.lineage.livedisplay.V1_0.Feature;
 
 /**
  * Adaptive backlight support (this refers to technologies like NVIDIA SmartDimmer,
@@ -31,7 +33,7 @@ public class AdaptiveBacklight {
     private static final String FILE_CABC = "/sys/class/graphics/fb0/cabc";
 
     private static final boolean sHasNativeSupport =
-            LiveDisplayVendorImpl.hasNativeFeature(LiveDisplayVendorImpl.ADAPTIVE_BACKLIGHT);
+            LiveDisplayVendorImpl.getInstance().hasNativeFeature(Feature.ADAPTIVE_BACKLIGHT);
 
     /**
      * Whether device supports an adaptive backlight technology.
@@ -55,7 +57,7 @@ public class AdaptiveBacklight {
     public static boolean isEnabled() {
         try {
             if (sHasNativeSupport) {
-                return LiveDisplayVendorImpl.native_isAdaptiveBacklightEnabled();
+                return LiveDisplayVendorImpl.getInstance().isAdaptiveBacklightEnabled();
             }
             return Integer.parseInt(FileUtils.readOneLine(FILE_CABC)) > 0;
         } catch (Exception e) {
@@ -73,7 +75,7 @@ public class AdaptiveBacklight {
      */
     public static boolean setEnabled(boolean status) {
         if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.native_setAdaptiveBacklightEnabled(status);
+            return LiveDisplayVendorImpl.getInstance().setAdaptiveBacklightEnabled(status);
         }
         return FileUtils.writeLine(FILE_CABC, status ? "1" : "0");
     }

@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
+ * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,73 +17,376 @@
 
 package org.lineageos.hardware;
 
+import android.os.IHwBinder.DeathRecipient;
+import android.os.RemoteException;
 import android.util.Log;
 import android.util.Range;
+import com.android.internal.annotations.GuardedBy;
 
 import lineageos.hardware.DisplayMode;
 import lineageos.hardware.HSIC;
+import vendor.lineage.livedisplay.V1_0.IColor;
 
 /**
  * This class loads an implementation of the LiveDisplay native interface.
  */
 public class LiveDisplayVendorImpl {
 
-    public static final String TAG = "LiveDisplayVendorImpl";
+    private static final String TAG = "LiveDisplayVendorImpl";
 
-    public static final int DISPLAY_MODES = 0x1;
-    public static final int COLOR_BALANCE = 0x2;
-    public static final int OUTDOOR_MODE = 0x4;
-    public static final int ADAPTIVE_BACKLIGHT = 0x8;
-    public static final int PICTURE_ADJUSTMENT = 0x10;
+    @GuardedBy("this")
+    private IColor mDaemon;
+    private int mFeatures;
 
-    private static boolean sNativeLibraryLoaded;
-    private static int     sFeatures;
+    private LiveDisplayVendorImpl() {}
 
-    static {
-        try {
-            System.loadLibrary("jni_livedisplay");
+    private static class LiveDisplayVendorImplHolder {
+        private static final LiveDisplayVendorImpl instance = new LiveDisplayVendorImpl();
+    }
 
-            final int features = native_getSupportedFeatures();
-            if (features > 0) {
-                Log.i(TAG, "Using native LiveDisplay backend (features: " + features + ")");
+    public static LiveDisplayVendorImpl getInstance() {
+        return LiveDisplayVendorImplHolder.instance;
+    }
+
+    private synchronized IColor getColorService() {
+        if (mDaemon == null) {
+            Log.v(TAG, "mDaemon was null, reconnect to LiveDisplay IColor");
+            try {
+                mDaemon = IColor.getService();
+            } catch (java.util.NoSuchElementException e) {
+                // Service doesn't exist or cannot be opened. Logged below.
+            } catch (RemoteException e) {
+                Log.e(TAG, "Failed to get LiveDisplay IColor interface", e);
+            }
+            if (mDaemon == null) {
+                Log.w(TAG, "LiveDisplay IColor HIDL not available");
+                return null;
             }
 
-            sNativeLibraryLoaded = features > 0;
-            sFeatures = features;
-        } catch (Throwable t) {
-            sNativeLibraryLoaded = false;
-            sFeatures = 0;
+            mDaemon.asBinder().linkToDeath(new DeathRecipient() {
+                @Override
+                public void serviceDied(long cookie) {
+                    Log.e(TAG, "LiveDisplay IColor HAL died");
+                    reset();
+                }
+            }, 0);
+        }
+        return mDaemon;
+    }
+
+    private void reset() {
+        mFeatures = 0;
+        synchronized (this) {
+            mDaemon = null;
         }
     }
 
-    public static boolean hasNativeFeature(int feature) {
-        return sNativeLibraryLoaded && ((sFeatures & feature) != 0);
+    public boolean hasNativeFeature(int feature) {
+        if (mFeatures == 0) {
+            IColor daemon = getColorService();
+            if (daemon == null) {
+                Log.e(TAG, "hasNativeFeature: no LiveDisplay IColor HAL!");
+                return false;
+            }
+            try {
+                mFeatures = daemon.getSupportedFeatures();
+                Log.i(TAG, "Using LiveDisplay IColor backend (features: " + mFeatures + ")");
+            } catch (RemoteException e) {
+                Log.e(TAG, "hasNativeFeature failed", e);
+                reset();
+                return false;
+            }
+        }
+        Log.d(TAG, "hasNativeFeature: mFeatures=" + Integer.toString(mFeatures));
+        return (mFeatures & feature) != 0;
     }
 
-    private static native int native_getSupportedFeatures();
+    public DisplayMode[] getDisplayModes() {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "getDisplayModes: no LiveDisplay IColor HAL!");
+            return null;
+        }
+        try {
+            return Utils.HIDLModeListToArray(daemon.getDisplayModes());
+        } catch (RemoteException e) {
+            Log.e(TAG, "getDisplayModes failed", e);
+            reset();
+        }
+        return null;
+    }
 
-    public static native DisplayMode[] native_getDisplayModes();
-    public static native DisplayMode native_getCurrentDisplayMode();
-    public static native DisplayMode native_getDefaultDisplayMode();
-    public static native boolean native_setDisplayMode(DisplayMode mode, boolean makeDefault);
+    public DisplayMode getCurrentDisplayMode() {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "getCurrentDisplayMode: no LiveDisplay IColor HAL!");
+            return null;
+        }
+        try {
+            DisplayMode mode = Utils.fromHIDLMode(daemon.getCurrentDisplayMode());
+            // mode.id is -1 means it's invalid.
+            return mode.id == -1 ? null : mode;
+        } catch (RemoteException e) {
+            Log.e(TAG, "getDisplayModes failed", e);
+            reset();
+        }
+        return null;
+    }
 
-    public static native boolean native_setAdaptiveBacklightEnabled(boolean enabled);
-    public static native boolean native_isAdaptiveBacklightEnabled();
+    public DisplayMode getDefaultDisplayMode() {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "getDefaultDisplayMode: no LiveDisplay IColor HAL!");
+            return null;
+        }
+        try {
+            DisplayMode mode = Utils.fromHIDLMode(daemon.getDefaultDisplayMode());
+            // mode.id is -1 means it's invalid.
+            return mode.id == -1 ? null : mode;
+        } catch (RemoteException e) {
+            Log.e(TAG, "getDefaultDisplayMode failed", e);
+            reset();
+        }
+        return null;
+    }
 
-    public static native boolean native_setOutdoorModeEnabled(boolean enabled);
-    public static native boolean native_isOutdoorModeEnabled();
+    public boolean setDisplayMode(DisplayMode mode, boolean makeDefault) {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "setDisplayMode: no LiveDisplay IColor HAL!");
+            return false;
+        }
+        try {
+            return daemon.setDisplayMode(mode.id, makeDefault);
+        } catch (RemoteException e) {
+            Log.e(TAG, "setDisplayMode failed", e);
+            reset();
+        }
+        return false;
+    }
 
-    public static native Range<Integer> native_getColorBalanceRange();
-    public static native int native_getColorBalance();
-    public static native boolean native_setColorBalance(int value);
+    public boolean setAdaptiveBacklightEnabled(boolean enabled) {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "setAdaptiveBacklightEnabled: no LiveDisplay IColor HAL!");
+            return false;
+        }
+        try {
+            return daemon.setAdaptiveBacklightEnabled(enabled);
+        } catch (RemoteException e) {
+            Log.e(TAG, "setAdaptiveBacklightEnabled failed", e);
+            reset();
+        }
+        return false;
+    }
 
-    public static native boolean native_setPictureAdjustment(final HSIC hsic);
-    public static native HSIC native_getPictureAdjustment();
-    public static native HSIC native_getDefaultPictureAdjustment();
+    public boolean isAdaptiveBacklightEnabled() {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "isAdaptiveBacklightEnabled: no LiveDisplay IColor HAL!");
+            return false;
+        }
+        try {
+            return daemon.isAdaptiveBacklightEnabled();
+        } catch (RemoteException e) {
+            Log.e(TAG, "isAdaptiveBacklightEnabled failed", e);
+            reset();
+        }
+        return false;
+    }
 
-    public static native Range<Float> native_getHueRange();
-    public static native Range<Float> native_getSaturationRange();
-    public static native Range<Float> native_getIntensityRange();
-    public static native Range<Float> native_getContrastRange();
-    public static native Range<Float> native_getSaturationThresholdRange();
+    public boolean setOutdoorModeEnabled(boolean enabled) {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "setOutdoorModeEnabled: no LiveDisplay IColor HAL!");
+            return false;
+        }
+        try {
+            return daemon.setOutdoorModeEnabled(enabled);
+        } catch (RemoteException e) {
+            Log.e(TAG, "setOutdoorModeEnabled failed", e);
+            reset();
+        }
+        return false;
+    }
+
+    public boolean isOutdoorModeEnabled() {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "isOutdoorModeEnabled: no LiveDisplay IColor HAL!");
+            return false;
+        }
+        try {
+            return daemon.isOutdoorModeEnabled();
+        } catch (RemoteException e) {
+            Log.e(TAG, "isOutdoorModeEnabled failed", e);
+            reset();
+        }
+        return false;
+    }
+
+    public Range<Integer> getColorBalanceRange() {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "getColorBalanceRange: no LiveDisplay IColor HAL!");
+            return null;
+        }
+        try {
+            return Utils.fromHIDLRange(daemon.getColorBalanceRange());
+        } catch (RemoteException e) {
+            Log.e(TAG, "getColorBalanceRange failed", e);
+            reset();
+        }
+        return null;
+    }
+
+    public int getColorBalance() {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "getColorBalance: no LiveDisplay IColor HAL!");
+            return 0;
+        }
+        try {
+            return daemon.getColorBalance();
+        } catch (RemoteException e) {
+            Log.e(TAG, "getColorBalance failed", e);
+            reset();
+        }
+        return 0;
+    }
+
+    public boolean setColorBalance(int value) {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "setColorBalance: no LiveDisplay IColor HAL!");
+            return false;
+        }
+        try {
+            return daemon.setColorBalance(value);
+        } catch (RemoteException e) {
+            Log.e(TAG, "setColorBalance failed", e);
+            reset();
+        }
+        return false;
+    }
+
+    public boolean setPictureAdjustment(final HSIC hsic) {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "setPictureAdjustment: no LiveDisplay IColor HAL!");
+            return false;
+        }
+        try {
+            return daemon.setPictureAdjustment(Utils.toHIDLHSIC(hsic));
+        } catch (RemoteException e) {
+            Log.e(TAG, "setPictureAdjustment failed", e);
+            reset();
+        }
+        return false;
+    }
+
+    public HSIC getPictureAdjustment() {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "getPictureAdjustment: no LiveDisplay IColor HAL!");
+            return null;
+        }
+        try {
+            return Utils.fromHIDLHSIC(daemon.getPictureAdjustment());
+        } catch (RemoteException e) {
+            Log.e(TAG, "getPictureAdjustment failed", e);
+            reset();
+        }
+        return null;
+    }
+
+    public HSIC getDefaultPictureAdjustment() {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "getDefaultPictureAdjustment: no LiveDisplay IColor HAL!");
+            return null;
+        }
+        try {
+            return Utils.fromHIDLHSIC(daemon.getDefaultPictureAdjustment());
+        } catch (RemoteException e) {
+            Log.e(TAG, "getDefaultPictureAdjustment failed", e);
+            reset();
+        }
+        return null;
+    }
+
+    public Range<Float> getHueRange() {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "getHueRange: no LiveDisplay IColor HAL!");
+            return null;
+        }
+        try {
+            return Utils.fromHIDLIntRange(daemon.getHueRange());
+        } catch (RemoteException e) {
+            Log.e(TAG, "getHueRange failed", e);
+            reset();
+        }
+        return null;
+    }
+
+    public Range<Float> getSaturationRange() {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "getSaturationRange: no LiveDisplay IColor HAL!");
+            return null;
+        }
+        try {
+            return Utils.fromHIDLRange(daemon.getSaturationRange());
+        } catch (RemoteException e) {
+            Log.e(TAG, "getSaturationRange failed", e);
+            reset();
+        }
+        return null;
+    }
+
+    public Range<Float> getIntensityRange() {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "getIntensityRange: no LiveDisplay IColor HAL!");
+            return null;
+        }
+        try {
+            return Utils.fromHIDLRange(daemon.getIntensityRange());
+        } catch (RemoteException e) {
+            Log.e(TAG, "getIntensityRange failed", e);
+            reset();
+        }
+        return null;
+    }
+
+    public Range<Float> getContrastRange() {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "getContrastRange: no LiveDisplay IColor HAL!");
+            return null;
+        }
+        try {
+            return Utils.fromHIDLRange(daemon.getContrastRange());
+        } catch (RemoteException e) {
+            Log.e(TAG, "getContrastRange failed", e);
+            reset();
+        }
+        return null;
+    }
+
+    public Range<Float> getSaturationThresholdRange() {
+        IColor daemon = getColorService();
+        if (daemon == null) {
+            Log.e(TAG, "getSaturationThresholdRange: no LiveDisplay IColor HAL!");
+            return null;
+        }
+        try {
+            return Utils.fromHIDLRange(daemon.getSaturationThresholdRange());
+        } catch (RemoteException e) {
+            Log.e(TAG, "getSaturationThresholdRange failed", e);
+            reset();
+        }
+        return null;
+    }
 }

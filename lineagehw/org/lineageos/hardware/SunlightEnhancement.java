@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 The CyanogenMod Project
+ * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +17,10 @@
 
 package org.lineageos.hardware;
 
-import org.lineageos.internal.util.FileUtils;
-
 import android.util.Log;
+
+import org.lineageos.internal.util.FileUtils;
+import vendor.lineage.livedisplay.V1_0.Feature;
 
 /**
  * Facemelt mode!
@@ -34,7 +36,7 @@ public class SunlightEnhancement {
     private static final String FILE_SRE = "/sys/class/graphics/fb0/sre";
 
     private static final boolean sHasNativeSupport =
-            LiveDisplayVendorImpl.hasNativeFeature(LiveDisplayVendorImpl.OUTDOOR_MODE);
+            LiveDisplayVendorImpl.getInstance().hasNativeFeature(Feature.OUTDOOR_MODE);
 
     private static String getFacemeltPath() {
         if (FileUtils.fileExists(FILE_HBM)) {
@@ -74,7 +76,7 @@ public class SunlightEnhancement {
     public static boolean isEnabled() {
         try {
             if (sHasNativeSupport) {
-                return LiveDisplayVendorImpl.native_isOutdoorModeEnabled();
+                return LiveDisplayVendorImpl.getInstance().isOutdoorModeEnabled();
             }
             return Integer.parseInt(FileUtils.readOneLine(FACEMELT_PATH)) > 0;
         } catch (Exception e) {
@@ -92,7 +94,7 @@ public class SunlightEnhancement {
      */
     public static boolean setEnabled(boolean status) {
         if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.native_setOutdoorModeEnabled(status);
+            return LiveDisplayVendorImpl.getInstance().setOutdoorModeEnabled(status);
         }
 
         return FileUtils.writeLine(FACEMELT_PATH, status ? FACEMELT_MODE : "0");

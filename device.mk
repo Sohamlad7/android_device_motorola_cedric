@@ -323,7 +323,7 @@ PRODUCT_PACKAGES += \
     ims-ext-common \
     telephony-ext
 
-# Sensor Configurations
+# Sensors
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:system/etc/sensors/hals.conf \
     $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf
@@ -373,10 +373,6 @@ PRODUCT_PACKAGES += \
     wifilogd \
     wpa_supplicant \
     wpa_supplicant.conf
-
-# Launcher3
-PRODUCT_PACKAGES += \
-    Launcher3
 
 #Thermal
 PRODUCT_PACKAGES += android.hardware.thermal@1.0-impl \

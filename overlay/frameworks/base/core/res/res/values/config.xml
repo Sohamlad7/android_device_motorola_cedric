@@ -40,7 +40,7 @@
     <integer-array name="config_autoBrightnessLevels">
         <item>1</item>
         <item>6</item>
-	<item>12</item>
+    <item>12</item>
         <item>25</item>
         <item>50</item>
         <item>80</item>
@@ -66,14 +66,14 @@
          in the config_autoBrightnessLevels array.  This array should have size one greater
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
-    
+
     <integer-array name="config_autoBrightnessLcdBacklightValues">
         <item>7</item>
         <item>10</item>
-	<item>13</item>
+    <item>13</item>
         <item>16</item>
         <item>22</item>
-	<item>28</item>
+    <item>28</item>
         <item>34</item>
         <item>43</item>
         <item>52</item>
@@ -300,23 +300,23 @@
     <!-- Boolean indicating if current platform supports BLE peripheral mode -->
     <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
 
-   <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
-   in hardware. -->
-   <bool name="config_setColorTransformAccelerated">true</bool>
+    <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
+    in hardware. -->
+    <bool name="config_setColorTransformAccelerated">true</bool>
 
-   <!-- Default files to pin via Pinner Service -->
-   <string-array translatable="false" name="config_defaultPinnerServiceFiles">
-       <item>"/system/framework/arm64/boot-framework.oat"</item>
-       <item>"/system/framework/arm64/boot-framework.vdex"</item>
-       <item>"/system/framework/oat/arm64/services.odex"</item>
-       <item>"/system/framework/oat/arm64/services.vdex"</item>
-       <item>"/system/framework/arm64/boot.oat"</item>
-       <item>"/system/framework/arm64/boot.vdex"</item>
-       <item>"/system/framework/arm64/boot-core-libart.oat"</item>
-       <item>"/system/framework/arm64/boot-core-libart.vdex"</item>
-   </string-array>
+    <!-- Default files to pin via Pinner Service -->
+    <string-array translatable="false" name="config_defaultPinnerServiceFiles">
+        <item>"/system/framework/arm64/boot-framework.oat"</item>
+        <item>"/system/framework/arm64/boot-framework.vdex"</item>
+        <item>"/system/framework/oat/arm64/services.odex"</item>
+        <item>"/system/framework/oat/arm64/services.vdex"</item>
+        <item>"/system/framework/arm64/boot.oat"</item>
+        <item>"/system/framework/arm64/boot.vdex"</item>
+        <item>"/system/framework/arm64/boot-core-libart.oat"</item>
+        <item>"/system/framework/arm64/boot-core-libart.vdex"</item>
+    </string-array>
 
-   <!-- Should the pinner service pin the Camera application? -->
-   <bool name="config_pinnerCameraApp">true</bool>
+    <!-- Should the pinner service pin the Camera application? -->
+    <bool name="config_pinnerCameraApp">true</bool>
 
 </resources>

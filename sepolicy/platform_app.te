@@ -1,4 +1,5 @@
 get_prop(platform_app, camera_prop);
+get_prop(platform_app, qemu_hw_mainkeys_prop);
 binder_call(platform_app, hal_sensors_default);
 
 allow platform_app rootfs:dir getattr;

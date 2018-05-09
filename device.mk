@@ -64,7 +64,7 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio.r_submix.default \
     libaudio-resampler \
-    libshim_adsp \
+    libshimalsa \
     libtinycompress \
     audiod
 
@@ -103,8 +103,8 @@ PRODUCT_PACKAGES += \
     Camera2 \
     camera.device@3.2-impl \
     android.hardware.camera.provider@2.4-impl \
-    libshim_camera_hal \
-    libshims_camera \
+    libWSL \
+    libWshimfright \
     camera.msm8937
 
 # Camera Configurations
@@ -189,7 +189,7 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl \
     android.hardware.gnss@1.0-service-qti \
     libqsap_sdk \
-    libqsap_shim
+    libqsapshim
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \

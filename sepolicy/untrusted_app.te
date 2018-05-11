@@ -10,4 +10,3 @@ allow untrusted_app fsg_file:dir read;
 allow untrusted_app net_dns_prop:file read;
 allow untrusted_app persist_file:dir getattr;
 allow untrusted_app persist_file:filesystem getattr;
-allow untrusted_app rootfs:dir read;

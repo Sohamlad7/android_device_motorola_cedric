@@ -436,10 +436,6 @@ public class KeyHandler implements DeviceKeyHandler {
         return ProximityUtils.isProximityWakeEnabled(mContext) && !FileUtils.readOneLine(getFPNodeBasedOnScreenState(FP_PROXIMITY_CHECK_SCREENOFF_NODE)).equals("0");
     }
 
-    private boolean isProximityEnabledOnScreenOffGestures() {
-        return ProximityUtils.isProximityWakeEnabled(mContext) && Settings.System.getInt(mContext.getContentResolver(), KEY_GESTURE_ENABLE_PROXIMITY_SENSOR, 1) != 0;
-    }
-
     private String getFPNodeBasedOnScreenState(String node) {
         if (mPowerManager.isScreenOn()) {
             return node;
@@ -726,51 +722,6 @@ public class KeyHandler implements DeviceKeyHandler {
         mHandler.removeCallbacks(fpGestureRunnable);
     }
 
-    private void fireScreenOffAction(int action) {
-        boolean haptic = Settings.System.getInt(mContext.getContentResolver(), KEY_GESTURE_ENABLE_HAPTIC_FEEDBACK, 1) != 0;
-        if (haptic && (action == ACTION_CAMERA || action == ACTION_FLASHLIGHT)) {
-            vibrate(action == ACTION_CAMERA ? 500 : 250);
-        }
-        if (haptic && action == ACTION_POWER){
-            doHapticFeedbackScreenOff();
-        }
-        switch (action) {
-            case ACTION_POWER:
-                toggleScreenState();
-                break;
-            case ACTION_PLAY_PAUSE:
-                dispatchMediaKeyWithWakeLock(KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE, mContext);
-                break;
-            case ACTION_PREVIOUS_TRACK:
-                dispatchMediaKeyWithWakeLock(KeyEvent.KEYCODE_MEDIA_PREVIOUS, mContext);
-                break;
-            case ACTION_NEXT_TRACK:
-                dispatchMediaKeyWithWakeLock(KeyEvent.KEYCODE_MEDIA_NEXT, mContext);
-                break;
-            case ACTION_FLASHLIGHT:
-                toggleFlashlight();
-                break;
-            case ACTION_CAMERA:
-                triggerCameraAction();
-                break;
-            case ACTION_BROWSER:
-                openBrowser();
-                break;
-            case ACTION_DIALER:
-                openDialer();
-                break;
-            case ACTION_EMAIL:
-                openEmail();
-                break;
-            case ACTION_MESSAGES:
-                openMessages();
-                break;
-        }
-        if (action != ACTION_FLASHLIGHT && action != ACTION_CAMERA && action != ACTION_POWER) {
-            doHapticFeedbackScreenOff();
-        }
-    }
-
     private void startActivitySafely(Intent intent) {
         intent.addFlags(
                 Intent.FLAG_ACTIVITY_NEW_TASK
@@ -781,16 +732,6 @@ public class KeyHandler implements DeviceKeyHandler {
             mContext.startActivityAsUser(intent, null, user);
         } catch (ActivityNotFoundException e) {
             // Ignore
-        }
-    }
-
-    private void doHapticFeedbackScreenOff() {
-        if (mVibrator == null) {
-            return;
-        }
-        boolean enabled = Settings.System.getInt(mContext.getContentResolver(), KEY_GESTURE_ENABLE_HAPTIC_FEEDBACK, 1) != 0;
-        if (enabled) {
-            mVibrator.vibrate(50);
         }
     }
 

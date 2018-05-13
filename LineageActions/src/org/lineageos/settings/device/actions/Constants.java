@@ -135,10 +135,6 @@ public class Constants {
     public static final String FP_KEY_SCREENOFF_LEFT_NODE = "/sys/homebutton/key_screenoff_left";
     public static final String FP_KEY_SCREENOFF_RIGHT_NODE = "/sys/homebutton/key_screenoff_right";
 
-    // Screen off gestures haptic
-    public static final String KEY_GESTURE_ENABLE_HAPTIC_FEEDBACK = "screen_off_gesture_haptic_feedback";
-    public static final String KEY_GESTURE_ENABLE_PROXIMITY_SENSOR = "screen_off_gesture_proximity_sensor";
-
     // Holds <preference_key> -> <proc_node> mapping
     public static final Map<String, String> sBooleanNodePreferenceMap = new HashMap<>();
 

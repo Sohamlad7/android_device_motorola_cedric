@@ -42,9 +42,10 @@
     <string name="fingerprint_swipe_right_title">Deslizar para a direita</string>
     <string name="fingerprint_swipe_right_dlg_title">Selecione a ação para deslizar para a direita</string>
 
-    <!-- Screen on gestures haptic feedback -->
-    <string name="haptic_feedback">Retorno tátil</string>
-    <string name="haptic_feedback_summary">Vibrar quando um gesto for detectado</string>
+    <!-- Fingerprint gestures screen off -->
+    <string name="fingerprint_gestures_screenoff_title">Habilitar com a tela desligada</string>
+    <string name="fingerprint_gestures_screenoff_summary">Habilitar os gestos no sensor biométrico quando a tela estiver desligada.\n\nO desbloqueio por impressão digital deve estar desativado para usar esse recurso.</string>
+    <string name="fingerprint_actions_screenoff">Ações com a tela desligada</string>
 
     <!-- Actions -->
     <string name="action_none">Não fazer nada</string>
@@ -68,6 +69,10 @@
     <string name="action_email">Abrir app de mail</string>
     <string name="action_messages">Abrir app de mensagens</string>
 
+   <!-- Screen off gestures haptic feedback -->
+   <string name="haptic_feedback">Retorno tátil</string>
+   <string name="haptic_feedback_summary">Vibrar quando um gesto for detectado</string>
+   
    <!-- Proximity sensor -->
    <string name="allow_proximity_sensor_title">Habilitar o sensor de proximidade</string>
    <string name="allow_proximity_sensor_summary">Verificar o sensor de proximidade antes de executar a ação</string>

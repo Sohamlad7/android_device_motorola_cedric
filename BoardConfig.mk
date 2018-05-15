@@ -233,8 +233,8 @@ MOT_SENSOR_HUB_FEATURE_GR := true
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
-    /system/vendor/bin/adspd|libshim_adsp.so \
-    /system/vendor/lib64/libmdmcutback.so|libqsap_shim.so \
+    /vendor/bin/adspd|libshim_adsp.so \
+    /vendor/lib64/libmdmcutback.so|libqsap_shim.so \
     /system/lib/libjustshoot.so|libjustshoot_shim.so
 
 # Thermal
@@ -258,3 +258,9 @@ WIFI_DRIVER_FW_PATH_AP           := "ap"
 WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_P2P          := "p2p"
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
+
+# Split selinux policy
+
+TARGET_COPY_OUT_VENDOR := vendor
+BOARD_VENDORIMAGE_PARTITION_SIZE := 665845760
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4

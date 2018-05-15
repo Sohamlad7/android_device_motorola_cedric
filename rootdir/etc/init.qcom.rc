@@ -207,6 +207,7 @@ on boot
 
     # FPC home button permissions
     chown system system /sys/homebutton/enable
+    chown system system /sys/homebutton/enable_off
     chown system system /sys/homebutton/haptic
     chown system system /sys/homebutton/haptic_off
     chown system system /sys/homebutton/proximity_check_off 

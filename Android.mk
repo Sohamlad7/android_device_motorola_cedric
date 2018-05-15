@@ -22,7 +22,7 @@ FIRMWARE_ADSP_IMAGES := \
     adsp.b07 adsp.b08 adsp.b09 adsp.b10 adsp.b11 adsp.b12 adsp.b13 \
     adsp.b14 adsp.mdt
 
-FIRMWARE_ADSP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FIRMWARE_ADSP_IMAGES)))
+FIRMWARE_ADSP_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR_ETC)/firmware/,$(notdir $(FIRMWARE_ADSP_IMAGES)))
 $(FIRMWARE_ADSP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "ADSP Firmware link: $@"
 	@mkdir -p $(dir $@)
@@ -71,7 +71,7 @@ ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_CPE_SYMLINKS)
 FIRMWARE_CPPF_IMAGES := \
     cppf.b00 cppf.b01 cppf.b02 cppf.b03 cppf.b04 cppf.b05 cppf.b06 cppf.mdt
 
-FIRMWARE_CPPF_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FIRMWARE_CPPF_IMAGES)))
+FIRMWARE_CPPF_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR_ETC)/firmware/,$(notdir $(FIRMWARE_CPPF_IMAGES)))
 $(FIRMWARE_CPPF_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "CPPF Firmware link: $@"
 	@mkdir -p $(dir $@)
@@ -97,7 +97,7 @@ FIRMWARE_FINGERPRINT_IMAGES := \
     fpctzappfingerprint.b03 fpctzappfingerprint.b04 fpctzappfingerprint.b05 \
     fpctzappfingerprint.b06 fpctzappfingerprint.mdt
 
-FIRMWARE_FINGERPRINT_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FIRMWARE_FINGERPRINT_IMAGES)))
+FIRMWARE_FINGERPRINT_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR_ETC)/firmware/,$(notdir $(FIRMWARE_FINGERPRINT_IMAGES)))
 $(FIRMWARE_FINGERPRINT_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Fingerprint Firmware link: $@"
 	@mkdir -p $(dir $@)
@@ -160,7 +160,7 @@ FIRMWARE_MODEM_IMAGES := \
     modem.b13 modem.b14 modem.b15 modem.b19 modem.b20 modem.b21 \
     modem.b22 modem.b23 modem.b24 modem.mdt
 
-FIRMWARE_MODEM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FIRMWARE_MODEM_IMAGES)))
+FIRMWARE_MODEM_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR_ETC)/firmware/,$(notdir $(FIRMWARE_MODEM_IMAGES)))
 $(FIRMWARE_MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Modem Firmware link: $@"
 	@mkdir -p $(dir $@)
@@ -223,7 +223,7 @@ FIRMWARE_WCNSS_IMAGES := \
     wcnss.b00 wcnss.b01 wcnss.b02 wcnss.b04 wcnss.b06 \
     wcnss.b09 wcnss.b10 wcnss.b11 wcnss.b12 wcnss.mdt
 
-FIRMWARE_WCNSS_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FIRMWARE_WCNSS_IMAGES)))
+FIRMWARE_WCNSS_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR_ETC)/firmware/,$(notdir $(FIRMWARE_WCNSS_IMAGES)))
 $(FIRMWARE_WCNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "WCNSS Firmware link: $@"
 	@mkdir -p $(dir $@)

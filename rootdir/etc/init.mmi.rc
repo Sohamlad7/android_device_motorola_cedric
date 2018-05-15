@@ -1,5 +1,5 @@
 # Moto USB configuration
-import /system/vendor/etc/init/hw/init.mmi.usb.rc
+import /vendor/etc/init/hw/init.mmi.usb.rc
 
 on early-boot
     write /sys/module/subsystem_restart/parameters/disable_restart_work 0x0
@@ -283,7 +283,7 @@ on boot
    chmod 0660 /persist/chargeonly/cooldown
 
 # Pass carrier to wlan
-service vendor.init_wifi /system/vendor/bin/sh /system/vendor/bin/wlan_carrier_bin.sh
+service vendor.init_wifi /vendor/bin/sh /vendor/bin/wlan_carrier_bin.sh
     class main
     user root
     group root
@@ -315,25 +315,25 @@ on property:ro.boot.dualsim=false
 on property:ro.boot.hwrev=*
    start vendor.mmi-boot-sh
 
-service adspd /system/vendor/bin/adspd
+service adspd /vendor/bin/adspd
    class main
    socket adspdsock stream 0660 system audio
    user audio
    group audio input diag
 
-service vendor.mmi-boot-sh /system/vendor/bin/sh /system/vendor/bin/init.mmi.boot.sh
+service vendor.mmi-boot-sh /vendor/bin/sh /vendor/bin/init.mmi.boot.sh
     class core
     user root
     oneshot
     disabled
 
-service mmi-laser-sh /system/vendor/bin/sh /system/vendor/bin/init.mmi.laser.sh
+service mmi-laser-sh /vendor/bin/sh /vendor/bin/init.mmi.laser.sh
     class core
     user root
     oneshot
 
 # Start Sensor daemon
-service motosh /system/vendor/bin/motosh boot
+service motosh /vendor/bin/motosh boot
     class main
     user compass
     group compass misc input
@@ -344,7 +344,7 @@ service vendor.charge_only_mode /system/bin/charge_only_mode
     group graphics system input
     disabled
 
-service vendor.thermal-com /system/vendor/bin/thermal-engine --minimode
+service vendor.thermal-com /vendor/bin/thermal-engine --minimode
     class main
     user root
     disabled
@@ -366,4 +366,4 @@ on property:ro.bootmode=normal
 
 on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
-    swapon_all /system/vendor/etc/fstab.qcom
+    swapon_all /vendor/etc/fstab.qcom

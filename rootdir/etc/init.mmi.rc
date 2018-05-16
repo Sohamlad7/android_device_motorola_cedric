@@ -199,6 +199,11 @@ on boot
    chown compass compass /dev/stml0xx_akm
    chmod 0660 /dev/stml0xx_akm
 
+   chown system system /dev/input/event1
+   chown system system /dev/input/event2
+   chown system system /dev/input/event3
+   chown system system /dev/input/event4
+
    # Change permission for type C params
    chown root oem_5004 /sys/devices/soc/78b6000.i2c/i2c-2/2-0022/CC_state
    chown root oem_5004 /sys/devices/soc/78b6000.i2c/i2c-2/2-0022/enable_vconn

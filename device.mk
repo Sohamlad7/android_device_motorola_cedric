@@ -111,9 +111,9 @@ PRODUCT_PACKAGES += \
 
 # Camera Configurations
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/camera/msm8937_mot_camera.xml:system/etc/camera/msm8937_mot_camera.xml \
-    $(LOCAL_PATH)/configs/camera/mot_ov5695_chromatix.xml:system/etc/camera/mot_ov5695_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/mot_imx258_chromatix.xml:system/etc/camera/mot_imx258_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/msm8937_mot_camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/msm8937_mot_camera.xml \
+    $(LOCAL_PATH)/configs/camera/mot_ov5695_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_ov5695_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/mot_imx258_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_imx258_chromatix.xml \
     $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
 
 # CarrierConfig

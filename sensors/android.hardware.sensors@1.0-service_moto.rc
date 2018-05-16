@@ -1,4 +1,4 @@
-service sensors-hal-1-0 /vendor/bin/hw/android.hardware.sensors@1.0-service
+service sensors-hal-1-0 /vendor/bin/hw/android.hardware.sensors@1.0-service_moto
     class hal
     user system
     group compass input system wakelock

@@ -58,4 +58,7 @@
     <vndk>
         <version>0.0.0</version>
     </vndk>
+    <avb>
+        <vbmeta-version>0.0</vbmeta-version>
+    </avb>
 </compatibility-matrix>

@@ -5,7 +5,7 @@
 /cache        auto          /dev/block/bootdevice/by-name/cache
 /boot         emmc          /dev/block/bootdevice/by-name/boot
 /recovery     emmc          /dev/block/bootdevice/by-name/recovery       flags=backup=1
-/oem          ext4          /dev/block/bootdevice/by-name/oem            flags=backup=1;display="OEM"
+/vendor       ext4          /dev/block/bootdevice/by-name/oem            flags=backup=1;display="Vendor";backup=1;wipeingui
 /persist      ext4          /dev/block/bootdevice/by-name/persist        flags=fsflags=noatime,nosuid,nodev,barrier=1,noauto_da_alloc;mounttodecrypt
 /firmware     ext4          /dev/block/bootdevice/by-name/modem          flags=fsflags=ro,nosuid,nodev,barrier=0;mounttodecrypt
 /misc         emmc          /dev/block/bootdevice/by-name/misc

@@ -2,6 +2,9 @@
 # system.prop for cedric
 #
 
+# Navigation bar In some GSI nav bar isn't enabled so force it
+qemu.hw.mainkeys=0
+
 # Audio
 audio.deep_buffer.media=true
 vendor.audio.offload.buffer.size.kb=64

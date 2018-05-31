@@ -20,4 +20,5 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := camera_hal.cpp
 LOCAL_MODULE := libshim_camera_hal
 LOCAL_MODULE_TAGS := optional
+LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)

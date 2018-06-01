@@ -227,10 +227,6 @@ MOT_SENSOR_HUB_FEATURE_PEDO := true
 MOT_SENSOR_HUB_FEATURE_LA := true
 MOT_SENSOR_HUB_FEATURE_GR := true
 
-# Shims
-TARGET_LD_SHIM_LIBS := \
-    /vendor/lib/libHui.so|libshim_camera_hal.so
-
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_HAS_QCOM_WLAN_SDK          := true

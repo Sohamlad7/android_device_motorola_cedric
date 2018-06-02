@@ -68,8 +68,8 @@ persist.camera.is_type=1
 persist.camera.gyro.android=1
 
 camera.disable_zsl_mode=1
-camera.display.umax=1920x1080
-camera.display.lmax=1280x720
+persist.vendor.camera.display.umax=1920x1080
+persist.vendor.camera.display.lmax=1280x720
 camera.mot.startup_probing=0
 persist.camera.debug.logfile=0
 persist.camera.gyro.disable=0
@@ -80,6 +80,8 @@ vendor.vidc.disable.split.mode=1
 vendor.vidc.enc.disable.pq=true
 vendor.vidc.dec.downscalar_width=1920
 vendor.vidc.dec.downscalar_height=1088
+vidc.dec.disable.split.cpu=1
+video.disable.ubwc=1
 media.camera.ts.monotonic=1
 persist.camera.time.monotonic=1
 persist.camera.max.previewfps=60
@@ -121,6 +123,9 @@ ro.sf.lcd_density=420
 debug.gralloc.enable_fb_ubwc=1
 persist.camera.preview.ubwc=0
 persist.camera.video.ubwc=0
+persist.hwc.enable_vds=1
+debug.sf.recomputecrop=0
+debug.enable.sglscale=1
 
 #Disable Skip Validate
 sdm.debug.disable_skip_validate=1

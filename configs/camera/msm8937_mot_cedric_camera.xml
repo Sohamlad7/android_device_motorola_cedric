@@ -110,7 +110,7 @@ LensInfo : Information of the lens present in the module.
     </LensInfo>
   </CameraModuleConfig>
   <CameraModuleConfig>
-    <CameraId>1</CameraId>
+    <CameraId>3</CameraId>
     <SensorName>mot_ov5695</SensorName>
     <EepromName>ov5695</EepromName>
     <ChromatixName>mot_ov5695_chromatix</ChromatixName>
@@ -118,7 +118,7 @@ LensInfo : Information of the lens present in the module.
     <Position>FRONT</Position>
     <MountAngle>270</MountAngle>
     <CSIInfo>
-      <CSIDCore>1</CSIDCore>
+      <CSIDCore>2</CSIDCore>
       <LaneMask>0x07</LaneMask>
       <LaneAssign>0x4320</LaneAssign>
       <ComboMode>0</ComboMode>

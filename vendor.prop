@@ -61,16 +61,14 @@ ro.qualcomm.bluetooth.map=true
 persist.bt.enableAptXHD=true
 
 # Camera
-persist.camera.is_type=1
-persist.camera.gyro.android=1
-
 camera.disable_zsl_mode=1
 camera.display.umax=1920x1080
 camera.display.lmax=1280x720
+camera.hal1.packagelist=com.skype.raider,com.google.android.talk
 camera.mot.startup_probing=0
 persist.camera.debug.logfile=0
 persist.camera.gyro.disable=0
-
+persist.camera.HAL3.enabled=1
 vidc.enc.dcvs.extra-buff-count=2
 vendor.vidc.enc.disable_bframes=1
 vendor.vidc.disable.split.mode=1

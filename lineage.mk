@@ -33,3 +33,9 @@ PRODUCT_MANUFACTURER := motorola
 
 PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME="Moto G5" \
+    PRIVATE_BUILD_DESC="cedric-7.0/NPPS25.137-72-4/4:user/release-keys"
+
+BUILD_FINGERPRINT := motorola/cedric/cedric:7.0/NPPS25.137-72-4/4:user/release-keys

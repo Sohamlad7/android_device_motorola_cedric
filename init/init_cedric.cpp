@@ -75,6 +75,12 @@ void vendor_load_properties()
     if (platform != ANDROID_TARGET)
         return;
 
+    // camera (treble)
+    property_override("ro.product.manufacturer", "motorola");
+    property_override("ro.build.product", "cedric");
+    property_override("ro.product.device", "cedric");
+    property_override("ro.product.name", "cedric_retail");
+
     // sku
     std::string sku = android::base::GetProperty("ro.boot.hardware.sku", "");
     property_override_dual("ro.product.model", "ro.vendor.product.model", sku.c_str());

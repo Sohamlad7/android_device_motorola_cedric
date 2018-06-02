@@ -64,7 +64,6 @@ persist.bt.enableAptXHD=true
 camera.disable_zsl_mode=1
 persist.vendor.camera.display.umax=1920x1080
 persist.vendor.camera.display.lmax=1280x720
-camera.hal1.packagelist=com.skype.raider,com.google.android.talk
 camera.mot.startup_probing=0
 persist.camera.debug.logfile=0
 persist.camera.gyro.disable=0

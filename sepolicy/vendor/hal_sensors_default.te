@@ -1,5 +1,5 @@
 binder_call(hal_sensors_default, hwservicemanager)
-binder_call(hal_sensors_default, servicemanager)
+# binder_call(hal_sensors_default, servicemanager)
 
 binder_call(hal_sensors_default, mm-qcamerad)
 binder_call(hal_sensors_default, system_server)

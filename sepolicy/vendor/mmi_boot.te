@@ -1,4 +1,4 @@
-type mmi_boot, domain;
+type mmi_boot, domain, binder_in_vendor_violators;
 type mmi_boot_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(mmi_boot)
 

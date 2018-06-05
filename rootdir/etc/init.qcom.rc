@@ -303,6 +303,12 @@ on post-fs-data
     # Create directory used by media clients
     mkdir /data/vendor/media 0770 mediacodec media
 
+    #Create directories for Fingerprint
+    mkdir /data/vendor/misc/qti_fp 0770 system system
+    mkdir /data/vendor/misc/qti_fp/bg_estimation 0770 system system
+    mkdir /data/vendor/misc/qti_fp/calib_test 0770 system system
+    mkdir /data/vendor/misc/qti_fp/database 0770 system system
+
     # Create directory used for camera
     mkdir /data/vendor/camera 0770 camera camera
 
@@ -344,8 +350,8 @@ on post-fs-data
     mkdir /data/misc/dhcp 0750 dhcp system
 
     #create port-bridge log dir
-    mkdir /data/misc/port_bridge 0770 radio radio
-    chmod 0770 /data/misc/port_bridge
+    mkdir /data/vendor/port_bridge 0770 radio radio
+    chmod 0770 /data/vendor/port_bridge
 
     #create netmgr log dir
     mkdir /data/misc/netmgr 0770 radio radio
@@ -354,6 +360,10 @@ on post-fs-data
     #create netmgr log dir
     mkdir /data/vendor/netmgr 0770 radio radio
     chmod 0770 /data/vendor/netmgr
+
+    #create ipacm log dir
+    mkdir /data/vendor/ipa 0770 radio radio
+    chmod 0770 /data/vendor/ipa
 
     # Create the directories used by CnE subsystem
     mkdir /data/connectivity 0771 system system
@@ -462,6 +472,9 @@ on post-fs-data
     write /sys/bus/msm_subsys/devices/subsys3/restart_level related
     write /sys/bus/msm_subsys/devices/subsys4/restart_level related
 
+    # Create vpp directory
+    mkdir /data/vendor/vpp 0770 media media
+
     setprop vold.post_fs_data_done 1
 
 service charger /charger
@@ -517,9 +530,8 @@ service qcamerasvr /vendor/bin/mm-qcamera-daemon
     writepid /dev/cpuset/system-background/tasks
 
 service cnd /vendor/bin/cnd
-    class main
-    user system
-    group system wifi inet radio wakelock net_admin
+    class late_start
+    socket cnd stream 660 root inet
 
 service qseeproxydaemon /vendor/bin/qseeproxydaemon
     class late_start

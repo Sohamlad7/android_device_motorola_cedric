@@ -25,6 +25,7 @@ on post-fs
     mkdir /persist/camera 0755 oem_5004 oem_5004
     mkdir /persist/camera/focus 0775 camera oem_5004
     mkdir /persist/camera/ledcal 0775 camera oem_5004
+    mkdir /persist/batt_health 0755 oem_5001 oem_5001
     mkdir /persist/mdm 0770 radio radio
     mkdir /persist/factory 0755 oem_5004 oem_5004
     mkdir /persist/factory/audio 0755 oem_5004 system
@@ -33,7 +34,8 @@ on post-fs
     mkdir /persist/public 0755 oem_5004 oem_5004
     mkdir /persist/public/atvc 0770 oem_5012 shell
     mkdir /persist/public/battd 0755 oem_5000 oem_5004
-    mkdir /persist/public/hiddenmenu 0755 radio radio
+    mkdir /persist/public/att_dm 0775 radio oem_5004
+    mkdir /persist/public/hiddenmenu 0775 radio oem_5004
     mkdir /persist/public/hiddenmenu/data 0775 system oem_5004
     mkdir /persist/public/locale 0700 system system
     mkdir /persist/public/omadm 0700 radio radio
@@ -41,9 +43,13 @@ on post-fs
     mkdir /persist/wifi 0755 oem_5004 oem_5004
     mkdir /persist/bt 0755 oem_5004 bluetooth
     mkdir /persist/wmdrm 0775 oem_5003 oem_5003
+    mkdir /persist/public/usc_dm 0775 radio radio
     mkdir /persist/sds 0700 vold vold
     mkdir /persist/rfs/msm/mpss/mot_rfs 0771 rfs system
-    mkdir /persist/public/usc_dm 0775 radio radio
+
+    # This dir is used to store any OMA(both DM and CP) files in persist partition
+    # Any app with radio UID or oem_5004 GID can read/write/execute files in this dir.
+    mkdir /persist/public/oma 0775 radio oem_5004
 
     chown oem_5004 oem_5004 /persist/factory/fti
     chmod 0660 /persist/factory/fti
@@ -54,9 +60,9 @@ on post-fs
     chmod 0664 /persist/bt/bt_bdaddr
 
     # Set life_calls and life_timer file permissions
-    chown radio mot_tcmd /persist/public/hiddenmenu/life_calls
+    chown radio oem_5004 /persist/public/hiddenmenu/life_calls
     chmod 0775 /persist/public/hiddenmenu/life_calls
-    chown radio mot_tcmd /persist/public/hiddenmenu/life_timer
+    chown radio oem_5004 /persist/public/hiddenmenu/life_timer
     chmod 0775 /persist/public/hiddenmenu/life_timer
 
     chmod 0711 /persist/rfs
@@ -144,7 +150,7 @@ on post-fs-data
     mkdir /data/camera_dump 0750 media media
 
     # Imager tuning data for camera subsystem
-    mkdir /data/misc/imager 0770 camera camera
+    mkdir /data/vendor/misc/imager 0771 camera camera
 
     # OTA Package directory
     mkdir /data/misc_ne 0770 system cache
@@ -154,6 +160,11 @@ on post-fs-data
 
     #setup folder for WLAN WAPI
     chmod 0770 /data/wapi_certificate
+
+    # Enable directory writer xattr for 2nd level directory /storage/emulated/xx/yy
+    setfattr /data/media user.dwriter /%s/%s 0
+    # Enable relatime for /storage/emulated/xx/Download
+    setfattr /data/media user.relatime /%s/Download:com.motorola.mya 0
 
 on boot
    # restore default console_loglevel to KERN_DEBUG
@@ -168,6 +179,11 @@ on boot
    chmod 0660 /sys/module/phy_msm_usb/parameters/host_mode_disable
    chown root oem_5004 /sys/devices/soc/7000000.ssusb/disable_id_pin
    chmod 0220 /sys/devices/soc/7000000.ssusb/disable_id_pin
+
+   # Change ownership and permission for vibrator
+   chown system system /sys/class/timed_output/vibrator/enable
+   chmod 0660 /sys/class/timed_output/vibrator/enable
+   chown root oem_5020 /sys/bus/i2c/devices/2-005a/reduce
 
    # change permission for capsensor
    chmod 0660 /sys/class/capsense/enable
@@ -251,7 +267,7 @@ on boot
    chown system oem_5004 /sys/bus/spi/devices/spi12.0/irq_cnt
    chmod 0440 /sys/bus/spi/devices/spi12.0/irq_cnt
 
-# Change ownership of aov related sysfs entries
+   # Change ownership of aov related sysfs entries
    wait /sys/kernel/aov/event
    chown audio audio /sys/kernel/aov/trigger
    chown audio audio /sys/kernel/aov/register
@@ -259,6 +275,12 @@ on boot
 
    # Quiet binder logs
    write /sys/module/binder/parameters/debug_mask 0x5
+
+   # Clear cooldown state
+   mkdir /persist/chargeonly 0770 system system
+   write /persist/chargeonly/cooldown n
+   chown system system /persist/chargeonly/cooldown
+   chmod 0660 /persist/chargeonly/cooldown
 
 # Pass carrier to wlan
 service init_wifi /system/vendor/bin/sh /system/vendor/bin/wlan_carrier_bin.sh

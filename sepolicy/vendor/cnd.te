@@ -1,2 +1,2 @@
-allow cnd system_wpa_socket:sock_file { unlink };
+# allow cnd system_wpa_socket:sock_file { unlink };
 allow cnd diag_device:chr_file { read write };

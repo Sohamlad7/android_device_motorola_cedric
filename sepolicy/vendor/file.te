@@ -42,12 +42,12 @@ type sysfs_batt, fs_type, sysfs_type;
 type sysfs_cnss, fs_type, sysfs_type;
 type sysfs_fpc, fs_type, sysfs_type;
 
-type fpc_socket, file_type;
+type fpc_socket, file_type, data_file_type;
 type fpc_data_file, file_type;
 
 type sysfs_wcnsscore, fs_type, sysfs_type;
 
-type nv_data_file, file_type;
+type nv_data_file, file_type, data_file_type;
 type sysfs_rmt_storage, fs_type, sysfs_type;
 type debugfs_rmt_storage, debugfs_type, fs_type;
 type debugfs_wlan, debugfs_type, fs_type;

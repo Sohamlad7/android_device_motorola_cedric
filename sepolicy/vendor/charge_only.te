@@ -1,5 +1,5 @@
 type charge_only, domain;
-type charge_only_exec, exec_type, file_type;
+type charge_only_exec, exec_type, file_type, vendor_file_type;
 init_daemon_domain(charge_only)
 
 allow charge_only chargeonly_data_file:dir rw_dir_perms;

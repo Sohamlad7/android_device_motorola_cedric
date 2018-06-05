@@ -6,7 +6,7 @@ allow system_app sysfs_graphics:dir search;
 allow system_app proc_touchpanel:file rw_file_perms;
 allow system_app sysfs_fpc:file rw_file_perms;
 allow system_app fuse_device:filesystem getattr;
-allow system_app time_daemon:unix_stream_socket connectto;
+# allow system_app time_daemon:unix_stream_socket connectto;
 
 allow system_app init:unix_stream_socket { read write };
 allow system_app sysfs_homebutton:file write;

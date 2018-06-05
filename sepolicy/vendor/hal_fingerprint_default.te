@@ -9,7 +9,7 @@ allow hal_fingerprint_default sysfs_graphics:dir r_dir_perms;
 allow hal_fingerprint_default sysfs_graphics:file r_file_perms;
 allow hal_fingerprint_default sysfs_leds:dir r_dir_perms;
 allow hal_fingerprint_default sysfs_leds:file r_file_perms;
-allow hal_fingerprint_default fingerprintd_data_file:sock_file { create unlink };
+# allow hal_fingerprint_default fingerprintd_data_file:sock_file { create unlink };
 allow hal_fingerprint_default uhid_device:chr_file rw_file_perms;
 allow hal_fingerprint_default fpc_socket:sock_file unlink;
 allow hal_fingerprint_default sysfs:file rw_file_perms;

@@ -26,3 +26,6 @@ allow mm-qcamerad hal_sensors_default:unix_stream_socket { read write };
 
 allow mm-qcamerad hal_configstore_ISurfaceFlingerConfigs:hwservice_manager find;
 allow mm-qcamerad hal_configstore_default:binder call;
+
+allow mm-qcamerad object_binder_device:chr_file { open read write };
+allow mm-qcamerad object_sysfs:file { open read };

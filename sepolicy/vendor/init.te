@@ -51,3 +51,13 @@ allow init hal_sensors_hwservice:hwservice_manager find;
 allow init hal_perf_hwservice:hwservice_manager find;
 allow init hidl_base_hwservice:hwservice_manager add;
 
+allow init cameraservebinder { transfer };
+allow init hal_graphics_allocator_default:fd { use };
+allow init hal_graphics_composer_default:binder { call };
+allow init hwservicemanagebinder { transfer };
+allow init mm-qcamerad:unix_dgram_socket { sendto };
+allow init object_firmware_file:dir { create setattr };
+allow init object_ion_device:chr_file { ioctl };
+allow init object_vendor_file:file { execute_no_trans };
+allow init object_vndbinder_device:chr_file { open read write };
+allow init vndservicemanagebinder { call };

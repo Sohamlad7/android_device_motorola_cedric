@@ -1,0 +1,1 @@
+allow bluetooth object_vendor_file:file { execute getattr open read };

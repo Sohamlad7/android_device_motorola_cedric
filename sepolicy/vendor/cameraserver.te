@@ -56,3 +56,5 @@ allow cameraserver sysfs_battery_supply:dir search;
 allow cameraserver sysfs_battery_supply:file { getattr open read };
 
 allow cameraserver camera_bgproc_service:service_manager { add find };
+
+allow cameraserver init:binder { transfer };

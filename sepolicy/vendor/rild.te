@@ -17,3 +17,6 @@ allow rild cutback_data_file:sock_file create_file_perms;
 allow rild rild_exec:file execute_no_trans;
 
 allow rild fwk_sensor_hwservice:hwservice_manager find;
+
+allow rild object_binder_device:chr_file { open read write };
+allow rild object_vendor_file:file { execute_no_trans };

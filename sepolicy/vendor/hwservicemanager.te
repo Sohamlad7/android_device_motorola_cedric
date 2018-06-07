@@ -7,3 +7,5 @@ binder_use(hwservicemanager);
 
 binder_call(hwservicemanager, hal_power_default);
 binder_call(hwservicemanager, hal_usb_default);
+
+allow hwservicemanager init:binder { call transfer };

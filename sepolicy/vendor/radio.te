@@ -1,2 +1,3 @@
 allow radio system_app_data_file:dir getattr;
 allow radio qmuxd_socket:sock_file write;
+allow radio object_vendor_file:file { execute read };

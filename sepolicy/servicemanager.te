@@ -13,7 +13,7 @@ allow servicemanager qseeproxy:process getattr;
 
 
 allow servicemanager hal_camera_default:dir search;
-allow servicemanager hal_camera_default:file { open read };
+allow servicemanager hal_camera_default:file r_file_perms;
 allow servicemanager hal_camera_default:process getattr;
 
 allow servicemanager hal_fingerprint_default:file open;

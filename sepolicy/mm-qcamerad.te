@@ -1,3 +1,7 @@
+type_transition mm-qcamerad camera_data_file:sock_file camera_socket "cam_socket1";
+type_transition mm-qcamerad camera_data_file:sock_file camera_socket "cam_socket2";
+allow mm-qcamerad camera_socket:sock_file { create unlink write };
+
 binder_call(mm-qcamerad, servicemanager);
 binder_use(mm-qcamerad);
 binder_call(mm-qcamerad, binderservicedomain);
@@ -21,9 +25,10 @@ allow mm-qcamerad persist_file:file { read getattr open };
 allow mm-qcamerad system_data_file:dir read;
 
 allow mm-qcamerad init:unix_stream_socket { read write };
-allow mm-qcamerad sysfs_graphics:file { open read };
+allow mm-qcamerad sysfs_graphics:file r_file_perms;
 
 allow mm-qcamerad hal_sensors_default:unix_stream_socket { read write };
 
 allow mm-qcamerad hal_configstore_ISurfaceFlingerConfigs:hwservice_manager find;
 allow mm-qcamerad hal_configstore_default:binder call;
+

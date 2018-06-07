@@ -1,0 +1,2 @@
+motorola.hardware.camera.provider::ICameraProvider          u:object_r:hal_camera_hwservice:s0
+motorola.hardware.mods_camera.provider::ICameraProvider     u:object_r:hal_camera_hwservice:s0

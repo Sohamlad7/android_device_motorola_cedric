@@ -58,6 +58,9 @@ ro.bluetooth.dun=true
 ro.qualcomm.bluetooth.map=true
 persist.bt.enableAptXHD=true
 
+# Boot
+sys.vendor.shutdown.waittime=500
+
 # Camera
 persist.camera.is_type=1
 persist.camera.gyro.android=1

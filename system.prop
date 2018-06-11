@@ -60,6 +60,7 @@ persist.bt.enableAptXHD=true
 
 # Boot
 sys.vendor.shutdown.waittime=500
+ro.build.shutdown_timeout=0
 
 # Camera
 persist.camera.is_type=1

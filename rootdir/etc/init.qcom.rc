@@ -41,7 +41,15 @@ on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
-    mount_all /system/vendor/etc/fstab.qcom
+    mount_all /system/vendor/etc/fstab.qcom --early
+
+on late-fs
+    # Start services for bootanim
+    start servicemanager
+    start surfaceflinger
+    start bootanim
+    # mount RW partitions which need run fsck
+    mount_all /system/vendor/etc/fstab.qcom --late
 
     # Keeping following partitions outside fstab file. As user may not have
     # these partition flashed on the device. Failure to mount any partition in fstab file

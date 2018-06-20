@@ -466,8 +466,8 @@ on post-fs-data
     mkdir /data/vendor/misc/iop 0770 root system
 
     #Create SWAP related dirs
-    mkdir /data/system/swap 0770 root system
-    chmod 2770 /data/system/swap
+    mkdir /data/vendor/swap 0770 root system
+    chmod 2770 /data/vendor/swap
 
     # Force all SSR systems to 'related' so they attempt
     # self-recovery without rebooting the device

@@ -1572,6 +1572,8 @@ bool SystemStatus::eventDataItemNotify(IDataItemCore* dataitem)
         case NETWORKINFO_DATA_ITEM_ID:
             setNetworkInfo(dataitem);
             break;
+        default:
+            break;
     }
     pthread_mutex_unlock(&mMutexSystemStatus);
     return true;

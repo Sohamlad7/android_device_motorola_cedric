@@ -4,10 +4,6 @@
     "target_path": "kernel/motorola/msm8937"
   },
   {
-    "repository": "android_device_qcom_common",
-    "target_path": "device/qcom/common"
-  },
-  {
     "repository": "android_system_qcom",
     "target_path": "system/qcom"
   },

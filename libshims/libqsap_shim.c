@@ -2,6 +2,7 @@
 
 #include <sys/socket.h>
 #include <linux/wireless.h>
+#include <string.h>
 
 #include "cutils/log.h"
 

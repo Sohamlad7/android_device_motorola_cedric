@@ -25,6 +25,7 @@ ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
 endif
 
 LOCAL_CFLAGS += -DLOG_TAG=\"ToFSensors\"
+LOCAL_CFLAGS += -Wno-gnu-designator -Wno-writable-strings
 
 LOCAL_SRC_FILES := \
     TofModule.cpp \
@@ -48,6 +49,7 @@ LOCAL_C_INCLUDES += kernel/include
 
 LOCAL_SHARED_LIBRARIES += liblog libcutils libutils libc libbase
 LOCAL_CFLAGS += -Wall -Wextra
+LOCAL_CFLAGS += -Wno-gnu-designator -Wno-writable-strings
 LOCAL_CXXFLAGS += -Weffc++ -std=c++14
 
 #LOCAL_PRELINK_MODULE := false

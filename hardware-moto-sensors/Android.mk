@@ -15,6 +15,7 @@
 
 LOCAL_TOP_DIR := $(call my-dir)
 LOCAL_PATH := $(LOCAL_TOP_DIR)
+LOCAL_CFLAGS += -Wno-gnu-designator -Wno-writable-strings
 
 # If other Android.mk files are included explicitly, this must be called before
 # including those.
@@ -183,6 +184,7 @@ ifeq ($(BOARD_USES_MOT_SENSOR_HUB), true)
         LOCAL_SHARED_LIBRARIES += liblog libcutils libz libdl libutils
         LOCAL_CLANG := true
         LOCAL_MODULE := sensors.$(TARGET_BOARD_PLATFORM)
+        LOCAL_CFLAGS += -Wno-gnu-designator -Wno-writable-strings
 
         include $(BUILD_SHARED_LIBRARY)
 
@@ -206,6 +208,7 @@ ifeq ($(BOARD_USES_MOT_SENSOR_HUB), true)
     LOCAL_PROPRIETARY_MODULE := true
     LOCAL_MODULE := sensorhub.$(TARGET_BOARD_PLATFORM)
     LOCAL_MODULE_TAGS := optional
+    LOCAL_CFLAGS += -Wno-gnu-designator -Wno-writable-strings
 
     include $(BUILD_SHARED_LIBRARY)
 
@@ -223,6 +226,7 @@ ifeq ($(BOARD_USES_MOT_SENSOR_HUB), true)
     LOCAL_PROPRIETARY_MODULE := true
     #LOCAL_CFLAGS+= -D_DEBUG
     LOCAL_CFLAGS += -Wall -Wextra
+    LOCAL_CFLAGS += -Wno-gnu-designator -Wno-writable-strings
     # Added by top level make files: -std=gnu++11
     LOCAL_CXXFLAGS += -Weffc++
     LOCAL_SHARED_LIBRARIES := libcutils libc libsensorhub liblog
@@ -277,6 +281,7 @@ ifeq ($(BOARD_USES_MOT_SENSOR_HUB), true)
         LOCAL_CFLAGS += -Wall -Wextra
         #LOCAL_CFLAGS += -DENABLE_AKMDEBUG=1
         LOCAL_CFLAGS += $(SH_CFLAGS)
+        LOCAL_CFLAGS += -Wno-gnu-designator -Wno-writable-strings
 
         LOCAL_STATIC_LIBRARIES := AK09912
 

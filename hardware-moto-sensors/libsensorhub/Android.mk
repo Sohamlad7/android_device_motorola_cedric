@@ -39,6 +39,7 @@ LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 LOCAL_SHARED_LIBRARIES := liblog libcutils libutils libc
 LOCAL_CFLAGS += -Wall -Wextra
+LOCAL_CFLAGS += -Wno-gnu-designator -Wno-writable-strings
 LOCAL_CXXFLAGS += -Weffc++ -std=c++14
 
 LOCAL_PROPRIETARY_MODULE := true

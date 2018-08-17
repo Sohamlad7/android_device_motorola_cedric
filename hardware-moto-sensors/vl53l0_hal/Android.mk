@@ -19,6 +19,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := sensors.tof.vl53l0
 LOCAL_MODULE_TAGS := optional
+LOCAL_CFLAGS += -Wno-gnu-designator -Wno-writable-strings
 
 ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
     LOCAL_CFLAGS += -DDEBUG
@@ -47,6 +48,7 @@ LOCAL_C_INCLUDES += kernel/include
 
 LOCAL_SHARED_LIBRARIES += liblog libcutils libutils libc libbase
 LOCAL_CFLAGS += -Wall -Wextra
+LOCAL_CFLAGS += -Wno-gnu-designator -Wno-writable-strings
 LOCAL_CXXFLAGS += -Weffc++ -std=c++14
 
 #LOCAL_PRELINK_MODULE := false

@@ -23,5 +23,6 @@ LOCAL_SHARED_LIBRARIES := libc liblog libcutils libhardware_legacy
 LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
 LOCAL_MODULE_OWNER := moto
+LOCAL_CFLAGS += -Wno-gnu-designator -Wno-writable-strings
 include $(BUILD_EXECUTABLE)
 endif

@@ -22,6 +22,9 @@ on fs
     symlink /persist /pds
 
 on post-fs
+    # set RLIMIT_MEMLOCK to 64MB
+    setrlimit 8 67108864 67108864
+
     mkdir /persist/camera 0755 oem_5004 oem_5004
     mkdir /persist/camera/focus 0775 camera oem_5004
     mkdir /persist/camera/ledcal 0775 camera oem_5004

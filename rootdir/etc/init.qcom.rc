@@ -48,10 +48,10 @@ on fs
 
 on late-fs
     # Start services for bootanim
+    start vendor.configstore-hal
     start servicemanager
     start surfaceflinger
     start bootanim
-    start configstore-hal-1-0
     start gralloc-2-0
 
     # Wait for hwservicemanager ready since fsck might be triggered in mount_all --late

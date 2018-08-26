@@ -73,7 +73,7 @@
                 android:value="com.android.settings.category.ia.homepage" />
             <meta-data
                 android:name="com.android.settings.icon"
-                android:resource="@drawable/ic_settings_gestures" />
+                android:resource="@drawable/ic_settings_gestures_dashboard" />
             <meta-data
                 android:name="com.android.settings.summary"
                 android:resource="@string/device_gestures_summary" />

@@ -25,7 +25,16 @@
 
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
-    <integer name="config_screenBrightnessSettingDefault">88</integer>
+    <integer name="config_screenBrightnessSettingDefault">53</integer>
+
+    <!-- Minimum screen brightness setting allowed by the power manager.
+         The user is forbidden from setting the brightness below this level. -->
+    <integer name="config_screenBrightnessSettingMinimum">1</integer>
+
+    <!-- Screen brightness used to dim the screen when the user activity
+         timeout expires.  May be less than the minimum allowed brightness setting
+         that can be set by the user. -->
+    <integer name="config_screenBrightnessDim">1</integer>
 
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
          The N entries of this array define N  1 zones as follows:
@@ -72,25 +81,25 @@
          array. The brightness values must be non-negative and non-decreasing. This must be
          overridden in platform specific overlays -->
     <array name="config_autoBrightnessDisplayValuesNits">
-        <item>14.22825</item>   <!-- 0-1 -->
-        <item>17.92821</item>   <!-- 1-2 -->
-        <item>21.0392</item>    <!-- 2-3 -->
-        <item>23.454172</item>  <!-- 3-4 -->
-        <item>25.448406</item>  <!-- 4-8 -->
-        <item>31.200361</item>  <!-- 8-12 -->
-        <item>35.231995</item>  <!-- 12-20 -->
-        <item>41.076897</item>  <!-- 20-33 -->
-        <item>47.72592</item>   <!-- 33-55 -->
-        <item>55.562805</item>  <!-- 55-90 -->
-        <item>64.97754</item>   <!-- 90-148 -->
-        <item>77.0652</item>    <!-- 148-245 -->
-        <item>94.4501</item>    <!-- 245-403 -->
-        <item>117.607216</item> <!-- 403-665 -->
-        <item>149.78299</item>  <!-- 665-1097 -->
-        <item>197.58708</item>  <!-- 1097-1808 -->
-        <item>254.74942</item>  <!-- 1808-2981 -->
-        <item>320.71716</item>  <!-- 2981-5000 -->
-        <item>395.74274</item>  <!-- 5000+ -->
+        <item>10.45935</item>
+        <item>29.25559</item>
+        <item>34.240692</item>
+        <item>37.514347</item>
+        <item>40.018696</item>
+        <item>46.885098</item>
+        <item>51.626434</item>
+        <item>58.610405</item>
+        <item>66.890915</item>
+        <item>77.61644</item>
+        <item>90.221886</item>
+        <item>105.80314</item>
+        <item>126.073845</item>
+        <item>154.16931</item>
+        <item>191.83717</item>
+        <item>240.74442</item>
+        <item>294.84857</item>
+        <item>348.05453</item>
+        <item>394.98703</item>
     </array>
 
     <!-- An array describing the screen's backlight values corresponding to the brightness

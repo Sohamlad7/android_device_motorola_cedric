@@ -11,6 +11,7 @@ vendor.audio.offload.pcm.16bit.enable=false
 vendor.audio.offload.pcm.24bit.enable=false
 audio.offload.track.enable=true
 persist.audio.dualmic.config=endfire
+ro.af.client_heap_size_kbyte=7168
 af.fast_track_multiplier=1
 audio.offload.disable=false
 audio.offload.min.duration.secs=60

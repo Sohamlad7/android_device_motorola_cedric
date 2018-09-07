@@ -222,6 +222,17 @@ ro.telephony.call_ring.multiple=false
 persist.vendor.radio.eri64_as_home=1
 persist.vendor.radio.data_con_rprt=1
 
+persist.vendor.radio.force_on_dc=true
+persist.radio.custom_ecc=1
+persist.vendor.radio.data_ltd_sys_ind=1
+persist.vendor.radio.ignore_dom_time=10
+persist.radio.ignore_dom_time=10
+persist.radio.is_wps_enabled=true
+persist.radio.videopause.mode=1
+persist.radio.sap_silent_pin=1
+persist.radio.always_send_plmn=true
+persist.rcs.supported=1
+
 ro.use_data_netmgrd=true
 persist.data.qmi.adb_logmask=0
 persist.data.netmgrd.qos.enable=true

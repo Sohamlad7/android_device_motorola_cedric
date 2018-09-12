@@ -1,4 +1,4 @@
-/* Copyright (c) 2017, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2017-2018, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -40,8 +40,13 @@
 namespace android {
 namespace hardware {
 namespace gnss {
-namespace V1_0 {
+namespace V1_1 {
 namespace implementation {
+
+using ::android::hardware::gnss::V1_0::IGnss;
+using ::android::hardware::gnss::V1_0::IGnssCallback;
+using ::android::hardware::gnss::V1_0::IGnssNiCallback;
+using ::android::hardware::gnss::V1_0::GnssLocation;
 
 static void convertGnssSvStatus(GnssSvNotification& in, IGnssCallback::GnssSvStatus& out);
 
@@ -81,8 +86,10 @@ void GnssAPIClient::gnssUpdateCallbacks(const sp<IGnssCallback>& gpsCb,
 {
     LOC_LOGD("%s]: (%p %p)", __FUNCTION__, &gpsCb, &niCb);
 
+    mMutex.lock();
     mGnssCbIface = gpsCb;
     mGnssNiCbIface = niCb;
+    mMutex.unlock();
 
     LocationCallbacks locationCallbacks;
     memset(&locationCallbacks, 0, sizeof(LocationCallbacks));
@@ -158,6 +165,10 @@ bool GnssAPIClient::gnssSetPositionMode(IGnss::GnssPositionMode mode,
     mLocationOptions.size = sizeof(LocationOptions);
     mLocationOptions.minInterval = minIntervalMs;
     mLocationOptions.minDistance = preferredAccuracyMeters;
+    if (IGnss::GnssPositionRecurrence::RECURRENCE_SINGLE == recurrence) {
+        mLocationOptions.minInterval =
+                std::numeric_limits<decltype(mLocationOptions.minInterval)>::max();
+    }
     if (mode == IGnss::GnssPositionMode::STANDALONE)
         mLocationOptions.mode = GNSS_SUPL_MODE_STANDALONE;
     else if (mode == IGnss::GnssPositionMode::MS_BASED)
@@ -278,7 +289,10 @@ void GnssAPIClient::onCapabilitiesCb(LocationCapabilitiesMask capabilitiesMask)
     LOC_LOGD("%s]: (%02x)", __FUNCTION__, capabilitiesMask);
     mLocationCapabilitiesMask = capabilitiesMask;
     mLocationCapabilitiesCached = true;
-    sp<IGnssCallback> gnssCbIface = mGnssCbIface;
+
+    mMutex.lock();
+    auto gnssCbIface(mGnssCbIface);
+    mMutex.unlock();
 
     if (gnssCbIface != nullptr) {
         uint32_t data = 0;
@@ -322,7 +336,9 @@ void GnssAPIClient::onCapabilitiesCb(LocationCapabilitiesMask capabilitiesMask)
 void GnssAPIClient::onTrackingCb(Location location)
 {
     LOC_LOGD("%s]: (flags: %02x)", __FUNCTION__, location.flags);
-    sp<IGnssCallback> gnssCbIface = mGnssCbIface;
+    mMutex.lock();
+    auto gnssCbIface(mGnssCbIface);
+    mMutex.unlock();
 
     if (gnssCbIface != nullptr) {
         GnssLocation gnssLocation;
@@ -338,7 +354,9 @@ void GnssAPIClient::onTrackingCb(Location location)
 void GnssAPIClient::onGnssNiCb(uint32_t id, GnssNiNotification gnssNiNotification)
 {
     LOC_LOGD("%s]: (id: %d)", __FUNCTION__, id);
-    sp<IGnssNiCallback> gnssNiCbIface = mGnssNiCbIface;
+    mMutex.lock();
+    auto gnssNiCbIface(mGnssNiCbIface);
+    mMutex.unlock();
 
     if (gnssNiCbIface == nullptr) {
         LOC_LOGE("%s]: mGnssNiCbIface is nullptr", __FUNCTION__);
@@ -411,7 +429,9 @@ void GnssAPIClient::onGnssNiCb(uint32_t id, GnssNiNotification gnssNiNotificatio
 void GnssAPIClient::onGnssSvCb(GnssSvNotification gnssSvNotification)
 {
     LOC_LOGD("%s]: (count: %zu)", __FUNCTION__, gnssSvNotification.count);
-    sp<IGnssCallback> gnssCbIface = mGnssCbIface;
+    mMutex.lock();
+    auto gnssCbIface(mGnssCbIface);
+    mMutex.unlock();
 
     if (gnssCbIface != nullptr) {
         IGnssCallback::GnssSvStatus svStatus;
@@ -426,13 +446,15 @@ void GnssAPIClient::onGnssSvCb(GnssSvNotification gnssSvNotification)
 
 void GnssAPIClient::onGnssNmeaCb(GnssNmeaNotification gnssNmeaNotification)
 {
-    sp<IGnssCallback> gnssCbIface = mGnssCbIface;
+    mMutex.lock();
+    auto gnssCbIface(mGnssCbIface);
+    mMutex.unlock();
 
     if (gnssCbIface != nullptr) {
         android::hardware::hidl_string nmeaString;
         nmeaString.setToExternal(gnssNmeaNotification.nmea, gnssNmeaNotification.length);
         auto r = gnssCbIface->gnssNmeaCb(
-            static_cast<GnssUtcTime>(gnssNmeaNotification.timestamp), nmeaString);
+            static_cast<V1_0::GnssUtcTime>(gnssNmeaNotification.timestamp), nmeaString);
         if (!r.isOk()) {
             LOC_LOGE("%s] Error from gnssNmeaCb nmea=%s length=%zu description=%s", __func__,
                 gnssNmeaNotification.nmea, gnssNmeaNotification.length, r.description().c_str());
@@ -443,7 +465,9 @@ void GnssAPIClient::onGnssNmeaCb(GnssNmeaNotification gnssNmeaNotification)
 void GnssAPIClient::onStartTrackingCb(LocationError error)
 {
     LOC_LOGD("%s]: (%d)", __FUNCTION__, error);
-    sp<IGnssCallback> gnssCbIface = mGnssCbIface;
+    mMutex.lock();
+    auto gnssCbIface(mGnssCbIface);
+    mMutex.unlock();
 
     if (error == LOCATION_ERROR_SUCCESS && gnssCbIface != nullptr) {
         auto r = gnssCbIface->gnssStatusCb(IGnssCallback::GnssStatusValue::ENGINE_ON);
@@ -462,7 +486,9 @@ void GnssAPIClient::onStartTrackingCb(LocationError error)
 void GnssAPIClient::onStopTrackingCb(LocationError error)
 {
     LOC_LOGD("%s]: (%d)", __FUNCTION__, error);
-    sp<IGnssCallback> gnssCbIface = mGnssCbIface;
+    mMutex.lock();
+    auto gnssCbIface(mGnssCbIface);
+    mMutex.unlock();
 
     if (error == LOCATION_ERROR_SUCCESS && gnssCbIface != nullptr) {
         auto r = gnssCbIface->gnssStatusCb(IGnssCallback::GnssStatusValue::SESSION_END);
@@ -482,10 +508,10 @@ static void convertGnssSvStatus(GnssSvNotification& in, IGnssCallback::GnssSvSta
 {
     memset(&out, 0, sizeof(IGnssCallback::GnssSvStatus));
     out.numSvs = in.count;
-    if (out.numSvs > static_cast<uint32_t>(GnssMax::SVS_COUNT)) {
-        LOC_LOGW("%s]: Too many satellites %zd. Clamps to %d.",
-                __FUNCTION__,  out.numSvs, GnssMax::SVS_COUNT);
-        out.numSvs = static_cast<uint32_t>(GnssMax::SVS_COUNT);
+    if (out.numSvs > static_cast<uint32_t>(V1_0::GnssMax::SVS_COUNT)) {
+        LOC_LOGW("%s]: Too many satellites %u. Clamps to %d.",
+                __FUNCTION__,  out.numSvs, V1_0::GnssMax::SVS_COUNT);
+        out.numSvs = static_cast<uint32_t>(V1_0::GnssMax::SVS_COUNT);
     }
     for (size_t i = 0; i < out.numSvs; i++) {
         IGnssCallback::GnssSvInfo& info = out.gnssSvList[i];
@@ -505,7 +531,7 @@ static void convertGnssSvStatus(GnssSvNotification& in, IGnssCallback::GnssSvSta
 }
 
 }  // namespace implementation
-}  // namespace V1_0
+}  // namespace V1_1
 }  // namespace gnss
 }  // namespace hardware
 }  // namespace android

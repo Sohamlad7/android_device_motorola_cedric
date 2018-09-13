@@ -1,7 +1,6 @@
 set_prop(toolbox, diag_prop);
 set_prop(toolbox, hw_rev_prop);
 set_prop(toolbox, touch_prop);
-get_prop(toolbox rmnet_mux_prop);
 allow toolbox init:fifo_file { write getattr };
 
 allow toolbox self:capability { chown dac_override };

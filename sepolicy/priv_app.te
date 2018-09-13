@@ -3,4 +3,3 @@ allow priv_app persist_file:filesystem getattr;
 allow priv_app proc_interrupts:file { open read getattr };
 allow priv_app proc_modules:file { open read getattr };
 get_prop(priv_app, adspd_prop);
-get_prop(priv_app, qemu_hw_mainkeys_prop);

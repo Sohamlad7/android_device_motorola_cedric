@@ -12,7 +12,6 @@ allow system_app init:unix_stream_socket { read write };
 allow system_app sysfs_homebutton:file write;
 
 get_prop(system_app, diag_prop);
-get_prop(system_app, qemu_hw_mainkeys_prop);
 binder_call(system_app, qtitetherservice_service);
 binder_call(system_app, wificond);
 

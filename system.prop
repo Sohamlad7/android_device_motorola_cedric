@@ -88,6 +88,9 @@ persist.cne.rat.wlan.chip.oem=WCN
 persist.dpm.feature=0
 persist.sys.cnd.iwlan=1
 
+#property to enable fingerprint
+persist.qfp=false
+
 # core_ctrl
 ro.vendor.qti.core_ctl_min_cpu=2
 ro.vendor.qti.core_ctl_max_cpu=4

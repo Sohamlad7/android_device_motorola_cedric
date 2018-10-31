@@ -393,7 +393,5 @@
     <!-- Whether or not swipe up gesture's opt-in setting is available on this device -->
     <bool name="config_swipe_up_gesture_setting_available">true</bool>
 
-	<bool name="config_smart_battery_available">true</bool>
-	<dimen name="config_dialogCornerRadius">8.0dip</dimen>
-	<dimen name="config_buttonCornerRadius">4.0dip</dimen>
+    <bool name="config_smart_battery_available">true</bool>
 </resources>

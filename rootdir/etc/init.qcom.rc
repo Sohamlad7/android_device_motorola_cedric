@@ -557,9 +557,9 @@ on property:vendor.ims.QMI_DAEMON_STATUS=1
 
 service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
     class main
-    user system
+    user radio
     socket ims_rtpd stream 0660 system radio
-    group radio diag inet log
+    group radio inet log
 
 service vendor.imsrcsservice /system/vendor/bin/imsrcsd
     class main

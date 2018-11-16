@@ -791,9 +791,14 @@ on charger
     wait /dev/block/bootdevice/by-name/system
     mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
     load_system_props
-    setprop sys.usb.configfs 0
     setprop persist.sys.usb.config mass_storage
     write /sys/class/leds/white/trigger "battery-full"
+
+on charger && property:ro.boot.usbconfigfs=true
+    setprop sys.usb.configfs 1
+
+on charger && property:ro.boot.usbconfigfs=false
+    setprop sys.usb.configfs 0
 
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "

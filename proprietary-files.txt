@@ -1,10 +1,10 @@
 # Proprietary files for cedric
 # Apps
 -app/embms/embms.apk
--app/ims/ims.apk
 -app/imssettings/imssettings.apk
 -app/QtiTelephonyService/QtiTelephonyService.apk
 -app/TimeService/TimeService.apk
+-priv-app/ims/ims.apk|eef47c0b6f250e7f96e7155d84274b1c83940d8f
 -priv-app/atfwd/atfwd.apk
 -priv-app/CNEService/CNEService.apk
 -priv-app/com.qualcomm.location/com.qualcomm.location.apk
@@ -111,6 +111,7 @@ etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_India.bin
 etc/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
 etc/xtra_root_cert.pem
 -framework/com.qualcomm.qti.imscmservice@1.0-java.jar
+-framework/qti-telephony-common.jar|b1953a3599255f08f1785c677d22810f65e0167b
 lib/hw/camera.vendor.msm8937.so
 lib/libadropbox.so
 lib/libadvalgcore.so

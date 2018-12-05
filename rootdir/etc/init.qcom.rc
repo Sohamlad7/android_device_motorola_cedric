@@ -856,11 +856,6 @@ service ssr_setup /system/vendor/bin/ssr_setup
 on property:persist.sys.ssr.restart_level=*
     start ssr_setup
 
-service loc_launcher /system/bin/loc_launcher
-    #loc_launcher will start as root and set its uid to gps
-    class late_start
-    group gps inet qcom_diag wifi
-
 on charger
     wait /dev/block/bootdevice/by-name/system
     mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1

@@ -76,7 +76,7 @@ vendor.vidc.dec.downscalar_width=1920
 vendor.vidc.dec.downscalar_height=1088
 media.camera.ts.monotonic=1
 persist.camera.time.monotonic=1
-persist.camera.max.previewfps=60
+persist.camera.max.previewfps=30
 
 # CNE
 persist.cne.feature=1

@@ -203,6 +203,7 @@ LZMA_RAMDISK_TARGETS := recovery
 
 # RIL
 TARGET_RIL_VARIANT := caf
+TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 
 # SELinux
 # include device/qcom/sepolicy/sepolicy.mk

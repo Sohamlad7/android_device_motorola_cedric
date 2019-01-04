@@ -1,8 +1,8 @@
 # ADSP
-type adspd_data_file, file_type, data_file_type;
+type adspd_data_file, file_type, data_file_type, core_data_file_type;
 
 # charge_only_mode
-type chargeonly_data_file, file_type, data_file_type;
+type chargeonly_data_file, file_type, data_file_type, core_data_file_type;
 
 # FSG
 type fsg_file, fs_type, contextmount_type;
@@ -11,7 +11,7 @@ type fsg_file, fs_type, contextmount_type;
 type persist_modem_file, file_type, data_file_type;
 
 type persist_omadm_file, file_type, data_file_type;
-type sds_data_file, file_type, data_file_type;
+type sds_data_file, file_type, data_file_type, core_data_file_type;
 type pds_public_file, file_type, data_file_type;
 type persist_camera_file, file_type, data_file_type;
 type persist_antcap_file, file_type, data_file_type;
@@ -19,17 +19,17 @@ type pds_telephony_file, file_type, data_file_type;
 type pds_omadm_file, file_type, data_file_type;
 type persist_audio_file, file_type, data_file_type;
 
-type moodle_data_file, file_type, data_file_type;
-type cutback_data_file, file_type, data_file_type;
+type moodle_data_file, file_type, data_file_type, core_data_file_type;
+type cutback_data_file, file_type, data_file_type, core_data_file_type;
 
-type dbvc_data_file, file_type, data_file_type;
+type dbvc_data_file, file_type, data_file_type, core_data_file_type;
 
-type akmd_data_file, file_type, data_file_type;
+type akmd_data_file, file_type, data_file_type, core_data_file_type;
 
-type wapi_supplicant_data_file, file_type, data_file_type;
+type wapi_supplicant_data_file, file_type, data_file_type, core_data_file_type;
 
 # RIL
-type netmgr_data_file, file_type, data_file_type;
+type netmgr_data_file, file_type, data_file_type, core_data_file_type;
 
 # sysfs
 type sysfs_adsp, fs_type, sysfs_type;
@@ -42,16 +42,16 @@ type sysfs_batt, fs_type, sysfs_type;
 type sysfs_cnss, fs_type, sysfs_type;
 type sysfs_fpc, fs_type, sysfs_type;
 
-type fpc_socket, file_type;
+type fpc_socket, file_type, data_file_type, core_data_file_type;
 type fpc_data_file, file_type;
 
 type sysfs_wcnsscore, fs_type, sysfs_type;
 
-type nv_data_file, file_type;
+type nv_data_file, file_type, data_file_type, core_data_file_type;
 type sysfs_rmt_storage, fs_type, sysfs_type;
 type debugfs_rmt_storage, debugfs_type, fs_type;
 type debugfs_wlan, debugfs_type, fs_type;
-type perfd_data_file, file_type, data_file_type;
+type perfd_data_file, file_type, data_file_type, core_data_file_type;
 type proc_kernel_sched, fs_type;
 type sysfs_power_management, sysfs_type, fs_type;
 type proc_touchpanel, fs_type;

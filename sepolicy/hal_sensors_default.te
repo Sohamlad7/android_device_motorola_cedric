@@ -8,7 +8,6 @@ binder_call(hal_sensors_default, system_app)
 binder_call(hal_sensors_default, priv_app)
 binder_call(hal_sensors_default, platform_app)
 
-allow hal_sensors_default self:capability { dac_override };
 allow hal_sensors_default sensors_device:chr_file { ioctl open read };
 allow hal_sensors_default sysfs:file { open read write };
 allow hal_sensors_default system_data_file:file { getattr open read };

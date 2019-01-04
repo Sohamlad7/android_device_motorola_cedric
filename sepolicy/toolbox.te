@@ -3,12 +3,12 @@ set_prop(toolbox, hw_rev_prop);
 set_prop(toolbox, touch_prop);
 allow toolbox init:fifo_file { write getattr };
 
-allow toolbox self:capability { chown dac_override };
+allow toolbox self:capability { chown };
 
 allow toolbox proc:file rw_file_perms;
 allow toolbox radio_data_file:file rw_file_perms;
 allow toolbox firmware_file:file getattr;
 allow toolbox init:fifo_file ioctl;
-allow toolbox sysfs:dir rw_dir_perms;
+allow toolbox sysfs:dir r_dir_perms;
 allow toolbox sysfs:file rw_file_perms;
 allow toolbox init:fifo_file read;

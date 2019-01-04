@@ -3,10 +3,5 @@ get_prop(untrusted_app_25, camera_prop);
 allow untrusted_app sysfs_zram:dir { search read };
 allow untrusted_app sysfs_zram:file { open read getattr };
 
-get_prop(untrusted_app, net_dns_prop);
-
 allow untrusted_app firmware_file:dir read;
 allow untrusted_app fsg_file:dir read;
-allow untrusted_app net_dns_prop:file read;
-allow untrusted_app persist_file:dir getattr;
-allow untrusted_app persist_file:filesystem getattr;

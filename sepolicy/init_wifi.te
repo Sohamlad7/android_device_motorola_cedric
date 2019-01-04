@@ -12,4 +12,4 @@ allow init_wifi vendor_toolbox_exec:file rx_file_perms;
 allow init_wifi vendor_shell_exec:file entrypoint;
 
 allow init_wifi sysfs_wcnsscore:file rw_file_perms;
-allow init_wifi sysfs_wcnsscore:dir rw_dir_perms;
+allow init_wifi sysfs_wcnsscore:dir r_dir_perms;

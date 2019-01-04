@@ -1,2 +1,0 @@
-allow mediaserver persist_file:dir search;
-allow mediaserver persist_file:file { read getattr open };

@@ -1,6 +1,6 @@
-type_transition mm-qcamerad camera_data_file:sock_file camera_socket "cam_socket1";
-type_transition mm-qcamerad camera_data_file:sock_file camera_socket "cam_socket2";
-allow mm-qcamerad camera_socket:sock_file { create unlink write };
+#type_transition mm-qcamerad camera_data_file:sock_file camera_socket "cam_socket1";
+#type_transition mm-qcamerad camera_data_file:sock_file camera_socket "cam_socket2";
+#allow mm-qcamerad camera_socket:sock_file { create unlink write };
 
 binder_call(mm-qcamerad, servicemanager);
 binder_use(mm-qcamerad);

@@ -13,7 +13,7 @@ r_dir_file(charge_only, sysfs_type)
 r_dir_file(charge_only, rootfs)
 r_dir_file(charge_only, cgroup)
 
-allow charge_only self:capability { dac_override net_admin sys_tty_config sys_boot };
+allow charge_only self:capability { net_admin sys_tty_config sys_boot };
 allow charge_only self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
 
 wakelock_use(charge_only)

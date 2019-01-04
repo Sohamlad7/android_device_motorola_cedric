@@ -6,4 +6,4 @@ allow thermal-engine sysfs_uio:file r_file_perms;
 allow thermal-engine sysfs_uio:dir { read open search };
 allow thermal-engine sysfs_uio:lnk_file { read };
 allow thermal-engine sysfs_vadc_dev:lnk_file { read open };
-allow thermal-engine sysfs_vadc_dev:dir rw_dir_perms;
+allow thermal-engine sysfs_vadc_dev:dir r_dir_perms;

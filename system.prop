@@ -149,6 +149,7 @@ ro.hwui.text_large_cache_width=2048
 ro.hwui.text_large_cache_height=2048
 
 # IMS
+persist.vendor.radio.jbims=1
 persist.radio.RATE_ADAPT_ENABLE=1
 persist.radio.VT_ENABLE=1
 persist.radio.VT_HYBRID_ENABLE=1

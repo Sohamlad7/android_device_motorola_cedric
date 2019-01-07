@@ -31,11 +31,13 @@
 /data/chargeonlymode(/.*)?                               u:object_r:chargeonly_data_file:s0
 
 # Fingerprint
-/data/.fps(/.*)?                                         u:object_r:fingerprintd_data_file:s0
-/data/fpc                                                u:object_r:fingerprintd_data_file:s0
+/data/\.fps(/.*)?                                         u:object_r:fps_data_file:s0
+/data/fpc(/.*)?                                          u:object_r:fpc_data_file:s0
 /data/fpc/socket                                         u:object_r:fpc_socket:s0
 
+
 /sys/devices/soc/7af8000.spi/spi_master/spi8/spi8.0(/.*)? u:object_r:sysfs_fpc:s0
+/sys/devices/soc/soc:fpc_fpc1020(/.*)?		u:object_r:sysfs_fpc:s0
 
 # Modem
 /persist/mdm(/.*)?                                       u:object_r:persist_modem_file:s0
@@ -138,3 +140,6 @@
 
 # Usb hal
 /(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.0-service\.cedric       u:object_r:hal_usb_default_exec:s0
+
+# Fingerprint custom hal
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-fpcservice u:object_r:hal_fingerprint_default_exec:s0

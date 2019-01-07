@@ -35,3 +35,6 @@ allow mm-qcamerad hal_configstore_default:binder call;
 #allow camera to access Isensormanager
 allow mm-qcamerad fwk_sensor_hwservice:hwservice_manager find;
 binder_call(mm-qcamerad, system_server)
+
+allow mm-qcamerad camera_data_file:dir search;
+allow mm-qcamerad sysfs:file { open read };

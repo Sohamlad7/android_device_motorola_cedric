@@ -5,3 +5,8 @@ allow netmgrd net_data_file:dir r_dir_perms;
 allow netmgrd netd_socket:sock_file write;
 allow netmgrd toolbox_exec:file { execute getattr execute_no_trans read open };
 r_dir_file(netmgrd, net_data_file)
+
+allow netmgrd sysfs:file r_file_perms;
+allow netmgrd property_socket:sock_file write;
+allow netmgrd init:unix_stream_socket connectto;
+set_prop(netmgrd, vendor_xlat_prop)

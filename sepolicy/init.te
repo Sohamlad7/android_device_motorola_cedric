@@ -49,3 +49,9 @@ allow init hal_sensors_hwservice:hwservice_manager find;
 allow init hal_perf_hwservice:hwservice_manager find;
 allow init hidl_base_hwservice:hwservice_manager add;
 
+allow init debugfs:dir mounton;
+allow init persist_file:dir mounton;
+allow init sysfs:file { setattr };
+allow init sysfs_battery_supply:lnk_file {open read };
+allow init sysfs_fpc:file { rw_file_perms setattr };
+

@@ -13,3 +13,17 @@ allow hal_fingerprint_default fingerprintd_data_file:sock_file { create unlink }
 allow hal_fingerprint_default uhid_device:chr_file rw_file_perms;
 allow hal_fingerprint_default fpc_socket:sock_file unlink;
 allow hal_fingerprint_default sysfs:file rw_file_perms;
+
+allow hal_fingerprint_default fingerprintd_data_file:dir { add_name getattr remove_name search write };
+
+allow hal_fingerprint_default fpc_data_file:dir { add_name getattr remove_name search write };
+allow hal_fingerprint_default fps_data_file:dir { add_name getattr remove_name search write };
+
+allow hal_fingerprint_default fpc_data_file:file { append create setattr open unlink };
+allow hal_fingerprint_default fps_data_file:file { append create setattr open unlink };
+
+# Add com.fingerprints.extension::IFingerprint* service to hwservicemanager
+add_hwservice(hal_fingerprint_default, fpc_extension_service)
+
+# Allow hal_fingerprint_fpc to add and find fpc_extension_service
+allow hal_fingerprint_default fpc_extension_service:hwservice_manager { add find };

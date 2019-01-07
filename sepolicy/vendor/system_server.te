@@ -14,3 +14,7 @@ allow system_server init:unix_stream_socket write;
 allow system_server sensors_device:chr_file { ioctl open read };
 
 allow system_server vendor_file:file { getattr open read execute };
+
+allow system_server mm-qcamerad:binder call;
+
+get_prop(system_server, vendor_camera_prop);

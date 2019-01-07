@@ -1,0 +1,2 @@
+allow audioserver sysfs:dir { open read };
+allow audioserver vendor_data_file:file { append getattr open read };

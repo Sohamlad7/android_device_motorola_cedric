@@ -17,3 +17,5 @@ allow hal_gnss_qti property_socket:sock_file write;
 # sockets.
 # Taken from device/google/wahoo
 dontaudit hal_gnss_qti self:udp_socket create;
+
+allow hal_gnss_qti sysfs:file {open read };

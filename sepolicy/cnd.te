@@ -1,0 +1,6 @@
+allow cnd system_wpa_socket:sock_file { unlink };
+allow cnd diag_device:chr_file { read write };
+
+add_hwservice(cnd, hal_cne_hwservice)
+allow cnd sysfs:file { read open };
+

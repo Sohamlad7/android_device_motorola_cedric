@@ -1,0 +1,1 @@
+allow msm_irqbalanced self:capability { setgid setuid };

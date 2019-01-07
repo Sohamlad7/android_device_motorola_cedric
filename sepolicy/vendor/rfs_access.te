@@ -2,3 +2,6 @@ allow rfs_access self:capability net_raw;
 allow rfs_access persist_file:file { getattr open read rename setattr unlink write };
 allow rfs_access vendor_tombstone_data_file:dir search;
 
+allow rfs_access persist_file:dir { add_name remove_name search write };
+allow rfs_access persist_file:file create;
+

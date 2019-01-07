@@ -1,0 +1,7 @@
+allow vendor_init camera_data_file:dir setattr;
+allow vendor_init media_rw_data_file:dir setattr;
+allow vendor_init rootfs:dir { add_name write };
+allow vendor_init netmgr_data_file:dir setattr;
+allow vendor_init persist_file:filesystem getattr;
+allow vendor_init system_data_file:dir { add_name setattr write };
+allow vendor_init tombstone_data_file:dir search;

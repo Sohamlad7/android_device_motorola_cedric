@@ -3,3 +3,8 @@ hw.aov.hotword_dsp_path            u:object_r:adspd_prop:s0
 hw.motosh.booted                   u:object_r:motosh_prop:s0
 ro.boot.hardware.revision          u:object_r:hw_rev_prop:s0
 hw.touch.status                    u:object_r:touch_prop:s0
+sys.listeners.registered           u:object_r:vendor_tee_listener_prop:s0
+camera.show_roi.cfg_bf             u:object_r:camera_prop:s0
+persist.camera.debug.logfile       u:object_r:camera_prop:s0
+persist.camera.daemon              u:object_r:camera_prop:s0
+persist.net.doxlat                 u:object_r:vendor_xlat_prop:s0

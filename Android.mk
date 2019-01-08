@@ -303,6 +303,24 @@ $(NUKE_NOTEPAD): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(NUKE_NOTEPAD)
 
+PARTITIONS_TO_LINK := dsp fsg
+
+VENDOR_SUBPARTS_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/, $(notdir $(PARTITIONS_TO_LINK)))
+$(VENDOR_SUBPARTS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Vendor linked partition: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /$(notdir $@) $@
+
+FIRMWARE_SYMLINK := $(TARGET_OUT_VENDOR)/firmware_mnt
+$(FIRMWARE_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@echo "Vendor linked partition: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(VENDOR_SUBPARTS_SYMLINKS) $(FIRMWARE_SYMLINK)
+
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
 endif

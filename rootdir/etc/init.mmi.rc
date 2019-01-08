@@ -116,7 +116,7 @@ on post-fs-data
     mkdir /data/system/dropbox-add 0730 system diag
 
     # Create directory for cutback
-    mkdir /data/misc/cutback 0770 radio wifi
+    mkdir /data/vendor/misc/cutback 0770 radio wifi
 
     # Create directory for fm_radio
     mkdir /data/misc/fm_radio 0770 system system

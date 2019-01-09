@@ -62,7 +62,7 @@
 
 /data/local/dbvc(/.*)?                                   u:object_r:dbvc_data_file:s0
 /data/local/moodle(/.*)?                                 u:object_r:moodle_data_file:s0
-/data/misc/cutback(/.*)?                                 u:object_r:cutback_data_file:s0
+/data/vendor/misc/cutback(/.*)?                          u:object_r:cutback_data_file:s0
 
 /data/misc/sds(/.*)?                                     u:object_r:sds_data_file:s0
 

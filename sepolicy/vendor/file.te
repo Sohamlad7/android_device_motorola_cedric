@@ -20,7 +20,7 @@ type pds_omadm_file, file_type, data_file_type;
 type persist_audio_file, file_type, data_file_type;
 
 type moodle_data_file, file_type, data_file_type, core_data_file_type;
-type cutback_data_file, file_type, data_file_type, core_data_file_type;
+type cutback_data_file, file_type, data_file_type;
 
 type dbvc_data_file, file_type, data_file_type, core_data_file_type;
 

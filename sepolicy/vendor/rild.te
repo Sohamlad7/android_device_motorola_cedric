@@ -18,3 +18,4 @@ allow rild rild_exec:file execute_no_trans;
 
 allow rild fwk_sensor_hwservice:hwservice_manager find;
 allow rild proc:file { open read };
+set_prop(rild, vendor_radio_prop)

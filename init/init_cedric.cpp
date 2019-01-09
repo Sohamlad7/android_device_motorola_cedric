@@ -30,7 +30,7 @@
 #include <stdlib.h>
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
-
+#include <sys/sysinfo.h>
 #include <android-base/properties.h>
 #include "property_service.h"
 #include "vendor_init.h"
@@ -53,6 +53,18 @@ void property_override_dual(char const system_prop[], char const vendor_prop[],
 {
     property_override(system_prop, value);
     property_override(vendor_prop, value);
+}
+
+/* Get Ram size for different variants */
+void check_device()
+{
+    struct sysinfo sys;
+    sysinfo(&sys);
+    if (sys.totalram > 2048ull * 1024 * 1024) {
+        property_set("ro.boot.ram", "3GB");
+    } else {
+        property_set("ro.boot.ram", "2GB");
+    }
 }
 
 void num_sims() {

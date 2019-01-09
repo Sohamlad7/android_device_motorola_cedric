@@ -156,7 +156,10 @@ PRODUCT_PACKAGES += \
     vendor.display.color@1.0-service \
     vendor.display.color@1.0-impl
 
-PRODUCT_PACKAGES += android.hardware.media.omx
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -164,7 +167,10 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    libprotobuf-cpp-lite
+    libprotobuf-cpp-lite \
+    android.hardware.drm@1.0-service \
+    android.hardware.drm@1.0-impl \
+    android.hardware.drm@1.0-service.widevine
 
 # limit dex2oat threads to improve thermals
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -248,12 +254,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@1.0-service-sdm
 
-# DRM
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-service \
-    android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service.widevine
-
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_inx_1080p_497.xml:system/vendor/etc/qdcm_calib_data_mipi_mot_vid_inx_1080p_497.xml \
 #    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_tianma_1080p_497.xml:system/vendor/etc/qdcm_calib_data_mipi_mot_vid_tianma_1080p_497.xml
@@ -261,6 +261,7 @@ PRODUCT_PACKAGES += \
 # Media
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
+    android.hardware.media.omx \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
@@ -368,10 +369,6 @@ PRODUCT_PACKAGES += \
     sensors.tof \
     sensors.tof.vl53l0
 
-# Shims
-PRODUCT_PACKAGES += \
-    libqsap_shim
-
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-cedric.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
@@ -412,10 +409,12 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
 #Thermal
-PRODUCT_PACKAGES += android.hardware.thermal@1.0-impl \
-                    android.hardware.thermal@1.0-service \
-                    thermal.msm8937
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@1.0-impl \
+    android.hardware.thermal@1.0-service \
+    thermal.msm8937
 
+#Wifi
 PRODUCT_PACKAGES += \
     libcurl \
     libQWiFiSoftApCfg \
@@ -433,11 +432,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
-# TEMP FIX
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.manager@1.0
-
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -445,5 +439,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.config.media_vol_steps=20
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
-
-PRODUCT_VENDOR_KERNEL_HEADERS := hardware/qcom/msm8996/kernel-headers

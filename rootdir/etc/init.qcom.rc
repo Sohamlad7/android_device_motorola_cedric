@@ -26,6 +26,7 @@
 #
 
 import /system/vendor/etc/init/hw/init.mmi.rc
+import /system/vendor/etc/init/hw/init.cedric.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -872,10 +873,6 @@ on charger
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
     setprop sys.io.scheduler bfq
-
-    # Enable ZRAM on boot_complete
-    swapon_all /system/vendor/etc/fstab.qcom
-    write /proc/sys/vm/swappiness 100
 
     # scheduler settings
     write /proc/sys/kernel/sched_window_stats_policy 3

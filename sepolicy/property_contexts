@@ -8,3 +8,4 @@ camera.show_roi.cfg_bf             u:object_r:camera_prop:s0
 persist.camera.debug.logfile       u:object_r:camera_prop:s0
 persist.camera.daemon              u:object_r:camera_prop:s0
 persist.net.doxlat                 u:object_r:vendor_xlat_prop:s0
+vendor.ril.                        u:object_r:vendor_radio_prop:s0

@@ -1,3 +1,0 @@
-user=_app seinfo=platform name=com.motorola.dtv domain=isdbt_app type=app_data_file levelFrom=user
-user=_app seinfo=platform name=com.motorola.dtvservice domain=isdbt_app type=app_data_file levelFrom=user
-

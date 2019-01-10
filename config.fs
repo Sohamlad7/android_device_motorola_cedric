@@ -151,9 +151,6 @@ value: 5017
 [AID_VENDOR_ITSON]
 value: 5018
 
-[AID_VENDOR_MOT_DTV]
-value: 5019
-
 [AID_VENDOR_MOT_MOD]
 value: 5020
 

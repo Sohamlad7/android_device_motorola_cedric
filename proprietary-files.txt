@@ -5,8 +5,6 @@
 -app/imssettings/imssettings.apk
 -app/QtiTelephonyService/QtiTelephonyService.apk
 -app/TimeService/TimeService.apk
--app/DTVPlayer/DTVPlayer.apk
--app/DTVService/DTVService.apk
 -priv-app/ims/ims.apk|eef47c0b6f250e7f96e7155d84274b1c83940d8f
 -priv-app/atfwd/atfwd.apk
 -priv-app/CNEService/CNEService.apk
@@ -146,10 +144,8 @@ etc/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
 -vendor/etc/permissions/qcrilhook.xml
 -vendor/etc/permissions/qti_permissions.xml
 -vendor/etc/permissions/izat.xt.srv.xml
--vendor/etc/permissions/mot_dtv_permissions.xml
 -vendor/etc/permissions/com.motorola.cameraone.xml
 -vendor/etc/permissions/cneapiclient.xml
--vendor/etc/permissions/com.motorola.hardware.dtv.xml
 -vendor/etc/permissions/com.qti.dpmframework.xml
 -vendor/etc/permissions/com.quicinc.cne.xml
 -vendor/etc/permissions/ConnectivityExt.xml
@@ -258,7 +254,6 @@ vendor/lib/libEGL_adreno.so
 vendor/lib/libGLESv1_CM_adreno.so
 vendor/lib/libGLESv2_adreno.so
 vendor/lib/libq3dtools_adreno.so
-vendor/lib/libdtvhal.so
 vendor/lib/libqomx_core.so
 lib/lib_mot_app6_metadata.so
 lib/libmpbase.so
@@ -275,7 +270,6 @@ vendor/lib/libloc_api_v02.so
 vendor/lib/libloc_ds_api.so
 lib/libmbs.so
 lib/libcamerabgprocservice.so
-vendor/lib/libdtvtuner.so
 lib/libadvalgcore.so
 lib/lib_motsensorlistener.so
 lib/lib_mottof.so

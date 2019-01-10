@@ -10,3 +10,5 @@ allow rmt_storage fsg_file:file { open read };
 
 allow rmt_storage fsg_file:dir search;
 allow rmt_storage fsg_file:lnk_file read;
+
+allow rmt_storage persist_file:dir r_dir_perms;

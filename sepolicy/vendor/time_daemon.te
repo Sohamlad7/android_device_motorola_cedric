@@ -2,3 +2,4 @@ get_prop(time_daemon, diag_prop);
 
 allow time_daemon persist_file:file { open read write };
 allow time_daemon sysfs:file {open read };
+allow time_daemon persist_file:dir r_dir_perms;

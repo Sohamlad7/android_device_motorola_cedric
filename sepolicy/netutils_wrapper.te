@@ -1,0 +1,2 @@
+allow netutils_wrapper netmgrd:socket { read write };
+

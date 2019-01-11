@@ -266,6 +266,9 @@ on boot
     # default country code
     setprop ro.boot.wificountrycode 00
 
+on post-fs
+    start vendor.qseecomd
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /tombstones/modem 0771 system system

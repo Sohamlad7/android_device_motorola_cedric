@@ -92,8 +92,8 @@ void vendor_load_properties()
     property_override_dual("ro.product.model", "ro.vendor.product.model", sku.c_str());
 
     // fingerprint
-    property_override("ro.build.description", "cedric-7.0/NPPS25.137-72-4/4:user/release-keys");
-    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "motorola/cedric/cedric:7.0/NPPS25.137-72-4/4:user/release-keys");
+    property_override("ro.build.description", "cedric-user 8.1.0 OPPS28.85-13-2 d04a4 release-keys");
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "motorola/cedric/cedric:8.1.0/OPPS28.85-13-2/d04a4:user/release-keys");
 
     // rmt_storage
     std::string device = android::base::GetProperty("ro.boot.device", "");

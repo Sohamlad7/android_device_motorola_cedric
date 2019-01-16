@@ -2,3 +2,5 @@ allow hal_drm_default firmware_file:lnk_file read;
 allow hal_drm_default debug_prop:file read;
 allow hal_drm_default media_data_file:dir create_dir_perms;
 allow hal_drm_default media_data_file:file create_file_perms;
+allow hal_drm_default qdisplay_service:service_manager find;
+allow hal_drm_default hal_graphics_composer_default:binder call;

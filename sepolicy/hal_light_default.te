@@ -1,1 +1,1 @@
-allow hal_light_default sysfs:file { open read write };
+allow hal_light_default sysfs_leds:file rw_file_perms;

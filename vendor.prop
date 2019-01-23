@@ -85,7 +85,7 @@ vidc.dec.disable.split.cpu=1
 video.disable.ubwc=1
 media.camera.ts.monotonic=1
 persist.camera.time.monotonic=1
-persist.camera.max.previewfps=60
+persist.camera.max.previewfps=30
 persist.camera.HAL3.enabled=1
 persist.camera.eis.enable=1
 

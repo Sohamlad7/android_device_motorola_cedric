@@ -7,6 +7,7 @@ allowxperm wcnss_service self:udp_socket ioctl priv_sock_ioctls;
 
 allow wcnss_service per_mgr_service_old:service_manager find;
 
-allow wcnss_service wifi_data_file:dir search;
+allow wcnss_service wifi_data_file:dir rw_dir_perms;
+allow wcnss_service wifi_data_file:file create_file_perms;
 
 allow wcnss_service sysfs:file rw_file_perms;

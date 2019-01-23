@@ -234,7 +234,9 @@ MOT_SENSOR_HUB_FEATURE_PEDO := true
 MOT_SENSOR_HUB_FEATURE_LA := true
 MOT_SENSOR_HUB_FEATURE_GR := true
 
-# Shims
+TARGET_ENABLE_MEDIADRM_64 := true
+
+# Shim
 TARGET_LD_SHIM_LIBS := \
     /system/vendor/bin/adspd|libshim_adsp.so \
     /system/vendor/lib64/libmdmcutback.so|libqsap_shim.so \

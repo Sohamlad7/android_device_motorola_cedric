@@ -144,6 +144,8 @@
 # Fingerprint custom hal
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-fpcservice u:object_r:hal_fingerprint_default_exec:s0
 
+/(vendor|system/vendor)/bin/hw/android\.hardware\.health@2\.0-service\.cedric        u:object_r:hal_health_default_exec:s0
+
 /(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator@1\.0-service.cedric   u:object_r:hal_vibrator_default_exec:s0
 /sys/devices/virtual/timed_output/vibrator/vtg_default                            u:object_r:sysfs_vibrator:s0
 /sys/devices/virtual/timed_output/vibrator/vtg_level                            u:object_r:sysfs_vibrator:s0

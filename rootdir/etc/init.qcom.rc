@@ -814,12 +814,11 @@ service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/m
     user root
     group root
 
-service fm_dl /vendor/bin/init.qti.fm.sh
-    class late_start
-    user system
-    group system
-    disabled
-    oneshot
+on property:hw.fm.init=0
+    write /sys/module/radio_iris_transport/parameters/fmsmd_set 0
+
+on property:hw.fm.init=1
+    write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
 
 service atfwd /system/vendor/bin/ATFWD-daemon
     class late_start

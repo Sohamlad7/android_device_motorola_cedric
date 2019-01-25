@@ -15,5 +15,6 @@ allow hal_sensors_default system_data_file:file { getattr open read };
 allow hal_sensors_default proc_net:file { getattr open read };
 allow hal_sensors_default sysfs_capsense:dir search;
 allow hal_sensors_default sysfs_capsense:file { open write };
-
+allow hal_sensors_default system_data_file:dir {add_name write };
+allow hal_sensors_default system_data_file:file r_file_perms;
 

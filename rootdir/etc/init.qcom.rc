@@ -31,10 +31,6 @@ import /system/vendor/etc/init/hw/init.cedric.rc
 on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
-    mkdir /firmware 0771 system system
-    mkdir /system 0777 root root
-    symlink /data/tombstones /tombstones
-    mkdir /dsp 0771 media media
     chown root system /dev/kmsg
     chmod 0620 /dev/kmsg
 
@@ -328,23 +324,14 @@ on post-fs-data
     # Create directory used for camera
     mkdir /data/vendor/camera 0770 camera camera
 
-    # Create directory for TZ Apps
-    mkdir /data/misc/qsee 0770 system system
-
     # Create directory for apps access via QTEEConnector
     mkdir /data/vendor/qtee 0770 system system
-
-    # Create directory for voiceprint
-    mkdir /data/misc/qvop 0771 system system
 
     # Create directory for radio
     mkdir /data/vendor/radio 0770 system radio
 
     #Create directory for tftp
     mkdir /data/vendor/tombstones 0771 system system
-
-    #Create folder for mm-qcamera-daemon
-    mkdir /data/misc/camera 0770 camera camera
 
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
@@ -368,10 +355,6 @@ on post-fs-data
     chmod 0770 /data/vendor/port_bridge
 
     #create netmgr log dir
-    mkdir /data/misc/netmgr 0770 radio radio
-    chmod 0770 /data/misc/netmgr
-
-    #create netmgr log dir
     mkdir /data/vendor/netmgr 0770 radio radio
     chmod 0770 /data/vendor/netmgr
 
@@ -383,22 +366,12 @@ on post-fs-data
     mkdir /data/connectivity 0771 system system
     chown system system /data/connectivity
 
-    # Create the directories used by DPM subsystem
-    mkdir /data/dpm 0771 system system
-    chown system system /data/dpm
-
-    mkdir /data/dpm/nsrm 0771 system system
-    chown system system /data/dpm/nsrm
-
     # Create directory used by audio subsystem
     mkdir /data/vendor/misc/audio 0770 audio audio
 
     # Create directory for audio delta files
     mkdir /data/vendor/misc/audio/acdbdata 0770 media audio
     mkdir /data/vendor/misc/audio/acdbdata/delta 0770 media audio
-
-    # Create directory used by the DASH client
-    mkdir /data/misc/dash 0770 media audio
 
     # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
     # We chown/chmod /persist again so because mount is run as root + defaults
@@ -428,17 +401,6 @@ on post-fs-data
     mkdir /dev/socket/location/mq 0770 gps gps
     mkdir /dev/socket/location/xtra 0770 gps gps
 
-    #Create directory from IMS services
-    mkdir /data/shared 0755
-    chown system system /data/shared
-
-    #Create directory for FOTA
-    mkdir /data/fota 0771
-    chown system system /data/fota
-
-    #Create directory for hostapd
-    mkdir /data/hostapd 0770 system wifi
-
     # Create /data/vendor/time folder for time-services
     mkdir /data/vendor/time/ 0700 system system
 
@@ -453,18 +415,6 @@ on post-fs-data
 
     #Create a folder for SRS to be able to create a usercfg file
     mkdir /data/data/media 0770 media media
-
-    #Create FM dir for patchdownloader
-    mkdir /data/misc/fm 0770 system system
-    chmod 0770 /data/misc/fm
-
-    # RIDL data
-    mkdir /data/misc/SelfHost/ 0710 system shell
-    mkdir /data/misc/SelfHost/QCLogs/ 2750 system shell
-    mkdir /data/misc/SelfHost/QCLogs/temp/ 0700 system shell
-    mkdir /data/misc/SelfHost/storage/ 0700 system shell
-    mkdir /data/misc/SelfHost/Running/ 2750 system shell
-    mkdir /data/misc/SelfHost/socket/ 2770 system system
 
     #Create PERFD deamon related dirs
     mkdir /data/vendor/perfd 0770 root system

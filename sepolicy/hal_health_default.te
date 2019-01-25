@@ -1,2 +1,4 @@
 allow hal_health_default sysfs:file read;
 allow hal_health_default sysfs:file open;
+allow hal_health_default mnt_vendor_file:dir search;
+allow hal_health_default persist_file:dir search;

@@ -1,0 +1,1 @@
+allow hal_audio_default vendor_data_file:dir rw_file_perms;

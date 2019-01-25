@@ -13,16 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef DEVICE_XIAOMI_MIDO_HEALTH_CYCLECOUNTBACKUPRESTORE_H
-#define DEVICE_XIAOMI_MIDO_HEALTH_CYCLECOUNTBACKUPRESTORE_H
+#ifndef DEVICE_MOTOROLA_CEDRIC_HEALTH_CYCLECOUNTBACKUPRESTORE_H
+#define DEVICE_MOTOROLA_CEDRIC_HEALTH_CYCLECOUNTBACKUPRESTORE_H
 #include <string>
 #include <android-base/file.h>
 #include <android-base/strings.h>
 #include <android-base/logging.h>
 
 namespace device {
-namespace xiaomi {
-namespace mido {
+namespace motorola {
+namespace cedric {
 namespace health {
  static constexpr int kBucketCount = 8;
  class CycleCountBackupRestore {
@@ -41,7 +41,7 @@ public:
 };
 
 } // namespace health
-} // namespace mido
-} // namespace xiaomi
+} // namespace cedric
+} // namespace motorola
 } // namespace device
-#endif // #ifndef DEVICE_XIAOMI_MIDO_HEALTH_CYCLECOUNTBACKUPRESTORE_H
+#endif // #ifndef DEVICE_MOTOROLA_CEDRIC_HEALTH_CYCLECOUNTBACKUPRESTORE_H

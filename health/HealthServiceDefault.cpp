@@ -27,8 +27,8 @@
 #include "CycleCountBackupRestore.h"
 #include "LearnedCapacityBackupRestore.h"
 
-using ::device::xiaomi::mido::health::CycleCountBackupRestore;
-using ::device::xiaomi::mido::health::LearnedCapacityBackupRestore;
+using ::device::motorola::cedric::health::CycleCountBackupRestore;
+using ::device::motorola::cedric::health::LearnedCapacityBackupRestore;
 
 static constexpr int kBackupTrigger = 20;
 

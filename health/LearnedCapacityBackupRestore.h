@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef DEVICE_XIAOMI_MIDO_HEALTH_LEARNEDCAPACITYBACKUPRESTORE_H
-#define DEVICE_XIAOMI_MIDO_HEALTH_LEARNEDCAPACITYBACKUPRESTORE_H
+#ifndef DEVICE_MOTOROLA_CEDRIC_HEALTH_LEARNEDCAPACITYBACKUPRESTORE_H
+#define DEVICE_MOTOROLA_CEDRIC_HEALTH_LEARNEDCAPACITYBACKUPRESTORE_H
 
 #include <android-base/file.h>
 #include <android-base/logging.h>
@@ -23,8 +23,8 @@
 #include <string>
 
 namespace device {
-namespace xiaomi {
-namespace mido {
+namespace motorola {
+namespace cedric {
 namespace health {
 
 class LearnedCapacityBackupRestore {
@@ -45,8 +45,8 @@ class LearnedCapacityBackupRestore {
 };
 
 }  // namespace health
-}  // namespace mido
-}  // namespace xiaomi
+}  // namespace cedric
+}  // namespace motorola
 }  // namespace device
 
-#endif  // #ifndef DEVICE_XIAOMI_MIDO_HEALTH_LEARNEDCAPACITYBACKUPRESTORE_H
+#endif  // #ifndef DEVICE_MOTOROLA_CEDRIC_HEALTH_LEARNEDCAPACITYBACKUPRESTORE_H

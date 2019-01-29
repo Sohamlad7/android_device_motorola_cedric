@@ -155,3 +155,6 @@
 /system/vendor/bin/hw/android\.hardware\.light@2\.0-service.cedric        u:object_r:hal_light_default_exec:s0
 /sys/devices/soc/1a00000.qcom,mdss_mdp/1a00000.qcom,mdss_mdp:qcom,mdss_fb_primary/leds/lcd-backlight/brightness	u:object_r:sysfs_leds:s0
 /sys/devices/soc/leds-atc-20/leds/charging/brightness	u:object_r:sysfs_leds:s0
+
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.widevine            u:object_r:hal_drm_widevine_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.clearkey            u:object_r:hal_drm_clearkey_exec:s0

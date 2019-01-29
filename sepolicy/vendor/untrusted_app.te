@@ -5,3 +5,6 @@ allow untrusted_app sysfs_zram:file { open read getattr };
 allow untrusted_app rootfs:dir read;
 allow untrusted_app firmware_file:dir read;
 allow untrusted_app fsg_file:dir read;
+
+allow untrusted_app proc_asound:dir search;
+allow untrusted_app proc_qtaguid_stat:file read;

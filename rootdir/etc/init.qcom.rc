@@ -523,12 +523,6 @@ service ecompassd /system/vendor/bin/akmd09912
     group compass misc input
     disabled
 
-service vendor.energy-awareness /system/vendor/bin/energy-awareness
-    class main
-    user root
-    group system
-    oneshot
-
 service vendor.irsc_util /system/vendor/bin/irsc_util "/system/vendor/etc/sec_config"
     class core
     user root

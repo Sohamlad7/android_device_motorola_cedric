@@ -230,13 +230,6 @@ on boot
    chown system system /sys/class/leds/charging/brightness
    chmod 0664 /sys/class/leds/charging/brightness
 
-   # Change ownership for Dynamic-CABC feature
-   chown system system /sys/class/graphics/fb0/cabc_mode
-   # Change ownership for for HBM feature
-   chown system system /sys/class/graphics/fb0/hbm
-   # Change ownership for for ACL feature
-   chown system system /sys/class/graphics/fb0/acl_mode
-
    # Change ownership and permission for vibrator
    chown system system /sys/class/timed_output/vibrator/enable
    chmod 0660 /sys/class/timed_output/vibrator/enable

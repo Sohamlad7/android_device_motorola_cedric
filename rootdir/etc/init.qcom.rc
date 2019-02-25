@@ -52,7 +52,7 @@ on late-fs
     start servicemanager
     start surfaceflinger
     start bootanim
-    start gralloc-2-0
+    start vendor.gralloc-2-0
 
     # Wait for hwservicemanager ready since fsck might be triggered in mount_all --late
     # In such case, init won't responce the property_set from hwservicemanager and then

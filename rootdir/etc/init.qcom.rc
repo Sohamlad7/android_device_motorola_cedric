@@ -495,11 +495,6 @@ service vendor.qcamerasvr /vendor/bin/mm-qcamera-daemon
     group camera system inet input graphics
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.cnd /vendor/bin/cnd
-    class main
-    user system
-    group system wifi inet radio wakelock net_admin
-
 service vendor.qseeproxydaemon /vendor/bin/qseeproxydaemon
     class late_start
     user system

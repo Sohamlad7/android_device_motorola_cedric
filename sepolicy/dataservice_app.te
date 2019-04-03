@@ -1,4 +1,3 @@
-allow dataservice_app hal_cne_hwservice:hwservice_manager find;
 binder_call(dataservice_app, cnd)
 
 allow dataservice_app cnd_data_file:file r_file_perms;

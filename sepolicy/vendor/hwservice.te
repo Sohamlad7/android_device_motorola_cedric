@@ -1,3 +1,1 @@
-type hal_cne_hwservice, hwservice_manager_type;
 type fpc_extension_service, hwservice_manager_type;
-

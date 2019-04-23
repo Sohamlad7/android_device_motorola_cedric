@@ -361,3 +361,7 @@ on property:sys.wifi.tethering=false
 
 on property:ro.bootmode=normal
    write /sys/module/usb3813_hub/parameters/boost_val 3
+
+on property:sys.boot_completed=1
+    # Set correct rndis for usb tethering
+    write /sys/class/android_usb/android0/f_rndis_qc/rndis_transports " "

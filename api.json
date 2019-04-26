@@ -1,0 +1,13 @@
+{
+  "response": [
+    {
+      "datetime": 0,
+      "filename": "lineage-16.0-2019xxxx-UNOFFICIAL-cedric.zip",
+      "id": "sha256-sum",
+      "romtype": "unofficial",
+      "size": 0,
+      "url": "use github releases to download releases",
+      "version": "16.0"
+    }
+  ]
+}

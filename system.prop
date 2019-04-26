@@ -2,6 +2,9 @@
 # system.prop for cedric
 #
 
+# Updater
+lineage.updater.uri=https://raw.githubusercontent.com/Sohamlad7/android_device_motorola_cedric/lineage-16.0/api.json
+
 # Audio
 audio.deep_buffer.media=true
 vendor.audio.offload.buffer.size.kb=64

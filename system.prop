@@ -309,6 +309,9 @@ ro.vendor.extension_library=libqti-perfd-client.so
 ro.vendor.at_library=libqti-at.so
 ro.vendor.gt_library=libqti-gt.so
 
+# SurfaceFlinger
+ro.surface_flinger.protected_contents=true
+
 # touch optimize
 persist.vendor.qti.inputopts.enable=true
 persist.vendor.qti.inputopts.movetouchslop=0.6

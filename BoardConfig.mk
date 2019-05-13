@@ -228,6 +228,7 @@ include device/qcom/sepolicy/sepolicy.mk
 
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
 # Sensor
 BOARD_USES_MOT_SENSOR_HUB := true

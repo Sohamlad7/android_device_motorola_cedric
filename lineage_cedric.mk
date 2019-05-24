@@ -31,15 +31,16 @@ PRODUCT_NAME := lineage_cedric
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
 
-TARGET_VENDOR_PRODUCT_NAME := cedric_retail
-TARGET_VENDOR_DEVICE_NAME := cedric
-
 PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
+
+TARGET_VENDOR_PRODUCT_NAME := cedric_retail
+TARGET_VENDOR_DEVICE_NAME := cedric
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="Moto G5" \
     PRIVATE_BUILD_DESC="cedric-user 8.1.0 OPPS28.85-13-2 d04a4 release-keys"
 
 BUILD_FINGERPRINT := motorola/cedric/cedric:8.1.0/OPPS28.85-13-2/d04a4:user/release-keys
+
 TARGET_VENDOR := motorola

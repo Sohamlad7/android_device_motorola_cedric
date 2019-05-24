@@ -9,7 +9,7 @@ LOCAL_PACKAGE_NAME := LineageActions
 LOCAL_CERTIFICATE := platform
 LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_USE_AAPT2 := true
-LOCAL_PROPRIETARY_MODULE := true
+LOCAL_VENDOR_MODULE := true
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-v14-preference \

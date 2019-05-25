@@ -21,9 +21,10 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <sys/select.h>
+#include <stdio.h>
 #include <string.h>
 
-#include <cutils/log.h>
+#include <log/log.h>
 #include <android-base/macros.h>
 
 #include "RearProxSensor.h"

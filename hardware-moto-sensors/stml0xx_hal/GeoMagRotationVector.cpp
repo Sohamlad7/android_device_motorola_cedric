@@ -21,7 +21,7 @@
 #include <float.h>
 #include <math.h>
 #include <string.h>
-#include <cutils/log.h>
+#include <log/log.h>
 #include "GeoMagRotationVector.h"
 #include "Quaternion.h"
 #include "SensorList.h"

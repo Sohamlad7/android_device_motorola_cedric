@@ -25,7 +25,7 @@ LOCAL_MODULE := sensors.rp
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_PROPRIETARY_MODULE := true
-
+LOCAL_HEADER_LIBRARIES := libhardware_headers
 LOCAL_CLANG := true
 
 LOCAL_SRC_FILES :=	\

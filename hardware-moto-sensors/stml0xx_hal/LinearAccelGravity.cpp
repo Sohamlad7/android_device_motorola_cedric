@@ -21,7 +21,7 @@
 #include <float.h>
 #include <math.h>
 #include <string.h>
-#include <cutils/log.h>
+#include <log/log.h>
 #include <android-base/macros.h>
 #include "LinearAccelGravity.h"
 #include "Quaternion.h"

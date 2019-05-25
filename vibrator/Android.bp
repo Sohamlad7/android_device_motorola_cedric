@@ -27,5 +27,5 @@ cc_binary {
         "libhardware",
         "android.hardware.vibrator@1.0",
     ],
-    proprietary: true,
+    vendor: true,
 }

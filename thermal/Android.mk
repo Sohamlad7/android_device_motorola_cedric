@@ -23,6 +23,7 @@ LOCAL_PROPRIETARY_MODULE := true
 LOCAL_SRC_FILES := thermal.c
 LOCAL_SRC_FILES += thermal-8937.c
 
+LOCAL_HEADER_LIBRARIES := libutils_headers libhardware_headers
 LOCAL_SHARED_LIBRARIES := liblog libcutils
 LOCAL_MODULE_TAGS := optional
 LOCAL_CFLAGS := -Wno-unused-parameter

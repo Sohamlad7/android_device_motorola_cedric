@@ -22,7 +22,6 @@ av.offload.enable=false
 av.debug.disable.pers.cache=1
 persist.audio.endcall.delay=250
 qcom.hw.aac.encoder=false
-
 persist.vendor.audio.calfile0=/vendor/etc/acdbdata/Bluetooth_cal.acdb
 persist.vendor.audio.calfile1=/vendor/etc/acdbdata/General_cal.acdb
 persist.vendor.audio.calfile2=/vendor/etc/acdbdata/Global_cal.acdb
@@ -30,14 +29,12 @@ persist.vendor.audio.calfile3=/vendor/etc/acdbdata/Handset_cal.acdb
 persist.vendor.audio.calfile4=/vendor/etc/acdbdata/Hdmi_cal.acdb
 persist.vendor.audio.calfile5=/vendor/etc/acdbdata/Headset_cal.acdb
 persist.vendor.audio.calfile6=/vendor/etc/acdbdata/Speaker_cal.acdb
-
 persist.vendor.audio.fluence.speaker=false
 persist.vendor.audio.fluence.voicecall=true
 persist.vendor.audio.fluence.voicecomm=true
 persist.vendor.audio.fluence.voicerec=false
 ro.qc.sdk.audio.fluencetype=none
 ro.qc.sdk.audio.ssr=false
-
 vendor.use.voice.path.for.pcm.voip=false
 
 # Bluetooth
@@ -65,16 +62,13 @@ sys.vendor.shutdown.waittime=500
 ro.build.shutdown_timeout=0
 
 # Camera
-persist.camera.is_type=1
 persist.camera.gyro.android=1
-
 camera.disable_zsl_mode=1
 camera.display.umax=1920x1080
 camera.display.lmax=1280x720
 camera.mot.startup_probing=0
 persist.camera.debug.logfile=0
 persist.camera.gyro.disable=0
-
 vidc.enc.dcvs.extra-buff-count=2
 vendor.vidc.enc.disable_bframes=1
 vendor.vidc.disable.split.mode=1
@@ -251,7 +245,6 @@ persist.radio.sap_silent_pin=1
 persist.radio.always_send_plmn=true
 persist.rcs.supported=1
 ro.telephony.default_network=10,0
-
 persist.radio.msgtunnel.start=true
 persist.radio.apm_sim_not_pwdn=1
 persist.vendor.radio.qcril_uim_vcc_feature=1
@@ -259,7 +252,6 @@ persist.radio.schd.cache=3500
 persist.vendor.radio.apm_sim_not_pwdn=1
 persist.vendor.radio.lte_vrte_ltd=1
 persist.vendor.radio.cs_srv_type=1
-
 ro.use_data_netmgrd=true
 persist.data.mode=concurrent
 persist.data.qmi.adb_logmask=0

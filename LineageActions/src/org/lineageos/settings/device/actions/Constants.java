@@ -36,8 +36,8 @@ public class Constants {
     // FP gestures
     public static final int FP_TAP_SCANCODE = 616;
     public static final int FP_HOLD_SCANCODE = 617;
-    public static final int FP_RIGHT_SCANCODE = 620;
-    public static final int FP_LEFT_SCANCODE = 621;
+    public static final int FP_LEFT_SCANCODE = 620;
+    public static final int FP_RIGHT_SCANCODE = 621;
     public static final int[] sSupportedFPGestures = new int[]{
             FP_TAP_SCANCODE,
             FP_HOLD_SCANCODE,

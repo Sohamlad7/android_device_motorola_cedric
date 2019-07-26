@@ -9,6 +9,7 @@ VNDK_SP_LIBRARIES := \
     libRSCpuRef \
     libRSDriver \
     libRS_internal \
+    libdexfile_support \
     libbacktrace \
     libbase \
     libbcinfo \

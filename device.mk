@@ -98,6 +98,7 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
+    persist.bluetooth.bluetooth_audio_hal.disabled=true \
     libbt-vendor
 
 # Camera

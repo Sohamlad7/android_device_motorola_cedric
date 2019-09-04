@@ -212,6 +212,7 @@ TARGET_USES_ALTERNATIVE_MANUAL_NETWORK_SELECT := true
 # SELinux
 # include device/qcom/sepolicy/sepolicy.mk
 # BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy-minimal
 
 # Sensor
 BOARD_USES_MOT_SENSOR_HUB := true

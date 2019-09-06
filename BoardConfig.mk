@@ -69,7 +69,7 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 androidboot.usbconfigfs=false
-BOARD_KERNEL_CMDLINE += ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 vmalloc=350M
+BOARD_KERNEL_CMDLINE += ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 vmalloc=350M androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 BOARD_KERNEL_PAGESIZE := 2048
@@ -121,7 +121,7 @@ AUDIO_FEATURE_ENABLED_SND_MONITOR := true
 BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_GENERIC_AUDIO := true
 TARGET_USES_QCOM_MM_AUDIO := true
-USE_CUSTOM_AUDIO_POLICY := 1
+#USE_CUSTOM_AUDIO_POLICY := 1
 USE_XML_AUDIO_POLICY_CONF := true
 
 # Bluetooth
@@ -211,8 +211,8 @@ LZMA_RAMDISK_TARGETS := recovery
 TARGET_RIL_VARIANT := caf
 
 # SELinux
-include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+# include device/qcom/sepolicy/sepolicy.mk
+# BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Sensor
 BOARD_USES_MOT_SENSOR_HUB := true

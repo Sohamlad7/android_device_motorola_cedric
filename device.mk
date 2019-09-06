@@ -18,8 +18,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay
+#    $(LOCAL_PATH)/overlay-lineage
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -358,8 +358,8 @@ PRODUCT_PACKAGES += \
     qti-telephony-common \
     telephony-ext
 
-PRODUCT_BOOT_JARS += \
-    telephony-ext
+# PRODUCT_BOOT_JARS += \
+#    telephony-ext
 
 # Sensors
 PRODUCT_COPY_FILES += \
@@ -445,8 +445,8 @@ PRODUCT_PACKAGES += \
     libaacwrapper \
     libnl
 
-PRODUCT_BOOT_JARS += \
-    WfdCommon
+# PRODUCT_BOOT_JARS += \
+#    WfdCommon
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 

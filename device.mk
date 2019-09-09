@@ -357,14 +357,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
 
-# IMS
-PRODUCT_PACKAGES += \
-    ims-ext-common
-
-# IMS
+# IMS & Telephony
 PRODUCT_PACKAGES += \
     ims-ext-common_system \
-    telephony-ext
+    ims_ext_common.xml \
+    telephony-ext \
+    qti-telephony-hidl-wrapper \
+    qti_telephony_hidl_wrapper.xml
 
 PRODUCT_BOOT_JARS += \
     telephony-ext

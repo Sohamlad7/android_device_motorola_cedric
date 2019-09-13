@@ -164,11 +164,6 @@ on post-fs-data
     #setup folder for WLAN WAPI
     chmod 0770 /data/wapi_certificate
 
-    # Enable directory writer xattr for 2nd level directory /storage/emulated/xx/yy
-    setfattr /data/media user.dwriter /%s/%s 0
-    # Enable relatime for /storage/emulated/xx/Download
-    setfattr /data/media user.relatime /%s/Download:com.motorola.mya 0
-
 on boot
    # restore default console_loglevel to KERN_DEBUG
    # restore default_message_loglevel to KERN_WARNING

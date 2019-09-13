@@ -14,6 +14,18 @@
         <permission name="android.permission.INTERACT_ACROSS_USERS"/>
     </privapp-permissions>
 
+   <privapp-permissions package="com.qualcomm.atfwd">
+        <permission name="android.permission.INTERACT_ACROSS_USERS"/>
+    </privapp-permissions>
+
+   <privapp-permissions package="com.android.vending">
+        <permission name="android.permission.CHANGE_OVERLAY_PACKAGES"/>
+    </privapp-permissions>
+
+   <privapp-permissions package="com.google.android.gms">
+        <permission name="android.permission.MODIFY_DAY_NIGHT_MODE"/>
+    </privapp-permissions>
+
     <privapp-permissions package="com.quicinc.cne.CNEService">
         <permission name="android.permission.INTERACT_ACROSS_USERS"/>
         <permission name="android.permission.PACKET_KEEPALIVE_OFFLOAD"/>

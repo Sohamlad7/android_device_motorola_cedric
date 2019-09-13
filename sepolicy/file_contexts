@@ -138,9 +138,6 @@
 # Fingerprint custom hal
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service_32 u:object_r:hal_fingerprint_default_exec:s0
 
-# Usb hal
-/(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.0-service\.cedric       u:object_r:hal_usb_default_exec:s0
-
 # Fingerprint custom hal
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-fpcservice u:object_r:hal_fingerprint_default_exec:s0
 

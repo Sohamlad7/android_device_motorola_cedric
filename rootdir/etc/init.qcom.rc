@@ -52,7 +52,7 @@ on late-fs
     start servicemanager
     start surfaceflinger
     start bootanim
-    start gralloc-2-0
+    start vendor.gralloc-2-0
 
     # Wait for hwservicemanager ready since fsck might be triggered in mount_all --late
     # In such case, init won't responce the property_set from hwservicemanager and then
@@ -269,7 +269,6 @@ on boot
 
     write /dev/cpuset/top-app/cpus 0-3
     write /dev/cpuset/top-app/boost/cpus 0-3
-    write /dev/cpuset/foreground/cpus 0-7
     write /dev/cpuset/background/cpus 4-7
     write /dev/cpuset/system-background/cpus 4-7
 
@@ -400,6 +399,11 @@ on post-fs-data
     mkdir /dev/socket/location 0770 gps gps
     mkdir /dev/socket/location/mq 0770 gps gps
     mkdir /dev/socket/location/xtra 0770 gps gps
+    mkdir /data/vendor/location-partner 0770 gps gps
+    mkdir /data/vendor/location-partner/dre 0770 gps gps
+    mkdir /data/vendor/location-partner/ppe 0770 gps gps
+    mkdir /dev/socket/location 0770 gps gps
+    mkdir /dev/socket/location/ehub 0770 gps gps
 
     #Create directory from IMS services
     mkdir /data/shared 0755
@@ -643,6 +647,7 @@ on property:init.svc.vendor.per_mgr=running
 
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
+    stop vendor.ims_rtp_daemon
 
 on property:ro.hw.ecompass=true
     enable ecompassd
@@ -792,9 +797,14 @@ on charger
     wait /dev/block/bootdevice/by-name/system
     mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
     load_system_props
-    setprop sys.usb.configfs 0
     setprop persist.sys.usb.config mass_storage
     write /sys/class/leds/white/trigger "battery-full"
+
+on charger && property:ro.boot.usbconfigfs=true
+    setprop sys.usb.configfs 1
+
+on charger && property:ro.boot.usbconfigfs=false
+    setprop sys.usb.configfs 0
 
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "

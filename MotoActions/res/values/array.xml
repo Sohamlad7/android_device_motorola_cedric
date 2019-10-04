@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2017 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string-array name="fp_keys_listArray">
+        <item>@string/action_none</item>
+        <item>@string/action_home</item>
+        <item>@string/action_power</item>
+        <item>@string/action_back</item>
+        <item>@string/action_recents</item>
+        <item>@string/action_last_app</item>
+        <item>@string/action_volume_up</item>
+        <item>@string/action_volume_down</item>
+        <item>@string/action_voice_assistant</item>
+        <item>@string/action_play_pause</item>
+        <item>@string/action_previous_track</item>
+        <item>@string/action_next_track</item>
+        <item>@string/action_flashlight</item>
+        <item>@string/action_camera</item>
+        <item>@string/action_screenshot</item>
+        <item>@string/action_pip</item>
+    </string-array>
+    <string-array name="fp_keys_listValues">
+        <item>0</item>
+        <item>100</item> <!-- home -->
+        <item>101</item> <!-- power -->
+        <item>102</item> <!-- back -->
+        <item>103</item> <!-- recents -->
+        <item>121</item> <!-- last app -->
+        <item>104</item> <!-- volume up -->
+        <item>105</item> <!-- volume down -->
+        <item>106</item> <!-- voice assistant -->
+        <item>107</item> <!-- play/pause -->
+        <item>108</item> <!-- previous track -->
+        <item>109</item> <!-- next track -->
+        <item>110</item> <!-- flashlight -->
+        <item>111</item> <!-- camera -->
+        <item>112</item> <!-- screenshot -->
+        <item>120</item> <!-- pip -->
+    </string-array>
+
+    <string-array name="fp_keys_screen_off_listArray">
+        <item>@string/action_none</item>
+        <item>@string/action_power</item>
+        <item>@string/action_volume_up</item>
+        <item>@string/action_volume_down</item>
+        <item>@string/action_play_pause</item>
+        <item>@string/action_previous_track</item>
+        <item>@string/action_next_track</item>
+        <item>@string/action_flashlight</item>
+        <item>@string/action_camera</item>
+    </string-array>
+    <string-array name="fp_keys_screen_off_listValues">
+        <item>0</item>
+        <item>101</item> <!-- power -->
+        <item>104</item> <!-- volume up -->
+        <item>105</item> <!-- volume down -->
+        <item>107</item> <!-- play/pause -->
+        <item>108</item> <!-- previous track -->
+        <item>109</item> <!-- next track -->
+        <item>110</item> <!-- flashlight -->
+        <item>111</item> <!-- camera -->
+    </string-array>
+    
+</resources>

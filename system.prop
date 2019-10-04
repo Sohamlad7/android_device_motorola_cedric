@@ -75,8 +75,8 @@ vendor.vidc.disable.split.mode=1
 vendor.vidc.enc.disable.pq=true
 vendor.vidc.dec.downscalar_width=1920
 vendor.vidc.dec.downscalar_height=1088
-media.camera.ts.monotonic=1
-persist.camera.time.monotonic=1
+media.camera.ts.monotonic=0
+persist.camera.time.monotonic=0
 persist.camera.max.previewfps=30
 persist.camera.HAL3.enabled=1
 persist.camera.eis.enable=1
@@ -311,3 +311,4 @@ ro.vendor.gt_library=libqti-gt.so
 # touch optimize
 persist.vendor.qti.inputopts.enable=true
 persist.vendor.qti.inputopts.movetouchslop=0.6
+qemu.hw.mainkeys=0

@@ -408,4 +408,14 @@
     <!-- Whether device needs to wait for Qualcomm MPCTL service to start
          before setting power profiles on boot. -->
     <bool name="config_waitForMpctlOnBoot">true</bool>
+    <string-array name="config_deviceKeyHandlerLibs" translatable="false">
+        <item>/system/priv-app/MotoActions/MotoActions.apk</item> 
+    </string-array> 
+     <!-- Names of the key handler classes --> 
+    <string-array name="config_deviceKeyHandlerClasses" 
+    translatable="false">
+        <item>com.moto.actions.KeyHandler</item>
+    </string-array>
+    <!-- Whether device can force navbar disabling --> 
+    <bool name="config_canForceDisableNavigationBar">true</bool>
 </resources>

@@ -116,7 +116,7 @@ PRODUCT_PACKAGES += \
 
 # LineageActions
 PRODUCT_PACKAGES += \
-    LineageActions
+    MotoActions
 
 # Display
 PRODUCT_PACKAGES += \
@@ -218,11 +218,6 @@ PRODUCT_PACKAGES += \
 # health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-service.cedric
-
-# IPACM
-PRODUCT_PACKAGES += \
-    ipacm \
-    IPACM_cfg.xml
 
 # IRSC
 PRODUCT_COPY_FILES += \
@@ -377,10 +372,6 @@ PRODUCT_PACKAGES += \
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-cedric.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
-
-# Touch HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.cedric
 
 # TextClassifier smart selection model files
 PRODUCT_PACKAGES += \

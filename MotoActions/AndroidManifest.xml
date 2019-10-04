@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.moto.actions"
+    android:sharedUserId="android.uid.system"
+    >
+
+    <original-package android:name="com.cyanogenmod.settings.device" />
+
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
+    <protected-broadcast android:name="com.android.systemui.doze.pulse" />
+
+    <uses-sdk
+        android:minSdkVersion="27"
+        android:targetSdkVersion="27" />
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/moto_actions_title"
+        android:icon="@drawable/ic_gesture"
+        android:persistent="true">
+
+        <provider
+            android:name=".MotoActionsSearchIndexablesProvider"
+            android:authorities="com.moto.actions"
+            android:multiprocess="false"
+            android:grantUriPermissions="true"
+            android:permission="android.permission.READ_SEARCH_INDEXABLES"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.action.SEARCH_INDEXABLES_PROVIDER" />
+            </intent-filter>
+        </provider>
+
+        <receiver android:name="com.moto.actions.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="ServiceWrapper" android:permission="ServiceWrapper">
+            <intent-filter>
+                <action android:name="ServiceWrapper"/>
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".DozeSettingsActivity"
+            android:label="@string/ambient_display_title"
+            android:theme="@style/MotoActions">
+            <intent-filter>
+                <action android:name="com.moto.actions.DOZE_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ActionsPreferenceActivity"
+            android:label="@string/moto_actions_title"
+            android:summary="@string/device_gestures_summary"
+            android:theme="@style/MotoActions">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.homepage" />
+            <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_settings_gestures_dashboard" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/device_gestures_summary" />
+        </activity>
+
+        <activity
+            android:name=".GestureSettingsActivity"
+            android:label="@string/device_gestures_title"
+            android:theme="@style/MotoActions">
+        </activity>
+
+        <activity
+            android:name=".FPGestureSettingsActivity"
+            android:label="@string/fingerprint_gestures_title"
+            android:theme="@style/MotoActions">
+        </activity>
+
+    </application>
+
+</manifest>

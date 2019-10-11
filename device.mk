@@ -369,6 +369,8 @@ PRODUCT_PACKAGES += \
 # PRODUCT_BOOT_JARS += \
 #    telephony-ext
 
+PRODUCT_PROPERTY_OVERRIDES += ro.control_privapp_permissions=log
+
 # Sensors
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:system/etc/sensors/hals.conf \

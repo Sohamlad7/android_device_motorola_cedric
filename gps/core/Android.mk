@@ -35,7 +35,6 @@ LOCAL_SRC_FILES += \
 
 LOCAL_CFLAGS += \
      -fno-short-enums \
-     -Wno-reinterpret-base-class \
      -D_ANDROID_
 
 LOCAL_C_INCLUDES:= \

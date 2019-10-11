@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2017-2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -216,13 +216,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/cacert_location.pem:$(TARGET_COPY_OUT_VENDOR)/etc/cacert_location.pem \
     $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
 
-# GPS
+# GPS / Location
 PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl-qti \
+    android.hardware.gnss@1.0-service-qti \
     libgnss \
     libgnsspps \
-    android.hardware.gnss@1.1-impl-qti \
-    android.hardware.gnss@1.1-service-qti \
-    libqsap_sdk \
+    libcurl \
     libqsap_shim
 
 # Gatekeeper HAL
@@ -421,33 +421,25 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vndk-sp
 
-# Wifi
-PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service \
-    hostapd \
-    libqsap_sdk \
-    libwpa_client \
-    wcnss_service \
-    wificond \
-    wifilogd \
-    wpa_supplicant \
-    wpa_supplicant.conf
-
 #Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl \
     android.hardware.thermal@1.0-service \
     thermal.msm8937
 
-#Wifi
+# Wifi
 PRODUCT_PACKAGES += \
-    libcurl \
+    android.hardware.wifi@1.0-service \
+    hostapd \
+    libqsap_sdk \
+    libwpa_client \
     libQWiFiSoftApCfg \
-    wificond \
-    wifilogd \
     tcpdump \
     wcnss_service \
-    libwpa_client
+    wificond \
+    wifilogd \
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 # Wifi Configurations
 PRODUCT_COPY_FILES += \

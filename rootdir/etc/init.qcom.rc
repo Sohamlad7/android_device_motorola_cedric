@@ -25,8 +25,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import /system/vendor/etc/init/hw/init.mmi.rc
-import /system/vendor/etc/init/hw/init.cedric.rc
+import /vendor/etc/init/hw/init.mmi.rc
+import /vendor/etc/init/hw/init.cedric.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -41,8 +41,7 @@ on early-init
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-
-    mount_all /system/vendor/etc/fstab.qcom --early
+    mount_all /vendor/etc/fstab.qcom --early
 
 on late-fs
     # Start services for bootanim
@@ -58,7 +57,7 @@ on late-fs
     wait_for_prop hwservicemanager.ready true
 
     # mount RW partitions which need run fsck
-    mount_all /system/vendor/etc/fstab.qcom --late
+    mount_all /vendor/etc/fstab.qcom --late
 
     # Keeping following partitions outside fstab file. As user may not have
     # these partition flashed on the device. Failure to mount any partition in fstab file
@@ -464,13 +463,13 @@ on property:persist.usb.chgdisabled=1
 on property:persist.usb.chgdisabled=0
     write /sys/class/power_supply/battery/charging_enabled 1
 
-service vendor.qseecomd /system/vendor/bin/qseecomd
+service vendor.qseecomd /vendor/bin/qseecomd
    class core
    user root
    group root
    writepid /dev/cpuset/system-background/tasks
 
-service vendor.thermal-engine /system/vendor/bin/thermal-engine
+service vendor.thermal-engine /vendor/bin/thermal-engine
    class main
    user root
    socket thermal-send-client stream 0666 system system
@@ -480,12 +479,12 @@ service vendor.thermal-engine /system/vendor/bin/thermal-engine
    group root
    writepid /dev/cpuset/system-background/tasks
 
-service vendor.time_daemon /system/vendor/bin/time_daemon
+service vendor.time_daemon /vendor/bin/time_daemon
     class main
     user root
     group root
 
-service audiod /system/vendor/bin/audiod
+service audiod /vendor/bin/audiod
    class late_start
    user system
    group system
@@ -497,18 +496,18 @@ on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
 #start camera server as daemon
-service vendor.qcamerasvr /system/vendor/bin/mm-qcamera-daemon
+service vendor.qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.cnd /system/vendor/bin/cnd
+service vendor.cnd /vendor/bin/cnd
     class main
     user system
     group system wifi inet radio wakelock net_admin
 
-service vendor.qseeproxydaemon /system/vendor/bin/qseeproxydaemon
+service vendor.qseeproxydaemon /vendor/bin/qseeproxydaemon
     class late_start
     user system
     group system
@@ -520,31 +519,31 @@ service vendor.wcnss-service /system/vendor/bin/wcnss_service
     group system wifi radio
     oneshot
 
-service vendor.adsprpcd /system/vendor/bin/adsprpcd
+service vendor.adsprpcd /vendor/bin/adsprpcd
     class main
     user media
     group media
 
 # Start AKM executable
-service ecompassd /system/vendor/bin/akmd09912
+service ecompassd /vendor/bin/akmd09912
     class main
     user compass
     group compass misc input
     disabled
 
-service vendor.irsc_util /system/vendor/bin/irsc_util "/system/vendor/etc/sec_config"
+service vendor.irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class core
     user root
     oneshot
 
-service vendor.imsqmidaemon /system/vendor/bin/imsqmidaemon
+service vendor.imsqmidaemon /vendor/bin/imsqmidaemon
     class main
     user radio
     socket ims_qmid stream 0660 system radio
     group radio log diag
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
+service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
     class main
     user radio
     socket ims_datad stream 0660 system radio
@@ -555,13 +554,13 @@ service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
 on property:vendor.ims.QMI_DAEMON_STATUS=1
     start vendor.imsdatadaemon
 
-service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
+service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
     class main
     user radio
     socket ims_rtpd stream 0660 system radio
     group radio inet log
 
-service vendor.imsrcsservice /system/vendor/bin/imsrcsd
+service vendor.imsrcsservice /vendor/bin/imsrcsd
     class main
     user radio
     group radio diag inet log
@@ -570,7 +569,7 @@ service vendor.imsrcsservice /system/vendor/bin/imsrcsd
 on property:vendor.ims.DATA_DAEMON_STATUS=1
     restart vendor.ims_rtp_daemon
 
-service vendor.rmt_storage /system/vendor/bin/rmt_storage
+service vendor.rmt_storage /vendor/bin/rmt_storage
     class core
     user root
     ioprio rt 0
@@ -616,24 +615,24 @@ service hci_filter_root /system/bin/wcnss_filter
     disabled
 
 #net_admin capability needed to write rfkill sysfs entry
-service fmhal_service /system/vendor/bin/fmhal_service
+service fmhal_service /vendor/bin/fmhal_service
     class late_start
     user bluetooth
     group bluetooth net_bt_admin net_admin
     disabled
 
-service vendor.tftp_server /system/vendor/bin/tftp_server
+service vendor.tftp_server /vendor/bin/tftp_server
    class core
    user root
    writepid /dev/cpuset/system-background/tasks
 
-service vendor.per_mgr /system/vendor/bin/pm-service
+service vendor.per_mgr /vendor/bin/pm-service
     class core
     user system
     group system net_raw
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.per_proxy /system/vendor/bin/pm-proxy
+service vendor.per_proxy /vendor/bin/pm-proxy
     class core
     user system
     group system
@@ -650,12 +649,12 @@ on property:sys.shutdown.requested=*
 on property:ro.hw.ecompass=true
     enable ecompassd
 
-service vendor.netmgrd /system/vendor/bin/netmgrd
+service vendor.netmgrd /vendor/bin/netmgrd
     class main
     group radio system wakelock
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.qti /system/vendor/bin/qti
+service vendor.qti /vendor/bin/qti
     class main
     user radio
     group radio net_raw oem_2950 usb net_admin
@@ -757,7 +756,7 @@ service dhcpcd_bnep4 /system/bin/dhcpcd -BKLG
     disabled
     oneshot
 
-service vendor.loc_launcher /system/vendor/bin/loc_launcher
+service vendor.loc_launcher /vendor/bin/loc_launcher
     class late_start
     user gps
     group gps
@@ -769,7 +768,7 @@ on property:vendor.hw.fm.init=0
 on property:vendor.hw.fm.init=1
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
 
-service atfwd /system/vendor/bin/ATFWD-daemon
+service atfwd /vendor/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
@@ -784,7 +783,7 @@ service vendor.ril-daemon2 /vendor/bin/hw/rild -c 2
     group radio cache inet misc audio log readproc wakelock
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
-service ssr_setup /system/vendor/bin/ssr_setup
+service ssr_setup /vendor/bin/ssr_setup
     oneshot
     disabled
 

@@ -221,6 +221,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apn_delay=5000 \
     persist.radio.adam=true \
+    persist.sys.fflag.override.settings_network_and_internet_v2=true \
     persist.vendor.radio.dfr_mode_set=1 \
     persist.vendor.radio.force_get_pref=1 \
     persist.vendor.radio.no_wait_for_card=1 \
@@ -287,7 +288,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.cne.logging.qxdm=3974 \
     persist.vendor.ims.disableDebugLogs=1 \
     persist.vendor.ims.disableQXDMLogs=1 \
-    DEVICE_PROVISIONED=1 
+    DEVICE_PROVISIONED=1
 
 # RmNet Data
 PRODUCT_PROPERTY_OVERRIDES += \

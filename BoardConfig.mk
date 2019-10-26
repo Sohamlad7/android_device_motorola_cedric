@@ -187,6 +187,7 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
     /mnt/vendor/persist:/persist \
     /vendor/firmware_mnt:/firmware \
     /vendor/dsp:/dsp \
+    /vendor/firmware_mnt/image:firmware/image
 
 BOARD_ROOT_EXTRA_FOLDERS := dsp firmware fsg persist
 

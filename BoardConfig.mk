@@ -185,9 +185,9 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 26401026048 # 25782252 * 1024 mmcblk0p54
 
 BOARD_ROOT_EXTRA_SYMLINKS := \
     /mnt/vendor/persist:/persist \
-    /vendor/firmware_mnt:/firmware \
+    /vendor/firmware:/firmware \
     /vendor/dsp:/dsp \
-    /vendor/firmware_mnt/image:firmware/image
+    /vendor/firmware/image:firmware/image
 
 BOARD_ROOT_EXTRA_FOLDERS := dsp firmware fsg persist
 

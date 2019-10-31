@@ -116,7 +116,8 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0 \
     vendor.qti.hardware.camera.device@1.0_vendor \
     libjustshoot_shim \
-    libgpu_mapper_shim
+    libgpu_mapper_shim \
+    libgui_vendor
 
 # Camera Configurations
 PRODUCT_COPY_FILES += \

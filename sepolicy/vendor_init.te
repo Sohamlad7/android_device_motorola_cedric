@@ -19,3 +19,5 @@ allow vendor_init fpc_data_file:dir setattr;
 allow vendor_init sds_data_file:dir setattr;
 allow vendor_init adspd_data_file:dir setattr;
 allow vendor_init fps_data_file:dir setattr;
+
+set_prop(vendor_init, vendor_fm_prop)

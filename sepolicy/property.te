@@ -5,3 +5,4 @@ type touch_prop, property_type;
 type diag_prop, property_type;
 type thermal_prop, property_type;
 type qti_telephony_prop, property_type;
+type vendor_fm_prop, property_type;

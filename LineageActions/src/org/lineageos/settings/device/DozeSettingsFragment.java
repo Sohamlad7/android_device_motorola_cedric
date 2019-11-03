@@ -18,10 +18,7 @@ package org.lineageos.settings.device;
 
 import android.app.ActionBar;
 import android.os.Bundle;
-import android.support.v14.preference.PreferenceFragment;
 import android.provider.Settings;
-import android.support.v7.preference.Preference;
-import android.support.v14.preference.SwitchPreference;
 import android.view.MenuItem;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,9 +26,12 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragment;
+import androidx.preference.SwitchPreference;
 
 public class DozeSettingsFragment extends PreferenceFragment {
-    
+
     private SwitchPreference mHandwavePreference;
     private SwitchPreference mPickupPreference;
 

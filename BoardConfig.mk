@@ -244,9 +244,6 @@ TARGET_LD_SHIM_LIBS := \
     /system/lib/libjustshoot.so|libjustshoot_shim.so \
     /system/vendor/lib/libmot_gpu_mapper.so|libgpu_mapper_shim.so
 
-# Thermal
-USE_DEVICE_SPECIFIC_THERMAL := true
-
 # Security patch level
 VENDOR_SECURITY_PATCH := 2018-10-01
 

@@ -366,8 +366,8 @@ PRODUCT_PACKAGES += \
     ims-ext-common_system \
     telephony-ext
 
-# PRODUCT_BOOT_JARS += \
-#    telephony-ext
+PRODUCT_BOOT_JARS += \
+    telephony-ext
 
 PRODUCT_PROPERTY_OVERRIDES += ro.control_privapp_permissions=log
 
@@ -450,8 +450,8 @@ PRODUCT_PACKAGES += \
     libaacwrapper \
     libnl
 
-# PRODUCT_BOOT_JARS += \
-#    WfdCommon
+PRODUCT_BOOT_JARS += \
+    WfdCommon
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 

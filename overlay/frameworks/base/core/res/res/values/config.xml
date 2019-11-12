@@ -233,17 +233,16 @@
     <string-array translatable="false" name="networkAttributes">
         <item>"wifi,1,1,1,-1,true"</item>
         <item>"mobile,0,0,0,-1,true"</item>
-        <item>"mobile_mms,2,0,2,60000,true"</item>
+        <item>"mobile_mms,2,0,4,60000,true"</item>
         <item>"mobile_supl,3,0,2,60000,true"</item>
         <item>"mobile_dun,4,0,2,60000,true"</item>
         <item>"mobile_hipri,5,0,3,60000,true"</item>
         <item>"mobile_fota,10,0,2,60000,true"</item>
         <item>"mobile_ims,11,0,2,60000,true"</item>
         <item>"mobile_cbs,12,0,2,60000,true"</item>
-        <item>"mobile_ia,14,0,2,-1,true"</item>
         <item>"bluetooth,7,7,2,-1,true"</item>
+        <item>"mobile_emergency,15,0,5,-1,true"</item>
         <item>"ethernet,9,9,9,-1,true"</item>
-        <item>"mobile_emergency,15,0,2,-1,true"</item>
     </string-array>
 
     <!-- This string array should be overridden by the device to present a list of radio
@@ -263,17 +262,16 @@
          If no value is found for the rat-name in use, the system default will be applied.
     -->
     <string-array name="config_mobile_tcp_buffers">
-        <item>lte:524288,1048576,8388608,262144,524288,4194304</item>
-        <item>lte_ca:524288,1048576,8388608,262144,524288,4194304</item>
-        <item>umts:131072,262144,1452032,4096,16384,399360</item>
-        <item>hspa:131072,262144,1452032,4096,16384,399360</item>
-        <item>hsupa:131072,262144,1452032,4096,16384,399360</item>
-        <item>hsdpa:131072,262144,1452032,4096,16384,399360</item>
-        <item>hspap:131072,262144,1452032,4096,16384,399360</item>
-        <item>edge:16384,32768,131072,4096,16384,65536</item>
-        <item>gprs:4096,8192,24576,4096,8192,24576</item>
-        <item>evdo:131072,262144,1048576,4096,16384,524288</item>
-        <item>ehrpd:4094,87380,1048576,4096,16384,262144</item>
+        <item>"lte:2097152,4194304,8388608,262144,524288,1048576"</item>
+        <item>"lte_ca:4096,6291456,12582912,4096,1048576,2097152"</item>
+        <item>"umts:4094,87380,1220608,4096,16384,1220608"</item>
+        <item>"hspa:4094,87380,1220608,4096,16384,1220608"</item>
+        <item>"hsupa:4094,87380,1220608,4096,16384,1220608"</item>
+        <item>"hsdpa:4094,87380,1220608,4096,16384,1220608"</item>
+        <item>"hspap:4094,87380,1220608,4096,16384,1220608"</item>
+        <item>"edge:4093,26280,35040,4096,16384,35040"</item>
+        <item>"gprs:4092,8760,11680,4096,8760,11680"</item>
+        <item>"evdo:4094,87380,524288,4096,16384,262144"</item>
     </string-array>
 
     <!-- Configure ethernet tcp buffersizes in the form:
@@ -429,6 +427,9 @@
 
     <!-- Whether navigation bar can be disabled (for devices with hardware keys) -->
     <bool name="config_canDisableNavigationBar">true</bool>
+
+    <!-- Whether the Unprocessed audio source supports the required frequency range and level -->
+    <bool name="config_supportAudioSourceUnprocessed">true</bool>
 
     <!-- Whether or not swipe up gesture's opt-in setting is available on this device -->
     <bool name="config_swipe_up_gesture_setting_available">true</bool>

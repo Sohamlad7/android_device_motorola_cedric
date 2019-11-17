@@ -432,9 +432,9 @@ on post-fs-data
 
 service vendor.charger /charger
     class charger
-    group log
+    user system
+    group system graphics input
     seclabel u:r:healthd:s0
-    disabled
 
 # Allow usb charging to be disabled peristently
 on property:persist.usb.chgdisabled=1

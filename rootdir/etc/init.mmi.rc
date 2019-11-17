@@ -292,7 +292,7 @@ on charger
 on moto-charger
     setprop ro.board.platform msm8937
     trigger firmware_mounts_complete
-    start vendor.charge_only_mode
+    start vendor.charger
     start vendor.thermal-com
 
 on property:ro.boot.dualsim=true

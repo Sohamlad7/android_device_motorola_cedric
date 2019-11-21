@@ -307,7 +307,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service-qti
+    android.hardware.power@1.2-service
 
 # Public Libraries
 PRODUCT_COPY_FILES += \

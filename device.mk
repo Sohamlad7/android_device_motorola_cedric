@@ -317,6 +317,9 @@ PRODUCT_COPY_FILES += \
 # Preopt SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
 
+# Properties
+-include $(LOCAL_PATH)/device_props.mk
+
 # Qualcomm
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-oem.xml:system/etc/permissions/privapp-permissions-oem.xml \

@@ -356,5 +356,7 @@ on property:ro.bootmode=normal
    write /sys/module/usb3813_hub/parameters/boost_val 3
 
 on property:sys.boot_completed=1
-    # Set correct rndis for usb tethering
+    #Configure mtp rx/tx req len for msm8937
+    write /sys/module/g_android/parameters/mtp_rx_req_len 1048576
+    write /sys/module/g_android/parameters/mtp_tx_req_len 16384
     write /sys/class/android_usb/android0/f_rndis_qc/rndis_transports " "

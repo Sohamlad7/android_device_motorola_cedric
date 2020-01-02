@@ -1,5 +1,4 @@
 # ADSP
-/sys/kernel/aov(/.*)?                                    u:object_r:sysfs_adsp:s0
 /data/adspd(/.*)?                                        u:object_r:adspd_data_file:s0
 
 # AMPS
@@ -139,10 +138,14 @@
 /sys/devices/virtual/timed_output/vibrator/vtg_min                               u:object_r:sysfs_vibrator:s0
 /sys/devices/virtual/timed_output/vibrator/vtg_max                               u:object_r:sysfs_vibrator:s0
 
-/system/vendor/bin/hw/android\.hardware\.light@2\.0-service.cedric                                              u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service.cedric                                     u:object_r:hal_light_default_exec:s0
 /sys/devices/soc/1a00000.qcom,mdss_mdp/1a00000.qcom,mdss_mdp:qcom,mdss_fb_primary/leds/lcd-backlight/brightness	u:object_r:sysfs_leds:s0
 /sys/devices/soc/leds-atc-20/leds/charging/brightness	                                                        u:object_r:sysfs_leds:s0
 
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.widevine            u:object_r:hal_drm_widevine_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.clearkey            u:object_r:hal_drm_clearkey_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.cedric              u:object_r:hal_lineage_touch_default_exec:s0
+
+/bt_firmware(/.*)?       u:object_r:bt_firmware_file:s0
+/firmware(/.*)?          u:object_r:firmware_file:s0
+/fsg(/.*)?               u:object_r:fsg_file:s0

@@ -1,5 +1,3 @@
-motorola.hardware.camera.provider::ICameraProvider          u:object_r:hal_camera_hwservice:s0
-motorola.hardware.mods_camera.provider::ICameraProvider     u:object_r:hal_camera_hwservice:s0
 com.quicinc.cne.api::IApiService                                u:object_r:hal_cne_hwservice:s0
 com.quicinc.cne.server::IServer                                 u:object_r:hal_cne_hwservice:s0
 com.fingerprints.extension::IFingerprintAuthenticator                             u:object_r:fpc_extension_service:s0

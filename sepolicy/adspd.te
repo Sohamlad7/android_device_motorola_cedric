@@ -11,8 +11,6 @@ allow adspd vendor_shell_exec:file entrypoint;
 allow adspd audio_device:chr_file { ioctl open read write };
 allow adspd audio_device:dir search;
 allow adspd input_device:chr_file { ioctl open read };
-allow adspd input_device:dir search;
-allow adspd sysfs_adsp:file write;
 # The below one is WRONG
 allow adspd sysfs:file write;
 

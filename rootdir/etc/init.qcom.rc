@@ -87,7 +87,7 @@ on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
     start vendor.qseecomd
-    wait_for_prop sys.listeners.registered true
+    wait_for_prop vendor.sys.listeners.registered true
     write /dev/ipa 1
 
     # Allow subsystem (modem etc) debugging
@@ -455,6 +455,10 @@ service vendor.qseecomd /vendor/bin/qseecomd
    user root
    group root
    writepid /dev/cpuset/system-background/tasks
+
+on property:vendor.sys.listeners.registered=*
+    setprop sys.keymaster.loaded ${vendor.sys.listeners.registered}
+    setprop vendor.sys.keymaster.loaded ${vendor.sys.listeners.registered}
 
 service vendor.thermal-engine /vendor/bin/thermal-engine
    class main

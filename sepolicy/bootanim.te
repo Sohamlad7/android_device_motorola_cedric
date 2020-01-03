@@ -5,3 +5,6 @@ allow bootanim hwservicemanager:binder call;
 # in /data/system. This should be moved. In the meantime, suppress
 # this denial on wahoo since this functionality is not used.
 dontaudit bootanim system_data_file:dir read;
+
+allow bootanim sysfs_kgsl:dir search;
+allow bootanim sysfs_kgsl:file r_file_perms;

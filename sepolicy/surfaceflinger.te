@@ -6,3 +6,4 @@ allow surfaceflinger diag_device:chr_file { read write };
 
 binder_call(surfaceflinger, hwservicemanager)
 
+allow surfaceflinger sysfs_kgsl:file r_file_perms;

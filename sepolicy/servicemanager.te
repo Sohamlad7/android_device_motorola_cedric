@@ -43,3 +43,6 @@ allow servicemanager sensors:dir search;
 allow servicemanager sensors:file { open read };
 allow servicemanager sensors:process getattr;
 
+allow servicemanager mediaswcodec:dir r_dir_perms;
+allow servicemanager mediaswcodec:file r_file_perms;
+allow servicemanager mediaswcodec:process getattr;

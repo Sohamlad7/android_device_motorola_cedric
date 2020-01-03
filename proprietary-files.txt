@@ -13,7 +13,7 @@
 -product/priv-app/ims/ims.apk
 -product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 -vendor/app/CACertService/CACertService.apk
--vendor/app/TimeService/TimeService.apk
+-vendor/app/TimeService/TimeService.apk;:timeservice_app_cert-legacy-um
 -vendor/lib/libbtnv.so
 -vendor/lib64/libbtnv.so
 -vendor/lib64/libloc_api_v02.so

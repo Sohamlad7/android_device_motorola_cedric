@@ -1,5 +1,5 @@
 type akmd, domain;
-type akmd_exec, exec_type, file_type;
+type akmd_exec, exec_type, file_type, vendor_file_type;
 init_daemon_domain(akmd)
 
 allow akmd akmd_data_file:file rw_file_perms;

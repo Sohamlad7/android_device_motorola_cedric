@@ -1,5 +1,5 @@
-type charge_only, domain;
-type charge_only_exec, exec_type, file_type;
+type charge_only, coredomain, domain;
+type charge_only_exec, exec_type, file_type, system_file_type;
 init_daemon_domain(charge_only)
 
 allow charge_only chargeonly_data_file:dir rw_dir_perms;
@@ -40,7 +40,3 @@ allow charge_only input_device:dir r_dir_perms;
 allow charge_only input_device:chr_file r_file_perms;
 allow charge_only tty_device:chr_file rw_file_perms;
 allow charge_only proc_sysrq:file rw_file_perms;
-
-# charger needs to tell init to continue the boot
-# process when running in charger mode.
-set_prop(charge_only, system_prop)

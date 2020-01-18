@@ -19,7 +19,7 @@
         android:height="24dp"
         android:viewportWidth="32.0"
         android:viewportHeight="32.0"
-        android:tint="?android:attr/colorControlNormal">
+        android:tint="?android:attr/colorAccent">
     <path
         android:fillColor="#FF000000"
         android:pathData="M20,20.2V24H6V5.3h8.7l2.4,-4H7.6c-2.2,0 -4,1.8 -4,4v21.3c0,2.2 1.8,4 4,4h10.7c2.2,0 4,-1.8 4,-4V14.9L20,20.2zM15.6,28h-5.3v-1.3h5.3V28z"/>

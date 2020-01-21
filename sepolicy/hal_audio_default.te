@@ -1,2 +1,4 @@
 allow hal_audio_default vendor_data_file:dir {add_name rw_file_perms };
 allow hal_audio_default vendor_data_file:file create_file_perms;
+
+allow hal_audio_default sysfs:dir { read open };

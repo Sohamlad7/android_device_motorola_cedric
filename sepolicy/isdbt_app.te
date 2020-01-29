@@ -1,8 +1,0 @@
-type isdbt_app, domain, mlstrustedsubject;
-
-app_domain(isdbt_app)
-binder_use(isdbt_app)
-
-allow isdbt_app isdbt_device:chr_file rw_file_perms;
-allow isdbt_app media_rw_data_file:dir { rw_dir_perms create getattr rmdir search };
-allow isdbt_app { accessibility_service activity_service appops_service connectivity_service content_service display_service graphicsstats_service input_method_service input_service location_service mount_service network_management_service radio_service registry_service surfaceflinger_service textservices_service uimode_service vibrator_service wifi_service audio_service audioserver_service media_router_service notification_service autofill_service mediametrics_service mediaserver_service media_session_service mediametrics_service batterystats_service power_service user_service }:service_manager find;

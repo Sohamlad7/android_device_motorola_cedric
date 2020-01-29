@@ -34,17 +34,13 @@ allow cameraserver init:unix_dgram_socket { sendto};
 binder_call(cameraserver, hal_perf_default)
 binder_call(cameraserver, hal_configstore_default)
 
-####
-allow cameraserver debug_prop:file { r_file_perms };
 allow cameraserver debug_prop:property_service set;
 
-#######
 allow cameraserver shell_exec:file { read open execute };
 allow cameraserver self:socket create;
 allow cameraserver camera_prop:property_service set;
 allow cameraserver init:unix_stream_socket connectto;
 allow cameraserver property_socket:sock_file write;
-#allow cameraserver cameraserver:socket { { getattr read ioctl lock } { append write lock } };
 allow cameraserver shell_exec:file { execute getattr };
 allow cameraserver system_file:file execute;
 

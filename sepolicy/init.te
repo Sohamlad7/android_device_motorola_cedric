@@ -1,6 +1,3 @@
-# binder_call(init, mm-qcamerad);
-#binder_call(init, hwservicemanager);
-# binder_call(init, servicemanager);
 
 allow init hwservicemanager:binder call;
 allow init mm-qcamerad:binder transfer;
@@ -44,8 +41,6 @@ allow init self:netlink_route_socket { bind create getopt nlmsg_read read setopt
 
 allow init self:capability2 { block_suspend };
 
-allow init hal_sensors_hwservice:hwservice_manager find;
-
 allow init hal_perf_hwservice:hwservice_manager find;
 allow init hidl_base_hwservice:hwservice_manager add;
 
@@ -57,8 +52,5 @@ allow init sysfs_battery_supply:lnk_file {open read };
 allow init sysfs_fpc:file { rw_file_perms setattr };
 allow init proc:file { open write };
 allow init sysfs_capsense:file setattr;
-
-# Allow init to mount vendor configs
-# allow init vendor_configs_file:file mounton;
 
 allow init system_file:file mounton;

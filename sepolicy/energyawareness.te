@@ -1,2 +1,0 @@
-allow energyawareness sysfs_uio:file r_file_perms;
-allow energyawareness sysfs_rmt_storage:file r_file_perms;

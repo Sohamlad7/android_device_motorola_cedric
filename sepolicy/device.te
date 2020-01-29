@@ -8,5 +8,4 @@ type graphics_fb_device, dev_type;
 type laser_device, dev_type;
 type synaptics_rmi_device, dev_type;
 type shwi_device, dev_type;
-type isdbt_device, dev_type;
 type utags_block_device, dev_type;

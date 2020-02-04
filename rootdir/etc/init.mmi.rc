@@ -330,11 +330,6 @@ service motosh /vendor/bin/motosh boot
     group compass misc input
     oneshot
 
-service vendor.charge_only_mode /system/bin/charge_only_mode
-    user root
-    group graphics system input
-    disabled
-
 service vendor.thermal-com /vendor/bin/thermal-engine --minimode
     class main
     user root

@@ -15,7 +15,6 @@
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 
 # Blobs
-bin/charge_only_mode
 bin/ipacm-diag
 bin/ptt_socket_app
 bin/radish

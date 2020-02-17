@@ -64,7 +64,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     vendor.bluetooth.soc=smd \
-    ro.fm.transmitter=false
+    ro.fm.transmitter=false \
+    ro.vendor.fm.use_audio_session=true
 
 # Boot
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -69,8 +69,6 @@ import java.util.List;
 
 import static org.lineageos.settings.device.actions.Constants.*;
 
-import org.lineageos.settings.device.utils.ProximityUtils;
-
 public class KeyHandler implements DeviceKeyHandler {
 
     private static final String TAG = KeyHandler.class.getSimpleName();
@@ -100,6 +98,7 @@ public class KeyHandler implements DeviceKeyHandler {
     private Sensor mProximitySensor;
     private Vibrator mVibrator;
     private int mProximityTimeOut;
+    private boolean mProximityWakeSupported;
     private ISearchManager mSearchManagerService;
     private Handler mHandler;
     private int fpTapCounts = 0;
@@ -139,16 +138,6 @@ public class KeyHandler implements DeviceKeyHandler {
 
         mGestureWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
                 "GestureWakeLock");
-
-        mProximityTimeOut = mContext.getResources().getInteger(
-                org.lineageos.platform.internal.R.integer.config_proximityCheckTimeout);
-
-        if (ProximityUtils.isProximityWakeEnabled(mContext)) {
-            mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
-            mProximitySensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-            mProximityWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
-                    "ProximityWakeLock");
-        }
 
         mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         if (mVibrator == null || !mVibrator.hasVibrator()) {
@@ -416,7 +405,7 @@ public class KeyHandler implements DeviceKeyHandler {
     }
 
     private boolean isProximityEnabledOnScreenOffGesturesFP() {
-        return ProximityUtils.isProximityWakeEnabled(mContext) && !FileUtils.readOneLine(getFPNodeBasedOnScreenState(FP_PROXIMITY_CHECK_SCREENOFF_NODE)).equals("0");
+        return !FileUtils.readOneLine(getFPNodeBasedOnScreenState(FP_PROXIMITY_CHECK_SCREENOFF_NODE)).equals("0");
     }
 
     private String getFPNodeBasedOnScreenState(String node) {

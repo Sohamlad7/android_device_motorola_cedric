@@ -437,7 +437,7 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
-service vendor.charger /system/bin/charger
+service charger /system/bin/charger
     class charger
     user system
     group system graphics input
@@ -782,7 +782,7 @@ service ssr_setup /vendor/bin/ssr_setup
 on property:persist.sys.ssr.restart_level=*
     start ssr_setup
 
-on vendor.charger
+on charger
     wait /dev/block/bootdevice/by-name/system
     mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
     load_system_props

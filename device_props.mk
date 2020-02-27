@@ -58,6 +58,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.bluetooth.map=true \
     persist.bt.enableAptXHD=true \
 
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    vendor.bluetooth.soc=smd \
+    ro.fm.transmitter=false
+
 # Boot
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.vendor.shutdown.waittime=500 \
@@ -139,10 +143,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.wfd.nohdcp=1 \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0
-
-# FM
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.fm.transmitter=false \
 
 # HWUI
 PRODUCT_PROPERTY_OVERRIDES += \

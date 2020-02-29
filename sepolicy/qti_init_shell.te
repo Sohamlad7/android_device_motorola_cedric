@@ -7,3 +7,6 @@ allow qti_init_shell kmsg_device:chr_file write;
 allow qti_init_shell sysfs_wcnsscore:file write;
 
 allow qti_init_shell kmsg_device:chr_file open;
+
+allow qti_init_shell self:socket create;
+allow qti_init_shell fm_prop:property_service set;

@@ -58,6 +58,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.bluetooth.map=true \
     persist.bt.enableAptXHD=true \
 
+# FM
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.hw.fm.init=0
+
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     vendor.bluetooth.soc=smd \
     ro.fm.transmitter=false

@@ -558,12 +558,6 @@ service vendor.rmt_storage /vendor/bin/rmt_storage
     shutdown critical
     writepid /dev/cpuset/system-background/tasks
 
-on property:wc_transport.start_fmhci=true
-    start fmhal_service
-
-on property:wc_transport.start_fmhci=false
-    stop fmhal_service
-
 service hciattach system/vendor/bin/hci_qcomm_init -e
     class late_start
     user bluetooth
@@ -594,13 +588,6 @@ service hci_filter_root /system/bin/wcnss_filter
     class late_start
     user bluetooth
     group bluetooth diag oem_2950
-    disabled
-
-#net_admin capability needed to write rfkill sysfs entry
-service fmhal_service /vendor/bin/fmhal_service
-    class late_start
-    user bluetooth
-    group bluetooth net_bt_admin net_admin
     disabled
 
 service vendor.tftp_server /vendor/bin/tftp_server
@@ -743,12 +730,6 @@ service vendor.loc_launcher /vendor/bin/loc_launcher
     user gps
     group gps
     writepid /dev/cpuset/system-background/tasks
-
-on property:vendor.hw.fm.init=0
-    write /sys/module/radio_iris_transport/parameters/fmsmd_set 0
-
-on property:vendor.hw.fm.init=1
-    write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
 
 service atfwd /vendor/bin/ATFWD-daemon
     class late_start

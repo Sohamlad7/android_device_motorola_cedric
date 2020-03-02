@@ -348,12 +348,13 @@ PRODUCT_COPY_FILES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    android.hardware.radio@1.2 \
+    android.hardware.radio.config@1.0 \
+    android.hardware.secure_element@1.0 \
     librmnetctl \
     libprotobuf-cpp-full \
     libxml2 \
-    android.hardware.radio@1.2 \
-    android.hardware.radio.config@1.0 \
-    android.hardware.secure_element@1.0
+    libcnefeatureconfig
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
@@ -363,16 +364,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     ims-ext-common \
     ims_ext_common.xml \
-    telephony-ext \
     qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml
+    qti_telephony_hidl_wrapper.xml \
+    qti-telephony-utils \
+    qti_telephony_utils.xml \
+    telephony-ext
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
-
-PRODUCT_PACKAGES += \
-    qti-telephony-utils \
-    qti_telephony_utils.xml
 
 PRODUCT_PROPERTY_OVERRIDES += ro.control_privapp_permissions=log
 

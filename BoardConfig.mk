@@ -256,6 +256,9 @@ TARGET_USES_MKE2FS := true
 # Wlan
 PRODUCT_VENDOR_MOVE_ENABLED      := true
 
+# SurfaceFlinger
+TARGET_USE_QCOM_SURFACEFLINGER := true
+
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_WLAN_DEVICE                := qcwcn

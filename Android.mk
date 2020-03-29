@@ -13,9 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+LOCAL_PATH := $(call my-dir)
+
 ifneq ($(filter cedric,$(TARGET_DEVICE)),)
 
-LOCAL_PATH := $(call my-dir)
+include $(call all-makefiles-under,$(LOCAL_PATH))
+
+include $(CLEAR_VARS)
 
 FIRMWARE_ADSP_IMAGES := \
     adsp.b00 adsp.b01 adsp.b02 adsp.b03 adsp.b04 adsp.b05 adsp.b06 \
@@ -320,7 +324,5 @@ $(FIRMWARE_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /firmware $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(VENDOR_SUBPARTS_SYMLINKS) $(FIRMWARE_SYMLINK)
-
-include $(call all-makefiles-under,$(LOCAL_PATH))
 
 endif

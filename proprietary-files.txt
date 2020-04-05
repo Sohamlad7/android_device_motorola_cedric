@@ -17,6 +17,7 @@
 -vendor/lib/libbtnv.so
 -vendor/lib64/libbtnv.so
 -vendor/lib64/libloc_api_v02.so
+-vendor/lib/libloc_api_v02.so
 bin/ipacm-diag
 bin/perfservice
 bin/ptt_socket_app
@@ -533,7 +534,6 @@ vendor/lib/libllvd_sw_tnr.so
 vendor/lib/libllvm-glnext.so
 vendor/lib/libllvm-qcom.so
 vendor/lib/libllvm-qgl.so
-vendor/lib/libloc_api_v02.so
 vendor/lib/libloc_core.so
 vendor/lib/libloc_ds_api.so
 vendor/lib/libloc_ext.so
@@ -994,7 +994,6 @@ vendor/lib64/libldacBT_enc.so
 vendor/lib64/libllvm-glnext.so
 vendor/lib64/libllvm-qcom.so
 vendor/lib64/libllvm-qgl.so
-vendor/lib64/libloc_api_v02.so
 vendor/lib64/libloc_core.so
 vendor/lib64/libloc_ds_api.so
 vendor/lib64/libloc_externalDr.so

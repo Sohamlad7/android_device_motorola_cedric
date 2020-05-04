@@ -89,8 +89,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.vidc.dec.downscalar_height=1088 \
     vidc.dec.disable.split.cpu=1 \
     video.disable.ubwc=1 \
-    media.camera.ts.monotonic=1 \
-    persist.camera.time.monotonic=1 \
     persist.camera.eis.enable=1
 
 # CNE

@@ -29,9 +29,3 @@ on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
     swapon_all /system/vendor/etc/fstab.qcom
     write /proc/sys/vm/swappiness 100
-
-on property:ro.boot.ram=2GB
-    write /sys/block/zram0/disksize 536870912
-
-on property:ro.boot.ram=3GB
-    write /sys/block/zram0/disksize 805306368

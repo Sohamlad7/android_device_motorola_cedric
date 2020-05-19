@@ -18,4 +18,4 @@
 /dev/block/bootdevice/by-name/misc           /misc        emmc    defaults                                                                           defaults
 /devices/soc/7864900.sdhci/mmc_host*         auto         auto    nosuid,nodev                                                                       wait,voldmanaged=sdcard1:auto,encryptable=userdata
 /devices/soc/78db000.usb/msm_hsusb_host*     auto         auto    defaults                                                                           voldmanaged=usb:auto
-/dev/block/zram0                             none         swap    defaults                                                                           zramsize=536870912,max_comp_streams=4
+/dev/block/zram0                             none         swap    defaults                                                                            zramsize=1073741824,max_comp_streams=4

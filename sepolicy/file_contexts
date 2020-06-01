@@ -148,3 +148,6 @@
 /bt_firmware(/.*)?       u:object_r:bt_firmware_file:s0
 /firmware(/.*)?          u:object_r:firmware_file:s0
 /fsg(/.*)?               u:object_r:fsg_file:s0
+
+# USB Gadget
+/dev/hidg(.*)                        u:object_r:hid_gadget_device:s0

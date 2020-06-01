@@ -9,3 +9,4 @@ type laser_device, dev_type;
 type synaptics_rmi_device, dev_type;
 type shwi_device, dev_type;
 type utags_block_device, dev_type;
+type hid_gadget_device, dev_type;

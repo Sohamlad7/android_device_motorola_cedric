@@ -1,1 +1,2 @@
 allow apexd device:file { open write };
+allow appdomain hid_gadget_device:chr_file rw_file_perms;

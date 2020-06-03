@@ -9,4 +9,4 @@ allow untrusted_app fsg_file:dir read;
 allow untrusted_app proc_asound:dir search;
 allow untrusted_app proc_qtaguid_stat:file read;
 
-allow untrusted_app hid_gadget_device:chr_file *;
+allow untrusted_app hid_gadget_device:chr_file rw_file_perms;

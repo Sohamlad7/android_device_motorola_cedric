@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2016 The CyanogenMod Project
+               (C) 2017-2020 The LineageOS Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Title and summary -->
+    <string name="moto_actions_title">Moto Actions</string>
+
+    <!-- Device gestures -->
+    <string name="device_gestures_title">Gerätegesten</string>
+    <string name="device_gestures_summary">Gerätegesten verwalten</string>
+
+    <!-- Ambient display gestures -->
+    <string name="ambient_display_manage_summary">Inaktivitätsdisplaygesten verwalten</string>
+
+    <!-- Fingerprint gestures -->
+    <string name="fingerprint_gestures_title">Fingerabdruckgesten</string>
+    <string name="fingerprint_gestures_summary">Benutze Fingerabdruckgesten</string>
+    <string name="fingerprint_gestures_manage_summary">Fingerabdruckgesten verwalten</string>
+    <string name="fingerprint_actions_screenon">Aktionen bei angeschaltetem Bildschirm</string>
+    <string name="fingerprint_tap_title">Eine Berührung</string>
+    <string name="fingerprint_tap_dlg_title">Aktion für eine Berührung auswählen</string>
+    <string name="fingerprint_double_tap_title">Doppelte Berührung</string>
+    <string name="fingerprint_double_tap_dlg_title">Aktion für eine doppelte Berührung auswählen</string>
+    <string name="fingerprint_long_tap_title">Lange Berührung</string>
+    <string name="fingerprint_long_tap_dlg_title">Aktion für eine lange Berührung auswählen</string>
+    <string name="fingerprint_swipe_left_title">Nach Links wischen</string>
+    <string name="fingerprint_swipe_left_dlg_title">Aktion für einen Wisch nach links auswählen</string>
+    <string name="fingerprint_swipe_right_title">Nach Rechts wischen</string>
+    <string name="fingerprint_swipe_right_dlg_title">Aktion für einen Wisch nach rechts auswählen</string>
+
+    <!-- Fingerprint gestures screen off -->
+    <string name="fingerprint_gestures_screenoff_title">Fingerabdruckgesten mit ausgeschaltetem Bildschirm</string>
+    <string name="fingerprint_gestures_screenoff_summary">Benutze Fingerabdruckgesten mit ausgeschaltetem Bildschirm.\n\nEntsperren mit Fingerabdruck muss deaktiviert sein.</string>
+    <string name="fingerprint_actions_screenoff">Aktionen bei ausgeschaltetem Bildschirm</string>
+
+    <!-- Actions -->
+    <string name="action_none">Nichts</string>
+    <string name="action_home">Startbildschirm</string>
+    <string name="action_power">Bildschirm an/aus</string>
+    <string name="action_wake">Aufwachen</string>
+    <string name="action_back">Zurück</string>
+    <string name="action_recents">Letzte Apps</string>
+    <string name="action_last_app">Letzte App</string>
+    <string name="action_volume_up">Lauter</string>
+    <string name="action_volume_down">Leiser</string>
+    <string name="action_voice_assistant">Assistent</string>
+    <string name="action_play_pause">Play/Pause</string>
+    <string name="action_previous_track">Vorheriges Lied</string>
+    <string name="action_next_track">Nächstes Lied</string>
+    <string name="action_flashlight">Taschenlampe</string>
+    <string name="action_camera">Kamera öffnen</string>
+    <string name="action_screenshot">Screenshot erstellen</string>
+    <string name="action_browser">Browser öffnen</string>
+    <string name="action_dialer">Telefon öffnen</string>
+    <string name="action_email">Email-App öffnen</string>
+    <string name="action_messages">SMS-App öffnen</string>
+
+   <!-- Screen off gestures haptic feedback -->
+   <string name="haptic_feedback">Haptische Rückbeldung</string>
+   <string name="haptic_feedback_summary">Vibrieren, wenn Bildschirmgeste erkannt wird</string>
+   
+   <!-- Proximity sensor -->
+   <string name="allow_proximity_sensor_title">Benutze Nährerungssensor</string>
+   <string name="allow_proximity_sensor_summary">Überprüfe den Näherungssensor vor der Aktion</string>
+
+</resources>
